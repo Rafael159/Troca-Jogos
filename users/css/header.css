@@ -1,0 +1,143 @@
+body{
+    overflow: auto;
+}
+
+header{
+    height:auto;
+	width: 100%;
+	border-bottom-width:3px;
+    border-bottom-style:solid;
+    border-bottom-color:rgba(255, 255, 255, 0.0666667); 
+}
+.clearfix:after {    
+    content:".";   
+    display:block; 
+    height:0;    
+    clear:both;  
+    visibility: hidden;
+ } 
+.lupa{
+    border:2px solid #CCCCCC;
+    border-radius:5px;
+    float:left;
+    height:37px;
+    margin:24px 4px;
+    padding:10px 0 6px 3px;
+    width:45px;
+}
+    
+	.lupa img{
+		border-left-style:solid;
+  		border-left-width:2px;
+        border-left-color:#ffffff;
+ 		margin-left:5px;
+  		margin-top:-3px;
+  		padding-left:4px;
+ 		position:absolute;
+	}
+#logo{
+	width: 250px;
+	height: 70px;
+	margin:0 auto ;
+}
+	#logo img{
+		width: 100%;
+		margin-top:-5px;
+	}
+
+#anuncios{
+	background:#FFFFFF;
+    float:right;
+    height:110px;
+    margin-right:74px;
+    margin-top:-72px;
+    width:580px;
+    display: none;
+}
+form#box_pesquisa{
+    margin-left:50px;
+    margin-top:28px;
+    position:absolute;    
+}
+    form#box_pesquisa #id_pesquisa{
+        width: 415px;
+        height: 31px;
+        font:22px arial,helvetica, sans-serif;
+        color:#333;
+        outline: none;
+        border: none;
+        border-radius: 4px;
+        padding:3px;    
+    }
+
+#btn-enviar{
+    background-color:#006FD7;
+    border:none;
+    border-radius:4px;
+    color:#FFFFFF;
+    cursor:pointer;
+    float:right;
+    height:31px;
+    margin-right:-70px;
+    margin-top:-31px;
+    padding:4px;
+    width:69px;
+}
+    #btn-enviar:hover{
+        background: #12518c;
+    }
+
+#main-menu{
+    width:100%;
+    padding: 0;
+    margin-top:5px;
+    display: block;
+}
+#main-menu .nav{
+    width: 100%;
+    height:35px;
+   
+}
+#main-menu .nav >ul{
+    width: 100%;
+    margin: 0;
+}
+#main-menu .nav ul li{
+    width:100px;
+    height: 30px;
+    display: inline-block;  
+    padding: 5px;
+}
+#main-menu .nav ul li{margin-left: 15px;}
+
+#main-menu .nav ul li .link{
+    font:14px Lato,Arial, sans-serif;
+    color:#ffffff;
+    text-align: left;
+    text-transform: uppercase;
+    text-decoration:none;
+    border-bottom-color: transparent;
+    height: 20px;
+    padding: 5px;
+    position: absolute; 
+}
+#main-menu .nav ul li .link:hover{
+    border-bottom-color:#069;
+    border-bottom-width: 3px;
+    border-bottom-style: solid;
+    height: 30px;
+}
+.overlay{
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    position: absolute;
+    background-color: #000;
+    z-index: 1;
+    opacity: 0.8;
+    display: none;
+    background: url('../../users/bg_cad_jogo.jpg') #cccccc;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}

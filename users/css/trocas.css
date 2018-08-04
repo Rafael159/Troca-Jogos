@@ -1,0 +1,144 @@
+.nopadding{margin:0px !important; padding:0px !important;}
+
+#ctr_trocas{
+	width: 100%;
+	background: #EDEDED;
+}
+#ctr_trocas header{	
+	background: #2e2d2d;
+	margin-bottom: 10px;
+}
+#ctr_trocas header h3.title_page{
+	font: 1.5em Arial, helvetica, sans-serif;
+    color: #cacaca;
+    font-weight: bold;
+}
+.tr_container{
+	display: block;
+	width: 100%;
+	background: #fff;
+	height: 500px;
+	margin-top: 5px;
+}
+.tr_container #list #tbl-trocas .line{ width: 100%; }
+
+.tr_container #list #tbl-trocas .line .top-title{
+	font-family: 'source_sans_probold', Arial, sans-serif;
+    font-size: 1em;
+    color: #363636;
+    text-align: left;
+}
+.tr_container #list #tbl-trocas .line .each-record{
+	font-family: 'source_sans_light', Arial, sans-serif;
+    font-size: 0.9em;
+    color: #303030;
+    text-align: left;
+}
+/*box confirmar exclusão da troca*/
+.confirm-box{
+    width: 100%;
+    background: #fff;
+    position: relative;
+    margin-top: 5px;
+    display: none; 
+}
+.confirm-box .confirm-header{
+    font-family: 'source_sans_proregular', helvetica, sans-serif;
+    color: #fff;
+    font-size: 1.2em;   
+    text-align: center;
+    display: block;
+    background: #2c89e2;
+    padding: 5px;
+}
+.confirm-box .confirm-content{
+    padding:10px;
+    text-align: center;
+    border: 1px solid #2c89e2;
+}
+
+/*BOTÃO ATIVO*/
+.btnActived{
+    background: #000 !important;
+}
+#add_troca{
+    display: block;
+    padding:10px;
+}
+.error_msg{
+	width: 100%;
+    display: block;
+    padding: 20px;
+    font-family: 'source_sans_probold', Arial, sans-serif;
+    font-size: 2em;
+    text-align: center;
+    color: #2e2d2d;
+}
+
+.modal-title{
+    font-family: 'source_sans_probold', Arial, sans-serif;
+    font-size: 2em;
+    text-align: center;
+    color: #179dc6;
+}
+.box-games{
+    width: 100%;
+    text-align: center;
+    background: #ebebeb;
+    border-radius: 5px;
+}
+.box-games .game-title{
+    width: 100%;
+    display: block;
+    padding: 3px;
+    font-family: 'source_sans_proregular', Arial, sans-serif;
+    font-size: 1.5em;
+    text-align: center;
+    color: #424242;
+}
+.box-games .img-games{
+    width: 70%;
+    margin: auto;
+    display: block;
+    height: 245px;
+}
+.box-games .game-name{
+    width: 100%;
+    display: block;
+    padding: 3px;
+    font-family: 'source_sans_proregular', Arial, sans-serif;
+    font-size: 1.4em;
+    text-align: center;
+    color: #535353;
+}
+.box-games .info-troca{
+    display: block;
+    width: 100%;
+}
+.personal-info{
+    background: #ebebeb;
+    padding: 1px 15px;
+    border-radius: 4px;
+    text-align: left;
+    margin-top:10px;
+}
+.personal-info h4{
+    font-family: 'source_sans_probold', Arial, sans-serif;
+    font-size: 1.3em;
+    color:#333;
+}
+
+#box_error .modal-body {
+    background: #efefef;
+}
+#box_error #box-msg-error{
+    width: 100%;
+    display: block;
+    background: #069;
+    text-align: center;
+    font-size: 1.2em;
+    color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+    font-family: 'source_sansprolight', arial, sans-serif;    
+}

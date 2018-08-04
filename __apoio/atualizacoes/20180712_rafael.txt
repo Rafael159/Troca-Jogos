@@ -1,0 +1,9 @@
+alter table mensagens add column `lido` varchar(10) not null default 'nao';
+alter table usuarios add column `logfirst` datetime;
+alter table usuarios add column `logusuario` datetime;
+alter table usuarios alter column `data` datetime;
+
+alter table usuarios change `status` `tipousuario` char(1);
+alter table usuarios add column `status` varchar(100) after `tipousuario`;
+alter table usuarios modify `console` int(11) after `senha`;
+alter table usuarios drop column data;

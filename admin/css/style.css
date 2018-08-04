@@ -1,0 +1,220 @@
+body {
+	margin: 0px;
+	padding: 0px;
+	width: 100%;
+	font-family: Arial, Helvetica, sans-serif;
+	color:#666666;
+}
+.box_cad_img{
+	width: 60%;
+	height:auto;
+	margin-right: auto;
+	margin-left: auto;
+	margin-top: 50px;
+	background: #F5F5F5;
+	padding: 20px;
+	border-radius: 10px;
+	box-shadow: 1px 1px 3px #AAA;
+}
+#msg{	
+	width: 300px;
+	height: auto;
+	border-radius:5px;
+	border:1px solid #ccc;
+	background: #000;
+	opacity: 0.9;
+	z-index: 11;
+	display: block;
+	padding: 0px 0px 17px;
+	left:50%;
+	margin-left:-150px;
+	top:-50%;
+	position: absolute;
+	display: none;
+}
+	#msg header{
+		background:#FFFFFF;
+	 	border-bottom-color:#FFFFFF;
+	    border-bottom-style:dotted;
+	    border-bottom-width:1px;
+	    border-radius:6px;
+	    color:#333333;
+	    height:15px;
+	    margin:10px auto;
+	    padding:10px 0;
+	    text-align:center;
+	    text-transform:uppercase;
+	    width:95%;
+	}
+	#msg span{
+		width: 95%;
+		padding: 4px 0;
+		text-align: left;
+		margin: 10px;
+		color:#ffffff;
+
+	}
+.box_cad_img .section{
+	border: 1px solid #ccc;
+	width:100%;
+	height:auto;
+	display: none;
+	padding:20px 5px;
+	margin-top: 50px;
+}
+.container{
+	z-index: -1;
+}
+#upload-wrapper {
+	width: 100%;
+	background: #F5F5F5;
+	padding: 50px;
+	border-radius: 10px;
+	box-shadow: 1px 1px 3px #AAA;
+}
+h3 {
+	padding: 0px 0px 10px 0px;
+	margin: 0px 0px 20px 0px;
+	margin-top: 20px;
+	border-bottom: 1px dotted #DDD;
+}
+input[type=file] {
+	border: 1px solid #DDD;
+	padding: 6px;
+	background: #FFF;
+	border-radius: 5px;
+}
+.submit-btn {
+	border: none;
+	padding: 10px;	
+	/*cor azul : 61BAE4*/	
+	border-radius: 5px;
+	color: #FFF;
+	cursor:pointer;
+	transition:0.5s;
+}
+.btn-positivo{ background: #00b11e; outline: none; margin-top: 10px;}
+#console-btn:hover, #imagem-btn:hover, #nome-jogo-btn:hover{ background:#006f13; }
+
+/*botão deletar*/
+.btn_negar{
+	background: #ef1924;
+}
+.btn_voltar{
+	background: #ffaa00;
+}
+#btn-afirma{
+	margin-left: 15px;
+}
+#console-btn{
+	margin-top: 20px;
+}
+#output{
+	padding: 5px;
+	font-size: 12px;
+}
+#output img {
+	border: 1px solid #DDD;
+	padding: 5px;
+	width: 195px;
+	height:250px;
+}
+#txt-jogo{
+	width: 70%;
+	padding:4px;
+	border:1px solid #ccc;
+	outline: none;
+	border-radius:4px;
+	font-family: Arial, Helvetica, sans-serif;
+	color:#666666;
+	font-size: 16px;
+}
+.error{
+	color:red;
+}
+.galeria{
+	width: 100%;
+	margin: 25px 0 10px 0;
+}
+	.galeria .box-galeria-jogos{
+		width: 100%;
+		padding: 0;
+	}
+	.galeria .box-galeria-jogos li{
+		z-index: 10;
+		width: 100px;
+		height: 20px;
+		padding: 15px;
+		list-style-type: none;
+		background:linear-gradient(#02222D, #05495E,#02222D);
+		background: -webkit-linear-gradient(#02222D, #05495E,#02222D); /* Para Safari 5.1 to 6.0 */
+  		background: -o-linear-gradient(#02222D, #05495E,#02222D); /* Para Opera 11.1 to 12.0 */
+  		background: -moz-linear-gradient(#02222D, #05495E,#02222D); /* Para Firefox 3.6 to 15 */
+  		text-align: left;
+  		cursor: pointer;
+  		font:15px Lato,Arial, sans-serif;
+  		color: #D0CBC0;
+		text-decoration: none;
+		display: inline;
+		border-radius: 4px;
+	}
+    .galeria .box-galeria-jogos li:hover{
+    	background:linear-gradient(#05495E,#02222D,#05495E);
+		background: -webkit-linear-gradient(#05495E,#02222D,#05495E); /* Para Safari 5.1 to 6.0 */
+  		background: -o-linear-gradient(#05495E,#02222D,#05495E); /* Para Opera 11.1 to 12.0 */
+  		background: -moz-linear-gradient(#05495E,#02222D,#05495E); /* Para Firefox 3.6 to 15 */
+
+    	opacity: 1;
+    	color: #CD6C03;
+    	position: relative;
+    	-webkit-animation: moveFromTop 300ms ease-in-out;
+        -moz-animation: moveFromTop 300ms ease-in-out;
+        -ms-animation: moveFromTop 300ms ease-in-out;
+    }
+    @-webkit-keyframes moveFromTop {
+    from {
+        opacity: 0;
+        -webkit-transform: translateY(-25%);
+    }
+    to {
+        opacity: 1;
+        -webkit-transform: translateY(0%);
+    }
+}
+@-moz-keyframes moveFromTop {
+    from {
+        opacity: 0;
+        -moz-transform: translateY(-25%);
+    }
+    to {
+        opacity: 1;
+        -moz-transform: translateY(0%);
+    }
+}
+@-ms-keyframes moveFromTop {
+    from {
+        opacity: 0;
+        -ms-transform: translateY(-25%);
+    }
+    to {
+        opacity: 1;
+        -ms-transform: translateY(0%);
+    }
+}
+.actived{
+	background:#000000 !important;
+    opacity: 1;
+    color: #CD6C03 !important;
+}
+.overlay{
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	position: absolute;
+	background-color: #000;
+	z-index: 11;
+	opacity: 0.7;
+	display: none;
+	transition:0.5s;
+}

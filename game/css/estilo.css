@@ -1,0 +1,155 @@
+*{margin:0; padding:0;}
+body{
+	background: #212121;
+	background-size: 100%;
+}
+#conteudo{
+	width: 100%;
+	height: 750px;
+	background: url(../../imagens/backgrounds/capa.png) #212121;
+	background-repeat: no-repeat;
+	background-size: 100%;
+	position: fixed;
+}
+#box{
+	width: 80%;
+	border-radius:3px;
+	background:#f0f0f0;
+	display: block;
+	position: absolute;
+	left: 50%;
+	top:20%;
+	margin-left: -40%;
+	margin-bottom: 10%;
+	padding:10px;	
+}
+.clearfix{
+	padding-bottom: 15px;
+}
+.clearfix:after {    
+ 	content:".";   
+    display:block; 
+    height:0;    
+    clear:both;  
+    visibility: hidden;
+ } 
+#box > span:first-child{
+	width: 100%;
+	padding:15px 0;
+	background:#069;
+	display: block;
+	text-align: center;
+}
+#box span:first-child h4{
+	color:#fff;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 1.5em;
+}
+#box #jogoTroca{
+	width: 100%;
+	margin-top: 2%;
+}
+#box #jogoTroca .quadro{
+	width: 40%;
+	display: inline-block;	
+}
+#box #jogoTroca #left{
+	float:left;
+	padding:4px;
+}
+#box #jogoTroca #right{
+	float:right;
+}
+#box #jogoTroca #left .boxEsquerda, #box #jogoTroca #right .boxDireita{
+	width: 47%;
+	display: inline-block;
+}
+.quadro .boxEsquerda{	
+	float: left;	
+	background-color: #ffffff;
+}
+.quadro .info h5{
+	margin: 2%;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 0.8em;
+	color:#000;
+}
+.quadro .info label{
+	width: 97%;
+	padding:4px 2px;
+	color:#333;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 1em;
+	display: block;
+	text-align: left;
+}
+.quadro .boxDireita{
+	float: right;
+	background-color: #dadadb;
+}
+.quadro .jogo img{
+	width: 80%;
+	margin: 10%;
+}
+.quadro .jogo > span{
+	width: 100%;	
+	padding: 0 0 4px 0 ;
+	text-align: center;
+	display: block;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 1em;
+	text-transform: uppercase;
+	font-weight: bold;
+	color:#069;
+}
+
+.quadro #tipoTroca, .quadro #valorTroca{
+	width: 96%;
+	padding:2%;
+	background:#dddcdc;	
+	text-align: center;	
+}
+.quadro #tipoTroca span,.quadro #valorTroca span{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 1em;
+	color: #3e3e3e;	
+}
+.imgTroca{
+	display:inline-block;
+	position:absolute;
+	top:25%;
+    width:10%;
+    margin-left: 5%;
+}
+.imgTroca img{ width: 100%; }
+
+#mensagem{
+	width: 96%;
+	padding:2%;
+	background:#767676;
+}
+#mensagem label{
+	text-align: justify;
+	color:#ffffff;
+	font-family: Arial, Helvetica, sans-serif;	
+}
+#box #path{
+	width: 90%;
+	margin: 5%;
+	text-align: center;
+}
+#box #path a{	
+	text-decoration: none;
+}
+#box #path a .btnGo{ 
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 1.2em;
+	color:#ffffff;	
+	padding:1% 8%;
+}
+.pgprincipal{
+	background: #181818;
+}
+.pgadmin{
+	background: #15a73f;
+}

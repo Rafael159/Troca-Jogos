@@ -1,0 +1,317 @@
+/*layout pesquisa.php*/
+/*estilo do left_sidebar*/
+#principal{
+    width: 100%;
+    margin: 0 auto;
+    background: #2c2c2c;
+    display: block;
+}
+.left_sidebar{
+    width: 23%;
+    margin: 8px 0;
+    border-radius: 4px;
+    padding-left: 22px;
+    display: inline-block;
+    margin-left: 2%;
+}
+.filtro-actived{
+    background: #069;
+    border-radius: 5px;
+}
+.filtro-plataforma, .filtro-genero{
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 15px;
+}
+.filtro-genero .controle,.filtro-plataforma .controle{
+    background: #333;
+    display: inline-block;
+    width: 3.8em;
+    height: 3.2em;
+    margin: 10px 2px;
+    border: 1px solid #fff;
+    border-radius: 5px;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+}
+.filtro-plataforma .controle{   
+    margin: 10px 2px;
+}
+.filtro-genero .controle{
+    margin: 10px 4px;
+}
+.filtro-plataforma .controle:hover, 
+.filtro-genero .controle:hover{
+    background: #ccc;
+}
+ .filtro-plataforma .controle .item,
+ .filtro-genero .controle .item{
+    width: 100%;
+    display: block;
+    height: 100%;
+    cursor: pointer;
+}
+.filtro-plataforma .controle .item .checkbox .categoria,
+.filtro-genero .controle .item .checkbox .genero{
+    width: 100%;
+    height: 100%;
+    display: table-column-group;
+}
+.filtro-plataforma .controle .item .content{
+    background: url('img/bg_filtros.png');
+    width: 55px;
+    height: 50px;
+    position: absolute;
+    background-position: -10px 10px;
+    margin-left: -25px;
+    cursor: pointer;
+}
+.filtro-plataforma .controle .item .checkbox .filter_name,
+.filtro-genero .controle .item .checkbox .filter_name{
+    font-size: 12px;
+    color: #ccc;
+    font-family: 'Lato', helvetica, sans-serif;
+    margin-top: 52px;
+    display: block;
+    position: absolute;
+}
+
+.filtro-plataforma .controle .item .checkbox,
+.filtro-genero .controle .item .checkbox{            
+    height: 100%;
+    width: 100%;
+    border-radius: 3px;
+    background: url(img/bg_filtros.png);
+}
+
+/*POSICIONAR ÍCONES CONSOLES*/
+.filtro-plataforma .controle .item .checkbox.ps4{ 
+    background-position: -1px -3813px;
+    width: 60px !important;
+}
+.filtro-plataforma .controle .item .checkbox.ps3{ 
+    background-position: 4px -177px;
+}
+.filtro-plataforma .controle .item .checkbox.xboxone{ 
+    background-position: -3px -3700px;
+}
+.filtro-plataforma .controle .item .checkbox.xbox360{ 
+    background-position: 3px -285px;
+}        
+.filtro-plataforma .controle .item .checkbox.psvita{ 
+    background-position: 2px -395px;
+}
+.filtro-plataforma .controle .item .checkbox.wiiu{ 
+    background-position:-3px -3587px;
+}
+.filtro-plataforma .controle .item .checkbox.wii{ 
+    background-position: 4px -732px;
+}
+.filtro-plataforma .controle .item .checkbox.ds{ 
+    background-position: 3px -620px;
+}
+.filtro-plataforma .controle .item .checkbox.pc{ 
+    background-position: 4px -509px;
+}       
+
+/*POSICIONAR ÍCONES GÊNEROS*/
+.filtro-genero .controle:nth-child(2) .item .checkbox{ 
+    background-position: 4px 2236px;
+} 
+.filtro-genero .controle:nth-child(3) .item .checkbox{ 
+    background-position: -2px 388px;
+} 
+.filtro-genero .controle:nth-child(4) .item .checkbox{ 
+    background-position: 1px 2124px;
+} 
+.filtro-genero .controle:nth-child(5) .item .checkbox{ 
+    background-position: -2px 836px;
+} 
+.filtro-genero .controle:nth-child(6) .item .checkbox{ 
+    background-position: -2px 1172px;
+} 
+.filtro-genero .controle:nth-child(7) .item .checkbox{ 
+    background-position: -2px 1396px;
+} 
+.filtro-genero .controle:nth-child(8) .item .checkbox{ 
+    background-position: -2px 1285px;
+} 
+.filtro-genero .controle:nth-child(9) .item .checkbox{ 
+    background-position: -2px 1844px;
+} 
+.filtro-genero .controle:nth-child(10) .item .checkbox{ 
+    background-position: -2px 836px;
+} 
+.filtro-genero .controle:nth-child(11) .item .checkbox{ 
+    background-position: -3px 949px;
+} 
+.filtro-genero .controle:nth-child(12) .item .checkbox{ 
+    background-position: -2px 836px;
+} 
+.filtro-genero .controle:nth-child(13) .item .checkbox{ 
+    background-position: -4px 1508px;
+} 
+.filtro-genero .controle:nth-child(14) .item .checkbox{ 
+    background-position: -4px 725px;
+} 
+.filtro-genero .controle:nth-child(15) .item .checkbox{ 
+    background-position: -4px 1508px;
+} 
+.filtro-genero .controle:nth-child(16) .item .checkbox{ 
+    background-position: -4px 1508px;
+} 
+.titulo_filtro{
+    display: block;
+    font: 15px lato, helvetica, sans-serif;
+    color: #ffffff;
+    width: 275px;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    border-color: #fff;
+    padding: 5px;
+    margin-bottom: 10px;
+}
+.genero{
+    list-style: none;
+    margin:0;
+    padding:0;
+}
+.genero:after{
+    content: "";
+    clear:both;
+}
+
+.genero-opcao{              
+    display: inline-block;    
+    width: 22%;
+    padding: 10px;
+    margin-left: 2%;
+    margin-top: 10px;
+    background: #333;
+    border-radius: 4px;
+    
+}
+.genero-opcao, .genero-opcao label{
+    cursor: pointer;
+}
+.genero-opcao:hover{ background:#474747;  }
+
+.genero-opcao label{
+    color: #9A9A9A;
+    font-family: Arial, helvetica, sans-serif;
+    font-size: 0.8em;
+    display: block;
+    text-align: center;
+}
+/*campo que recebe a pesquisa momentânea*/
+.pesquisando{
+    width: 98%;
+    padding:1%;
+    background:#ededed;
+    display:block;
+    border-radius:3px;
+    margin:5px auto;
+}
+.pesquisando span{
+   font-family: Arial, helvetica, sans-serif;
+   color:#333;
+   font-size: 18px;
+}
+.pesquisando #qnt_game{
+    font-family: Lato, Helvetica, sans-serif;
+    font-size: 20px;
+    color: #4e4f51;
+    padding: 5px 16px;
+    border: 1px solid #4e4f51;
+    border-radius: 9px;
+    display: inline-block;
+    font-weight: 700;
+}
+span.alert-vazio{width: 100%;}
+span.alert-vazio p{
+    color:#222222;
+    font-family:Tahoma, Helvetica, Arial, sans-serif;
+    font-size:3em;    
+    text-shadow:#555555 0 2px 3px;
+    text-align: center;
+    margin-top: 30px;
+}
+/*estilo do box dos jogos pesquisados*/
+#box-resultados{
+    display: block;
+    width: 71%;
+    float: right;
+    /* margin-left: 1%; */
+    min-height: 700px;
+    background: #333;
+}
+#box-resultados #exclama{
+    border-bottom: 1px dotted #ccc;
+    color:#CCCCCC;
+    display:block;
+    font: 14px Arial, helvetica, sans-serif;
+    height:45px;
+    line-height:normal;
+    margin-bottom:20px;
+    width:880px;
+}
+#box-resultados #exclama img{
+    margin-top: 5px;
+    margin-left: 5px;
+    padding-right: 7px;
+    z-index: 1 !important;
+}
+#box-resultados #progress{
+    height:50px;
+    left:50%;
+    top:50%;
+    width:100%;
+    position: absolute;
+    display: none;
+}
+.contorno{
+    width: 250px;
+    border: 0px solid #ccc;
+    display: inline;
+    float: left;
+    /*background: #212020;*/
+    margin: 8px 8px;
+    padding:8px 0 8px 18px;
+    border-radius: 4px;
+    transition-duration:0.5s;
+    cursor: pointer;
+}
+.contorno:hover{
+    box-shadow: #006699 2px 1px 22px;
+}
+.contorno figure{
+    margin:5px 0 5px 15px;
+    padding:7px 0 3px;
+    width:202px;
+    border-radius:4px 5px 5px 4px;
+}
+.contorno figure img{
+    width: 195px;
+    height: 250px;
+}
+.contorno .info-gamer{
+    width:202px;
+    margin:5px 0 5px 15px;
+    background: #ffffff;
+    opacity: 0.8;
+    border-radius:4px;
+}
+.contorno .info-gamer ul{
+    margin: 6px 2px 6px 4px;
+}
+.contorno .info-gamer ul li,.contorno .info-gamer ul li a{
+   list-style-type: none;
+   padding: 5px;
+   font:16px Arial, Helvetica, sans-serif;
+   color:#383838;
+   font-weight:bold;
+   text-decoration: none;
+}
+.contorno .info-gamer ul li a{margin-left: -5px;}
+.contorno .info-gamer ul li a:hover{text-decoration: underline;}
+    

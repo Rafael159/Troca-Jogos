@@ -1,0 +1,18 @@
+﻿Listar jogos - todas as possibilidades
+
+Todos os jogos - aberto
+Pelo console - nome console ou id console
+Pelo ano - ano
+Single - id
+
+
+
+
+
+Filtro
+
++ criar sessão
++ ao clicar em cada botão, add na sessão o valor
++ fazer a pesquisa de acordo com a sessão
+  se o botão clicado faz tiver sido clicado antes, 
+  então anulará o anterior

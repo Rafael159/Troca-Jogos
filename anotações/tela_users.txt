@@ -1,0 +1,14 @@
+MENU HORIZONTAL
+configuração
+perfil
+
+
+
+MENU VERTICAL
+foto + nome completo
+dashboard
+jogos
+trocas
+mensagens
+contate-nos
+Encerrar sessão

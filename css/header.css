@@ -1,0 +1,325 @@
+header{
+	width: 100%;
+	border-bottom-width:3px;
+    border-bottom-style:solid;
+    border-bottom-color:rgba(255, 255, 255, 0.0666667);
+    background: #2c2c2c; 
+}
+.clearfix:after {    
+    content:".";   
+    display:block; 
+    height:0;    
+    clear:both;  
+    visibility: hidden;
+ } 
+.lupa{
+    border: 2px solid #CCCCCC;
+    border-radius: 5px;
+    cursor: pointer;
+    float: left;
+    height: auto;
+    margin: 24px 4px;
+    padding: 10px 6px 7px 3px;
+    width: auto;
+    display: block;
+}
+    
+.lupa img{
+	border-left-style: solid;
+    border-left-width: 2px;
+    border-color:#fff;
+    margin-left: 5px;
+    margin-top: -3px;
+    padding-left: 4px;
+}
+#logo{
+	width: 250px;
+	height: 70px;
+	margin:0 auto ;
+}
+#logo a{ outline: none; }
+#logo img{
+	width: 100%;
+	margin-top:-5px;
+}
+
+#anuncios{
+	background:#FFFFFF;
+    float:right;
+    height:110px;
+    margin-right:74px;
+    margin-top:-72px;
+    width:580px;
+    display: none;
+}
+.search-field{
+    margin-left:50px;
+    margin-top:28px;
+    position:absolute;    
+}
+.search-field #id_pesquisa{
+    width: 360px;
+    height: 28px;
+    outline: none;
+    border: none;
+    border-radius: 4px;
+    padding:3px;
+    font-family: 'source_sans_proregular';
+    font-size: 1.3em;
+    color: #333;
+}
+.search-field .search-btn{
+    border: 2px solid #fff;
+    padding: 5px 15px;
+    background: #069;
+    font-family: 'source_sans_prolight';
+    font-size: 1em;
+    font-weight: bold;
+    color: #fff;
+    position: absolute;
+    right: -105px;
+    top: 1px;
+    outline: none;
+    cursor: pointer;
+}
+.search-field .search-btn:hover{
+    background: #0470a6;
+    
+}
+/*AUTOCOMPLETE JOGOS*/
+.search-field #opcao_jogo{
+    display: block;
+    z-index: 2;
+    position: absolute;
+    width: 100%;
+    padding: 0px;
+}
+.search-field .input_container ul .autoJogo{
+    width: 100%;
+    background: #ccc;
+    list-style-type: none;
+    border-bottom: 1px dotted #333333;
+    padding: 6px 0 13px;
+    z-index: 6;
+}
+.search-field .input_container ul .autoJogo:hover{
+    background: #eaeaea;
+    cursor: pointer;
+}
+.search-field .input_container ul .autoJogo img{
+    width: 35px;
+    height: 40px;
+    margin-left: 5px;
+    float: left;
+    z-index: 1;
+}
+.search-field .input_container #opcao_jogo .autoJogo .title-game{
+    font-family: 'source_sans_proregular';
+    font-size: 1.3em;
+    color: #333;
+    padding-top: 10px;
+    padding-left: 60px;
+    margin: 0;
+}
+span#resultados{
+    width: 100%;
+    padding: 5px 0;
+    display: block;
+    margin: 8px 0;
+}
+    span#resultados h4{
+       font-family:Verdana, Arial, Helvetica, sans-serif;
+       font-size: 15px;
+       font-weight: normal;
+       color:#ffffff;
+    }
+    span#resultados b{
+       font-family:Verdana, Arial, Helvetica, sans-serif;
+       font-size: 24px;
+       font-weight: bold;
+       color:#0074E1;
+    }
+/*BOX LOGIN*/
+.lg-box{
+    top: 4%;
+    float: right;
+    padding: 2px;
+    position: absolute;
+    right: 1%;
+}
+.lg-box .lg-acao .user-logged{
+    list-style-type: none;
+    cursor: pointer;
+    width: auto;
+    padding: 8px;
+    background: rgba(255, 255, 255, 0.0666667);
+    margin-left: 2px;
+    text-align: center;
+    border-radius: 4px;
+    display: inline-block;
+    float: right;
+    transition:0.5s all;
+    -ms-transition:0.5s all;
+    -o-transition:0.5s all;
+}
+.lg-box .lg-acao .user-logged:hover{
+    background: #0074e1;
+}
+.lg-box .lg-acao .user-logged a{
+    font-family: 'source_sans_prolight';
+    font-size: 14px;
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/*formatação da caixa de login e cadastro*/
+#overlay{
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    position: absolute;
+    background-color: #000;
+    z-index: 11;
+    opacity: 0.5;
+    display: none;
+}
+#box-login, #box-cadastro{
+    width: 300px;
+    background: -webkit-linear-gradient(#333, #666); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(#333, #666); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(#333, #666); /* For Safari 5.1 to 6.0 */
+    background: linear-gradient(#333, #666); /* For Firefox 3.6 to 15 */
+    position: absolute;
+    left:50%;
+    top:-50%;
+    margin-top: -100px;
+    margin-left: -150px; 
+    display: none;
+    z-index: 999;
+
+    box-shadow: 1px 1px 3px #fbfbfb;
+    -webkit-box-shadow: 1px 1px 3px #fbfbfb;
+    -moz-box-shadow: 1px 1px 3px #fbfbfb;
+}
+.btn_cancela_acesso{
+    background:#333333;
+    border:3px solid #FFFFFF;
+    border-radius:50%;
+    float:right;
+    height:40px;
+    position:absolute;
+    right:-23px;
+    top:-14px;
+    width:40px;
+    cursor: pointer;
+}
+    .btn_cancela_acesso b{
+        text-align: center;
+        font: 15px Arial, helvetica, sans-serif;
+        color: #fff;    
+        margin-left:14px;
+        margin-top:10px;
+        position:absolute;
+    }
+
+/*formatação do formulário de login*/
+.box-login-cadastro .titulo-acesso{
+    font: 14px ruda, sans-serif;
+    color:#8d8d8d;
+    margin:3px;
+    width: 280px; 
+}
+    .box-login-cadastro .form-acesso{
+        width: 97%;
+        margin: auto;
+    }
+    .box-login-cadastro .form-acesso p{display: block;}
+    .box-login-cadastro .form-acesso p label{
+        font:16px Lato, helvetica,sans-serif;
+        color:#cccccc;
+        display: block;
+        margin-bottom: 4px;
+    }
+    .box-login-cadastro .form-acesso p label a{
+        font:16px Arial, helvetica, sans-serif;
+        color:#fff;     
+        margin-left: 10px;
+        text-decoration: none;
+        margin-top: 30px;
+    }
+    .box-login-cadastro .form-acesso p label a:hover{text-decoration: underline;}
+    .box-login-cadastro .form-acesso p input[type='text'],.box-login-cadastro .form-acesso p input[type='password']{
+        border:none;
+        border-radius:3px;
+        color:#8d8d8d;
+        font-family:Arial, helvetica, sans-serif;
+        font-size:1.2em;
+        font-weight:normal;
+        height:30px;
+        line-height:normal;
+        margin-bottom:10px;
+        width:100%;
+        padding: 2px;
+        outline: none;
+    }
+    /*botão logar/cadastrar */
+    .box-login-cadastro .form-acesso p #btn-logar,.box-login-cadastro .form-acesso p #btn-cadastrar{
+        width: 290px;
+        padding: 6px 0px;
+        border-radius: 3px;
+        border: none;       
+        font: 16px Arial, Lato, sans-serif;
+        color: #fff;
+        cursor: pointer;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        outline: none;
+        font-weight: bold;
+        letter-spacing: 2px;
+        box-shadow: 1px 1px 2px #3D3D3D;
+
+        background: -webkit-linear-gradient(#A31313,#c91212);
+        background: -o-linear-gradient(#A31313,#c91212);
+        background: linear-gradient(#A31313,#c91212);
+        background: -moz-linear-gradient(#A31313,#c91212);
+    }
+        .box-login-cadastro .form-acesso p #btn-logar:hover, .box-login-cadastro .form-acesso p #btn-cadastrar:hover {
+            background: -webkit-linear-gradient(#c91212,#A31313);
+            background: -o-linear-gradient(#c91212,#A31313);
+            background: -moz-linear-gradient(#c91212,#A31313);
+            background: linear-gradient(#c91212,#A31313);
+        }
+
+    .box-login-cadastro .form-acesso p input[type='text']:focus,.box-login-cadastro .form-acesso p input[type='password']:focus{
+        border:1px solid #0094f5;
+    }
+    #result{
+    padding: 4px;
+    margin: 1px auto;
+    border: 1px solid #ed0000;
+    font:0.9em Arial, helvetica,sans-serif;
+    color: #fff;
+    background:#ed0000;
+    display: none;
+    text-align: center;
+    opacity: 0.9;
+}
+/*botão conectar com facebook*/
+.facebook{
+    background:#3A5795;
+    width: 290px;
+    border: none;
+    border-radius:3px;
+    padding: 10px;
+    text-align:center;
+    margin:4px 5px;
+    cursor:pointer;
+    font:14px Arial, helvetica, sans-serif;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-shadow:#3d3d3d 1px 1px 0;
+    color:#fff;
+    box-shadow: 1px 1px 2px #3D3D3D;
+}

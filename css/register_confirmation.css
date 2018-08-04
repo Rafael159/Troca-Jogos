@@ -1,0 +1,120 @@
+body{
+	background:#ccc;
+}
+.nopadding{
+	margin:0; padding:0;	
+}
+.alert{ border-radius:0 !important; }
+.main{
+	width: 100%;	
+}
+.main .top{
+	width: 100%;
+	border:1px solid;
+	background:#212121;
+	margin-bottom: 15px;
+}
+.main .top > a{ 	
+	margin-left: 15px; 
+}
+.main .top span{
+	float: right;
+    margin-top: 15px;
+    margin-right: 40px;
+    padding: 6px 10px;
+    background: #0074e1;
+    border-radius: 5px;
+}
+.main .top span:hover{ background: #069;}
+.main .top span a{
+	text-decoration: none; 
+	color:#fff;
+}
+.main #box_confirmation{
+	padding: 25px;
+}
+.main #box_confirmation, .main #first_content{
+	background: #fff;	
+	margin-bottom: 25px;
+	padding-bottom:25px;
+}
+.main .jogos a {
+	width: 100%;
+	padding:5px;
+	text-align: center;
+	text-decoration: none;
+	border:1px solid #ccc;
+	display: block;	
+	background: #e3dcdc;
+	border-radius: 4px;
+    margin-bottom: 10px;
+    transition:0.5s all;
+}
+.main .jogos a:hover{
+	background-image: -webkit-linear-gradient(top, #069 0%, #09f 100%);
+    background-image: -o-linear-gradient(top, #069 0%, #09f 100%);
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#069), to(#09f));
+    background-image: linear-gradient(to bottom, #ccc 0%, #333 100%);
+}
+.main .jogos a small{	
+	width: 100%;
+    display: block;
+    text-decoration: none;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.2em;
+    color: #dfdfdf;
+    background: #999;
+    margin-bottom: 10px;
+}
+.main .jogos a img{
+	width: 100% !important;
+    height: 220px !important;
+}
+.main .jogos a:hover small{ color: #fff; }
+
+@media screen and (max-width: 480px){
+	.main .jogos a{ background: #fff; }
+	.main .jogos a img{
+		width: 50%;
+		margin: 10px auto;
+	}
+	.main .top a img{
+		width: 80%;
+	}
+	.main .top span{
+		padding: 6px 10px;
+	    background: #0074e1;	    
+	    width: 100%;
+	    display: block;
+	    float: none;
+	    margin-top: 0;
+	    margin-right: 0;	    
+	    background: #0074e1;
+	    border-radius: 0;
+	}
+	.main .top span a{ width: 100%; display: block;}
+
+}
+@media screen and (max-width: 767px){
+	.main .jogos a{ 
+		background: #fff; 
+		width:60%;
+		margin:0 auto;
+	}
+	.main .jogos a img{
+		width: 50%;
+		margin: 10px auto;
+		height: auto;
+	}
+	.col-xs-12{ float:none !important; }
+	#first_content{ float: left !important; }
+}
+@media screen and (min-width: 768px) and (max-width: 1200px){
+	.main .jogos a{ background: #fff;}
+	.main .jogos a img{
+		width: 50%;
+		margin: 10px auto;
+		height: auto;
+	}
+	#first_content{ float: left !important; }
+}
