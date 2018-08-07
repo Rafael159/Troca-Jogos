@@ -1,8 +1,3 @@
-<!--
-	*****SITE TROCA JOGOS						********
-	*****Programador : RAFAEL ALVES CARDOSO     ********
-	*****DATA: 06/03/2015                       ********
--->
 <!DOCTYPE HTML>
 <html>
 	<head>

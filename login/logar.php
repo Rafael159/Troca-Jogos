@@ -30,7 +30,7 @@
 					<a href="#user-cadastrar">Esqueceu a senha?</a>
 				</label>								
 			</p>
-			<div id="result"></div>	
+			<div id="result"></div>
 		</form>
 	</div>
 	<!--CHAMADA JAVASCRIPT-->		

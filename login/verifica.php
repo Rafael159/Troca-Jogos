@@ -10,11 +10,11 @@ $senha = isset($_POST['senha']) ? trim($_POST['senha']) : '';
 
 $retorno = array();
 
-if(empty($email) || empty($senha)){
+if(empty($email) || empty($senha)):
 	$retorno = array('status'=>'0', 'mensagem'=>'Preencher email e senha');
 	echo json_encode($retorno);
 	exit();
-}else{
+endif;
 
 	$custo = '08';//ajuda no formação da senha única*/
 	$salto = 'Cf1f11ePArKlBJomM0F6aJ';//garante que a senha não se repita
@@ -26,20 +26,20 @@ if(empty($email) || empty($senha)){
 	$dados = $user->loginUser();//tentar logar
 	
 	/*SE RETORNAR O USER*/
-	if($dados){ 
+	if($dados):
 		session_start();
 		//definir sessões
 		$_SESSION['id_user'] = $dados->id_user;
 		$_SESSION['emailTJ'] = $dados->emailTJ;
 		$_SESSION['nomeTJ']  = $dados->nomeUser;				
-		$_SESSION['status']  = $dados->status;
+		$_SESSION['status']  = $dados->tipousuario;
 
-		$retorno = array('status'=>'1', 'mensagem'=>'Logado com sucesso', 'nivel'=>$dados->status);
+		$retorno = array('status'=>'1', 'mensagem'=>'Logado com sucesso', 'nivel'=>$dados->tipousuario);
 		echo json_encode($retorno);
-	}else{
+	else:
 		$retorno = array('status'=>'0', 'mensagem'=>'Falha ao logar! Verifique seu email e/ou senha');
 		echo json_encode($retorno);
 		exit();
-	}
-}
+	endif;
+
 ?>

@@ -9,16 +9,14 @@ $(document).ready(function (){
 			dataType:'json',
 			data: form.serialize(),
 			success: function(dados){
-				//console.log(dados);
-				if(dados.status == '0'){
+
+				if(dados.status == '0')
 					$("#"+idfrm+" #result").html(dados.mensagem).slideDown();//error
-				}else{
-					if(dados.nivel == '1'){
+				else
+					if(dados.nivel == 1)
 						window.location.href=(urladm+"admin.php");//Dashboard admin
-					}else{
-						window.location.href=(urluser+"dashboard.php");//Dashboard usuário comum
-					}
-				}
+					else
+						window.location.href=(urluser+"dashboard.php");//Dashboard usuário comum				
 			}
 		});
 	}
@@ -30,8 +28,8 @@ $(document).ready(function (){
 	});
 
 	$("#btn_enviar").bind('click',function () {
-		frm = $('#form-logar');//formulário de login		
-		logar_user(frm, 2, 'verifica.php', '../admin/', '../users/');		
+		frm = $('#form-logar');//formulário de login
+		logar_user(frm, 2, 'verifica.php', '../admin/', '../users/');
 	});
 
 	/* Popular combo com todos os CONSOLES
