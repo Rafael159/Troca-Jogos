@@ -18,6 +18,6 @@
 	  	   unset($_SESSION['status']);
 	  	   sleep(1);
 	  	   header("Location:index.php");	  	 
-	  ?>	  
+	  ?>
 </body>
 </html>

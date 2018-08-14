@@ -155,7 +155,7 @@
 		$qtnGenero = count($genero);
 
 		for($i=0; $i<$qtnGenero; $i++) {
-			//echo $genero[$i];
+			
 			$jogocategoria->setJogoID($lastinserted);
 			$jogocategoria->setCategoriaID($genero[$i]);
 

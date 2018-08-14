@@ -33,8 +33,7 @@
 			$dados = $troca->showAll();
 		break;
 	}
-	if(empty($dados)):
-		echo '';
+	if(empty($dados)):		
 	else:
 ?>
 <div class="table-responsive col-lg-12 col-md-12">

@@ -219,5 +219,5 @@
 
 <!--CHAMADA JS-->	
 
-<script src="../js/funcoes.js"></script>
-<script src="js/acoes.js"></script>
+<script src="../js/funcoes.js" type="text/javascript"></script>
+<script src="js/acoes.js" type="text/javascript"></script>

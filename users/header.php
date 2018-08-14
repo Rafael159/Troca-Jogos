@@ -19,7 +19,7 @@
 					if(isset($_SESSION['emailTJ'])){
 						$emailLogado = $_SESSION['emailTJ'];
 						$usuario  = $_SESSION['nomeTJ'];
-						$status = $_SESSION['status'];
+						$status = $_SESSION['tipousuario'];
 						if($status == 0){
 				?>
 				<li class="logado"><a href="users/dashboard.php">Área de controle</a></li>

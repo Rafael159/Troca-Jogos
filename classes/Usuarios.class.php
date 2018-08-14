@@ -91,13 +91,13 @@ class Usuarios extends Crud{
 	//exibir registro individual por ID
 	public function findRegister(){
 
-		$sql  = "SELECT u.id_user,
-				u.nomeUser, u.celular, u.telefone, u.rua, u.numero, u.cidade, u.estado, u.complemento, u.console
-		 FROM $this->table as u WHERE id_user = :id";
+		$sql  = "SELECT u.id_user, u.nomeUser, u.celular, u.telefone, u.rua, u.numero, u.cidade, u.estado, u.complemento, u.console
+		 		FROM $this->table as u 
+				WHERE u.id_user = :id";
 		$stmt = @BD::conn()->prepare($sql);
 		$stmt->bindParam(':id',$this->id,PDO::PARAM_INT);
 		$stmt->execute();
-		return $stmt->fetchAll(); 
+		return $stmt->fetchAll();
 
 	}
 

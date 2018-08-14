@@ -1,0 +1,21 @@
+#profile{
+    width: 100%; 
+    text-align: center;
+}
+
+
+@media only screen and (max-width:462px){
+    .title-main{font-size: 1.7em;}
+    .lbl-standard{ font-size: 1.2em;}
+
+    #btt-finish{
+        width:90%;     
+        margin-left: 17px;
+    }
+}
+@media (max-width: 630px){
+    #page-update .title-main{
+        font-size: 1.2em !important;
+        line-height: normal !important;
+    }
+}

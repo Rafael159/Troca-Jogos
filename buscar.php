@@ -50,51 +50,13 @@
 	
 	/*se existir filtro*/
 	if(sizeof($where)){
-		//$where[] = "u.id_user = j.id_gamer";
-		//$where[] = "j.img_jogo = i.id_img";
-		//$where[] = "j.id_console = c.id_console";
-		
-
-		/*SELECT * FROM (((`jogos` as j INNER JOIN `console` as c ON j.id_console = c.id_console) 
-    INNER JOIN `imagens` as i ON j.img_jogo = i.id_img) 
-	INNER JOIN `jogocategoria` as jc ON j.id = jc.jogo_id) 	
-	//WHERE j.n_jogo LIKE '%resident%' 
-	AND (j.id = 40 OR j.id = 10)
-    AND (j.id_console = 9)
-	AND (jc.categoria_id = 5 OR jc.categoria_id = 1); */
-
 		$sql .= ' WHERE '.implode( ' AND ',$where );//add filtros na QUERY	
-		//$sql .= ' AND j.status = 1';
-		//echo $sql;
-		
-		//print_r($listaGeneros);
 	}	
 	$sql.= ' GROUP BY jc.jogo_id';
 	
-	//exit;
-	/*
-	//resgatar valores vindo pelo POST
-	$id_console = trim(getPost('id'));
-	$game = trim(getPost('jogo'));
-	$ano = trim(getPost('ano'));
-
-	if( $id_console ){ $where[] = " c.id_console = '{$id_console}'"; }
-	if( $game ){ $where[] = "  j.n_jogo LIKE '%".$game."%'"; }
-	if( $ano ){ $where[] = " `lancamento` = '{$ano}'"; }
-	$where[] = "u.id_user = j.id_gamer";
-	$where[] = "j.img_jogo = i.id_img";
-	$where[] = "j.id_console = c.id_console";
-
-	$sql = "SELECT * FROM `jogos` as j, `console` as c, `imagens` as i, `usuarios` as u";
-	if( sizeof( $where ) )
-		$sql .= ' WHERE '.implode( ' AND ',$where );	
-		$sql .= ' AND j.status = 1';*/
-	
+		
 	$arrayJogo = $jogos->consulta($sql);
-	/*foreach ($arrayJogo as $key => $value) {
-		print_r($value);
-	}*/
-	
+		
 	$contarProdutos = count($arrayJogo);//contar quantos jogos retornaram na consulta
     	if($contarProdutos > 0):    
 	?>

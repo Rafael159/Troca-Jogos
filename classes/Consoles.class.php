@@ -41,6 +41,37 @@ final class Consoles extends Crud{
 
 	}
 	
+	public function showAll($dados=array()){
+
+		if(array_key_exists("id", $dados)) $id = $dados['id'];
+		if(array_key_exists("console", $dados)) $console = $dados['console'];
+		
+		
+		$where = array();
+
+		if(count($dados) > 0):
+			if(isset($id)) array_push($where, "id_console = $id ");
+			if(isset($console)) array_push($where, "nome_console LIKE '%$console%' ");
+		endif;
+		
+		$query = "SELECT * FROM $this->table";
+
+		if(sizeof($where)):		
+			$query .= ' WHERE '.implode( ' AND ',$where );//add filtros na QUERY
+		endif;
+						
+		$stmt = @BD::conn()->prepare($query);
+
+		try{
+			$stmt->execute();
+			return $stmt->fetchAll();
+		}catch (Exception $e) {
+			return false;
+		}
+		
+		
+	}
+
 	public function listarTodos(){
 
 		$sql = "SELECT * FROM $this->table";		
