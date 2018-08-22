@@ -37,6 +37,72 @@ $(document).ready(function(){
             if(form_values.estado!='undefined') $('select[name=estado]').val(form_values.estado); 
 		});
 	}
-
     
+    //Validar info de cadastro antes de enviar
+	$("#form-update").submit(function(e){
+        e.preventDefault();	 	
+    }).validate({
+       onKeyup : true,
+           eachValidField : function() {
+               $(this).closest('div').removeClass('error').addClass('success');
+           },
+           eachInvalidField : function() {
+               $(this).closest('div').removeClass('success').addClass('error');
+           },				
+       rules: {
+           nome:{
+               required: true,
+               minlength:5
+           },
+           email:{
+               required: true,
+               email: true
+           },
+           celular:{
+               required: true,
+               minlength:14			
+           },
+           console:{
+               required: true
+           }
+
+       },
+       messages:{
+           nome:{
+               required:'Por favor, informe seu nome',
+               minlength: 'O nome deve ser pelo menos 5 caracteres'
+           },
+           email:{
+               required: 'Por favor, informe um email',
+               email: 'Informe um email válido'
+           },
+           celular:{
+               required: 'Informe um número de celular',
+               minlength: 'Celular inválido'				
+           },
+           console:{
+               required: 'Selecione um console'
+           }
+       },
+       submitHandler: function(){
+           var form = $("#form-update");
+           
+           $.ajax({
+               type: 'post',
+               url: 'update-register.php',
+               data: form.serialize(),
+               success:function(result){
+
+                   if(result.status=='0'){
+                       $('#msg_error').show().text(result.mensagem);                       
+                   }else{
+                       reload('profile.php');
+                   }
+               },
+               error: function(jqXHR, textStatus, errorThrown){
+                   $('#msg_error').show().text("Infelizmente ocorreu um erro ao atualizar o cadastro! Tente novamente");
+               }
+           },'jSON');
+       }
+   });
 });

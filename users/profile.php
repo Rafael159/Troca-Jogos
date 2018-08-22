@@ -5,25 +5,20 @@
     function __autoload($classe){
         require('..\classes/'.$classe.'.class.php');
     }
-
-    
-
     session_start();
     $userID = (isset($_SESSION['id_user']) ? $_SESSION['id_user'] : '');
 
     $user = new Usuarios;
     $user->setIdUser($userID);
     $row = $user->findRegister();
-   
-    //echo '<pre>';
-    print_r($row);
 ?>
 <div id="profile">
 <div class="row nopadding">
     <div id="box" class="col-lg-12 col-md-12 col-sm-12">
         
-        <div id="formulario-update">                            
-            <form method="POST" id="form-cadastro" action="" class="form">	
+        <div id="formulario-update">
+            <div class="msgcrud"><?php echo (isset($_SESSION['crudMSG'])) ? $_SESSION['crudMSG'] : ''; ?></div>                          
+            <form method="POST" id="form-update" action="" class="form">	
                 
                 <div class="steps" id="first-step">
                     <h3 class="title_steps">Dados de acesso <i class="fa fa-address-card" aria-hidden="true"></i></i></h3>
@@ -79,7 +74,7 @@
                         </div>
                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                             <label for="numero">Número</label>
-                            <input type="text" name="numero" id="numero" placeholder="Número" pattern="\([0-9]{2}\) [0-9]{4,6}-[0-9]{3,4}$" class="form-control"/>
+                            <input type="text" name="numero" id="numero" placeholder="Número" class="form-control"/>
                         </div>
                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                             <label for="bairro">Bairro</label>
@@ -119,6 +114,8 @@
     </div>
 </div>
 </div>
+<script src="../js/jquery.js" type="text/javascript"></script>
+<script src="../js/jquery.validate.js" type="text/javascript"></script>
 <script src="js/profile.js" type="text/javascript"></script>
 <script>
     var form_values = {}

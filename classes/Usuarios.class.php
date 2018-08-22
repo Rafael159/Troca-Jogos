@@ -12,6 +12,7 @@ class Usuarios extends Crud{
 	private $cep;
 	private $rua;	
 	private $numero;
+	private $bairro;
 	private $cidade;
 	private $estado;
 	private $complemento;
@@ -48,6 +49,9 @@ class Usuarios extends Crud{
 	public function setNumero($numero){
 		$this->numero = $numero;
 	}
+	public function setBairro($bairro){
+		$this->bairro = $bairro;
+	}
 	public function setCidade($cidade){
 		$this->cidade = $cidade;
 	}
@@ -55,7 +59,7 @@ class Usuarios extends Crud{
 		$this->estado = $estado;
 	}
 	public function setComplemento($complemento){
-		$this->comple = $complemento;
+		$this->complemento = $complemento;
 	}
 	public function setConsole($console){
 		$this->console = $console;
@@ -144,31 +148,43 @@ class Usuarios extends Crud{
 
 	public function update(){
 
-		$sql = "UPDATE $this->table SET nome = :nome, emailTJ = :email, senha = :senha, data = :data, celular = :celular , telefone = :telefone
-		rua = :rua, numero = :numero, cidade = :cidade , estado = :estado, complemento = :complemento, status = :status, id_console = :id_console WHERE id = :id";
+		$sql = "UPDATE $this->table SET nomeUser = :nome, emailTJ = :email, celular = :celular, telefone = :telefone, cep = :cep,
+		rua = :rua, numero = :numero, bairro = :bairro, cidade = :cidade , estado = :estado, complemento = :complemento, console = :console, logusuario = :logusuario WHERE id_user = :id";
+		
 		$stmt = @BD::conn()->prepare($sql);
 		$stmt->bindParam(':nome',$this->nome);
 		$stmt->bindParam(':email',$this->email);
-		$stmt->bindParam(':senha',$this->senha);
-		$stmt->bindParam(':data',$this->data);
+		//$stmt->bindParam(':senha',$this->senha);
+		//$stmt->bindParam(':data',$this->data);
 		$stmt->bindParam(':celular',$this->celular);
 		$stmt->bindParam(':telefone',$this->telefone);
+		$stmt->bindParam(':cep',$this->cep);
 		$stmt->bindParam(':rua',$this->rua);
 		$stmt->bindParam(':numero',$this->numero);
+		$stmt->bindParam(':bairro',$this->bairro);
 		$stmt->bindParam(':cidade',$this->cidade);
 		$stmt->bindParam(':estado',$this->estado);
-		$stmt->bindParam(':complemento',$this->comple);
-		$stmt->bindParam(':status',$this->status);
-		$stmt->bindParam(':id_console',$this->id_console);
+		$stmt->bindParam(':complemento',$this->complemento);
+		//$stmt->bindParam(':status',$this->status);
+		$stmt->bindParam(':console',$this->console);
+		$stmt->bindParam(':logusuario', $this->logUsuario);
 		$stmt->bindParam(':id', $this->id);
+
 		return $stmt->execute();
 
 	}
 
 	//exibir registro individual por EMAIL
-	public function findEmail(){
+	public function findEmail($queries = array()){
 
-		$sql  = "SELECT * FROM $this->table WHERE emailTJ = :email";
+		if(sizeof($queries)>0):
+			$id = (array_key_exists("id", $queries)) ? $queries['id'] : ''; 
+		endif;
+		$where = array();
+		$where = 'WHERE emailTJ = :email';
+
+
+		$sql  = "SELECT * FROM $this->table";
 		$stmt = @BD::conn()->prepare($sql);
 		$stmt->bindParam(':email',$this->email);
 		$stmt->execute();
