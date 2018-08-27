@@ -1,6 +1,3 @@
-
-<link rel="text/stylesheet" type="text/css" href="css/style-profile.css">
-
 <?php
     function __autoload($classe){
         require('..\classes/'.$classe.'.class.php');
@@ -17,7 +14,7 @@
     <div id="box" class="col-lg-12 col-md-12 col-sm-12">
         
         <div id="formulario-update">
-            <div class="msgcrud"><?php echo (isset($_SESSION['crudMSG'])) ? $_SESSION['crudMSG'] : ''; ?></div>                          
+            <div class="msgcrud" onload="hideBox()"><?php echo (isset($_SESSION['crudMSG'])) ? $_SESSION['crudMSG'] : ''; ?></div>                          
             <form method="POST" id="form-update" action="" class="form">	
                 
                 <div class="steps" id="first-step">

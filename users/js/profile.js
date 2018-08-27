@@ -1,5 +1,5 @@
 $(document).ready(function(){
-
+    
     if(typeof(form_values) != 'undefined'){
         
         $('input[name=nome]').val(form_values.nome);
@@ -16,12 +16,17 @@ $(document).ready(function(){
         $('input[name=complemento]').val(form_values.complemento);
     }
 
+    //$(".msgcrud").fadeOut();
+    //setTimeout(function(){
+        //$('.msgcrud').slideUp();
+    //}, 3000);
+
+
     function setConsoles(select){
         $.post("carrega-consoles.php", function(data){
             $(select).html(data);
             if(form_values.console!='undefined') $('select[name=console]').val(form_values.console); 
         });
-
     }
     /* Carregar combo dos ESTADOS
 	** @param selectBox

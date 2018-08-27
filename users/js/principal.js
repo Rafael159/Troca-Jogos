@@ -67,8 +67,6 @@ $(document).ready(function (){
     first_load();//carregar uma página no load
 
     function addremoveActive(btn){
-       
-        //bnt = $(btn);
         $('#left_menu li').each(function(i){
             $('li:not(arrow_right)').removeClass('arrow_right'); //remover a classe arrow_right 
         });
@@ -90,8 +88,8 @@ $(document).ready(function (){
 			reload(link);	
 		}
     });
-  
-
+    
+    //carrega a página clicada no box principal
     $('.container-menu .menu').bind('click', function(e){
         e.preventDefault();
         botao = $(this);

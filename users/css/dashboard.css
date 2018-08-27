@@ -176,3 +176,30 @@ body{
 .badge{
 	background-color: #3c9b1e !important;
 }
+
+#formulario-update .msgcrud{
+    width: 100%;
+    display: block;
+    text-align: center;    
+    margin-top: 10px;
+    background-color: #00b147;
+    font-family: Arial;
+    color: #fff;
+    font-size: 1.3em;
+}
+
+@media only screen and (max-width:462px){
+    .title-main{font-size: 1.7em;}
+    .lbl-standard{ font-size: 1.2em;}
+
+    #btt-finish{
+        width:90%;     
+        margin-left: 17px;
+    }
+}
+@media (max-width: 630px){
+    #page-update .title-main{
+        font-size: 1.2em !important;
+        line-height: normal !important;
+    }
+}
