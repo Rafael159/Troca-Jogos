@@ -55,7 +55,7 @@ $(document).ready(function(){
                $(this).closest('div').removeClass('success').addClass('error');
            },				
        rules: {
-           nome:{
+           /*nome:{
                required: true,
                minlength:5
            },
@@ -87,7 +87,7 @@ $(document).ready(function(){
            },
            console:{
                required: 'Selecione um console'
-           }
+           }*/
        },
        submitHandler: function(){
            var form = $("#form-update");
@@ -95,19 +95,28 @@ $(document).ready(function(){
            $.ajax({
                type: 'post',
                url: 'update-register.php',
-               data: form.serialize(),
-               success:function(result){
+               data: form.serialize(),               
+               success:function(retorno){
+                   var obj = JSON.parse(retorno);
+                
+                   if(obj.status=='0'){
+                       $('.fail').html(obj.mensagem).fadeIn();                        
+                       setTimeout(function(){
+                         $('.fail').fadeOut('slow').html('');
+                       }, 3000);
 
-                   if(result.status=='0'){
-                       $('#msg_error').show().text(result.mensagem);                       
                    }else{
-                       reload('profile.php');
+                       $('.msgcrud').fadeIn('slow').html(obj.mensagem);
+                       setTimeout(function(){
+                        $('.msgcrud').html('').fadeOut('fast');
+                      }, 3000);
+
                    }
                },
                error: function(jqXHR, textStatus, errorThrown){
-                   $('#msg_error').show().text("Infelizmente ocorreu um erro ao atualizar o cadastro! Tente novamente");
+                   $('.fail').show().html("Infelizmente ocorreu um erro ao atualizar o cadastro! Tente novamente");
                }
-           },'jSON');
+           }, 'jSON');
        }
    });
 });

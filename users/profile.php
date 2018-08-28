@@ -14,7 +14,7 @@
     <div id="box" class="col-lg-12 col-md-12 col-sm-12">
         
         <div id="formulario-update">
-            <div class="msgcrud" onload="hideBox()"><?php echo (isset($_SESSION['crudMSG'])) ? $_SESSION['crudMSG'] : ''; ?></div>                          
+            <div class="msgcrud"></div>                          
             <form method="POST" id="form-update" action="" class="form">	
                 
                 <div class="steps" id="first-step">
@@ -97,7 +97,7 @@
                             <section class="information"><a href="#" id="linkExplica" data-toggle="modal" data-target="#show-reason">Por que informar o endereço?</a></section>
                         </div>
                         <div class="col-lg-12 col-md-6 col-sm-6 col-xs-12">                            
-                            <div class="alert alert-danger" id='msg_error'>
+                            <div class="alert alert-danger fail">
                                 <strong></strong>
                             </div>
                             <div class="btn-group">                                	

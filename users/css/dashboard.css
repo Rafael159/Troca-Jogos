@@ -178,14 +178,19 @@ body{
 }
 
 #formulario-update .msgcrud{
-    width: 100%;
-    display: block;
-    text-align: center;    
+	width: 100%;
+    display: none;
+    text-align: center;
     margin-top: 10px;
-    background-color: #00b147;
+    background-color: #50a950;
     font-family: Arial;
-    color: #fff;
+    color: #fbfbfb;
     font-size: 1.3em;
+    padding: 6px;
+    border-radius: 5px;
+}
+.fail{
+	display: none;
 }
 
 @media only screen and (max-width:462px){

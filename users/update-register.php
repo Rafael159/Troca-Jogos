@@ -1,5 +1,5 @@
 <?php
-   echo json_encode($_POST);
+  
    function __autoload($classe){
     require('../classes/'.$classe.'.class.php');
 }
@@ -24,11 +24,11 @@
     session_start();
 
     $retorno = array();
-    if(!$_SESSION):
+    /*if(!$_SESSION):
         $retorno = array('status'=>1, 'mensagem'=>'Ocorreu um erro. Tente novamente');
         echo json_encode($retorno);
         exit();
-    endif;
+    endif;*/
 
     $id = (isset($_SESSION['id_user'])) ? (int)$_SESSION['id_user'] : 0;
 
@@ -99,9 +99,7 @@
         echo json_encode($retorno);
         exit();
     else:
-        $retorno = array('status'=>'1');
-        session_start();
-        $_SESSION['crudMSG'] = "Cadastro atualizado com sucesso";
+        $retorno = array('status'=>'1', 'mensagem'=>'Cadastro atualizado com sucesso');
         echo json_encode($retorno);
     endif;
 ?>
