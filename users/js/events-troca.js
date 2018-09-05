@@ -151,7 +151,7 @@ $(document).ready(function(){
 			type : 'post',
 			data : 'idTroca='+idTroca,
 			dataType : 'json'
-		}).done(function(data){			
+		}).done(function(data){							
 			if(data.status == '0'){
 				$('#box_error').modal();
 				$('#box-msg-error').html(data.mensagem);
@@ -171,9 +171,9 @@ $(document).ready(function(){
 				seg_jogo = data.dados_jogo[0].n_jogo;
 
 				//dados do segundo usuário
-				user_nome = data.dados_user[0].nomeUser;
-				user_celular = data.dados_user[0].celular;
-				user_telefone = data.dados_user[0].telefone;
+				user_nome = data.dados_user.nomeUser;
+				user_celular = data.dados_user.celular;
+				user_telefone = data.dados_user.telefone;
 
 				//primeiro jogo
 				box = '<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">';

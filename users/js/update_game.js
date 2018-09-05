@@ -58,7 +58,7 @@ $(document).ready(function(){
 			data:    'id='+id,
 			dataType:'json',
 
-			success:function(retorno){						
+			success:function(retorno){
 				if(retorno.status == '0'){
 					$("#msg_update").css("background-color","#c01a1a").html(retorno.mensagem).fadeIn();
 				}else{	
@@ -66,13 +66,15 @@ $(document).ready(function(){
 			   		qnt = parseInt(qnt) - 1;//add 1
 	   				$('#jogos .badge').text(qnt);/*atualizar quantidade de jogos temporariamente*/
 
-					$('#up_del_game').modal('toggle');				
+					$('#up_del_game').modal('toggle');
+					
 					setTimeout(function(){						
 						$('#feedback_message').fadeIn();
-						$('#feedback_message #message').html(retorno.mensagem); 				
+						$('#feedback_message #message').html(retorno.mensagem);
 	   				},1000);					
 				}	
 			}
 		});
 	});
+
 });

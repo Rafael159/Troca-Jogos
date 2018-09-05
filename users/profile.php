@@ -93,9 +93,6 @@
                         </div>
                         <div id="retorno"></div><!--recebe a mensagem de erro-->
 
-                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                            <section class="information"><a href="#" id="linkExplica" data-toggle="modal" data-target="#show-reason">Por que informar o endereço?</a></section>
-                        </div>
                         <div class="col-lg-12 col-md-6 col-sm-6 col-xs-12">                            
                             <div class="alert alert-danger fail">
                                 <strong></strong>
@@ -113,7 +110,9 @@
 </div>
 <script src="../js/jquery.js" type="text/javascript"></script>
 <script src="../js/jquery.validate.js" type="text/javascript"></script>
+<script src="../js/jquery.mask.js" type="text/javascript"></script>
 <script src="js/profile.js" type="text/javascript"></script>
+
 <script>
     var form_values = {}
 

@@ -11,11 +11,13 @@
 	$jogocategoria = new JogoCategoria();
 
 
-	$email = $_SESSION['emailTJ'];
-	$user->setEmail($email);
-	foreach($user->findEmail() as $usuario):
-		$idUser = $usuario->id_user;
-	endforeach;
+	$idUser = (isset($_SESSION['id_user'])) ? $_SESSION['id_user'] : '';
+	
+	if(!$idUser):
+		$retorno = array('status'=>'0', 'mensagem'=>'Falha ao cadastrar jogo. Tente novamente');
+		echo json_encode($retorno);
+		exit();
+	endif;
 
 	//recebendo os valores vindo do form
 	$console_id = (isset($_POST['console']) ? $_POST['console'] : "");//id do console

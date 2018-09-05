@@ -5,6 +5,7 @@
 	*****Função: Página que mostrará troca dos jogos       ********
 -->
 <?php
+	header('Content-Type: text/html; charset=utf-8');
 	function __autoload($classe){
         require('..\classes/'.$classe.'.class.php');
     }
@@ -19,8 +20,11 @@
     	$idUser = $_SESSION['id_user'];
     }else{
     	header("Location:..\index.php");
-    };
-    foreach ($user->findEmail($email) as $usuario) {
+	};
+	
+	$user->setEmail($email);
+	$queries = array();
+    foreach ($user->findEmail($queries) as $usuario) {
     	echo '<input type="hidden" name="idUserDois" value='.$usuario->id_user.' id="idUserDois"/>';
     }
 ?>

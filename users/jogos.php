@@ -39,7 +39,7 @@
 				<span id="add_game" data-toggle="modal" data-target="#modal-add-game"><i class="fa fa-plus-square fa-5x"></i><br/><strong>Add jogo</strong></span>
 
 				<div class="box_jogos">
-					<?php
+					<?php												
 						$jogo->setIdGamer($idUser);
 						$qnt = $jogo->contaJogoById();
 

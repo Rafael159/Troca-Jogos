@@ -176,8 +176,7 @@ class Usuarios extends Crud{
 
 	//exibir registro individual por EMAIL
 	public function findEmail($queries = array()){
-
-		if(sizeof($queries)>0):
+		if(isset($queries)):
 			$id = (array_key_exists("id", $queries)) ? $queries['id'] : ''; 
 		endif;
 		$where = array();
