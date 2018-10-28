@@ -1,5 +1,6 @@
-body, html{
+body, html{	
 	background: #cccccc;
+
 }
 .nopadding{
 	margin:0px !important;
@@ -80,7 +81,7 @@ body, html{
 }
 .favorite-box .favorite-content{
 	font-family: 'source_sans_probold';
-    color: #10c74e;
+    color: #2c2c2c;
     text-align: center;
     width: 100%;
     display: block;
@@ -179,7 +180,7 @@ body, html{
 }
 .chat .chat-content .mensagens .msg-from{
 	float: right;
-	background: #089eea;
+	background: #414142;
     color: #fff;
 }
 .chat .chat-content .mensagens .msg-to{

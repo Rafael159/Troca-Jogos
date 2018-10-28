@@ -83,8 +83,7 @@ header{
     cursor: pointer;
 }
 .search-field .search-btn:hover{
-    background: #0470a6;
-    
+    background: #0470a6;    
 }
 /*AUTOCOMPLETE JOGOS*/
 .search-field #opcao_jogo{
@@ -156,8 +155,7 @@ span#resultados{
     margin-left: 2px;
     text-align: center;
     border-radius: 4px;
-    display: inline-block;
-    float: right;
+    display: inline-block;    
     transition:0.5s all;
     -ms-transition:0.5s all;
     -o-transition:0.5s all;

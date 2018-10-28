@@ -63,10 +63,12 @@
 	<div class="user-space">
 		<ul class="user-acao">
 				<?php
-					if(isset($_SESSION['emailTJ'])){
-						$emailLogado = $_SESSION['emailTJ'];
-						$usuario  = $_SESSION['nomeTJ'];
-						$status = $_SESSION['status'];
+
+					$emailLogado = (isset($_SESSION['emailTJ'])) ? $_SESSION['emailTJ'] : '';
+					$usuario = (isset($_SESSION['nomeTJ'])) ? $_SESSION['nomeTJ'] : '';
+					$status = (isset($_SESSION['status'])) ? $_SESSION['status'] : '';
+
+					if($emailLogado){
 						if($status == 0){
 				?>
 				<li class="logado"><a href="../users/dashboard.php">Área de controle</a></li>
@@ -74,7 +76,7 @@
 				<li class="logado"><a href="admin/admin.php">Área de controle</a></li>
 				<?php } ?>
 				<li class="logado"><span>Bem vindo <?php echo $usuario;?></span></li>
-				<li class="logado"><a href="sair.php">Sair</a></li>
+				<li class="logado"><a href="../sair.php">Sair</a></li>
 				<?php }else{ ?>
 					<li class="logado" id="user-entrar"><a href="#">Entrar</a></li>
 					<li class="logado" id="user-cadastrar"><a href="#">Criar conta</a></li>
@@ -104,4 +106,4 @@
 			<?php endforeach;?>
 		</ul>					
 	</nav>
-</div>	
+</div>

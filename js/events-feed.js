@@ -11,7 +11,7 @@ $(function(){
 
 		 $(".mensagens").animate({ 
 	      scrollTop: $( $('.msgs:last-child') ).offset().top 
-	    }, 600);
+	    }, 3000);
 
 		return false;
 		//alert(pos);	
@@ -51,7 +51,7 @@ $(function(){
 					
 					setTimeout(function(){						
 						$('.mensagens').append(retorno);						
-					}, 500);
+					}, 5000);
 					//scrollDown();
 				});
 			}
@@ -71,7 +71,7 @@ $(function(){
 			idPara : idReceiver
 
 		}, function(back){
-			console.log(back);
+			//console.log(back);
 			if(back.status == '1'){
 				//faça algo	
 				
@@ -110,7 +110,7 @@ $(function(){
 			idPara : idReceiver
 
 		}, function(back){
-			console.log(back);
+			//console.log(back);
 			if(back != ''){	
 				//scrollDown();
 				$('.mensagens').html(back);
@@ -119,5 +119,5 @@ $(function(){
 			}
 		},'jSON');
 
-	},2000);
+	},3000);
 });

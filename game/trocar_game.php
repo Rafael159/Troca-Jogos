@@ -59,9 +59,9 @@
 				<div class="main_jogo_selecionado">	
 					<div class="alert-overlay"></div><!--sombra de fundo-->
 					<div id="msg">
-						<div align="center">
+						<div>
 							<header>Mensagem</header>
-							<span>aqui vem a mensagem</span></br></br>
+							<span>aqui vem a mensagem</span><br/><br/>
 						</div>
 					</div>
 					<div class="row nopadding">
@@ -212,7 +212,7 @@
 			<?php
 				endforeach;
 				else:
-					echo "<span class='alert-vazio'><p>OPS! Nenhum jogo encontrado :( </p><p>Cadastre agora <a href='../users/myarea.php'>Aqui</a></p></span>";
+					echo "<span class='alert-vazio'><p>OPS! Nenhum jogo encontrado :( </p><p>Cadastre agora <a href='../users/dashboard.php?secao=jogos'>Aqui</a></p></span>";
 				endif;
 			?>
 		</section>

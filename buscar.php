@@ -89,7 +89,7 @@
 <?php
 	endforeach;
 else:
-	//caso o filtro não obtenha nenhuma jogo, então mostrar outros jogos para o cliente
+	//caso o filtro não obtenha nenhum jogo, então mostrar outros os jogos para o cliente
 	?>
 	<span id="exclama"><img src='imagens/icones/exclama.png'/>Hmm! Nada encontrado para o termo escolhido, mas selecionamos outros produtos que possa gostar</span>
 	<?php

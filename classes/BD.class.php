@@ -5,7 +5,7 @@
 
 		public function conn(){
 			if(is_null(self::$conn)){
-				self::$conn = new PDO('mysql:host=localhost;dbname=trocajogos','root','crica03');
+				self::$conn = new PDO('mysql:host=localhost;dbname=trocajogos','admin','!developer@dmin!');
 				self::$conn->setAttribute(PDO::MYSQL_ATTR_FOUND_ROWS, TRUE);
 				self::$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 				self::$conn->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_OBJ);				

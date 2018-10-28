@@ -107,7 +107,7 @@ function list_games(key, jogo_lista){
 }
 window.autoCompletar = function(input){
 	lista_de_jogos = $(input).next().attr('id');
-
+	
 	///***  Função de autocomplete  ****///
 	tam_min = 3; //número mínino de caracteres necessários para o autocomplete rodar
     keyword = $(input).val();

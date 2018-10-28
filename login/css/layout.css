@@ -37,20 +37,7 @@ body #top img{margin-left: 15px;}
 		margin-top: 5px;
 		display: inline-table;
 	}
-	input[type='text']{
-		margin-left: 6px;
-	}
-	input[type='password'],input[type='text']{
-		background:#2E2E2E;
-		border:none;
-		height:30px;
-		position:absolute;
-		width:350px;
-		box-shadow: #000 0px 0px 5px inset;
-		color:#dddddd;
-		font-size: 15px;
-		padding-left: 10px;
-	}
+	
 	#box_logar form p label #btn_enviar{
 		border:9px solid #373737;
 	    border-radius:28px;
@@ -79,3 +66,19 @@ body #top img{margin-left: 15px;}
 		display: none;
 		text-align: center;
 	}
+.title-create-account{
+	color:#dddddd;
+	font-size: 1.2em;
+}
+.nopadding{
+	margin: 0px !important;
+	padding: 0px !important;
+}
+/*Recuperar senha*/
+#boxRecover{
+	width: 500px;
+    background-color: #dddddd;
+    padding: 10px;
+    margin: 5% auto;
+    border-radius: 10px;
+}

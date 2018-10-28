@@ -355,7 +355,7 @@ body{
 }
 #box_meu_jogo span#topo h4{
 	font-family: Arial, helvetica, sans-serif;
-	color:#0060f0;
+	color:#3c3c3e;
 	margin-left:3.5%;
 	font-size: 1.5em;
 }
@@ -392,21 +392,21 @@ body{
 	margin-top: 5px;
 }
 span.alert-vazio p:first-child{
-	color:#222222;
+	color:#800000;
     font-family:Tahoma, Helvetica, Arial, sans-serif;
     font-size:60px;    
     text-shadow:#555555 0 2px 3px;
 }
 span.alert-vazio p{ text-align:center; }
 span.alert-vazio p:last-child{
-	color:#0060F0;
+	color:#3c3c3e;
     font-size:25px;
     font-weight:bold;
     margin-top:20px;
 }
 span.alert-vazio p:last-child a{
 	text-decoration: underline;
-	color:#00ba47;
+	color:#000000;
 }
 .type_active{
 	border: 1px solid #069;

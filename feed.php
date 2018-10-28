@@ -50,24 +50,22 @@
 						<div class="prf-down">
 							<?php							
 								$user->setIdUser($codUser);
-								$usuario = $user->findRegister();
-								foreach($usuario as $chave => $dado) :									
+								$dados = $user->findRegister();
+								//foreach($usuario as $chave => $dado) :						
 							?>
 							<div class="box-infos">
-								<span class"user-info" id="user-name"><?php echo $dado->nomeUser; ?></span>
-								<span class="user-info" id="user-address"><?php echo (isset($dado->cidade) && ($dado->cidade!='') ? $dado->cidade : 'Não informado') ?> <?php echo (isset($dado->estado) && ($dado->estado!='') ? ' / '.$dado->estado : '') ?></span>
+								<span class="user-info" id="user-name"><?php echo (isset($dados->nomeUser)) ? $dados->nomeUser : ''; ?></span>
+								<span class="user-info" id="user-address"><?php echo (isset($dados->cidade) && ($dados->cidade!='') ? $dados->cidade : 'Não informado') ?> <?php echo (isset($dados->estado) && ($dados->estado!='') ? ' / '.$dados->estado : '') ?></span>
 								<button class="btn <?php echo (isset($_SESSION['emailTJ'])) ? 'auth-message' : 'access-login' ?>" id="send-msg">Enviar mensagem</button>
 							</div>
-							<?php
-								endforeach;
-							?>
+							
 						</div>
 					</div>
 				</div>
 				<div class="col-lg-3 nopadding col-lg-push-1">
 					<div class="favorite-box">
 						<?php						
-							$cnsl = $console->consoleById($dado->console);
+							$cnsl = $console->consoleById($dados->console);
 							foreach ($cnsl as $conso) {
 								$vdfavorito = $conso->nome_console;
 							}

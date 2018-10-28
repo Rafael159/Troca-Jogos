@@ -47,7 +47,6 @@ body{
 	margin-left:2px;
 	text-align: center;	
 	border-radius:4px;
-	display: inline-block;
 	float: right;
 	transition:0.5s all;
 	-ms-transition:0.5s all;
@@ -97,7 +96,7 @@ body{
 	border-bottom-color: transparent;
 	height: 20px;
 	padding: 5px;
-	position: absolute;	
+	position: absolute;
 	outline: none;
 }
 #main-menu .nav ul .cns-menu .link:hover{
@@ -214,7 +213,7 @@ body{
 	opacity: 0.5;
 	display: none;
 }
-#box-login, #box-cadastro{
+.cx_content{
 	width: 300px;
 	background: -webkit-linear-gradient(#333, #666); /* For Safari 5.1 to 6.0 */
 	background: -o-linear-gradient(#333, #666); /* For Opera 11.1 to 12.0 */
@@ -232,6 +231,7 @@ body{
 	-webkit-box-shadow: 1px 1px 3px #fbfbfb;
 	-moz-box-shadow: 1px 1px 3px #fbfbfb;
 }
+
 .btn_cancela_acesso{
 	background:#333333;
     border:3px solid #FFFFFF;
@@ -623,7 +623,7 @@ span#titulo-galeria{
 	}
 	.main .galeria .box-galeria-jogos li{
 		z-index: 10;
-		width: 120px;
+		width: 115px;
 		height: 20px;
 		padding: 10px 10px;
 		list-style-type: none;
@@ -645,11 +645,22 @@ span#titulo-galeria{
 
     	opacity: 1;
     	color: #CD6C03;
-    	position: relative;
+		position: relative;
+		animation: moveFromTop 300ms ease-in-out;
     	-webkit-animation: moveFromTop 300ms ease-in-out;
         -moz-animation: moveFromTop 300ms ease-in-out;
         -ms-animation: moveFromTop 300ms ease-in-out;
-    }
+	}
+	@keyframes moveFromTop{
+		from {
+			opacity: 0;
+			-webkit-transform: translateY(-25%);
+		}
+		to {
+			opacity: 1;
+			-webkit-transform: translateY(0%);
+		}
+	}
     @-webkit-keyframes moveFromTop {
     from {
         opacity: 0;
@@ -855,12 +866,14 @@ span#titulo-galeria{
 	::-webkit-scrollbar-track{
 	  background:#3c454e;
 	  border:thin solid #1a1f25;
+	  box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
 	  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
 	  -webkit-border-radius: 10px;
 	  border-radius: 10px;
 	}
 	::-webkit-scrollbar-thumb{
 	  background: -webkit-linear-gradient(top, #1E6F98, #1c7eaf);
+	  box-shadow: inset 0 1px 0 rgba(255,255,225,.5), inset 1px 0 0 rgba(255,255,255,.4), inset 0 1px 2px rgba(255,255,255,.3);
 	  -webkit-box-shadow:   inset 0 1px 0 rgba(255,255,225,.5), inset 1px 0 0 rgba(255,255,255,.4), inset 0 1px 2px rgba(255,255,255,.3);
 	  border:thin solid #232c34;
 	  border-radius: 10px;

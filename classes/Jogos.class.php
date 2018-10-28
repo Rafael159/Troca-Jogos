@@ -105,7 +105,7 @@ class Jogos extends Crud{
 				INNER JOIN `imagens` as i ON j.img_jogo = i.id_img)
 				INNER JOIN `usuarios` as u ON  u.id_user = j.id_gamer)
 				WHERE n_jogo LIKE :busca";
-
+		
 		$stmt = @BD::conn()->prepare($sql);
 		$stmt->bindValue(':busca', '%'.$this->nome.'%');
 		$stmt->execute();

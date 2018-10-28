@@ -20,9 +20,9 @@
    			}
     		@BD::conn();//conexão com o banco de dados
     		$categoria = new Consoles();
-    		$jogos = new Jogos();		    		
+    		$jogos = new Jogos();
 		?>
-		<div class="main_box">	
+		<div class="main_box">
 			<div class="content">
 				<?php include_once 'require/topo.php';?> <!--chama o topo do site-->
 			<div class="conteudo">
@@ -89,7 +89,7 @@
 						</a>	
 					</div>
 				</div>
-			</div>
+			</div>-->
 				<!--menu galeria de jogos em estoque-->
 				<span id="titulo-galeria"><h4>GALERIA DE JOGOS POR CATEGORIA</h4></span>
 				<!--enviar o id do console e retorno os jogos referentes ao mesmo-->
