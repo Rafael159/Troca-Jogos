@@ -17,38 +17,23 @@
         <div class="control-form" id="boxRecover">
             <form method="POST" action="" name="form-acesso" class="form-acesso" id="form-logar"> 
                 <div class="row">
-                    <label class="col-lg-12">Informe o e-mail cadastrado no site</label>		
+                    <label class="col-lg-12" class="lbl_info">Informe o e-mail cadastrado no site</label>
                     <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                        <label for="email_recover">Email:</label>
+                        <label for="email_recover" class="lbl_info">Email:</label>
                         <input type="text" name="email_recover" id="email_recover" placeholder="nome@exemplo.com" class="form-control"/>
                     </div>
                     <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12"> 
-                        <a href="../index.php" class="btn btn-danger">Voltar</a>                       
+                        <a href="../index.php" class="btn btn-danger" id="btn-voltar">Voltar</a>                       
                         <button class="btn btn-success" name="btn-recover" id="btn-recover">Recuperar</button>
+                        <a href="../index.php" class="btn btn-info" name="btn-back" id="btn-back">Voltar a navegação</a>
                     </div>
                 </div>
-                <div class="alert alert-danger" style="display:none">E-mail informado não encontrado. Informe o e-mail usado no cadastro</div>
+                <div class="alert" id="return_msg"></div>
             </form>
             
         </div>
     </div>
-    <?php
-       function __autoload($classe){
-            require('../classes/'.$classe.'.class.php'); /*chama a classe automaticamente*/
-        }
-        $user = new Usuarios();
-        $queries = array();
-        $queries['email'] = 'pedrosilva@gmail.com';
-        //$queries['id_user'] = '2';
-
-
-        $row = $user->findEmail($queries);
-        if(sizeof($row)==0){
-           echo 'não retornou nada';
-        }
-        echo '<pre>';
-        print_r($row);
-    ?>
+   
 	<!--CHAMADA JAVASCRIPT-->		
 	<script src="../js/jquery.js"></script>
     <script src="../js/script_recover.js"></script>

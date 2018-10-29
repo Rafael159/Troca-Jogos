@@ -4,25 +4,32 @@ $(document).ready(function(){
         ev.preventDefault();
         
         email = $('input[name=email_recover]').val();
-        
-        if(email.length > 1){
+       //alert(email.length);
+        if(email.length > 0){
+            
             $.ajax({
                 method:'POST',
                 url: 'verifica.php',
-                dataType:'json',
                 data: {email: email, tipo: 'recuperar'},
                 success: function(dados){
-                        console.log(dados);            
-                    /*if(dados.status == '0'){
-                        console.log(dados);//error
+                    dados = JSON.parse(dados);
+                            
+                    if(dados.status == '0'){
+                        //erro
+                        $('#return_msg').addClass('alert-danger').text(dados.mensagem).fadeIn();
                     }else{
-                        console.log(dados);
-                    }*/
+                        mensagem = "Um e-mail com um link para redefinição da senha foi enviado para <b style='font-size:1.2em'>" + dados.mensagem + "</b>";
+                        mensagem += "<br/> Verifique o seu e-mail para redefinir a sua senha";
+
+                        $('#email_recover, #btn-voltar, #btn-recover, .lbl_info').hide();
+                        $('#btn-back').fadeIn();
+                        $('#return_msg').removeClass('alert-danger').addClass('alert-success').html(mensagem).fadeIn();
+                    }
                 }
     
-            });
+            }, 'jSON');
         }else{
-            alert('nada');
+            $('#return_msg').text('Informe um e-mail válido');
         }
     });
 

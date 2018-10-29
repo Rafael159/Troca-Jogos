@@ -18,7 +18,8 @@ if(empty($email)):
 	exit();
 endif;
 
-if($tipo AND $tipo=='recuperar'){
+if($tipo && $tipo=='recuperar'){
+	$queries = array();
 	$queries['email'] = $email;
 
 	$row = $user->findEmail($queries);
@@ -28,8 +29,8 @@ if($tipo AND $tipo=='recuperar'){
 		echo json_encode($retorno);
 		exit();
 	}else{
-		$retorno = array('status'=>'1', 'mensagem'=>'Um e-mail com um link para redefinição da senha foi enviado para '.$email);
-		print_r($retorno);		
+		$retorno = array('status'=>'1', 'mensagem'=> $email);
+		echo json_encode($retorno);			
 	}
 
 }else{

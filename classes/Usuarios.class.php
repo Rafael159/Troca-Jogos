@@ -197,7 +197,7 @@ class Usuarios extends Crud{
 		$where = " WHERE status = 'sim'";
 		
 		$sql  = "SELECT * FROM $this->table $where $w";
-		echo $sql;
+		
 		$stmt = @BD::conn()->prepare($sql);
 		$stmt->bindParam(':email',$this->email);
 		$stmt->execute();
