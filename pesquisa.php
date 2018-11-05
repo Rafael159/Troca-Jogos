@@ -15,10 +15,12 @@
     $usuario = new Usuarios();
 	$console = new Consoles();
 	$key = ( isset($_GET['pesquisa']) AND !empty($_GET['pesquisa'])) ? $_GET['pesquisa'] : '';
-		
+	
+	
 	$pos = strpos($key, '-');//posição do "-"
+	
 	if($pos){
-		$cnsl = trim(substr($key, $pos+1));
+		$cnsl = trim(substr(strrchr($key, '-'), 1));
 		$key = trim(substr($key, 0, $pos));//retira o nome do console
 	}
 	
@@ -50,17 +52,13 @@
 		<?php
 			if($key){	
 				if(isset($cnsl)){
-					$sql = "SELECT j.id, j.n_jogo, j.img_jogo, j.id_console, j.id_gamer, j.jogoTroca, j.idJogoTroca, j.data,
-				j.descricao, j.informacao, j.status, c.nome_console, i.id_img, i.nome, i.imagem, u.id_user,
-				u.nomeUser, u.celular, u.telefone, u.rua, u.numero, u.cidade, u.estado, u.complemento, u.console FROM `jogos` as j, `console` as c, `imagens` as i, `usuarios` as u WHERE UPPER(j.n_jogo) LIKE UPPER('%".$key."%') AND c.nome_console = '".$cnsl."' AND c.id_console = j.id_console AND j.img_jogo = i.id_img AND j.id_gamer = u.id_user ORDER BY j.id";
-				}else{			
-					$sql = "SELECT j.id, j.n_jogo, j.img_jogo, j.id_console, j.id_gamer, j.jogoTroca, j.idJogoTroca, j.data,
-				j.descricao, j.informacao, j.status, c.nome_console, i.id_img, i.nome, i.imagem, u.id_user,
-				u.nomeUser, u.celular, u.telefone, u.rua, u.numero, u.cidade, u.estado, u.complemento, u.console FROM `jogos` as j, `console` as c, `imagens` as i, `usuarios` as u WHERE UPPER(j.n_jogo) LIKE UPPER('%".$key."%') AND c.id_console = j.id_console AND j.img_jogo = i.id_img AND j.id_gamer = u.id_user ORDER BY j.id";
-				}
-				$qtd = count($jogos->consulta($sql));
+					$grupoJogos = $jogos->listarJogo(array('jogo'=>$key, 'console'=>$cnsl));
+				}else{
+					$grupoJogos = $jogos->listarJogo(array('jogo'=>$key));
+			}
+				$qtd = count($grupoJogos);
 				if($qtd != 0){
-					foreach($jogos->consulta($sql) as $valor):
+					foreach($grupoJogos as $valor):
 		?>
 			<div class="contorno">				
 				<figure id="console" nome="<?php echo strtoupper($valor->nome_console)?>"><a href="game/game.php?codigo=<?php echo $valor->id;?>&&console=<?php echo $valor->id_console;?>"> <img src="game/imagens/<?php echo str_replace(' ', '',$valor->nome_console)?>/<?php echo $valor->imagem?>" alt="<?php echo strtoupper($valor->n_jogo)?>"/></a></figure>

@@ -9,12 +9,12 @@
 	$console = new Categorias();
 
 	$pesq = strip_tags($_GET['pesquisa']);
-    $jogo = $jogos->listarJogo($pesq); 
+    $jogo = $jogos->listarJogo(array('jogo'=>$pesq)); 
 
     $contarProdutos = count($jogo);
     if($contarProdutos != 0){?>
     
-	<span id='num_jogos' style='display='none''><?php $contarProdutos;?></span>
+	<span id='num_jogos' style='display=none'><?php $contarProdutos;?></span>
     <?php    		
     foreach($jogo as $exibeJogo): // buscar informações do jogo
 

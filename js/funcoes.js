@@ -22,12 +22,14 @@ $(document).ready(function (){
 	}
 
 	/*ENVIAR EMAIL E SENHA PARA LOGAR AO SITE*/
-	$("#btn-logar").bind('click',function () {
+	$("#btn-logar").bind('click',function (ev) {
+		ev.preventDefault();
 		frm = $('#form-acesso');//formulário de login
 		logar_user(frm, 1, 'login/verifica.php', 'admin/','users/');
 	});
 
-	$("#btn_enviar").bind('click',function () {
+	$("#btn_enviar").bind('click',function (ev) {
+		ev.preventDefault();
 		frm = $('#form-logar');//formulário de login
 		logar_user(frm, 2, 'verifica.php', '../admin/', '../users/');
 	});

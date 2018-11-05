@@ -11,26 +11,11 @@ body{
 }
 .main .top{
 	width: 100%;
-	border:1px solid;
-	background:#212121;
-	margin-bottom: 15px;
 }
-.main .top > a{ 	
-	margin-left: 15px; 
+.main .top .brand{ 	
+	margin-left: 2%; 
 }
-.main .top span{
-	float: right;
-    margin-top: 15px;
-    margin-right: 40px;
-    padding: 6px 10px;
-    background: #0074e1;
-    border-radius: 5px;
-}
-.main .top span:hover{ background: #069;}
-.main .top span a{
-	text-decoration: none; 
-	color:#fff;
-}
+
 .cleafix{
 	clear:both;
 	content: '';
@@ -57,44 +42,49 @@ body{
     color: #333333;
     margin: 10px 0px;
 }
-	#box label.faixa{
-		width: 100%;    
-	    background: #d2d1d1;    
-	    display: block;
-	    text-align: center;
-	    border-radius:5px;
+#box label.faixa{
+	background-image: linear-gradient(to bottom, #929292, #fff, #929292);
+	display: block;
+	text-align: center;
+	border-radius: 20px;
+	padding: 1px 0px;
+}
+#box .bt-inicial{
+	width:145px;
+	height:35px;
+	display:block;
+	box-shadow:#595959 0px 0px 11px inset;
+	margin-left:40px;
+	padding:0px 6px;
+	transition:0.5s;		
+}
+	#box .bt-inicial:hover{
+		box-shadow:#595959 0px 0px 3px inset;
 	}
-	#box .bt-inicial{
-		width:145px;
-		height:35px;
-		display:block;
-		box-shadow:#595959 0px 0px 11px inset;
-		margin-left:40px;
-		padding:0px 6px;
-		transition:0.5s;		
-	}
-		#box .bt-inicial:hover{
-			box-shadow:#595959 0px 0px 3px inset;
-		}
-	#box .bt-inicial .content{
-		background:url('../imagens/icones/iconesCadastro.png');
-		width:28px;
-		height:28px;
-		display:inline-table;
-		margin:2px 0px 0px 5px;
-	}
-		#box .bt-inicial .content.home{
-			background-position:0px 0px;
-			float:left;
-		}
-		#box .bt-inicial a{			
-			margin:10px 0px 0px 6px;
-			margin-top:10px;
-			position:absolute;			
-			text-decoration:none;
-			font:16px Arial, Helvitica, sans-serif;
-			color:#333333;
-		}
+#box .bt-inicial .content{
+	background:url('../imagens/icones/iconesCadastro.png');
+	width:28px;
+	height:28px;
+	display:inline-table;
+	margin:2px 0px 0px 5px;
+}
+#box .bt-inicial .content.home{
+	background-position:0px 0px;
+	float:left;
+}
+#box .bt-inicial a{			
+	margin:10px 0px 0px 6px;
+	margin-top:10px;
+	position:absolute;			
+	text-decoration:none;
+	font:16px Arial, Helvitica, sans-serif;
+	color:#333333;
+}
+.first_title{
+	color: #484848;
+	text-shadow: 1px 1px 4px #ddd;
+	margin:10px 0px;
+}
 #retorno,#retorno2{
 	padding: 4px;
 	margin: 0 auto;

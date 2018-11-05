@@ -14,25 +14,28 @@
 	</div>
 	<div class="row nopadding">
 		<div class="control-form" id="box_logar">
-			<form method="POST" action="" name="form-acesso" class="form-acesso" id="form-logar"> 			
-				<div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
-					<label for="email_login" class="title-create-account">Email:</label>
-					<input type="text" name="email" id="email" placeholder="nome@exemplo.com" class="form-control"/>
+			<form method="POST" action="" name="form-acesso" class="form-acesso" id="form-logar">
+				<div class="row"> 			
+					<div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
+						<label for="email_login" class="title-create-account">Email:</label>
+						<input type="text" name="email" id="email" placeholder="nome@exemplo.com" class="form-control field-signin"/>
+					</div>
+					<div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
+						<label for="senha_login" class="title-create-account">Senha:</label>
+						<input type="password" name="senha" id="senha" placeholder="*************" class="form-control field-signin"/>
+					</div>
+					<div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
+						<a href="../index.php" class="btn btn-danger" id="btn-voltar">Voltar</a>  					
+						<button class="btn btn-success" name="btn-recover" id="btn_enviar">Entrar</button>
+					</div>
 				</div>
-				<div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
-					<label for="senha_login" class="title-create-account">Senha:</label>
-					<input type="password" name="senha" id="senha" placeholder="*************" class="form-control"/>
-				</div>
-				<div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">					
-					<img src="img/seta.png" id="btn_enviar"/></button>					
-				</div>						
-				<div class="btn-group">
-					<a href="../index.php">Cancelar</a>
-					<a href="#user-cadastrar">Esqueceu a senha?</a>
-					<button class="btn btn-success" id="btn_enviar">Entrar</button>
-				</div>
-				<div id="result"></div>
+				<div class="alert alert-danger" id="result"></div>
 			</form>
+			<div class="box-create-account">					
+				<span>Não possui um conta? <a href="../cadastro.php">Criar agora</a></span><br>
+					
+				<span><a href="../login/recoverpass.php">Esqueceu a senha?</a></span>	
+			</div>
 		</div>
 	</div>
 	<!--CHAMADA JAVASCRIPT-->		

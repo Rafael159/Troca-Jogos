@@ -4,7 +4,7 @@ $(document).ready(function(){
         ev.preventDefault();
         
         email = $('input[name=email_recover]').val();
-       //alert(email.length);
+      
         if(email.length > 0){
             
             $.ajax({
@@ -29,7 +29,7 @@ $(document).ready(function(){
     
             }, 'jSON');
         }else{
-            $('#return_msg').text('Informe um e-mail válido');
+            $('#return_msg').removeClass('alert-success').addClass('alert-danger').html('Informe um email').fadeIn();
         }
     });
 

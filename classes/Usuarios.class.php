@@ -175,15 +175,14 @@ class Usuarios extends Crud{
 	}
 
 	//exibir registro individual por EMAIL
-	public function findEmail($queries = array()){
-		
+	public function findEmail($queries = array()){		
 		
 		$id = (array_key_exists("id_user", $queries)) ? $queries['id_user'] : ''; 
 		$email = (array_key_exists("email", $queries)) ? $queries['email'] : '';		
 
 		$_where = array();
 		if($id) array_push($_where, " id_user = $id ");
-		if($email) array_push($_where, " emailTJ = '$email' ");
+		if($email) array_push($_where, " emailTJ = :email ");
 		
 		$w = '';
 		if(sizeof($_where) > 0){
@@ -199,7 +198,7 @@ class Usuarios extends Crud{
 		$sql  = "SELECT * FROM $this->table $where $w";
 		
 		$stmt = @BD::conn()->prepare($sql);
-		$stmt->bindParam(':email',$this->email);
+		if($email) $stmt->bindParam(':email', $email);
 		$stmt->execute();
 		return $stmt->fetchAll();
 	}

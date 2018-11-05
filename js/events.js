@@ -23,7 +23,7 @@ $(document).ready(function (){
 			success: function(dados){
 								
 				if(dados.status == '0'){
-					$("#"+idfrm+" #result").html(dados.mensagem).slideDown();//error
+					$('#result').text(dados.mensagem).fadeIn();//error
 				}else{
 					if(dados.nivel == '1'){
 						window.location.href=(urladm+"admin.php");//Dashboard admin
@@ -37,12 +37,15 @@ $(document).ready(function (){
 	}
 
 	/*ENVIAR EMAIL E SENHA PARA LOGAR AO SITE*/
-	$("#btn-logar").bind('click',function () {
+	$("#btn-logar").bind('click',function (ev) {
+		ev.preventDefault();
+		
 		frm = $('#form-acesso');//formulário de login
 		logar_user(frm, 1);
 	});
 
-	$("#btn_enviar").bind('click',function () {
+	$("#btn_enviar").bind('click',function (ev) {
+		ev.preventDefault();
 		frm = $('#form-logar');//formulário de login		
 		logar_user(frm, 2);		
 	});

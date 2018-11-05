@@ -97,15 +97,31 @@ class Jogos extends Crud{
 	}
 
 	/*listar jogos de acordo com a pesquisa feita*/
-	public function listarJogo(){
+	public function listarJogo($queries = array()){
+
+		$jogo = array_key_exists("jogo", $queries) ? $queries['jogo'] : '';
+		$console = array_key_exists("console", $queries) ? $queries['console'] : '';
+
+		$_where = array();
+		if($jogo) array_push($_where, " UPPER(j.n_jogo) LIKE UPPER('%".$jogo."%')");
+		if($console) array_push($_where, " nome_console = '$console'");
+
+		$w = '';
+		if(sizeof($_where) > 0){
+
+			foreach($_where as $key=>$v){
+				$w .= ' AND '.$v;
+			}
+		}
+
 		$sql = "SELECT j.id, j.n_jogo, j.img_jogo, j.id_console, j.id_gamer, j.jogoTroca, j.idJogoTroca, j.data,
 				j.descricao, j.informacao, j.status, c.nome_console, i.id_img, i.nome, i.imagem, u.id_user,
 				u.nomeUser, u.celular, u.telefone, u.rua, u.numero, u.cidade, u.estado, u.complemento, u.console
 				FROM ((($this->table as j INNER JOIN `console` as c ON j.id_console = c.id_console)
 				INNER JOIN `imagens` as i ON j.img_jogo = i.id_img)
 				INNER JOIN `usuarios` as u ON  u.id_user = j.id_gamer)
-				WHERE n_jogo LIKE :busca";
-		
+				WHERE j.status = '1' $w";
+
 		$stmt = @BD::conn()->prepare($sql);
 		$stmt->bindValue(':busca', '%'.$this->nome.'%');
 		$stmt->execute();

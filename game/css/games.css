@@ -26,16 +26,14 @@ body{
  	background-size: 100%;
 }
 .nome-jogo{
-	font-family:Arial, helvetica, sans-serif;
-	font-size: 2.0em;
-	color:#606060;
-	width:100%;
-	background:#ccc;
-	display:block;
-	margin:20px 0 -20px 0;
-	opacity:0.8;
-	border-radius:23px;
-	padding: 6px 20px;
+	font-family: Arial, helvetica, sans-serif;
+    font-size: 1.2em;
+    color: #000000;   
+    background: #ccc;
+    display: block;    
+    opacity: 0.8;    
+    padding: 6px 20px;
+    text-align: center;
 }
 	.nome-jogo h4{
 		padding:4px;
@@ -248,8 +246,10 @@ body{
 .avalia-metodo .btn-opcao {   
     cursor: pointer;
     margin-right: 8px;  
-    border-radius: 4px;
-    -webkit-transition: 1s;
+	border-radius: 4px;
+	transition: 1s all;
+	-moz-transition: 1s all;
+    -webkit-transition: 1s all;
 }
 	.avalia-metodo .btn-opcao:hover{
   		background-image: linear-gradient(to bottom, #727272, #999999);
@@ -477,13 +477,15 @@ span.alert-vazio p:last-child a{
 ::-webkit-scrollbar-track{
   background:#3c454e;
   border:thin solid #1a1f25;
+  box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
   -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
   -webkit-border-radius: 10px;
   border-radius: 10px;
 }
 ::-webkit-scrollbar-thumb{
   background: -webkit-linear-gradient(top, #1E6F98, #1c7eaf);
-  -webkit-box-shadow:   inset 0 1px 0 rgba(255,255,225,.5), inset 1px 0 0 rgba(255,255,255,.4), inset 0 1px 2px rgba(255,255,255,.3);
+  box-shadow: inset 0 1px 0 rgba(255,255,225,.5), inset 1px 0 0 rgba(255,255,255,.4), inset 0 1px 2px rgba(255,255,255,.3);
+  -webkit-box-shadow: inset 0 1px 0 rgba(255,255,225,.5), inset 1px 0 0 rgba(255,255,255,.4), inset 0 1px 2px rgba(255,255,255,.3);
   border:thin solid #232c34;
   border-radius: 10px;
   -webkit-border-radius: 10px;

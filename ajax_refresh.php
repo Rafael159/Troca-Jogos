@@ -6,7 +6,7 @@
 
 	$jogo = new Jogos();
 	$jogo->setNome($keyword);
-	$lista = $jogo->listarJogo();
+	$lista = $jogo->listarJogo(array('jogo'=>$keyword));
 
 	$retorno = array();
 	foreach ($lista as $rs) {

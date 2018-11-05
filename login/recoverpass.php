@@ -20,7 +20,7 @@
                     <label class="col-lg-12" class="lbl_info">Informe o e-mail cadastrado no site</label>
                     <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
                         <label for="email_recover" class="lbl_info">Email:</label>
-                        <input type="text" name="email_recover" id="email_recover" placeholder="nome@exemplo.com" class="form-control"/>
+                        <input type="text" name="email_recover" id="email_recover" placeholder="nome@exemplo.com" class="form-control" required/>
                     </div>
                     <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12"> 
                         <a href="../index.php" class="btn btn-danger" id="btn-voltar">Voltar</a>                       

@@ -57,5 +57,5 @@
 </div>
 <script type="text/javascript" src="js/jquery.js"></script>
 <script type="text/javascript" src="js/funcoes.js"></script>
-<script type="text/javascript" src="js/events.js"></script><!--Buscar os produtos pelo nome digitado-->
+<script type="text/javascript" src="js/events.js"></script>
 <script type="text/javascript" src="js/global.js"></script>

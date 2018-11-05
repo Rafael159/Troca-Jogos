@@ -58,8 +58,7 @@
 				
 				$_data=$usuarios->getNameByID($valor->id_gamer);//nome do dono do jogo
 
-		?>
-		<span class="nome-jogo"><?php echo strtoupper($valor->n_jogo)?> - <?php echo strtoupper($valor->nome_console)?></h4></span>
+		?>		
 		<div id="conteudo-jogos">			
 			<div class="left-jogo">				
 				<img src="imagens/<?php echo str_replace(' ', '', strtolower($valor->nome_console))?>/<?php echo $valor->imagem?>" alt="<?php echo $valor->n_jogo?>" class="img_jogo"/>
@@ -83,6 +82,7 @@
 				<div class="btn-botao btnShare"><a href="#">Compartilhar para ajudar</a></div>
 			</div>
 			<div class="right-jogo">
+			<span class="nome-jogo"><?php echo strtoupper($valor->n_jogo)?> - <?php echo strtoupper($valor->nome_console)?></h4></span>
 				<fieldset>					
 					<label>Dono do jogo : <span class="owner-name"><?php echo (isset($_data[0]) && $_data[0]) ? $_data[0] : ''?></span></label>					
 				</fieldset>

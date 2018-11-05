@@ -38,8 +38,7 @@ function pesquisarjogo(){
 
 $('.categoria .filterConsole').on('change', function(e){
 	e.preventDefault();
-	//valor = $("#box_pesquisa #id_pesquisa").val();
-	
+		
 	if($(this).is(':checked')){
 		$(this).parent().parent().parent().addClass('filtro-actived');
 	}else{
@@ -94,7 +93,6 @@ function list_games(key, jogo_lista){
      		if(data.length > 0){
      			var linha = '';
      			$.each(data, function(chave, dados){
-	        		//alert(dados.jogo);
 	        		/*criar */
 	        		linha += "<li class='autoJogo' onclick='set_item(\""+dados.jogo+' - '+ dados.console + "\")'><img src='game/imagens/"+dados.consolesemEspaco+"/"+dados.imagem+"'/><h3 class='title-game'>"+ slice_string(dados.jogo) + ' - ' + dados.console + "</h3></li>";
         		});
