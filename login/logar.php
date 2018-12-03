@@ -25,14 +25,14 @@
 						<input type="password" name="senha" id="senha" placeholder="*************" class="form-control field-signin"/>
 					</div>
 					<div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
-						<a href="../index.php" class="btn btn-danger" id="btn-voltar">Voltar</a>  					
-						<button class="btn btn-success" name="btn-recover" id="btn_enviar">Entrar</button>
+						<a href="../index.php" class="btn btn-danger" id="btn-voltar">Voltar <span class="glyphicon glyphicon-home"></span></a>  					
+						<button class="btn btn-success" name="btn-recover" id="btn_enviar">Entrar <span class="glyphicon glyphicon-log-in"></span></button>
 					</div>
 				</div>
 				<div class="alert alert-danger" id="result"></div>
 			</form>
 			<div class="box-create-account">					
-				<span>Não possui um conta? <a href="../cadastro.php">Criar agora</a></span><br>
+				<span>Não possui uma conta? <a href="../cadastro.php">Criar agora</a></span><br>
 					
 				<span><a href="../login/recoverpass.php">Esqueceu a senha?</a></span>	
 			</div>

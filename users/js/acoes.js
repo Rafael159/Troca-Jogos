@@ -70,10 +70,9 @@ function buscarJogo(jogo, id){
 				$('#imagem, #boxmeujogo').html('');//apagar conteúdo já existente
 				
 	    		$.each(retorno, function(key, value){
-	    			//alert(key + '' +);
-	    			console = replacestr(value.nome_console);
+	    			
+	    			console = replacestr(value.nome_console); 
 
-	    			//alert(value.nome_console.trim());
 	    			//enviar imagens vindo do banco para o box
 	    			box =   '<div class="each-img" id="'+value.id_img+'">';
 					box +=	'<img src="../game/imagens/'+console+'/'+value.imagem+'" alt="'+value.nome+'" class="img-responsive image-game">'
@@ -102,8 +101,7 @@ function buscar(jogo, id){
 			data      : 'id='+ id +'&jogo='+ jogo,
        		dataType  : 'json',
 			success: function(data)
-		    {		    
-		    	//alert(data);	
+		    {	
 		    	if(data.qnt == 0){
 		    		$('#jogo_escolha, #boxjogo_favorito').html('');//apagar conteúdo já existente
 					$('.box_new_img2').fadeIn();

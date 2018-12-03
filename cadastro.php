@@ -120,7 +120,7 @@
 												<strong></strong>
 											</div>
 											<div class="btn-group">
-												<button name="btCancelar" class="btn btn-danger" id="btCancelar" />Cancelar</button>	
+												<button name="btCancelar" class="btn btn-danger" id="btCancelar">Cancelar</button>	
 												<button type="submit" name="btCadastrar" class="btn btn-success" id="btCadastrar">Cadastrar</button>	
 											</div>										
 										</div>
@@ -142,7 +142,7 @@
 						</div>
 						<div class="modal-body">
 							
-								<p>A visão do Troco Jogos é possibilitar que jogadores do Brasil possam se encontrar na nossa plataforma e trocar os seus jogos</p>
+								<p>A visão do Troca Jogos é possibilitar que jogadores do Brasil possam se encontrar na nossa plataforma e trocar os seus jogos</p>
 								<p>Pensando nisso, nada melhor do que saber onde entregar o jogo quando uma troca for acordada entre os players</p>
 								<br>
 								<p>Você não é obrigado a informar o seu endereço. Apenas garanta que a comunicação entre os interessados possa proporcionar uma troca com 100% de sucesso</p>

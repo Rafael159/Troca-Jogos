@@ -5,7 +5,6 @@
 	}
 	$troca = new Trocas();//chama a classe Troca
 	$jogos = new Jogos();
-	//print_r($_POST);
 	
 	$retorno = array();
 
@@ -53,6 +52,7 @@
 	$troca->setTipoTroca($tipoTroca);
 	$troca->setValor($valor);
 	$troca->setMensagem($mensagem);
+	$troca->setStatus("Pendente");
 	$troca->setByUser($codDois);//quem requisita é quem está logado
 
 	//GRAVAR DADOS

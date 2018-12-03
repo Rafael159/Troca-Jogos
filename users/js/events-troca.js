@@ -36,7 +36,7 @@ $(document).ready(function(){
 	 *Função: Tirar espaços entre a letras
 	 *@return str - string sem espaço
 	*/
-	function currentStatus(vlr){
+	function currentStatus(vlr){	
 		switch(vlr){
 			case '0':
 				status = "Pendente";
@@ -85,7 +85,7 @@ $(document).ready(function(){
 	 * @param tipotroca = 1{aceita} 2{recusa}
 	 */
 	window.update = function(idtroca, tipotroca){
-		alert(idtroca);
+		
 		$.ajax({
 			url : 'update-troca.php',
 			type: 'post',
@@ -96,8 +96,8 @@ $(document).ready(function(){
 				$('#box_error').modal();
 				$('#box-msg-error').html(dados.mensagem);
 			}else{
-				if(tipotroca==1){
-					show_exchanges('acepted');
+				if(tipotroca=="Aceito"){
+					show_exchanges('accepted');
 				}else{
 					qnt = $('#trocas .badge').text();
 			   		qnt = parseInt(qnt) - 1;//add 1

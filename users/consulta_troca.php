@@ -11,13 +11,14 @@
 
 	//recebe o tipo de consulta
 	$tipo = (isset($_POST['type']) ? $_POST['type'] : 'all');
+	
 	$troca->setByUser((int)$userID);
         		
 	switch ($tipo) {
 		case 'all':
 			$dados = $troca->showAll();
 		break;
-        case 'acepted':
+        case 'accepted':
             $dados = $troca->showAccepted();
         break;        
 		case 'done':
@@ -58,6 +59,9 @@
             	<div class="col-lg-2">
             		<th class="top-title">VALOR RETORNO</th>
             	</div>
+				<div class="col-lg-2">
+            		<th class="top-title">STATUS</th>
+            	</div>
             	<div class="col-lg-2">
             		<th class="top-title actions">AÇÕES</th>
             	</div>
@@ -65,7 +69,8 @@
         </thead>
         <tbody>
         	<?php
-			    foreach ($dados as $key => $rs):                    
+				foreach ($dados as $key => $rs): 
+               
 			    	$takeID = $rs->jogoum;//recebe o id do jogo pretendido
 
 			    	switch ($rs->tipo) {
@@ -106,19 +111,24 @@
             	<div class="col-lg-2">
             		<th class="each-record"><?php echo "R$ $rs->valor"?></th>
             	</div>
+				<div class="col-lg-2">
+            		<th class="each-record"><?php echo $rs->status; ?></th>
+            	</div>
             	<div class="col-lg-2">
                     <td class="actions">
                         <?php  
                             $owner = $rs->by_user;//pega o id de quem fez a troca
                             $vlr = $rs->status;
-                            if($vlr==0 && ($owner != $userID) && ($tipo=='received' || $tipo=='all')){
+                            if($vlr=="Pendente" && ($owner != $userID) && ($tipo=='received' || $tipo=='all')){
                         ?>
-                        <a class="btn btn-success btn-xs" onclick="update(<?php echo $rs->id_troca?>, 1)">Aceitar</a>
-                        <a class="btn btn-danger btn-xs" onclick="update(<?php echo $rs->id_troca?>, 2)">Recusar</a>
+                        <span class="edge-btn"><a class="btn btn-success btn-xs" onclick="update(<?php echo $rs->id_troca?>, 'Aceito')">Aceitar</a></span>
+                        <span class="edge-btn"><a class="btn btn-danger btn-xs" onclick="update(<?php echo $rs->id_troca?>, 'Recusado')">Recusar</a></span>
                         <?php } ?>
                         <div class="secao-btn">
-                            <a class="btn btn-warning btn-xs op_trocas" data-toggle="modal" onclick="viewTroca(<?php echo $rs->id_troca?>)">Visualizar</a>
-                            <a class="btn btn-danger btn-xs op_delete" onclick='deleteTroca(this)'>Excluir</a>
+							<span class="edge-btn"><a class="btn btn-warning btn-xs op_trocas" data-toggle="modal" onclick="viewTroca(<?php echo $rs->id_troca?>)">Visualizar</a></span>
+							<?php if($vlr != "Pendente"): ?>
+								<span class="edge-btn"><a class="btn btn-danger btn-xs op_delete" onclick='deleteTroca(this)'>Excluir</a></span>
+							<?php endif; ?>
                         </div>
                         <div class="confirm-box">
                             <div class="confirm-header">Tem certeza que deseja excluir a troca?</div>

@@ -33,7 +33,7 @@
 	<div class="lupa"><img id="icon-lupa" src="imagens/icones/lupa.png" autocomplete="off"></div>
 
 	<form id="box_pesquisa" methoad="POST">
-		<?php  
+		<?php
 			if(count($_GET) != 0){
 				if(isset($_GET['pesquisa'])){
 					$q = $_GET['pesquisa'];

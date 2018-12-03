@@ -21,11 +21,14 @@
 	margin-top: 5px;
 }
 .tr_container #list #tbl-trocas .line{ width: 100%; }
+.tr_container #list #tbl-trocas .line:nth-child(odd){ background:#dcdcdc; }
+.tr_container #list #tbl-trocas .line:nth-child(even){ background:#e8e8e8 }
 
 .tr_container #list #tbl-trocas .line .top-title{
 	font-family: 'source_sans_probold', Arial, sans-serif;
     font-size: 1em;
-    color: #363636;
+    color: #dadada;
+    background:#000;
     text-align: left;
 }
 .tr_container #list #tbl-trocas .line .each-record{
@@ -141,4 +144,8 @@
     padding: 10px;
     border-radius: 5px;
     font-family: 'source_sansprolight', arial, sans-serif;    
+}
+.edge-btn{
+    margin: 5px 0px;
+    display: inline-block;
 }

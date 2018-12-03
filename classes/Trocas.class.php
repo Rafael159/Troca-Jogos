@@ -48,8 +48,8 @@
 		}
 
 		public function insert(){
-			$sql = "INSERT INTO $this->table (idUm, idDois, jogoum, jogodois, valor, tipo, mensagem, by_user) VALUES (
-					:idUm, :idDois, :jogoum, :jogodois, :valor, :tipo, :mensagem, :by_user)";
+			$sql = "INSERT INTO $this->table (idUm, idDois, jogoum, jogodois, valor, tipo, mensagem, status, by_user) VALUES (
+					:idUm, :idDois, :jogoum, :jogodois, :valor, :tipo, :mensagem, :status, :by_user)";
 			$stmt = @BD::conn()->prepare($sql);
 			$stmt->bindParam(':idUm', $this->idUserUm);
 			$stmt->bindParam(':idDois', $this->idUserDois);
@@ -58,6 +58,7 @@
 			$stmt->bindParam(':valor',$this->valor);
 			$stmt->bindParam(':tipo',$this->troca);
 			$stmt->bindParam(':mensagem',$this->mensagem);
+			$stmt->bindParam(':status',$this->status);
 			$stmt->bindParam(':by_user',$this->by_user);
 			
 			return $stmt->execute();
@@ -156,7 +157,7 @@
 					INNER JOIN  `imagens` AS i ON j.img_jogo = i.id_img)
 					INNER JOIN  `usuarios` AS u ON j.id_gamer = u.id_user)
 					WHERE (tc.idUm = :by_user OR tc.idDois = :by_user) AND (tc.jogodois = j.id)
-					AND tc.status = 2 
+					AND tc.status = 'Recusado' 
 					GROUP BY tc.id
 					ORDER BY tc.id ASC";
 			$stmt = @BD::conn()->prepare($sql);
@@ -173,7 +174,7 @@
 					INNER JOIN  `imagens` AS i ON j.img_jogo = i.id_img)
 					INNER JOIN  `usuarios` AS u ON j.id_gamer = u.id_user)
 					WHERE (tc.by_user != :by_user) AND (tc.jogodois = j.id)
-					AND tc.status = 1 
+					AND tc.status = 'Aceito' 
 					GROUP BY tc.id
 					ORDER BY tc.id ASC";
 			$stmt = @BD::conn()->prepare($sql);

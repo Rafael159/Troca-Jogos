@@ -5,23 +5,8 @@
 	
 	<!--CHAMADA CSS-->
 	<link rel="stylesheet" type="text/css" href="css/layout.css"/>
-
-	<title>Entre agora mesmo !</title>
-	<script>
-		$(document).ready(function (){
-			$("#enviar").click(function (){
-				
-				var email = $("#email").val();
-				var senha = $("#senha").val();
-
-				$.post('verifica.php',{email:email, senha:senha},function(dados){
-					$("#result").fadeIn().html(dados);
-					$("#result").delay(2500).fadeOut();		
-				});
-
-			});
-		});
-	</script>
+	<title>Entre agora mesmo !</title>	
+	
 	</head>
 <body>
 	<div id="top">
@@ -52,5 +37,21 @@
 			<div id="result"></div>	
 		</form>
 	</div>
+
+	<script>
+		$(document).ready(function (){
+			$("#enviar").click(function (){
+				
+				var email = $("#email").val();
+				var senha = $("#senha").val();
+
+				$.post('verifica.php',{email:email, senha:senha},function(dados){
+					$("#result").fadeIn().html(dados);
+					$("#result").delay(2500).fadeOut();		
+				});
+
+			});
+		});
+	</script>
 </body>
 </html>
