@@ -61,7 +61,7 @@
 					<div id="msg">
 						<div>
 							<header>Mensagem</header>
-							<span>aqui vem a mensagem</span><br/><br/>
+							<span></span><br/><br/>
 						</div>
 					</div>
 					<div class="row nopadding">

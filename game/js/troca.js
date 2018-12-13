@@ -107,6 +107,7 @@ $("#close_pop_up").click(function(){
 			dataType: 'json',
 			data: frm.serialize(),
 			success: function(dados){
+
 				if (dados.status == '0') {
 					message(dados.mensagem);
 				}else{

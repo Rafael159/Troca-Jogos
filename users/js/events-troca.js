@@ -4,7 +4,7 @@ $(document).ready(function(){
 	*  @param type - situação da troca (todas/aceitas/recusadas/etc)
 	*/
 	function show_exchanges(type){
-		//alert(type);
+		
 		$.ajax({
 			url : 'consulta_troca.php',
 			type: 'post',
@@ -32,28 +32,7 @@ $(document).ready(function(){
 		
 		show_exchanges(type);/*chama função que mostra as trocas*/
 	});
-	/*
-	 *Função: Tirar espaços entre a letras
-	 *@return str - string sem espaço
-	*/
-	function currentStatus(vlr){	
-		switch(vlr){
-			case '0':
-				status = "Pendente";
-			break;
-			case '1':
-				status = "Aceita";
-			break;
-			case '2':
-				status = "Recusada";
-			break;
-			default:
-				status = "Finalizada";
-			break;
-		}
-		return status;
-	}
-
+	
 	/*Função: Tirar espaços entre a letras
 	 *@param str - string com espaço
 	 *@return res - retorna string sem espaço
@@ -92,6 +71,7 @@ $(document).ready(function(){
 			data: 'idtroca='+idtroca+'&type='+tipotroca,	
 			dataType: 'json'
 		}).done(function(dados){
+			
 			if(dados.status == '0'){
 				$('#box_error').modal();
 				$('#box-msg-error').html(dados.mensagem);
@@ -151,7 +131,8 @@ $(document).ready(function(){
 			type : 'post',
 			data : 'idTroca='+idTroca,
 			dataType : 'json'
-		}).done(function(data){							
+		}).done(function(data){	
+							
 			if(data.status == '0'){
 				$('#box_error').modal();
 				$('#box-msg-error').html(data.mensagem);
@@ -163,8 +144,8 @@ $(document).ready(function(){
 				jogo_oferta = data.dados_troca[0].n_jogo;/*nome do jogo*/
 				mensagem = data.dados_troca[0].mensagem;
 				type = typeExchange(data.dados_troca[0].tipo);
-				estado_atual = currentStatus(data.dados_troca[0].estado_atual);
-
+				statustroca = data.dados_troca[0].estado_atual;
+				// alert(estado_atual);
 				//dados do segundo jogo
 				seg_console = replacestr(data.dados_jogo[0].nome_console);
 				seg_img = data.dados_jogo[0].imagem;
@@ -193,7 +174,7 @@ $(document).ready(function(){
 	            box +=			'<h4>Dados da troca</h4>';
 		        box +=          '<label class="info-troca">Tipo de troca:</label> <span class="real-info">'+type+'</span><br/>';
 		        box +=    		'<label class="info-troca">Valor de retorno:</label><span class="real-info"> R$'+valor+'</span><br/>';
-		        box +=    		'<label class="info-troca">Status atual:</label> <span class="real-info">'+estado_atual+'</span><br/></div></div>';
+		        box +=    		'<label class="info-troca">Status atual:</label> <span class="real-info">'+statustroca+'</span><br/></div></div>';
 
 		        box +='<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">';
 		        box +='<div class="personal-info">';

@@ -46,10 +46,16 @@
 		public function setByUser($by_user){
 			$this->by_user = $by_user;
 		}
+		public function setlogCriacao($logcriacao){
+			$this->logcriacao = $logcriacao;
+		}
+		public function setlogData($logdata){
+			$this->logdata = $logdata;
+		}
 
 		public function insert(){
-			$sql = "INSERT INTO $this->table (idUm, idDois, jogoum, jogodois, valor, tipo, mensagem, status, by_user) VALUES (
-					:idUm, :idDois, :jogoum, :jogodois, :valor, :tipo, :mensagem, :status, :by_user)";
+			$sql = "INSERT INTO $this->table (idUm, idDois, jogoum, jogodois, valor, tipo, mensagem, status, by_user, logdata, logcriacao) VALUES (
+					:idUm, :idDois, :jogoum, :jogodois, :valor, :tipo, :mensagem, :status, :by_user, :logdata, :logcriacao)";
 			$stmt = @BD::conn()->prepare($sql);
 			$stmt->bindParam(':idUm', $this->idUserUm);
 			$stmt->bindParam(':idDois', $this->idUserDois);
@@ -60,6 +66,8 @@
 			$stmt->bindParam(':mensagem',$this->mensagem);
 			$stmt->bindParam(':status',$this->status);
 			$stmt->bindParam(':by_user',$this->by_user);
+			$stmt->bindParam(':logdata',$this->logdata);
+			$stmt->bindParam(':logcriacao', $this->logcriacao);
 			
 			return $stmt->execute();
 		}
@@ -209,9 +217,10 @@
 		 */
 		public function changeStatus(){
 
-			$sql = "UPDATE $this->table SET status = :status WHERE id = :id";
+			$sql = "UPDATE $this->table SET status = :status, logdata = :logdata WHERE id = :id";
 			$stmt = @BD::conn()->prepare($sql);
 			$stmt->bindParam(':status', $this->status);
+			$stmt->bindParam(':logdata', $this->logdata);
 			$stmt->bindParam(':id', $this->id);
 			return $stmt->execute();
 

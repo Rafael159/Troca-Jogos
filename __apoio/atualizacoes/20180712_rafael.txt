@@ -8,3 +8,12 @@ alter table usuarios add column `status` varchar(100) after `tipousuario`;
 alter table usuarios modify `console` int(11) after `senha`;
 alter table usuarios drop column data;
 alter table usuarios add column bairro varchar(100) after `numero`;
+
+alter table usuarios change `complemento` `complemento` varchar(255) null;
+alter table usuarios change `rua` `rua` varchar(255) null;
+alter table usuarios change `numero` `numero` int(11) null;
+alter table usuarios change `cidade` `cidade` varchar(255) null;
+alter table usuarios change `estado` `estado` varchar(50) null;
+
+alter table trocas add column logdata datetime;
+alter table trocas add column logcriacao datetime;

@@ -1,5 +1,5 @@
 <?php
-	
+	date_default_timezone_set('America/Sao_Paulo');
 	function __autoload($classe){
 		require ('..\classes/'.$classe.'.class.php');
 	}
@@ -54,6 +54,8 @@
 	$troca->setMensagem($mensagem);
 	$troca->setStatus("Pendente");
 	$troca->setByUser($codDois);//quem requisita é quem está logado
+	$troca->setlogCriacao(date("Y-m-d H:i:s"));
+	$troca->setlogData(date("Y-m-d H:i:s"));
 
 	//GRAVAR DADOS
 	if(!$troca->insert()){
