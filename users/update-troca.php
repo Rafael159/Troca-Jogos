@@ -15,12 +15,14 @@
     	echo json_encode($retorno);
     	exit;
     }else{
+		$troca = $trocas->showAll(array('id'=>$idtroca));
+
     	$trocas->setId($idtroca);
     	$trocas->setStatus($tipo);
     	$trocas->setlogData(date("Y-m-d H:i:s"));
 
     	if($trocas->changeStatus()){
-    		$retorno = array('status'=>'1', 'mensagem'=>'');
+    		$retorno = array('status'=>'1', 'obj'=>$troca);
     		echo json_encode($retorno);
     	}
     }

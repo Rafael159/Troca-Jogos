@@ -94,7 +94,19 @@
 		 * Função: Mostrar todas as trocas relacionada ao usuário
 		 * @return lista com registros das trocas
 		 */
-		public function showAll(){
+		public function showAll($queries = array()){
+			$id = array_key_exists("id", $queries) ? $queries['id'] : '';
+			
+			$_where = array();
+			
+			if($id) array_push($_where, "tc.id = $id");
+
+			$w = '';
+			if(sizeof($_where) > 0){
+				foreach($_where as $key=>$v){
+					$w .= ' AND '.$v;
+				}
+			}
 
 			$sql = "SELECT tc.id AS 'id_troca', tc.idUm, tc.idDois, tc.tipo, tc.valor, tc.by_user, j.n_jogo AS 'game', tc.jogoum, tc.jogodois, tc.status, u.nomeUser
 					FROM  `trocas` AS tc, (((`jogos` AS j
@@ -102,9 +114,13 @@
 					INNER JOIN  `imagens` AS i ON j.img_jogo = i.id_img)
 					INNER JOIN  `usuarios` AS u ON j.id_gamer = u.id_user)
 					WHERE (tc.idUm = :by_user OR tc.idDois = :by_user) AND (tc.jogodois = j.id)
+					$w
 					GROUP BY tc.id
-					ORDER BY tc.id ASC";
+					ORDER BY tc.id DESC";
+			
 			$stmt = @BD::conn()->prepare($sql);
+			// echo '<pre>';
+			// print_r($stmt);
 			$stmt->bindParam(':by_user', $this->by_user);
 			$stmt->execute();
 			return $stmt->fetchAll();
@@ -124,7 +140,7 @@
 					WHERE (tc.by_user = :by_user) AND (tc.jogodois = j.id)
 					AND tc.status != 2
 					GROUP BY tc.id
-					ORDER BY tc.id ASC";
+					ORDER BY tc.id DESC";
 			$stmt = @BD::conn()->prepare($sql);
 			$stmt->bindParam(':by_user', $this->by_user);
 			$stmt->execute();
@@ -146,7 +162,7 @@
 					WHERE (tc.idUm = :by_user) AND (tc.jogodois = j.id)
 					AND tc.status != 2 
 					GROUP BY tc.id
-					ORDER BY tc.id ASC";
+					ORDER BY tc.id DESC";
 			$stmt = @BD::conn()->prepare($sql);
 			$stmt->bindParam(':by_user', $this->by_user);
 			$stmt->execute();
@@ -167,7 +183,7 @@
 					WHERE (tc.idUm = :by_user OR tc.idDois = :by_user) AND (tc.jogodois = j.id)
 					AND tc.status = 'Recusado' 
 					GROUP BY tc.id
-					ORDER BY tc.id ASC";
+					ORDER BY tc.id DESC";
 			$stmt = @BD::conn()->prepare($sql);
 			$stmt->bindParam(':by_user', $this->by_user);
 			$stmt->execute();
@@ -184,7 +200,7 @@
 					WHERE (tc.by_user != :by_user) AND (tc.jogodois = j.id)
 					AND tc.status = 'Aceito' 
 					GROUP BY tc.id
-					ORDER BY tc.id ASC";
+					ORDER BY tc.id DESC";
 			$stmt = @BD::conn()->prepare($sql);
 			$stmt->bindParam(':by_user', $this->by_user);
 			$stmt->execute();

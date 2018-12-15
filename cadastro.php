@@ -29,8 +29,7 @@
 			</div>			
 			<div class="row nopadding">
 				<div id="box" class="col-lg-6 col-md-6 col-sm-8 col-lg-push-3 col-md-push-3 col-sm-push-2">					
-					<div id="formulario">
-							
+					<div id="formulario">							
 						<form method="POST" id="form-cadastro" action="" class="form">	
 							<label class="faixa"><h3 class="first_title">Faça seu cadastro e entre para o mundo dos games </h3></label>					
 

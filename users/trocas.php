@@ -5,10 +5,10 @@
         
     $user  = new Usuarios();   
     $troca = new Trocas();
-    $jogo  = new Jogos(); 
+    $jogo  = new Jogos();
 
     session_start();
-    if($_SESSION['emailTJ']):
+    if(isset($_SESSION['emailTJ'])):
     	$email = $_SESSION['emailTJ'];
     else:
     	header("Location:index.php");
@@ -27,7 +27,7 @@
 		<div id="ctr_trocas">
 			<header>
 				<h3 class="title_page">/ MINHAS TROCAS</h3>
-			</header>
+			</header>		
 			<div class="col-lg-12">
 				<a href="..\pesquisa.php" id="add_troca"><i class="fa fa-plus-square fa-5x"></i><br/><strong>Add troca</strong></a>
 				<div class="btn-group">
@@ -73,6 +73,26 @@
 			            		<div id="view_troca">
 			            		<!-- mostra os dados da troca -->								
 			            		</div><!-- /end #view_troca -->
+			            	</div>
+			            </div>			            
+			        </div>
+			    </div>
+			</div>
+			<div class="modal fade nopadding" id="modal-accepted" tabindex="-1" role="dialog" aria-labelledby="modalLabel">
+			    <div class="modal-dialog" role="document">
+			        <div class="modal-content">
+			            <div class="modal-header">	
+			            	<button type="button" class="close" data-dismiss="modal" aria-label="Fechar"><span aria-hidden="true">&times;</span></button>		                
+			                <h4 class="modal-title">Envie uma mensagem</h4>
+			            </div>
+			            <div class="modal-body" style="padding:30px;">
+			            	<div class="row">
+								<label class="msglinha"><b>Para</b> <span class="msgpara">Rafael Alves</span></label>
+			            		<form method="post" name="mensagem-aceito" class="form">
+									<textarea class="form-control msgaceite" name="msgaceite" placeholder="Gostaria de deixar uma mensagem para o dono?"></textarea> 
+									<button class="btn btn-primary">Enviar e fechar</button>
+								</form>
+								<span class="alert alert-danger" style="display: block;"><b>Observação:</b> A mensagem não é obrigatória. Preencher se quiser informar algo para o dono do jogo ou combinar algo referente a troca</span>
 			            	</div>
 			            </div>			            
 			        </div>

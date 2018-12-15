@@ -64,7 +64,10 @@ $(document).ready(function(){
 	 * @param tipotroca = 1{aceita} 2{recusa}
 	 */
 	window.update = function(idtroca, tipotroca){
-		
+		// if(tipotroca=="Aceito"){
+		// 	$("#modal-accepted").modal('toggle');
+		// }
+		// return false;
 		$.ajax({
 			url : 'update-troca.php',
 			type: 'post',
@@ -77,6 +80,8 @@ $(document).ready(function(){
 				$('#box-msg-error').html(dados.mensagem);
 			}else{
 				if(tipotroca=="Aceito"){
+					console.log(dados);
+					return false;
 					show_exchanges('accepted');
 				}else{
 					qnt = $('#trocas .badge').text();

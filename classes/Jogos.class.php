@@ -101,7 +101,8 @@ class Jogos extends Crud{
 
 		$jogo = array_key_exists("jogo", $queries) ? $queries['jogo'] : '';
 		$console = array_key_exists("console", $queries) ? $queries['console'] : '';
-
+		$order = array_key_exists("order", $queries) ? $queries['order'] : '';
+		
 		$_where = array();
 		if($jogo) array_push($_where, " UPPER(j.n_jogo) LIKE UPPER('%".$jogo."%')");
 		if($console) array_push($_where, " nome_console = '$console'");
@@ -113,6 +114,8 @@ class Jogos extends Crud{
 				$w .= ' AND '.$v;
 			}
 		}
+		$ordem = "ORDER BY j.id ASC";
+		if($order) $ordem = $order;
 
 		$sql = "SELECT j.id, j.n_jogo, j.img_jogo, j.id_console, j.id_gamer, j.jogoTroca, j.idJogoTroca, j.data,
 				j.descricao, j.informacao, j.status, c.nome_console, i.id_img, i.nome, i.imagem, u.id_user,
@@ -120,9 +123,9 @@ class Jogos extends Crud{
 				FROM ((($this->table as j INNER JOIN `console` as c ON j.id_console = c.id_console)
 				INNER JOIN `imagens` as i ON j.img_jogo = i.id_img)
 				INNER JOIN `usuarios` as u ON  u.id_user = j.id_gamer)
-				WHERE j.status = '1' $w";
+				WHERE j.status = '1' $w $ordem";
 
-		$stmt = @BD::conn()->prepare($sql);
+		$stmt = @BD::conn()->prepare($sql);	
 		$stmt->bindValue(':busca', '%'.$this->nome.'%');
 		$stmt->execute();
 
@@ -138,7 +141,7 @@ class Jogos extends Crud{
 		$stmt = @BD::conn()->prepare($sql);
 		$stmt->bindParam(':cod', $this->idGamer);
 		$stmt->execute();
-		return $stmt->rowCount();	
+		return $stmt->rowCount();
 		
 	}
 	public function listaJogoByUser(){
@@ -192,7 +195,7 @@ class Jogos extends Crud{
 		return $stmt->fetchAll();
 	}
 
-	public function listaTodosJogos(){
+	public function listaTodosJogos($queries = array()){
 		$sql = "SELECT * FROM ((((`jogos` as j INNER JOIN `console` as c ON j.id_console = c.id_console) 
 			    INNER JOIN `imagens` as i ON j.img_jogo = i.id_img) 
 				INNER JOIN `jogocategoria` as jc ON j.id = jc.jogo_id)
