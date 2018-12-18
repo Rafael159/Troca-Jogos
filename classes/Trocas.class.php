@@ -89,12 +89,8 @@
 		* não terá update de trocas no momento// feito aqui por causa da classe Crud
 		*/
 		public function update(){}
-
-		/*
-		 * Função: Mostrar todas as trocas relacionada ao usuário
-		 * @return lista com registros das trocas
-		 */
-		public function showAll($queries = array()){
+		
+		public function getTrocas($queries = array()){
 			$id = array_key_exists("id", $queries) ? $queries['id'] : '';
 			
 			$_where = array();
@@ -107,14 +103,37 @@
 					$w .= ' AND '.$v;
 				}
 			}
+			// if($w) $w = "WHERE $w";
 
 			$sql = "SELECT tc.id AS 'id_troca', tc.idUm, tc.idDois, tc.tipo, tc.valor, tc.by_user, j.n_jogo AS 'game', tc.jogoum, tc.jogodois, tc.status, u.nomeUser
 					FROM  `trocas` AS tc, (((`jogos` AS j
 					INNER JOIN  `console` AS c ON j.id_console = c.id_console)
 					INNER JOIN  `imagens` AS i ON j.img_jogo = i.id_img)
 					INNER JOIN  `usuarios` AS u ON j.id_gamer = u.id_user)
-					WHERE (tc.idUm = :by_user OR tc.idDois = :by_user) AND (tc.jogodois = j.id)
+					WHERE tc.status is not null					
 					$w
+					GROUP BY tc.id
+					ORDER BY tc.id DESC";
+			
+			$stmt = @BD::conn()->prepare($sql);
+			// 	echo '<pre>';
+			// print_r($stmt);
+			$stmt->bindParam(':by_user', $this->by_user);
+			$stmt->execute();
+			return $stmt->fetchAll();
+		}
+		/*
+		 * Função: Mostrar todas as trocas relacionada ao usuário
+		 * @return lista com registros das trocas
+		 */
+		public function showAll($queries = array()){			
+
+			$sql = "SELECT tc.id AS 'id_troca', tc.idUm, tc.idDois, tc.tipo, tc.valor, tc.by_user, j.n_jogo AS 'game', tc.jogoum, tc.jogodois, tc.status, u.nomeUser
+					FROM  `trocas` AS tc, (((`jogos` AS j
+					INNER JOIN  `console` AS c ON j.id_console = c.id_console)
+					INNER JOIN  `imagens` AS i ON j.img_jogo = i.id_img)
+					INNER JOIN  `usuarios` AS u ON j.id_gamer = u.id_user)
+					WHERE (tc.idUm = :by_user OR tc.idDois = :by_user) AND (tc.jogodois = j.id)					
 					GROUP BY tc.id
 					ORDER BY tc.id DESC";
 			

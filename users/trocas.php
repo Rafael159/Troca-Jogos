@@ -87,10 +87,11 @@
 			            </div>
 			            <div class="modal-body" style="padding:30px;">
 			            	<div class="row">
-								<label class="msglinha"><b>Para</b> <span class="msgpara">Rafael Alves</span></label>
+								<label class="msglinha"><b>Para</b> <span class="msgpara"></span></label>
 			            		<form method="post" name="mensagem-aceito" class="form">
+									<input type="text" name="by_user">
 									<textarea class="form-control msgaceite" name="msgaceite" placeholder="Gostaria de deixar uma mensagem para o dono?"></textarea> 
-									<button class="btn btn-primary">Enviar e fechar</button>
+									<button class="btn btn-primary" name="btnsendclose">Enviar e fechar</button>
 								</form>
 								<span class="alert alert-danger" style="display: block;"><b>Observação:</b> A mensagem não é obrigatória. Preencher se quiser informar algo para o dono do jogo ou combinar algo referente a troca</span>
 			            	</div>

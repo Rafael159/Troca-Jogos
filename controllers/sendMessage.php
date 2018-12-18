@@ -9,19 +9,18 @@ $user = new Usuarios();
 
 session_start();
 
-$mensagem = 'Bom dia';
-$idfrom = '22';
-$idto = '10';
+$mensagem = ($_POST['mensagem']) ? $_POST['mensagem'] : '';
+$idfrom = ($_POST['idfrom']) ? $_POST['idfrom'] : '';
+$idto = $_SESSION["id_user"];
 
-
-$idto = ($idto) ? $idto : $_SESSION["id_user"];
-
+$message->setMensagem($mensagem);
 $message->setCodFrom($idfrom);
 $message->setCodTo($idto);
-$message->setMensagem($mensagem);
 
 if($message->insertMessage()){
-	echo 'Sucesso';
+   return true;
 }else{
-	echo 'Falha';
+    return false;
 }
+
+

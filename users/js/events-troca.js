@@ -32,7 +32,19 @@ $(document).ready(function(){
 		
 		show_exchanges(type);/*chama função que mostra as trocas*/
 	});
-	
+
+	$("button[name=btnsendclose]").bind('click', function(evt){
+		evt.preventDefault();
+		
+		mensagem = $("textarea[name=msgaceite]").val();
+		iddonojogo = $("input[name=by_user]").val();
+		if(mensagem && iddonojogo){
+			$.post("../controllers/sendMessage.php", {mensagem: mensagem, idfrom: iddonojogo}, function(result){
+				console.log(result);
+			});
+		}
+	});
+
 	/*Função: Tirar espaços entre a letras
 	 *@param str - string com espaço
 	 *@return res - retorna string sem espaço
@@ -64,10 +76,7 @@ $(document).ready(function(){
 	 * @param tipotroca = 1{aceita} 2{recusa}
 	 */
 	window.update = function(idtroca, tipotroca){
-		// if(tipotroca=="Aceito"){
-		// 	$("#modal-accepted").modal('toggle');
-		// }
-		// return false;
+
 		$.ajax({
 			url : 'update-troca.php',
 			type: 'post',
@@ -80,6 +89,9 @@ $(document).ready(function(){
 				$('#box-msg-error').html(dados.mensagem);
 			}else{
 				if(tipotroca=="Aceito"){
+					$("#modal-accepted").modal('toggle');
+					$(".msgpara").html(dados[0].nomeUser);
+					$("input[name=by_user]").val(dados[0].by_user);
 					console.log(dados);
 					return false;
 					show_exchanges('accepted');

@@ -181,7 +181,7 @@ class Usuarios extends Crud{
 		$email = (array_key_exists("email", $queries)) ? $queries['email'] : '';		
 
 		$_where = array();
-		if($id) array_push($_where, " id_user = $id ");
+		if($id) array_push($_where, " id_user = :id ");
 		if($email) array_push($_where, " emailTJ = :email ");
 		
 		$w = '';
@@ -198,6 +198,7 @@ class Usuarios extends Crud{
 		$sql  = "SELECT * FROM $this->table $where $w";
 		
 		$stmt = @BD::conn()->prepare($sql);
+		if($id) $stmt->bindParam(':id', $id);
 		if($email) $stmt->bindParam(':email', $email);
 		$stmt->execute();
 		return $stmt->fetchAll();

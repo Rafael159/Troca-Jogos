@@ -15,8 +15,9 @@
     	echo json_encode($retorno);
     	exit;
     }else{
-		$troca = $trocas->showAll(array('id'=>$idtroca));
-
+		$troca = $trocas->getTrocas(array('id'=>$idtroca));
+		echo json_encode($troca);
+		die();
     	$trocas->setId($idtroca);
     	$trocas->setStatus($tipo);
     	$trocas->setlogData(date("Y-m-d H:i:s"));
