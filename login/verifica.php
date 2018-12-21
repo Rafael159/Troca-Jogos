@@ -55,16 +55,21 @@ if($tipo && $tipo=='recuperar'){
 	$user->setEmail($email);//setar email
 	$user->setSenha($senha);//setar senha
 	
-	$dados = $user->loginUser();//tentar logar
+	$dados = $user->loginUser();//logar
 	
 	/*SE RETORNAR O USER*/
 	if($dados):
 		session_start();
 		//definir sessões
+		unset($dados->senha);
+		unset($dados->logusuario);
+		unset($dados->logfirst);
+		
 		$_SESSION['id_user'] = $dados->id_user;
 		$_SESSION['emailTJ'] = $dados->emailTJ;
 		$_SESSION['nomeTJ']  = $dados->nomeUser;				
 		$_SESSION['status']  = $dados->tipousuario;
+		$_SESSION['usuario'] = serialize($dados);
 
 		$retorno = array('status'=>'1', 'mensagem'=>'Logado com sucesso', 'nivel'=>$dados->tipousuario);
 		echo json_encode($retorno);

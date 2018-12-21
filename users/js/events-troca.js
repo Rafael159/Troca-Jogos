@@ -37,11 +37,19 @@ $(document).ready(function(){
 		evt.preventDefault();
 		
 		mensagem = $("textarea[name=msgaceite]").val();
-		iddonojogo = $("input[name=by_user]").val();
-		if(mensagem && iddonojogo){
-			$.post("../controllers/sendMessage.php", {mensagem: mensagem, idfrom: iddonojogo}, function(result){
-				console.log(result);
-			});
+		idto = $("input[name=by_user]").val();
+		if(mensagem && idto){
+			$.post("../controllers/sendMessage.php", {mensagem: mensagem, idto: idto}, function(result){				
+				if(result=="OK"){
+					$('textarea[name=msgaceite]').val('');
+					$("#modal-accepted").modal('toggle');
+				}else{
+					$('textarea[name=msgaceite]').val('');
+					$("#modal-accepted").modal('toggle');
+				}
+			}, 'JSON');
+		}else{
+			$("#modal-accepted").modal('toggle');
 		}
 	});
 
@@ -75,15 +83,13 @@ $(document).ready(function(){
 	 * @param idtroca = recebe o id da troca
 	 * @param tipotroca = 1{aceita} 2{recusa}
 	 */
-	window.update = function(idtroca, tipotroca){
-
+	window.update = function(idtroca, tipotroca){		
 		$.ajax({
 			url : 'update-troca.php',
 			type: 'post',
 			data: 'idtroca='+idtroca+'&type='+tipotroca,	
 			dataType: 'json'
-		}).done(function(dados){
-			
+		}).done(function(dados){			
 			if(dados.status == '0'){
 				$('#box_error').modal();
 				$('#box-msg-error').html(dados.mensagem);
@@ -91,9 +97,7 @@ $(document).ready(function(){
 				if(tipotroca=="Aceito"){
 					$("#modal-accepted").modal('toggle');
 					$(".msgpara").html(dados[0].nomeUser);
-					$("input[name=by_user]").val(dados[0].by_user);
-					console.log(dados);
-					return false;
+					$("input[name=by_user]").val(dados[0].by_user);					
 					show_exchanges('accepted');
 				}else{
 					qnt = $('#trocas .badge').text();

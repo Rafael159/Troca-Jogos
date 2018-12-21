@@ -89,7 +89,7 @@
 			            	<div class="row">
 								<label class="msglinha"><b>Para</b> <span class="msgpara"></span></label>
 			            		<form method="post" name="mensagem-aceito" class="form">
-									<input type="text" name="by_user">
+									<input type="hidden" name="by_user">
 									<textarea class="form-control msgaceite" name="msgaceite" placeholder="Gostaria de deixar uma mensagem para o dono?"></textarea> 
 									<button class="btn btn-primary" name="btnsendclose">Enviar e fechar</button>
 								</form>

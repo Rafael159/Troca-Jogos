@@ -119,11 +119,11 @@
                         <?php  
                             $owner = $rs->by_user;//pega o id de quem fez a troca
                             $vlr = $rs->status;
-                            //if($vlr=="Pendente" && ($owner != $userID) && ($tipo=='received' || $tipo=='all')){
+                            if($vlr=="Pendente" && ($owner != $userID) && ($tipo=='received' || $tipo=='all')){
                         ?>
                         <span class="edge-btn"><a class="btn btn-success btn-xs" onclick="update(<?php echo $rs->id_troca?>, 'Aceito')">Aceitar</a></span>
                         <span class="edge-btn"><a class="btn btn-danger btn-xs" onclick="update(<?php echo $rs->id_troca?>, 'Recusado')">Recusar</a></span>
-                        <?php //} ?>
+                        <?php } ?>
                         <div class="secao-btn">
 							<span class="edge-btn"><a class="btn btn-warning btn-xs op_trocas" data-toggle="modal" onclick="viewTroca(<?php echo $rs->id_troca?>)">Visualizar</a></span>
 							<?php if($vlr != "Pendente"): ?>

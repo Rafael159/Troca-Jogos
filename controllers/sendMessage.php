@@ -4,23 +4,22 @@ function __autoload($classe){
 }
 @BD::conn();//conexão com o banco de dados	
 
-$message = new Mensagens();
-$user = new Usuarios();
+    $message = new Mensagens();
+    $user = new Usuarios();
 
-session_start();
+    //session_start();
+    $mensagem = ($_POST['mensagem']) ? $_POST['mensagem'] : '';
+    $idfrom = Usuarios::getUsuario('id_user');
+    $idto = ($_POST['idto']) ? $_POST['idto'] : '';
 
-$mensagem = ($_POST['mensagem']) ? $_POST['mensagem'] : '';
-$idfrom = ($_POST['idfrom']) ? $_POST['idfrom'] : '';
-$idto = $_SESSION["id_user"];
-
-$message->setMensagem($mensagem);
-$message->setCodFrom($idfrom);
-$message->setCodTo($idto);
+    $message->setMensagem($mensagem);
+    $message->setCodFrom($idfrom);
+    $message->setCodTo($idto);
 
 if($message->insertMessage()){
-   return true;
+   echo json_encode('OK');
 }else{
-    return false;
+    echo json_encode('FALHA');
 }
 
 

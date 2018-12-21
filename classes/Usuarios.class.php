@@ -81,6 +81,18 @@ class Usuarios extends Crud{
 		return $this->senha;
 	}
 
+	public static function getUsuario($field = null){		
+		session_start();		
+		if(!isset($_SESSION['usuario'])) return false;		
+		$usuario = unserialize($_SESSION['usuario']);
+		
+		if(is_null($field)){
+			return $usuario;
+		}
+
+		return (isset($usuario->$field)) ? $usuario->$field : false;
+	}
+
 	public static function limpaCep($cep){
 		$newCep = (isset($cep)) ? trim($cep) : '';
 		if(!empty($newCep)):
@@ -217,7 +229,7 @@ class Usuarios extends Crud{
 
 		try {			
 			if($stmt->rowCount() == 1){
-				return $stmt->fetchObject();
+				return $stmt->fetch();
 			}
 		} catch (Exception $e) {
 			return $e->getMessage();
