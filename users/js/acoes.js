@@ -16,7 +16,7 @@ function dragdrop(op,div, div2){
 	$(div2+" .each-img").click(function(){
 		var idImg = $(this).attr('id');
 		$('#img_id').val(idImg);
-		//alert('antes =>' + idImg);	
+
 		if($(div).is(":empty")){
 			
 			$(div).append($(this));
@@ -81,8 +81,7 @@ function buscarJogo(jogo, id){
 					$('#imagem').append(box);//inserir conteúdo
 		    	});
 		    }
-		    dragdrop(1,"#boxmeujogo","#imagem");
-	    	  
+		    dragdrop(1,"#boxmeujogo","#imagem");	    	  
 	    },
 	  	error: function() 
     	{
@@ -121,7 +120,7 @@ function buscar(jogo, id){
 			    	dragdrop(2,"#boxjogo_favorito","#jogo_escolha");
 			    }
 		    },
-		  	error: function() 
+		  	error: function()
 	    	{
 	    		alert('Ocorreu um erro! Tente mais tarde');
 	    	} 	        
@@ -157,8 +156,7 @@ function resetForm(){
 }
 
 // Carrega a imagem selecionada no elemento <img>
-$("#add_new_img").on('change', function () {
- 	//$(this).val('');//apagar a imagem armazenada 
+$("#add_new_img").on('change', function () { 	
     if (typeof (FileReader) != "undefined") {
  
         var image_holder = $("#boxmeujogo");
@@ -178,7 +176,7 @@ $("#add_new_img").on('change', function () {
         reader.readAsDataURL($(this)[0].files[0]);
 
     } else{
-        alert("Este navegador nao suporta FileReader.");
+        alert("Este navegador não suporta Leitor de Imagens.");
     }
 });
 
@@ -333,7 +331,6 @@ $("#confirmar-btn").click(function(){
 
 $('#confirm-record').bind('click', function(){
 	$('#modal_success').modal('hide');
-	//$('#modal-add-game').modal('hide');
 	reload('jogos.php');
 });
 
@@ -342,7 +339,6 @@ $("#btn-cadastra").bind('click', function(ev){
 	ev.preventDefault();
 	// Captura os dados do formulário
 	var formulario = document.getElementById('frm_jogos');
-	//var idJogoDesejado = $("#boxjogo_favorito .each-img").attr('id');//id da imagem do
 	// Instância o FormData passando como parâmetro o formulário
 	var formData = new FormData(formulario);
 	// Envia O FormData através da requisição AJAX

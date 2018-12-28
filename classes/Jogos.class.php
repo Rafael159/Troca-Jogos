@@ -43,6 +43,9 @@ class Jogos extends Crud{
 	public function setInfoExtra($infoExtra){
 		$this->infoExtra = $infoExtra;
 	}
+	public function setStatus($status){
+		$this->status = $status;
+	}
 
 	//inserir jogos no banco de dados
 	public function insert(){
@@ -84,6 +87,20 @@ class Jogos extends Crud{
 	}
 
 	/*
+		 * Função: Mudar o status do jogo pelo ID
+		 * @return jogo
+		 */
+		public function changeStatus($id, $status){
+
+			$sql = "UPDATE $this->table SET status = :status WHERE id = :id";
+			$stmt = @BD::conn()->prepare($sql);
+			$stmt->bindParam(':status', $status);		
+			$stmt->bindParam(':id', $id);
+			return $stmt->execute();
+
+		}
+
+	/*
 	 * Função: Deletar jogo
 	*/
 	public function delete(){
@@ -100,16 +117,17 @@ class Jogos extends Crud{
 	public function listarJogo($queries = array()){
 
 		$jogo = array_key_exists("jogo", $queries) ? $queries['jogo'] : '';
+		$id = array_key_exists("id", $queries) ? $queries['id'] : '';
 		$console = array_key_exists("console", $queries) ? $queries['console'] : '';
 		$order = array_key_exists("order", $queries) ? $queries['order'] : '';
 		
 		$_where = array();
 		if($jogo) array_push($_where, " UPPER(j.n_jogo) LIKE UPPER('%".$jogo."%')");
+		if($id) array_push($_where, " id = $id");
 		if($console) array_push($_where, " nome_console = '$console'");
 
 		$w = '';
 		if(sizeof($_where) > 0){
-
 			foreach($_where as $key=>$v){
 				$w .= ' AND '.$v;
 			}
@@ -123,9 +141,9 @@ class Jogos extends Crud{
 				FROM ((($this->table as j INNER JOIN `console` as c ON j.id_console = c.id_console)
 				INNER JOIN `imagens` as i ON j.img_jogo = i.id_img)
 				INNER JOIN `usuarios` as u ON  u.id_user = j.id_gamer)
-				WHERE j.status = '1' $w $ordem";
-
-		$stmt = @BD::conn()->prepare($sql);	
+				WHERE j.status = 'Ativo' $w $ordem";
+		
+		$stmt = @BD::conn()->prepare($sql);
 		$stmt->bindValue(':busca', '%'.$this->nome.'%');
 		$stmt->execute();
 
@@ -137,41 +155,70 @@ class Jogos extends Crud{
 	//contar quantos jogos o usuário possui, passando o ID como parâmetro
 	public function contaJogoById(){
 
-		$sql = "SELECT * FROM $this->table WHERE id_gamer = :cod AND status = 1";
+		$sql = "SELECT * FROM $this->table WHERE id_gamer = :cod AND status = :status";
 		$stmt = @BD::conn()->prepare($sql);
 		$stmt->bindParam(':cod', $this->idGamer);
+		$stmt->bindParam(':status', $this->status);
 		$stmt->execute();
 		return $stmt->rowCount();
 		
 	}
-	public function listaJogoByUser(){
+
+	public function contarJogos($queries = array()){		
+		$status = array_key_exists('status', $queries) ? $queries['status'] : '';
 		
-		$sql = "SELECT * FROM `console` as c, `imagens` as i, `usuarios` as u, `jogos` as j 
-					    WHERE j.id_gamer = u.id_user 
-					    AND j.id_console = c.id_console 
-					    AND j.img_jogo = i.id_img 					    
+		$_where = array();
+		if($status) {
+			if($status == 'Ambos') array_push($_where, " status = 'Ativo' OR status = 'Inativo'"); 
+			if($status != 'Ambos') array_push($_where, " status = $status");
+		}
+		$w = '';
+		if(sizeof($_where) > 0){
+			foreach($_where as $key=>$v){
+				$w .= ' AND '.$v;
+			}
+		}
+
+		$sql = "SELECT * FROM $this->table WHERE id_gamer = :cod $w";
+
+		$stmt = @BD::conn()->prepare($sql);
+		$stmt->bindParam(':cod', $this->idGamer);
+		$stmt->execute();
+		print_r($stmt);
+		return $stmt->rowCount();
+
+	}
+	public function listaJogoByUser($status = 'Ativo'){
+		
+		$sql = "SELECT * FROM `console` as c, `imagens` as i, `usuarios` as u, `jogos` as j
+					    WHERE j.id_gamer = u.id_user
+					    AND j.id_console = c.id_console
+					    AND j.img_jogo = i.id_img
 					    AND u.id_user = :codigo
-					    ORDER BY j.id";	
+						AND j.status = :status
+					    ORDER BY j.id";
 		
 		$stmt = @BD::conn()->prepare($sql);
+		$stmt->bindParam(':status', $status);
 		$stmt->bindParam(':codigo', $this->idGamer);
 		$stmt->execute();
-		return $stmt->fetchAll();	
+		return $stmt->fetchAll();
 		
 	}
 
-	public function listaJogoByUserDesc($cod){
+	public function listaJogoByUserDesc($cod, $status){
 		
 		$sql = "SELECT * FROM `console` as c, `imagens` as i, `usuarios` as u, `jogos` as j
-					    WHERE j.id_gamer = u.id_user 
-					    AND j.id_console = c.id_console 
-					    AND j.img_jogo = i.id_img 					    
+					    WHERE j.id_gamer = u.id_user
+					    AND j.id_console = c.id_console
+					    AND j.img_jogo = i.id_img
 					    AND u.id_user = :codigo
-					    AND j.status = 1
-					    ORDER BY j.id DESC";	
+					    AND j.status = :status
+					    ORDER BY j.id DESC";
 		
 		$stmt = @BD::conn()->prepare($sql);
 		$stmt->bindParam(':codigo', $cod);
+		$stmt->bindParam(':status', $status);
 		$stmt->execute();
 		return $stmt->fetchAll();
 		
@@ -189,6 +236,7 @@ class Jogos extends Crud{
 				INNER JOIN `imagens` as i ON j.img_jogo = i.id_img)
 				INNER JOIN `usuarios` as u ON  u.id_user = j.id_gamer)
 				WHERE j.id = :id";
+
 		$stmt = @BD::conn()->prepare($sql);
 		$stmt->bindParam(':id', $this->id);
 		$stmt->execute();
@@ -196,11 +244,13 @@ class Jogos extends Crud{
 	}
 
 	public function listaTodosJogos($queries = array()){
+
 		$sql = "SELECT * FROM ((((`jogos` as j INNER JOIN `console` as c ON j.id_console = c.id_console) 
 			    INNER JOIN `imagens` as i ON j.img_jogo = i.id_img) 
 				INNER JOIN `jogocategoria` as jc ON j.id = jc.jogo_id)
 				INNER JOIN `usuarios` as u ON j.id_gamer = u.id_user)
 				GROUP BY jc.jogo_id ORDER BY j.id ";
+
 		$stmt = @BD::conn()->prepare($sql);
 		$stmt->execute();
 		return $stmt->fetchAll();

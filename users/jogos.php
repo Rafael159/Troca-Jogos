@@ -41,12 +41,13 @@
 				<div class="box_jogos">
 					<?php												
 						$jogo->setIdGamer($idUser);
+						$jogo->setStatus('Inativo');
 						$qnt = $jogo->contaJogoById();
 
 						if($qnt == 0){
 							echo "<span id='msg-none'>NENHUM JOGO CADASTRADO</span>";
 						}else{
-							foreach ($jogo->listaJogoByUserDesc($idUser) as $jogo=> $valor):								
+							foreach ($jogo->listaJogoByUserDesc($idUser, 'Inativo') as $jogo=> $valor):								
 					?>
 					<div class="each-game col-lg-3 col-md-4 col-sm-6 col-xs-12" id="<?php echo $valor->id?>">
 						<img src="../game/imagens/<?php echo str_replace(' ', '', $valor->nome_console) ?>/<?php echo $valor->imagem?>" alt="<?php echo $valor->nome?>">

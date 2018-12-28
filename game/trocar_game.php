@@ -104,8 +104,9 @@
 											if(isset($_GET['id_troca']) AND $_GET['id_troca'] != ''){
 												$idTroca = $_GET['id_troca'];
 												//buscar o jogo selecionado
-												$sql = "SELECT * FROM `jogos` as j,`console` as c, `imagens` as i WHERE j.id_console = c.id_console AND j.img_jogo = i.id_img AND j.id = $idTroca";
-													foreach ($jogo->consulta($sql) as $meuJogo => $valor):
+												// $sql = "SELECT * FROM `jogos` as j,`console` as c, `imagens` as i WHERE j.id_console = c.id_console AND j.img_jogo = i.id_img AND j.id = $idTroca";
+												$meujogo = $jogo->listarJogo(array('id'=>$idTroca));
+												foreach ($meujogo as $meuJogo => $valor):
 										?>	
 										<input type="hidden" name='idTroca' value="<?php echo $idTroca ?>" id="idTroca"/>				
 										<img src="imagens/<?php echo str_replace(' ', '', $valor->nome_console)?>/<?php echo $valor->imagem?>" alt="<?php echo $valor->n_jogo?>" class="img-responsive"/>
@@ -199,11 +200,13 @@
 	<div id="box_meu_jogo">
 		<span id="topo"><h4>Escolha seu jogo</h4><img src="..\users/img/pop-botao-fecha.png" alt="Fechar" id="close_pop_up"/></span>
 		<section class="section">
-			<?php 				
+			<?php
 				$jogo->setIdGamer($idUser);//setar ID do usuário logado
-				$num_game = $jogo->contaJogoById($idUser);//quantidade de jogos
+				//$num_game = $jogo->contaJogoById();//quantidade de jogos
+				$num_game = $jogo->contarJogos(array('status'=>'Ambos'));
+				// echo $idUser;
 				if($num_game != 0):
-					foreach ($jogo->listaJogoByUser() as $chave => $result):
+					foreach ($jogo->listaJogoByUser('Inativo') as $chave => $result):
 			?>	
 			<div class="mygames">
 				<a href="trocar_game.php?id=<?php echo $_GET['id']?>&id_troca=<?php echo $result->id?>"><img src="imagens/<?php echo strtolower(str_replace(' ','',$result->nome_console))?>/<?php echo $result->imagem?>"/></a>

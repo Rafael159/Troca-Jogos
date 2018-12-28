@@ -230,8 +230,7 @@
 		 * Função: Show the informations of a changing passing the ID as parameter
 		 * @return return the object containing the informations
 		 */
-		public function showByID()
-		{
+		public function showByID(){
 
 			$sql = "SELECT tc.id, tc.idUm, tc.idDois , tc.tipo, tc.valor, tc.by_user, 
 						   tc.jogoum, tc.jogodois, tc.status AS `estado_atual`, tc.mensagem, u.nomeUser, j.n_jogo, i.imagem, c.nome_console

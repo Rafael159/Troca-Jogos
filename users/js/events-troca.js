@@ -83,22 +83,29 @@ $(document).ready(function(){
 	 * @param idtroca = recebe o id da troca
 	 * @param tipotroca = 1{aceita} 2{recusa}
 	 */
-	window.update = function(idtroca, tipotroca){		
+	window.update = function(idtroca, tipotroca){
+
+		if(tipotroca=='Cancelada' || tipotroca=='Finalizada'){
+			idtroca = $('input[name=idtroca]').val();			
+		}
+		
 		$.ajax({
 			url : 'update-troca.php',
 			type: 'post',
 			data: 'idtroca='+idtroca+'&type='+tipotroca,	
-			dataType: 'json'
-		}).done(function(dados){			
+			dataType: 'html'
+		}).done(function(dados){
+			console.log(dados);
+			
 			if(dados.status == '0'){
 				$('#box_error').modal();
 				$('#box-msg-error').html(dados.mensagem);
 			}else{
 				if(tipotroca=="Aceito"){
-					$("#modal-accepted").modal('toggle');
-					$(".msgpara").html(dados[0].nomeUser);
-					$("input[name=by_user]").val(dados[0].by_user);					
 					show_exchanges('accepted');
+					$("#modal-accepted").modal('toggle');
+					$(".msgpara").html(dados.nomeUser);
+					$("input[name=by_user]").val(dados.by_user);
 				}else{
 					qnt = $('#trocas .badge').text();
 			   		qnt = parseInt(qnt) - 1;//add 1
@@ -131,7 +138,7 @@ $(document).ready(function(){
 	/*Função: recusar exclusão da troca
     * @param obj - recebe o botão clicado
 	*/
-	cancelDelete = function(obj){		
+	cancelDelete = function(obj){
 		$(obj).parent().closest('.confirm-box').hide('slow', function(){
 			$(obj).parent().closest('.confirm-box').prev().show('fast');
 		});
@@ -140,8 +147,9 @@ $(document).ready(function(){
     * @param obj - recebe o botão clicado
     * @param cod - id da troca
 	*/
-	deleteTroca = function(obj){
-		$(obj).parent().next('.confirm-box').show('slow', function(){
+	deleteTroca = function(obj){		
+		// $(obj).parent().next().hide();
+		$(obj).parent().next().show('slow', function(){
 			$(obj).parent().hide('fast');
 		});
 	}
@@ -152,8 +160,8 @@ $(document).ready(function(){
 			type : 'post',
 			data : 'idTroca='+idTroca,
 			dataType : 'json'
-		}).done(function(data){	
-							
+		}).done(function(data){
+
 			if(data.status == '0'){
 				$('#box_error').modal();
 				$('#box-msg-error').html(data.mensagem);
@@ -166,7 +174,7 @@ $(document).ready(function(){
 				mensagem = data.dados_troca[0].mensagem;
 				type = typeExchange(data.dados_troca[0].tipo);
 				statustroca = data.dados_troca[0].estado_atual;
-				// alert(estado_atual);
+				
 				//dados do segundo jogo
 				seg_console = replacestr(data.dados_jogo[0].nome_console);
 				seg_img = data.dados_jogo[0].imagem;
@@ -208,8 +216,13 @@ $(document).ready(function(){
 		        box +='<div class="personal-info"><div id="mensagem-troca"><span><strong>MENSAGEM: </strong>'+mensagem+'</span></div></div></div>';
 
 				$('#view_troca').html(box);
-				$('#view-modal').modal();					
+				$('#view-modal').modal();
 			}
 		});		
+	}
+
+	finalizarTroca = function(id){
+		$("input[name=idtroca]").val(id);
+		$("#modal-finaliza").modal("toggle");
 	}
 });

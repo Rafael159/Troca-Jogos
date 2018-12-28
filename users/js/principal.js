@@ -33,12 +33,12 @@ $(document).ready(function (){
         
         $.ajax({
             url: href,
-            success: function (response) {  
+            success: function (response) {
                 window.setTimeout(function () {
                     content.html(response);
                 }, 1000);
             },
-            error: function(error){ 
+            error: function(error){
                 content.html('<div class="error">Erro ao carregar a página! Tente novamente</div>');                
             }
         });
@@ -48,20 +48,30 @@ $(document).ready(function (){
      *Carrega a primeira página ao entrar na dashboard
      */
     function first_load(){
-        url = window.location.href;
-        res = url.split("=");
-        link = res[1];
         
-        if(!link){       
+        url = window.location.href;        
 
-            link = $('#left_menu li:first').find('a').attr('href');
-            link = link+'.php';
+        var flag = url.indexOf('?') > -1;
+        if(!flag){
+            link = 'home.php';
+        }else{
 
-            $('#left_menu li:first').addClass('arrow_right');//ativa o link clicado
-        }else{        	
-            $('#'+link).addClass('arrow_right');
-            link = link+'.php';            
-        }   
+            res = url.split("=");
+            link = res[1];
+            link = link.replace("#","");
+           
+            if(!link){
+                alert('cheguie'); 
+                link = $('#left_menu li:first').find('a').attr('href');
+                link = link+'.php';
+
+                $('#left_menu li:first').addClass('arrow_right');//ativa o link clicado
+            }else{
+                        
+                $('#'+link).addClass('arrow_right');
+                link = link+'.php';
+            }
+        }
         reload(link);
     }
     first_load();//carregar uma página no load

@@ -51,13 +51,13 @@
     font-size: 1.2em;   
     text-align: center;
     display: block;
-    background: #2c89e2;
+    background: #000000;
     padding: 5px;
 }
 .confirm-box .confirm-content{
     padding:10px;
     text-align: center;
-    border: 1px solid #2c89e2;
+    border: 1px solid #000000;
 }
 
 /*BOTÃO ATIVO*/
@@ -77,12 +77,12 @@
     text-align: center;
     color: #2e2d2d;
 }
-
+.modal-header{ background: #275c8b;}
 .modal-title{
     font-family: 'source_sans_probold', Arial, sans-serif;
     font-size: 2em;
     text-align: center;
-    color: #179dc6;
+    color: #ffffff;
 }
 .box-games{
     width: 100%;
