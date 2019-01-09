@@ -67,6 +67,7 @@
 #add_troca{
     display: block;
     padding:10px;
+    width: 90px;
 }
 .error_msg{
 	width: 100%;

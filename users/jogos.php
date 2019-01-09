@@ -47,7 +47,7 @@
 						if($qnt == 0){
 							echo "<span id='msg-none'>NENHUM JOGO CADASTRADO</span>";
 						}else{
-							foreach ($jogo->listaJogoByUserDesc($idUser, 'Inativo') as $jogo=> $valor):								
+							foreach ($jogo->listarJogos(array('id_gamer'=>$idUser, 'status'=>'Ambos', 'order'=>'ORDER BY j.status')) as $jogo=> $valor):								
 					?>
 					<div class="each-game col-lg-3 col-md-4 col-sm-6 col-xs-12" id="<?php echo $valor->id?>">
 						<img src="../game/imagens/<?php echo str_replace(' ', '', $valor->nome_console) ?>/<?php echo $valor->imagem?>" alt="<?php echo $valor->nome?>">

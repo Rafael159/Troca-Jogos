@@ -114,17 +114,24 @@ class Jogos extends Crud{
 	}
 
 	/*listar jogos de acordo com a pesquisa feita*/
-	public function listarJogo($queries = array()){
+	public function listarJogos($queries = array()){
 
 		$jogo = array_key_exists("jogo", $queries) ? $queries['jogo'] : '';
 		$id = array_key_exists("id", $queries) ? $queries['id'] : '';
 		$console = array_key_exists("console", $queries) ? $queries['console'] : '';
 		$order = array_key_exists("order", $queries) ? $queries['order'] : '';
-		
+		$id_gamer = array_key_exists("id_gamer", $queries) ? $queries['id_gamer'] : '';
+		$status = array_key_exists("status", $queries) ? $queries['status'] : '';
+
 		$_where = array();
 		if($jogo) array_push($_where, " UPPER(j.n_jogo) LIKE UPPER('%".$jogo."%')");
 		if($id) array_push($_where, " id = $id");
 		if($console) array_push($_where, " nome_console = '$console'");
+		if($id_gamer) array_push($_where, " id_gamer = '$id_gamer'");		
+		if($status) {
+			if($status == 'Ambos') array_push($_where, " (j.status = 'Ativo' OR j.status = 'Inativo')"); 
+			if($status != 'Ambos') array_push($_where, " j.status = '$status'");
+		}
 
 		$w = '';
 		if(sizeof($_where) > 0){
@@ -141,12 +148,11 @@ class Jogos extends Crud{
 				FROM ((($this->table as j INNER JOIN `console` as c ON j.id_console = c.id_console)
 				INNER JOIN `imagens` as i ON j.img_jogo = i.id_img)
 				INNER JOIN `usuarios` as u ON  u.id_user = j.id_gamer)
-				WHERE j.status = 'Ativo' $w $ordem";
+				WHERE j.img_jogo is not null $w $ordem";
 		
 		$stmt = @BD::conn()->prepare($sql);
 		$stmt->bindValue(':busca', '%'.$this->nome.'%');
 		$stmt->execute();
-
 		$resultado = $stmt->fetchAll();
 		
 		return $resultado;
@@ -169,9 +175,10 @@ class Jogos extends Crud{
 		
 		$_where = array();
 		if($status) {
-			if($status == 'Ambos') array_push($_where, " status = 'Ativo' OR status = 'Inativo'"); 
-			if($status != 'Ambos') array_push($_where, " status = $status");
+			if($status == 'Ambos') array_push($_where, " (status = 'Ativo' OR status = 'Inativo')"); 
+			if($status != 'Ambos') array_push($_where, " status = '$status'");
 		}
+		
 		$w = '';
 		if(sizeof($_where) > 0){
 			foreach($_where as $key=>$v){
@@ -184,7 +191,6 @@ class Jogos extends Crud{
 		$stmt = @BD::conn()->prepare($sql);
 		$stmt->bindParam(':cod', $this->idGamer);
 		$stmt->execute();
-		print_r($stmt);
 		return $stmt->rowCount();
 
 	}

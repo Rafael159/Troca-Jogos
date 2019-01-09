@@ -104,21 +104,22 @@
 			<div class="modal fade nopadding" id="modal-finaliza" taxindex="1" role="dialog" aria-labelledby="modalLabel">
 				<div class="modal-dialog" role="document">
 			        <div class="modal-content">
-						<input type="text" name="idtroca"/>
-			            <div class="modal-header">			                
+						<input type="hidden" name="idtroca"/>
+			            <div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal" aria-label="Fechar"><span aria-hidden="true">&times;</span></button>
 			                <h4 class="modal-title" id="modalLabel">Finalizar troca</h4>
 			            </div>
 			            <div class="modal-body">
-							<span class="alert"><b>Importante: </b> Somente finalize a troca quando ambos os usuários já estivem com os novos jogos ou desistirem da troca</span>
+							<span class="alert" style="display:block"><b>Importante: </b> Somente finalize a troca quando ambos os usuários já estivem com os novos jogos ou desistirem da troca</span>
 							<span>
 								<h5>Há duas formas de finalizar a troca: </h5>
-								<span class="alert alert-info" style="display:block">SIM - Ambos os usuários já pegaram os novos jogos (os jogos passarão para os status <b>INATIVOS</b> e não poderão mais ser usados em futuras trocas)</span>
-								<span class="alert alert-danger" style="display:block">NÃO - Os usuários desistiram da troca (os jogos continuarão <b>ATIVOS</b> para outras trocas)</span>
+								<span class="alert alert-info" style="display:block">Troca finalizada - Ambos os usuários já pegaram os novos jogos (os jogos passarão para os status <b>INATIVOS</b> e não poderão mais ser usados em futuras trocas)</span>
+								<span class="alert alert-danger" style="display:block">Desistimos da troca - Os usuários desistiram da troca (os jogos continuarão <b>ATIVOS</b> para outras trocas)</span>
 							</span>
 						</div>
 			            <div class="modal-footer">
 							<button type="button" class="btn btn-default" onclick="update(0, 'Cancelada')">Desistimos da troca</button>
-							<button type="button" class="btn btn-primary" onclick="update(0, 'Finalizada')">Sim</button>
+							<button type="button" class="btn btn-primary" onclick="update(0, 'Finalizada')">Troca finalizada</button>
 			            </div>
 			        </div>
 			    </div>

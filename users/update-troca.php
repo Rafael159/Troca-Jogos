@@ -30,7 +30,12 @@
 				$jogos->changeStatus($dados->jogoum, 'Inativo');
 				$jogos->changeStatus($dados->jogodois, 'Inativo');
 			}
-
+			if($tipo == 'Cancelada'){
+				$dados = (object)$troca;
+								
+				$jogos->changeStatus($dados->jogoum, 'Ativo');
+				$jogos->changeStatus($dados->jogodois, 'Ativo');
+			}
     		$retorno = array('status'=>'1', 'obj'=>$troca);
     		echo json_encode($retorno);
     	}

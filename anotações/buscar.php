@@ -9,7 +9,7 @@
 	$console = new Categorias();
 
 	$pesq = strip_tags($_GET['pesquisa']);
-    $jogo = $jogos->listarJogo(array('jogo'=>$pesq)); 
+    $jogo = $jogos->listarJogos(array('jogo'=>$pesq)); 
 
     $contarProdutos = count($jogo);
     if($contarProdutos != 0){?>

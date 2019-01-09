@@ -52,9 +52,9 @@
 		<?php		
 			if($key){	
 				if(isset($cnsl)){
-					$grupoJogos = $jogos->listarJogo(array('order'=>'ORDER BY id DESC', 'jogo'=>$key, 'console'=>$cnsl));
+					$grupoJogos = $jogos->listarJogos(array('order'=>'ORDER BY id DESC', 'jogo'=>$key, 'console'=>$cnsl));
 				}else{
-					$grupoJogos = $jogos->listarJogo(array('order'=>'ORDER BY id DESC', 'jogo'=>$key));
+					$grupoJogos = $jogos->listarJogos(array('order'=>'ORDER BY id DESC', 'jogo'=>$key));
 			}
 				$qtd = count($grupoJogos);
 				if($qtd != 0){
@@ -86,7 +86,7 @@
 				echo "<span class='alert-vazio'><p>OPS! Nenhum jogo encontrado :( </p><p>Tente outra pesquisa... </p></span>";
 			}
 			}else{
-			foreach($jogos->listarJogo(array('order'=>"ORDER BY id DESC")) as $key=> $valor):
+			foreach($jogos->listarJogos(array('order'=>"ORDER BY id DESC")) as $key=> $valor):
 		?> 
 			<div class="contorno">				
 				<figure id="console" nome="<?php echo strtoupper($valor->nome_console)?>"><a href="game/game.php?codigo=<?php echo $valor->id;?>&&console=<?php echo $valor->id_console;?>"><img src="game/imagens/<?php echo str_replace(' ', '', $valor->nome_console)?>/<?php echo $valor->imagem?>" alt="<?php echo strtoupper($valor->n_jogo)?>"/></a></figure>

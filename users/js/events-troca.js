@@ -10,7 +10,7 @@ $(document).ready(function(){
 			type: 'post',
 			data: 'type='+type,			
 			dataType: 'html'
-		}).done(function(dados){				
+		}).done(function(dados){	
 			if(dados == ''){
 				$('#list').html('<span class="error_msg">Nenhuma troca encontrada!</span>');
 			}else{
@@ -86,7 +86,7 @@ $(document).ready(function(){
 	window.update = function(idtroca, tipotroca){
 
 		if(tipotroca=='Cancelada' || tipotroca=='Finalizada'){
-			idtroca = $('input[name=idtroca]').val();			
+			idtroca = $('input[name=idtroca]').val();
 		}
 		
 		$.ajax({
@@ -102,10 +102,15 @@ $(document).ready(function(){
 				$('#box-msg-error').html(dados.mensagem);
 			}else{
 				if(tipotroca=="Aceito"){
+					$("#accepted").addClass("btnActived");
 					show_exchanges('accepted');
 					$("#modal-accepted").modal('toggle');
 					$(".msgpara").html(dados.nomeUser);
 					$("input[name=by_user]").val(dados.by_user);
+				}else if(tipotroca=="Cancelada" || tipotroca=="Finalizada"){
+					$("#all").addClass("btnActived");
+					show_exchanges('all');
+					$("#modal-finaliza").modal('toggle');
 				}else{
 					qnt = $('#trocas .badge').text();
 			   		qnt = parseInt(qnt) - 1;//add 1
