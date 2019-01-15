@@ -29,7 +29,7 @@ $(document).ready(function(){
     
             }, 'jSON');
         }else{
-            $('#return_msg').removeClass('alert-success').addClass('alert-danger').html('Informe um email').fadeIn();
+            $('#return_msg').removeClass('alert-success').addClass('alert-danger').html('Informe o mesmo email cadastrado no site').fadeIn();
         }
     });
 

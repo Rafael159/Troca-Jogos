@@ -197,7 +197,17 @@
         -moz-animation: moveFromTop 300ms ease-in-out;
         -ms-animation: moveFromTop 300ms ease-in-out;
     }
-    @-webkit-keyframes moveFromTop {
+@keyframes moveFromTop{
+	from {
+        opacity: 0;
+        -webkit-transform: translateY(-25%);
+    }
+    to {
+        opacity: 1;
+        -webkit-transform: translateY(0%);
+    }
+}
+@-webkit-keyframes moveFromTop {
     from {
         opacity: 0;
         -webkit-transform: translateY(-25%);
@@ -416,16 +426,21 @@ nav.mn-console ul .each-console a{
     padding: 10px;
     display: table;
 }
-.box_jogos .each-game{
+.box_jogos .each-game, .inativo{
 	margin-top: 20px;
 }
-.box_jogos .each-game > img{
+.box_jogos .each-game > img, .inativo > img{
 	width: 68%;
     height: 200px;
     cursor: pointer;
     margin: 0 auto;
     display: block;
 }
+.inativo{ opacity: 0.6; }
+.inativo > img{
+	cursor: not-allowed !important;
+}
+
 .box-opcao{
     border-radius: 0 0 5px 5px;
     margin: 0 auto;

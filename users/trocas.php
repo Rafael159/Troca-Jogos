@@ -7,17 +7,14 @@
     $troca = new Trocas();
     $jogo  = new Jogos();
 
-    session_start();
-    if(isset($_SESSION['emailTJ'])):
-    	$email = $_SESSION['emailTJ'];
-    else:
-    	header("Location:index.php");
-    endif;
-
-    $user->setEmail($email);
-    foreach ($user->findEmail() as $usuario) {
-    	$id = $usuario->id_user;
-    }
+	$usuario = Usuarios::getUsuario();
+	
+	if($usuario):
+		$email = $_SESSION['emailTJ'];
+		$id = $_SESSION['id_user'];
+	else:
+		header("Location:index.php");
+	endif;  
 ?>
 <link rel="stylesheet" type="text/css" href="../css/fonts.css"/>
 <link rel="stylesheet" type="text/css" href="css/trocas.css"/>

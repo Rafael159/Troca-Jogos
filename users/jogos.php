@@ -39,23 +39,25 @@
 				<span id="add_game" data-toggle="modal" data-target="#modal-add-game"><i class="fa fa-plus-square fa-5x"></i><br/><strong>Add jogo</strong></span>
 
 				<div class="box_jogos">
+					<div class="alert alert-info">Aqui fica todos os seus jogos. ATIVOS E INATIVOS</div>
 					<?php												
 						$jogo->setIdGamer($idUser);
-						$jogo->setStatus('Inativo');
 						$qnt = $jogo->contaJogoById();
-
+						
+						$row = $jogo->listarJogos(array('id_gamer'=>$idUser, 'status'=>'Ambos', 'order'=>'ORDER BY j.status'));
+						
 						if($qnt == 0){
 							echo "<span id='msg-none'>NENHUM JOGO CADASTRADO</span>";
 						}else{
-							foreach ($jogo->listarJogos(array('id_gamer'=>$idUser, 'status'=>'Ambos', 'order'=>'ORDER BY j.status')) as $jogo=> $valor):								
+							foreach ($row as $jogo=> $valor):
 					?>
-					<div class="each-game col-lg-3 col-md-4 col-sm-6 col-xs-12" id="<?php echo $valor->id?>">
+					<div class="each-game col-lg-3 col-md-4 col-sm-6 col-xs-12 <?php echo ($valor->status == 'Inativo') ? 'inativo' : ''; ?>" id="<?php echo $valor->id?>">
 						<img src="../game/imagens/<?php echo str_replace(' ', '', $valor->nome_console) ?>/<?php echo $valor->imagem?>" alt="<?php echo $valor->nome?>">
 						<div class="box-opcao">
 							<span class="nm_jogo"><?php echo strtoupper($valor->n_jogo)?></span>					
 						</div>						
 					</div>
-					<?php 
+					<?php
 						endforeach;
 					}
 					?>
@@ -188,7 +190,7 @@
 					</div>	
 				</div>
 				<div class='alert alert-danger' id='msg_error'></div>					
-			</div>	
+			</div>
 
 			<!--<div class="modal fade" id='modal_success' data-backdrop="false">
 				<div class="modal-dialog">

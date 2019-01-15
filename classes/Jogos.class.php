@@ -122,6 +122,7 @@ class Jogos extends Crud{
 		$order = array_key_exists("order", $queries) ? $queries['order'] : '';
 		$id_gamer = array_key_exists("id_gamer", $queries) ? $queries['id_gamer'] : '';
 		$status = array_key_exists("status", $queries) ? $queries['status'] : '';
+		$limite = array_key_exists("limite", $queries) ? $queries['limite'] : '';
 
 		$_where = array();
 		if($jogo) array_push($_where, " UPPER(j.n_jogo) LIKE UPPER('%".$jogo."%')");
@@ -139,6 +140,8 @@ class Jogos extends Crud{
 				$w .= ' AND '.$v;
 			}
 		}
+		$limit = ($limite) ? "LIMIT $limite" : ""; 
+
 		$ordem = "ORDER BY j.id ASC";
 		if($order) $ordem = $order;
 
@@ -148,7 +151,7 @@ class Jogos extends Crud{
 				FROM ((($this->table as j INNER JOIN `console` as c ON j.id_console = c.id_console)
 				INNER JOIN `imagens` as i ON j.img_jogo = i.id_img)
 				INNER JOIN `usuarios` as u ON  u.id_user = j.id_gamer)
-				WHERE j.img_jogo is not null $w $ordem";
+				WHERE j.img_jogo is not null $w $ordem $limit";
 		
 		$stmt = @BD::conn()->prepare($sql);
 		$stmt->bindValue(':busca', '%'.$this->nome.'%');
@@ -161,17 +164,22 @@ class Jogos extends Crud{
 	//contar quantos jogos o usuário possui, passando o ID como parâmetro
 	public function contaJogoById(){
 
-		$sql = "SELECT * FROM $this->table WHERE id_gamer = :cod AND status = :status";
+		$sql = "SELECT COUNT(*) as total FROM $this->table WHERE id_gamer = :cod";
 		$stmt = @BD::conn()->prepare($sql);
 		$stmt->bindParam(':cod', $this->idGamer);
-		$stmt->bindParam(':status', $this->status);
 		$stmt->execute();
-		return $stmt->rowCount();
+		$row = $stmt->fetchAll();
+		$total = $row['0']->total;
+
+		if($total < 0) return false;
+		return $total;
 		
 	}
 
 	public function contarJogos($queries = array()){		
 		$status = array_key_exists('status', $queries) ? $queries['status'] : '';
+		$idconsole = array_key_exists('idconsole', $queries) ? $queries['idconsole'] : '';
+		$id_gamer = array_key_exists('id_gamer', $queries) ? $queries['id_gamer'] : '';		
 		
 		$_where = array();
 		if($status) {
@@ -179,6 +187,9 @@ class Jogos extends Crud{
 			if($status != 'Ambos') array_push($_where, " status = '$status'");
 		}
 		
+		if($idconsole) array_push($_where, " id_console = $idconsole");
+		if($id_gamer) array_push($_where, " id_gamer = $id_gamer");
+
 		$w = '';
 		if(sizeof($_where) > 0){
 			foreach($_where as $key=>$v){
@@ -186,10 +197,11 @@ class Jogos extends Crud{
 			}
 		}
 
-		$sql = "SELECT * FROM $this->table WHERE id_gamer = :cod $w";
+		$sql = "SELECT * FROM $this->table WHERE id_gamer is not null $w";
 
 		$stmt = @BD::conn()->prepare($sql);
-		$stmt->bindParam(':cod', $this->idGamer);
+		// $stmt->bindParam(':cod', $this->idGamer);	
+
 		$stmt->execute();
 		return $stmt->rowCount();
 

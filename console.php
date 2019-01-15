@@ -56,12 +56,15 @@
 
             if($idConsole){
              
-              $sql = "SELECT * FROM `jogos` as j, `console` as c, `imagens` as i WHERE c.id_console = $idConsole AND c.id_console = j.id_console AND j.img_jogo = i.id_img AND j.status = 1 ORDER BY j.n_jogo";
-              $qtd = count($jogos->consulta($sql));
+              // $sql = "SELECT * FROM `jogos` as j, `console` as c, `imagens` as i WHERE c.id_console = $idConsole AND c.id_console = j.id_console AND j.img_jogo = i.id_img AND j.status = 1 ORDER BY j.n_jogo";
+              
+              $qtd = $jogos->contarJogos(array('status'=>'Ativo', 'idconsole'=>$idConsole));
+
+              // $qtd = count($jogos->consulta($sql));
              
               echo '<label id="info"><span id="nomeConsole">'.strtoupper($cons).'</span><span id="qtdJogo">'.$qtd.'</span> <b>jogo(s) encontrado(s)</b></label><input type="hidden" value="'.$idConsole.' "id="cod"/>';
               if($qtd != 0){
-                foreach($jogos->consulta($sql) as $valor):
+                foreach($jogos->listarJogos(array('status'=>'Ativo', 'idconsole'=>$idConsole)) as $valor):
           ?>          
           <div class="each-game" id="game">
             <a href="game/game.php?codigo=<?php echo $valor->id?>&&console=<?php echo $idConsole;?>">

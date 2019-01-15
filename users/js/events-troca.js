@@ -166,7 +166,6 @@ $(document).ready(function(){
 			data : 'idTroca='+idTroca,
 			dataType : 'json'
 		}).done(function(data){
-
 			if(data.status == '0'){
 				$('#box_error').modal();
 				$('#box-msg-error').html(data.mensagem);
@@ -192,13 +191,13 @@ $(document).ready(function(){
 
 				//primeiro jogo
 				box = '<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">';
-        		box +=	'<div class="box-games">';
-        		box +=      '<span class="game-title">Jogo Oferta</span>';
+        		box +=	'<div class="box-games" style="border: 2px solid #000">';
+        		box +=      '<span class="game-title">Jogo Principal</span>';
         		box +=	    '<img src="../game/imagens/'+console+'/'+imagem_oferta+'" alt="'+jogo_oferta+'" class="img-responsive img-games"/>';
         		box +=	'<label class="game-name">'+jogo_oferta+' - '+console+'</label></div></div>';     	
         		//segundo jogo
         		box += '<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">';
-		        box +=    	'<div class="box-games">';
+		        box +=    	'<div class="box-games" style="border: 2px solid #069">';
 		        box +=    		'<span class="game-title">Jogo Pretendido</span>';
 		        box +=    		'<img src="../game/imagens/'+seg_console+'/'+seg_img+'" alt="'+seg_jogo+'" class="img-responsive img-games"/>';
 		        box += '<label class="game-name">'+seg_jogo+' - '+seg_console+'</label></div></div>';

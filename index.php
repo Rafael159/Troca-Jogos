@@ -121,9 +121,9 @@
 						<div id="slider">
 							<ul>
 								<?php
-									$sql = "SELECT * FROM `jogos` as j,`console` as c, `imagens` as i WHERE j.id_console = c.id_console AND j.img_jogo = i.id_img ORDER BY j.id DESC LIMIT 10";
+									//$sql = "SELECT * FROM `jogos` as j,`console` as c, `imagens` as i WHERE j.id_console = c.id_console AND j.img_jogo = i.id_img ORDER BY j.id DESC LIMIT 10";
 									
-									foreach($jogos->consulta($sql) as $jogo=> $valor):		
+									foreach($jogos->listarJogos(array('status'=>'Ativo', 'limite'=>'10')) as $jogo=> $valor):		
 								?>
 								<a href='game/game.php?codigo=<?php echo $valor->id;?>'><li><img src="game/imagens/<?php echo str_replace(' ','',$valor->nome_console).'/'.$valor->imagem;?>"><span class="inf-ultimos-jogos"><?php echo substr($valor->n_jogo,0,12).' - '.substr(strtoupper($valor->nome_console),0,6).'...'?></span></li></a>
 								<?php endforeach;?>

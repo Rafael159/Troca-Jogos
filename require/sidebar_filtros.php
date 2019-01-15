@@ -41,6 +41,7 @@
 			<label class="item" for="<?php echo $genero_sem_acento?>">
 				<div class="checkbox <?php echo $genero_sem_acento?>">
 					<section class="genero">
+						<i class="fa fa-futbol-o" aria-hidden="true"></i>
 						<input type="checkbox" name="genre[]" value="<?php echo $info->id?>" autocomplete="off" class="filterGenre content" id="<?php echo $genero_sem_acento?>"/>							
 					</section>
 					<span class="filter_name"><?php echo $info->nome?></span>
@@ -58,8 +59,8 @@
 	      <label for="acao" id="<?php echo $info->id?>"><?php echo $info->nome?></label>
 	    </li>
 	    <?php endforeach; ?>
-	</ul>
-	<!--INÍCIO FILTRO POR GÊNERO
+	</ul>-->
+	<!-- INÍCIO FILTRO POR GÊNERO
 	<ul class="filtro-ano">
 		<span class="titulo_filtro">GÊNERO</span>				
 		<li class="controle">
@@ -74,7 +75,7 @@
 		<li class="controle">
 			<label class="item ano"><div class="ano"><span id=""></span></div>RPG</label>
 		</li>			
-	</ul>	-->
+	</ul>	 -->
 	<!--FIM DO FILTRO DO ANO-->
 	
 </div>

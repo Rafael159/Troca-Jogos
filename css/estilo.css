@@ -715,9 +715,10 @@ span#titulo-galeria{
   	margin-right:2px;
 }
 .main .galeria #resultado-links .quadro-galeria{
-	width: 1078px;
+	width: 1071px;
 	height: 359px;
 	position: absolute;
+	margin-left: 7px;	
 }
 /*formatação da vitrine dos jogos*/
 .main .galeria #resultado-links .quadro-galeria .galeria-principal{
