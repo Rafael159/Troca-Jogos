@@ -39,9 +39,10 @@
 				$genero_sem_acento = strtolower(tirarAcentos($info->nome));
 			?>
 			<label class="item" for="<?php echo $genero_sem_acento?>">
+				
 				<div class="checkbox <?php echo $genero_sem_acento?>">
-					<section class="genero">
-						<i class="fa fa-futbol-o" aria-hidden="true"></i>
+					<i class=""></i>
+					<section class="genero">										
 						<input type="checkbox" name="genre[]" value="<?php echo $info->id?>" autocomplete="off" class="filterGenre content" id="<?php echo $genero_sem_acento?>"/>							
 					</section>
 					<span class="filter_name"><?php echo $info->nome?></span>

@@ -15,7 +15,7 @@
     margin-left: 2%;
 }
 .filtro-actived{
-    background: #069;
+    background: #717171 !important;
     border-radius: 5px;
 }
 .filtro-plataforma, .filtro-genero{
@@ -27,7 +27,7 @@
     background: #333;
     display: inline-block;
     width: 3.8em;
-    height: 3.2em;
+    height: 3.6em;
     margin: 10px 2px;
     border: 1px solid #fff;
     border-radius: 5px;
@@ -43,6 +43,7 @@
 .filtro-plataforma .controle:hover, 
 .filtro-genero .controle:hover{
     background: #ccc;
+    color:#069;
 }
  .filtro-plataforma .controle .item,
  .filtro-genero .controle .item{
@@ -50,7 +51,15 @@
     display: block;
     height: 100%;
     cursor: pointer;
+    background: #171717;
+    border-radius: 5px;
 }
+.filtro-genero .controle .item:hover{background:#069;}
+
+.filtro-plataforma .controle .item:hover .checkbox,
+ .filtro-genero .controle .item:hover .checkbox{
+    color:#ffffff;    
+ }
 .filtro-plataforma .controle .item .checkbox .categoria,
 .filtro-genero .controle .item .checkbox .genero{
     width: 100%;
@@ -69,11 +78,10 @@
 .filtro-plataforma .controle .item .checkbox .filter_name,
 .filtro-genero .controle .item .checkbox .filter_name{
     font-size: 12px;
-    color: #ccc;
-    font-family: 'Lato', helvetica, sans-serif;
-    margin-top: 52px;
-    display: block;
-    position: absolute;
+    font-family: 'Lato', helvetica, sans-serif;    
+    display: block;   
+    width: 100%;
+    margin-top: 3px;
 }
 
 .filtro-plataforma .controle .item .checkbox,
@@ -81,7 +89,9 @@
     height: 100%;
     width: 100%;
     border-radius: 3px;
-    background: url(img/bg_filtros.png);
+    text-align: center;
+    padding: 5px 0px;    
+    color:#ccc;
 }
 
 /*POSICIONAR ÍCONES CONSOLES*/
@@ -115,7 +125,7 @@
 }       
 
 /*POSICIONAR ÍCONES GÊNEROS*/
-.filtro-genero .controle:nth-child(2) .item .checkbox{ 
+/* .filtro-genero .controle:nth-child(2) .item .checkbox{ 
     background-position: 4px 2236px;
 } 
 .filtro-genero .controle:nth-child(3) .item .checkbox{ 
@@ -159,7 +169,7 @@
 } 
 .filtro-genero .controle:nth-child(16) .item .checkbox{ 
     background-position: -4px 1508px;
-} 
+}  */
 .titulo_filtro{
     display: block;
     font: 15px lato, helvetica, sans-serif;

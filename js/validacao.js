@@ -148,7 +148,6 @@ $('#cep').blur(function(){
 		}
 	});
 
-
 $('#btCancelar').click(function(){
 	event.preventDefault();
 	window.location.href = 'index.php';

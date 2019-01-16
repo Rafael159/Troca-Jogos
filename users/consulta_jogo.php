@@ -13,11 +13,16 @@
 		$id = $_POST['idJ'];
 	}
 ?>
-<div id="boxGame" class="row">		
+<div id="boxGame" class="row">
 	<?php
 		$jogo->setID($id);
-		foreach ($jogo->listaJogoById() as $game => $dados) {
+		foreach ($jogo->listaJogoById() as $game => $dados) {			
 	?>
+	<?php if($dados->status == 'Inativo'):?>
+		<div class="col-lg-12">
+			<label class="alert alert-warning">Esse jogo está inativo. Você <strong>não</strong> poderá trocá-lo enquanto ele fizer parte de um processo de troca</label>
+		</div>
+	<?php endif; ?>
 	<div class="col-lg-4">
 		<img src="../game/imagens/<?php echo str_replace(' ','',$dados->nome_console)?>/<?php echo $dados->imagem?>" class="img_jogo"/>
 		<small class="news">Em breve você poderá atualizar a IMAGEM e o CONSOLE :)</small>

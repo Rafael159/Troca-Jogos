@@ -39,7 +39,7 @@
 				<span id="add_game" data-toggle="modal" data-target="#modal-add-game"><i class="fa fa-plus-square fa-5x"></i><br/><strong>Add jogo</strong></span>
 
 				<div class="box_jogos">
-					<div class="alert alert-info">Aqui fica todos os seus jogos. ATIVOS E INATIVOS</div>
+					<div class="alert alert-info">Aqui ficam todos os seus jogos. ATIVOS E INATIVOS<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a></div>
 					<?php												
 						$jogo->setIdGamer($idUser);
 						$qnt = $jogo->contaJogoById();

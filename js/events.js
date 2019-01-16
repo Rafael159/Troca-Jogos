@@ -1,5 +1,5 @@
 $(document).ready(function (){
-
+	
 	function logar_user(form, type){
 		
 		idfrm = form.attr('id');
@@ -134,4 +134,41 @@ $(document).ready(function (){
 		
 	  	gameByConsole(id);		
 	});
+
+	function setIcons(){
+		$(".filterGenre").each(function(){
+			item = $(this);
+			genero = $(this).attr('id');
+			var path = item.parent().prev();
+			switch(genero){
+				case 'acao':
+				break;
+				case 'corrida':
+					path.addClass('fas fa-car fa-2x');
+				break;
+				case 'puzzle':
+					path.addClass('fas fa-puzzle-piece fa-2x');
+				break;
+				case 'esportes':
+					path.addClass('far fa-futbol fa-2x');				
+				break;
+				case 'musical':
+					path.addClass('fas fa-music fa-2x');				
+				break;
+				case 'shooter':
+					path.addClass('fas fa-bullseye fa-2x')
+				break;
+				case 'aventura':
+					path.addClass('fas fa-skiing fa-2x');
+				break;
+				case 'terror':
+					path.addClass('fas fa-exclamation-triangle fa-2x');
+				break;
+				case 'estrategia':
+					path.addClass('fas fa-chess-knight fa-2x');
+				break;
+			}
+		});
+	}
+	setIcons();
 });
