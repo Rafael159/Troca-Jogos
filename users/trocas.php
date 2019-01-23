@@ -28,11 +28,12 @@
 			<div class="col-lg-12">
 				<a href="..\pesquisa.php" id="add_troca"><i class="fa fa-plus-square fa-5x"></i><br/><strong>Add troca</strong></a>
 				<div class="btn-group">
-					<button type="button" class="btn btn-primary btn_exchange" id="all">Todas</button>
+					<button type="button" class="btn btn-default btn_exchange" id="all">Todas</button>
 					<button type="button" class="btn btn-success btn_exchange" id="accepted">Aceitas</button>
 					<button type="button" class="btn btn-warning btn_exchange" id="done">Feitas</button>
 					<button type="button" class="btn btn-info btn_exchange" id="received">Recebidas</button>
 					<button type="button" class="btn btn-danger btn_exchange" id="refused">Recusadas</button>
+					<button type="button" class="btn btn-primary btn_exchange" id="finished">Finalizadas</button>
 				</div>				
 			</div>
 			<div class="col-lg-12">

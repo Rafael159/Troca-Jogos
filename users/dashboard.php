@@ -30,11 +30,11 @@
 <body>
 	<div class="alert-overlay"></div>
 	<?php
-		session_start();
-
-		if(isset($_SESSION['emailTJ'])){
-			$nome = $_SESSION['nomeTJ'];
-			$codigo = $_SESSION['id_user'];
+		$user = Usuarios::getUsuario();
+		
+		if(isset($user)){
+			$nome = $user->nomeUser;
+			$codigo = $user->id_user;
 		?>	
 	<div class="container-fluid nopadding">
 		<nav class="navbar navbar-default topHeader">
@@ -50,7 +50,7 @@
 				</div>
 				<div class="collapse navbar-collapse" id="main-menu">
 					<ul class="nav navbar-nav navbar-right container-menu">
-						<li class="menu"><a href="settings.php" title="Configuração" class="link-main" id="settings"><i class="fa fa-cog"></i> Configuração</a></li>
+						<!-- <li class="menu"><a href="settings.php" title="Configuração" class="link-main" id="settings"><i class="fa fa-cog"></i> Configuração</a></li> -->
 						<li class="menu"><a href="profile.php" title="Meu perfil" class="link-main" id="perfil_user"><i class="fa fa-user"></i> Perfil</a></li>
 						<li class="menu"><a href="..\sair.php" title="Sair" class="link-main" id="settings"><i class="fa fa-sign-out"></i> Sair</a></li>
 					</ul>
@@ -77,7 +77,7 @@
 				        <div class="navbar-collapse collapse sidebar-navbar-collapse nopadding">
 				          <ul class="nav navbar-nav" id="left_menu">
 				            <li class="vt_link text-center nav_op_left" id="home"><a href="home"><i class="fa fa-tachometer fa-3x"></i><br/>Dashboard</a></li>
-				            <li class="vt_link text-center nav_op_left" id="jogos"><a href="jogos"><i class="fa fa-gamepad fa-3x"></i><br/>Jogos<br/><span class="badge"><?php $jogos->setIdGamer($codigo); echo $jogos->contarJogos(array('status'=>'Ambos'))?></span></a></li>
+				            <li class="vt_link text-center nav_op_left" id="jogos"><a href="jogos"><i class="fa fa-gamepad fa-3x"></i><br/>Jogos<br/><span class="badge"><?php echo $jogos->contarJogos(array('id_gamer'=> $codigo, 'status'=>'Ambos'))?></span></a></li>
 				            <li class="vt_link text-center nav_op_left" id="trocas"><a href="trocas"><i class="fa fa-refresh fa-3x"></i><br/>Trocas <br/><span class="badge"><?php $trocas->setByUser($codigo); echo $trocas->contaTrocaById()?></span></a></li>				            				            
 				            <li class="vt_link text-center nav_op_left" id="mensagens"><a href="mensagens"><i class="fa fa-commenting fa-3x"></i><br/>Mensagens<br/><span class="badge">2</span></a></li>
 				            <li class="vt_link text-center nav_op_left" id="contato"><a href="contato"><i class="fa fa-envelope fa-3x"></i><br/>Contate-nos</a></li>				            

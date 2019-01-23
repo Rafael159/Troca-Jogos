@@ -81,8 +81,9 @@ class Usuarios extends Crud{
 		return $this->senha;
 	}
 
-	public static function getUsuario($field = null){		
-		session_start();		
+	public static function getUsuario($field = null){
+		if(!isset($_SESSION)) session_start();
+			
 		if(!isset($_SESSION['usuario'])) return false;		
 		$usuario = unserialize($_SESSION['usuario']);
 		

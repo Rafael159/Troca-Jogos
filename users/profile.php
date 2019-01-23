@@ -112,6 +112,8 @@
 <script src="../js/jquery.validate.js" type="text/javascript"></script>
 <script src="../js/jquery.mask.js" type="text/javascript"></script>
 <script src="js/profile.js" type="text/javascript"></script>
+<script src="..\bootstrap/js/bootstrap.min.js"></script>
+
 
 <script>
     var form_values = {}

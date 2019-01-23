@@ -60,8 +60,7 @@ $(document).ready(function (){
             link = res[1];
             link = link.replace("#","");
            
-            if(!link){
-                alert('cheguie'); 
+            if(!link){                
                 link = $('#left_menu li:first').find('a').attr('href');
                 link = link+'.php';
 

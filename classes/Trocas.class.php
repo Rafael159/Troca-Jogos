@@ -92,10 +92,13 @@
 		
 		public function getTrocas($queries = array()){
 			$id = array_key_exists("id", $queries) ? $queries['id'] : '';
-			
+			$status = array_key_exists("tipo", $queries) ? $queries['tipo'] : '';
+			$idgamer = array_key_exists("idgamer", $queries) ? $queries['idgamer'] : '';
 			$_where = array();
 			
 			if($id) array_push($_where, "tc.id = $id");
+			if($idgamer) array_push($_where, "(tc.idUm = $idgamer || tc.idDois = $idgamer)");
+			if($status) array_push($_where, "tc.status = '$status'");
 
 			$w = '';
 			if(sizeof($_where) > 0){
@@ -103,7 +106,6 @@
 					$w .= ' AND '.$v;
 				}
 			}
-			// if($w) $w = "WHERE $w";
 
 			$sql = "SELECT tc.id AS 'id_troca', tc.idUm, tc.idDois, tc.tipo, tc.valor, tc.by_user, j.n_jogo AS 'game', tc.jogoum, tc.jogodois, tc.status, u.nomeUser
 					FROM  `trocas` AS tc, (((`jogos` AS j
@@ -116,9 +118,9 @@
 					ORDER BY tc.id DESC";
 			
 			$stmt = @BD::conn()->prepare($sql);
-			// 	echo '<pre>';
-			// print_r($stmt);
-			$stmt->bindParam(':by_user', $this->by_user);
+			echo '<pre>';
+			print_r($stmt);
+			// $stmt->bindParam(':by_user', $this->by_user);
 			$stmt->execute();
 			return $stmt->fetchAll();
 		}

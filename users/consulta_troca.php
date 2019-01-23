@@ -6,8 +6,8 @@
     $user  = new Usuarios();   
     $troca = new Trocas();
     $jogo  = new Jogos(); 
-	session_start();
-	$userID = (isset($_SESSION['id_user']) ? $_SESSION['id_user'] : '');
+	
+	$userID = Usuarios::getUsuario('id_user');
 
 	//recebe o tipo de consulta
 	$tipo = (isset($_POST['type']) ? $_POST['type'] : 'all');
@@ -29,6 +29,10 @@
 		break;
 		case 'refused':
 			$dados = $troca->showRefused();
+		break;
+		case 'finished':
+			//$dados = $troca->showFinished();
+			$dados = $troca->getTrocas(array('tipo'=>'Finalizada', 'idgamer'=>$userID));
 		break;
 		default:
 			$dados = $troca->showAll();
@@ -121,7 +125,7 @@
                             $vlr = $rs->status;
                             if($vlr=="Pendente" && ($owner != $userID) && ($tipo=='received' || $tipo=='all')):
                         ?>
-                        <span class="edge-btn"><a class="btn btn-success btn-xs" onclick="update(<?php echo $rs->id_troca?>, 'Aceito')">Aceitar <i class="fa fa-handshake-o" aria-hidden="true"></i></a></span>
+                        <span class="edge-btn"><a class="btn btn-success btn-xs" onclick="update(<?php echo $rs->id_troca?>, 'Aceito')" >Aceitar <i class="fa fa-handshake-o" aria-hidden="true"></i></a></span>
                         <span class="edge-btn"><a class="btn btn-danger btn-xs" onclick="update(<?php echo $rs->id_troca?>, 'Recusado')">Recusar <i class="fa fa-remove" aria-hidden="true"></i></a></span>
 						<?php endif; ?>
 						<?php if($vlr=="Aceito" AND $owner==$userID): ?><span class="edge-btn"><a class="btn btn-success btn-xs" onclick="finalizarTroca(<?php echo $rs->id_troca?>)">Finalizar Troca <i class="fa fa-check" aria-hidden="true"></i></a></span><?php endif; ?>

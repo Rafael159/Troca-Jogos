@@ -139,9 +139,14 @@ $(document).ready(function (){
 		$(".filterGenre").each(function(){
 			item = $(this);
 			genero = $(this).attr('id');
+			
 			var path = item.parent().prev();
 			switch(genero){
 				case 'acao':
+					path.addClass('fas fa-bomb fa-2x');
+				break;
+				case 'luta':
+					path.addClass('fas fa-hand-rock fa-2x');
 				break;
 				case 'corrida':
 					path.addClass('fas fa-car fa-2x');
@@ -165,8 +170,25 @@ $(document).ready(function (){
 					path.addClass('fas fa-exclamation-triangle fa-2x');
 				break;
 				case 'estrategia':
-					path.addClass('fas fa-chess-knight fa-2x');
+					path.addClass('fas fa-chess-rook fa-2x');
 				break;
+				case 'fitness':
+					path.addClass('fas fa-dumbbell fa-2x');
+				break;
+				case 'rpg':
+					path.addClass('fab fa-superpowers fa-2x');
+				break;
+				case 'mmo':
+					path.addClass('fas fa-globe fa-2x')
+				break;
+				case 'tcg':
+					path.addClass('fab fa-galactic-senate fa-2x');
+				break;
+				case 'simulacao':
+					path.addClass('fas fa-fighter-jet fa-2x');
+				break;
+				default:
+					path.addClass('fas fa-adjust fa-2x');
 			}
 		});
 	}

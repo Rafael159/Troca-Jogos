@@ -62,7 +62,8 @@
 
 /*BOTÃO ATIVO*/
 .btnActived{
-    background: #000 !important;
+    box-shadow: inset 0px 0px 40px 4px #000;
+    color:#ffffff !important;
 }
 #add_troca{
     display: block;

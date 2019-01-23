@@ -39,7 +39,7 @@
 <body>
 	<div class="container-fluid nopadding">
 		<?php require 'require/header.php'; ?>
-
+		
 		<div id="main-content" role="main">
 			<div class="row nopadding">
 				<div class="col-lg-7 nopadding col-lg-push-1">
@@ -109,7 +109,7 @@
 			</div><!-- / .row (2)-->
 		</div><!-- / #main-content-->
 		<?php 
-			if(isset($_SESSION['emailTJ'])):
+			if(isset($_SESSION['emailTJ']) AND Usuarios::getUsuario('id_user') != $codUser):
 		?>
 		<div class="chat">
 			<div class="chat-title">Mensagem</div>
