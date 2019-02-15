@@ -115,6 +115,10 @@
 				</div><!--class galeria-->
 				<div class="clearfix">
 				<!--últimos cadastrados-->
+					<?php
+						$jogoAll = $jogos->listarJogos(array('status'=>'Ativo', 'limite'=>'10'));
+						if(count($jogoAll) > 0):
+					?>
 					<div id="sidebar-left">
 						<h5>Últimos <b>10</b> jogos cadastrados</h5>
 						<span id="prevId" class="flexa"><a href="javascript:void(0);"><img src="imagens/icones/icon-seta.png"></a></span> 
@@ -122,13 +126,14 @@
 						<div id="slider">
 							<ul>
 								<?php									
-									foreach($jogos->listarJogos(array('status'=>'Ativo', 'limite'=>'10')) as $jogo=> $valor):		
+									foreach($jogoAll as $jogo=> $valor):		
 								?>
 								<a href='game/game.php?codigo=<?php echo $valor->id;?>'><li><img src="game/imagens/<?php echo str_replace(' ','',$valor->nome_console).'/'.$valor->imagem;?>"><span class="inf-ultimos-jogos"><?php echo substr($valor->n_jogo,0,12).' - '.substr(strtoupper($valor->nome_console),0,6).'...'?></span></li></a>
 								<?php endforeach;?>
 							</ul>							
 						</div>
 					</div><!--sidebar-->
+					<?php endif; ?>
 				</div>
 				<div class="clearfix">
 					<div id="info-funcional">

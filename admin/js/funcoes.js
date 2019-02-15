@@ -39,9 +39,9 @@ $(document).ready(function(e){
 		});			
 	}
 
-	$("#btn-config").on('click', function(){
-		$("#box-config").fadeIn();//MOSTRAR AS OPÇÕES PARA CADASTRAR IMG'S					
-	});
+	// $("#btn-config").on('click', function(){
+	// 	$("#box-config").fadeIn();//MOSTRAR AS OPÇÕES PARA CADASTRAR IMG'S					
+	// });
 
 	/*CHAMA A TELA DE CADASTRO DE IMAGENS*/
 	$("#btn-add-img").on('click', function(){
@@ -51,15 +51,6 @@ $(document).ready(function(e){
 
 	
 	function acaoimagem(){
-		/*MOSTRAR OPÇÕES DA IMAGEM*/
-		$(".box_imagens .each-img").mouseenter(function(){					
-			$(this).find(".box-opcao").fadeIn();
-		});
-		/*ESCONDER OPÇÕES IMAGEM*/
-		$(".box_imagens .each-img").mouseleave(function(){					
-			$(this).find(".box-opcao").fadeOut();
-		});
-
 		/*DELETAR IMAGEM*/
 		$(".icon-deletar").on('click',function(){
 			var id = $(this).parent().parent().attr('id'); //recupera o id da imagem
@@ -83,18 +74,12 @@ $(document).ready(function(e){
 			$.post('atualiza_img.php',{ //envia para a página de exclusão
 				id:id,jogo:jogo,
 			}, function(retorno){
-
-				if(retorno != ''){ //se houver erro, mostre
+				if(retorno.status == 'erro'){ //se houver erro, mostre
 					mensagem('Erro ao atualizar imagem!','Ocorreu um erro.Tente mais tarde');
-				}else{	//senão, atualiza a página
-					$("#conteudo_principal").slideUp('slow', function(){
-						$("#conteudo_principal").load('imagens.php' + "#conteudo_principal",function(){
-							$("#conteudo_principal").slideDown('fast');
-						});
-					});
-																
+				}else{
+					mensagem('Sucesso', 'Imagem atualizada com sucesso');											
 				}								
-			});
+			}, 'jSON');
 		});
 	}
 	acaoimagem();//CONFIGURA O EFEITO NAS IMAGENS CARREGADAS
@@ -104,16 +89,17 @@ $(document).ready(function(e){
 			switch (acao){
 				case 'confirma': //se confirmar
 					var id =  $('#recuperaId').val(); //recupera o id da imagem
-					$.post('excluir_img.php',{ //envia para a página de exclusão
+					$.post('delete.php',{ //envia para a página de exclusão
 						id:id,
-					}, function(retorno){
-						if(retorno == ''){ //se houver erro, mostre
+					}, function(retorno){						
+						if(retorno.status == 'erro'){ //se houver erro, mostre
 							mensagem('Erro ao excluir imagem!','Algum erro ocorreu, tente mais');
 						}else{	//senão, atualiza a página
 							var href = 'imagens.php'; 
 							$("#conteudo_principal").load(href + "#conteudo_principal");
+							$("html,body").css({"overflow-y":"visible"});
 						}								
-					});
+					}, 'jSON');
 				break;
 				case 'cancela':
 					$("#box_confirmacao").fadeOut();//esconde a caixa de confirmação
@@ -129,10 +115,8 @@ $(document).ready(function(e){
 
 
 	/*FILTRO POR CONSOLE*/
-	$(".mn-console ul li").on('click', function(){
-		if($(this).hasClass("actived")){
-			$(this).removeClass("actived");
-			$("#conteudo_principal").load('imagens.php' + "#conteudo_principal");
+	$(".mn-console ul li.each-console").on('click', function(){
+		if($(this).hasClass("actived")){ //Não fazer nada
 		}else{
 			var id = $( this ).attr("id");
 
@@ -242,8 +226,7 @@ $("#upload_form").on('submit',(function(e) { //faz o upload
 		processData:false,
 		dataType: 'json',
 		success: function(data)
-	    {
-			console.log(data);
+	    {			
 	    	if(data.sucesso == true){				
 				$("#output").html("<img src='"+data.nome+"'>"); //mostrar imagem
 				$("#nome-imagem").val(data.nomeAleatorio);

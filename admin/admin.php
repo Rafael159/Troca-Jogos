@@ -8,9 +8,15 @@
 	<head>
 		<meta charset="UTF-8">
 		<!--CHAMADA CSS-->
+		<link type="text/css" href="css/imagens.css" rel="stylesheet"/>
+
+		<!--CSS BOOTSTRAP-->
+		<link rel="stylesheet" type="text/css" href="..\bootstrap/css/bootstrap.min.css"/>
+		<link rel="stylesheet" type="text/css" href="..\font-awesome/css/font-awesome.css"/>
+
+		<!--CHAMADA CSS-->
 		<link rel="stylesheet" type="text/css" href="css/estilo.css"/>
 		<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
-		<!-- <link rel="stylesheet" href="/resources/demos/style.css"> -->
 	</head>
 	<body>
 		<?php 
@@ -20,11 +26,9 @@
 		    }
 		    @BD::conn();//conexão com o banco de dados
 			
-			$user = Usuarios::getUsuario();
-			
+			$user = Usuarios::getUsuario();			
 			$acesso = $user->tipousuario;		
-			/*
-			*	NÍVEL 1 - ADMINISTRADOR
+			/**	NÍVEL 1 - ADMINISTRADOR
 			*	NÍVEL 0 - USUÁRIO NORMAL
 			*/
 			if($acesso == 0){
@@ -56,12 +60,12 @@
 		<div id="container">
 			<div id="esquerda">
 				<ul class="mn_admin">
-					<li class="mn_opcao menu"><a href="">MENU</a></li>
-					<li class="mn_opcao jogo"><a href="jogos.php">JOGOS</a></li>
-					<li class="mn_opcao console"><a href="consoles.php">CONSOLES</a></li>
-					<li class="mn_opcao imagem"><a href="imagens.php">IMAGENS</a></li>
-					<li class="mn_opcao troca"><a href="">TROCAS</a></li>
-					<li class="mn_opcao config"><a href="">CONFIGURAÇÃO</a></li>
+					<li class="mn_opcao dashboard"><a href="" class="link"><i class="fa fa-dashboard" aria-hidden="true"></i> Dashboard</a></li>
+					<li class="mn_opcao jogo"><a href="jogos.php" class="link"><i class="fa fa-gamepad" aria-hidden="true"></i> Jogos</a></li>
+					<li class="mn_opcao console"><a href="consoles.php" class="link"><i class="fa fa-database" aria-hidden="true"></i> Consoles</a></li>
+					<li class="mn_opcao imagem"><a href="imagens.php" class="link"><i class="fa fa-picture-o" aria-hidden="true"></i> Imagens</a></li>
+					<li class="mn_opcao troca"><a href="" class="link"><i class="fa fa-exchange" aria-hidden="true"></i> Trocas</a></li>
+					<li class="mn_opcao config"><a href="" class="link"><i class="fa fa-cogs" aria-hidden="true"></i> Configuração</a></li>
 				</ul>
 			</div>
 			<div id="conteudo_principal">

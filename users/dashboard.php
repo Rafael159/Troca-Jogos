@@ -22,10 +22,10 @@
 		<link rel="stylesheet" type="text/css" href="css/dashboard.css" />
 		<!--CSS BOOTSTRAP-->
 		<link rel="stylesheet" type="text/css" href="..\bootstrap/css/bootstrap.min.css"/>
-        <link rel="stylesheet" type="text/css" href="..\bootstrap/css/bootstrap-theme.css"/>
+    <link rel="stylesheet" type="text/css" href="..\bootstrap/css/bootstrap-theme.css"/>
 		<!--CSS FONT-AWESOME-->		
-        <link rel="stylesheet" type="text/css" href="..\font-awesome/css/font-awesome.css"/>
-        <!--CSS JOGOS-->
+    <link rel="stylesheet" type="text/css" href="..\font-awesome/css/font-awesome.css"/>
+    <!--CSS JOGOS-->
 		<link rel="stylesheet" type="text/css" href="css/jogos.css"/>
 		<title>Dashboard - Troca Jogos</title>
 	</head>

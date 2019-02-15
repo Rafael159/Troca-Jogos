@@ -8,10 +8,11 @@
 	$jogo = $_POST['jogo'];
 				
 	$imagem->setNome($jogo);
+	$imagem->setIdImagem($id);
 	
 	if($imagem->update($id)){
-		
+		echo json_encode(array('status'=>'sucesso'));
 	}else{
-		echo "Não foi possível atualizar imagem";		
+		echo json_encode(array('status'=>'erro'));		
 	}
 ?>

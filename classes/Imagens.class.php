@@ -62,13 +62,25 @@ class Imagens extends Crud{
 
 	}
 
-	//atualizar jogos
+	/**
+	 * Função: Atualizar jogos
+	 **/
 	public function update(){
 		$sql = "UPDATE $this->table SET nome = :nome WHERE id_img = :id";
 		$stmt = @BD::conn()->prepare($sql);		
 		$stmt->bindParam(':nome', $this->nome);
 		$stmt->bindParam(':id', $this->idimg);
 		return $stmt->execute();
+	}
+	/**
+	* Função: Deletar imagem
+	 **/
+	public function delete(){
+		$sql  = "DELETE FROM $this->table WHERE (id_img = :id_img)";
+		$stmt = @BD::conn()->prepare($sql);
+		$stmt->bindParam(':id_img', $this->idimg);			
+		$stmt->execute();
+		return $stmt;
 	}
 
 	/*buscar imagem pelo nome
@@ -87,6 +99,7 @@ class Imagens extends Crud{
 		$id = (array_key_exists("id_img", $queries)) ? $queries['id_img'] : ''; 
 		$console = (array_key_exists("id_console", $queries)) ? $queries['id_console'] : '';		
 		$nome = (array_key_exists("nome", $queries)) ? $queries['nome'] : '';		
+		$order = array_key_exists("order", $queries) ? $queries['order'] : '';
 		
 		$_where = array();
 		if($id) array_push($_where, " id_img = :id ");
@@ -95,16 +108,16 @@ class Imagens extends Crud{
 		
 		$w = '';
 		if(sizeof($_where) > 0){
-
 			foreach($_where as $key=>$v){
 				$w .= ' AND '.$v;
 			}
-
 		}
 
-		$where = " WHERE id_img IS NOT NULL";
-		
-		$sql  = "SELECT * FROM $this->table $where $w";
+		$where = " WHERE c.id_console = i.id_console";
+		$ordem = "ORDER BY i.id_img ASC";
+		if($order) $ordem = $order;
+
+		$sql  = "SELECT i.*, c.* FROM `imagens` i, `console` c $where $w $ordem";
 
 		$stmt = @BD::conn()->prepare($sql);
 
@@ -117,7 +130,7 @@ class Imagens extends Crud{
 	}
 
 	private function getImageHelper($queries = array()){
-		$rows = new Imagens;
+		$rows = new Imagens();
 		return $rows->getImage($queries);
 
 	}

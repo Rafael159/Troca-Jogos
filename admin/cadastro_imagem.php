@@ -19,7 +19,7 @@
 	<div class="box_cad_img">
 		<!--PARTE 1 - ESCOLHA DO CONSOLE-->
 		<div class="section" id="box_console">		
-			<div class="container" align="center">
+			<div class="boxcontainer" align="center">
 				<h3>Cadastrar imagem para qual console?</h3>
 				<div class="galeria">
 					<nav>
@@ -39,7 +39,7 @@
 		</div>
 		<!--PARTE 2 - ESCOLHA DA NOME DA IMAGEM ( A QUAL JOGO PERTENCE ) -->
 		<div class="section" id="box_nome">
-			<div class="container" align="center">
+			<div class="boxcontainer" align="center">
 				<h3>Informe o nome do jogo dessa imagem</h3>
 				<form action="#" method="post">
 					<input name="nome-jogo" type="text" id="txt-jogo"/>		                
@@ -51,7 +51,7 @@
 		</div>
 		<!--PARTE 3 - ESCOLHA IMAGEM -->
 		<div class="section" id="box_imagem">		
-			<div class="container" align="center">
+			<div class="boxcontainer" align="center">
 				<h3>Escolha a imagem que deseja cadastrar</h3>
 				<form action="#" method="post" enctype="multipart/form-data" id="upload_form">
 					<input name="image_file" type="file" id="arquivo" />
@@ -62,7 +62,7 @@
 					<div id="output"></div>  
 					<img src="images/ajax-loader.gif" id="loading-img" style="display:none;" alt="Please Wait"/>		        
 				</form>
-				<span>Extensões permitidas(.jpg, .jpeg, .png)</span>
+				<span>Extensões permitidas(.jpg, .jpeg, .png)</span><br>
 				<button class="submit-btn btn_negar">Cancelar</button>
 				<button class="submit-btn btn_voltar" id="voltar-btn_dois">Voltar</button>     
 				<input type="button" value="Cadastrar" class="submit-btn btn-positivo" id="imagem-btn" />   
