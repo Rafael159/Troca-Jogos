@@ -3,7 +3,7 @@ $(document).ready(function(e){
 	/*
 	 * PÁGINA COM AS AÇÕES E ANIMAÇÕES DA PÁGINA ADMIN.PHP 
 	 */
-	 $("#esquerda .mn_admin li").click(function(e){ // quando clicar em uma opção
+	 $("#esquerda .mn_admin li").on('click', function(e){ // quando clicar em uma opção
 		e.preventDefault();
 		
 		if($(this).hasClass("actived")){
@@ -12,7 +12,7 @@ $(document).ready(function(e){
 			$("#esquerda .mn_admin li").each(function(i){
 				$("li:not(actived)").removeClass("actived");
 			});
-			alert('ok');
+			
   			var href = $(this).find('a').attr('href');//recupera href clicado		  			  		
 			//verificar se já está ativo
 			$(this).addClass("actived");
@@ -21,7 +21,7 @@ $(document).ready(function(e){
 	});
 
 
-	$("#confirmar-btn").click(function(){
+	$("#confirmar-btn").on('click', function(){
 		$("#msg").animate({
 			top:'-50%'
 		}, function(){
@@ -39,12 +39,12 @@ $(document).ready(function(e){
 		});			
 	}
 
-	$("#btn-config").click(function(){
+	$("#btn-config").on('click', function(){
 		$("#box-config").fadeIn();//MOSTRAR AS OPÇÕES PARA CADASTRAR IMG'S					
 	});
 
 	/*CHAMA A TELA DE CADASTRO DE IMAGENS*/
-	$("#btn-add-img").click(function(){
+	$("#btn-add-img").on('click', function(){
 		var href = 'cadastro_imagem.php';
 		$("#conteudo_principal").load(href + "#conteudo_principal");
 	});
@@ -61,7 +61,7 @@ $(document).ready(function(e){
 		});
 
 		/*DELETAR IMAGEM*/
-		$(".icon-deletar").click(function(){
+		$(".icon-deletar").on('click',function(){
 			var id = $(this).parent().parent().attr('id'); //recupera o id da imagem
 			$(".alert-overlay").fadeIn();	
 
@@ -76,7 +76,7 @@ $(document).ready(function(e){
 		});
 
 		/*ATUALIZAR O NOME DA IMAGEM*/
-		$(".icon-editar").click(function(){
+		$(".icon-editar").on('click', function(){
 			var jogo = $(this).parent().parent().parent().find(".nm_jogo").val(); //recupera nome do jogo
 			var id = $(this).parent().parent().attr('id'); //recupera o id da imagem
 
@@ -99,7 +99,7 @@ $(document).ready(function(e){
 	}
 	acaoimagem();//CONFIGURA O EFEITO NAS IMAGENS CARREGADAS
 	
-	$(".alert-btn").click(function(){						
+	$(".alert-btn").on('click', function(){						
 			var acao = $(this).attr("name"); //recupera a ação desejada
 			switch (acao){
 				case 'confirma': //se confirmar
@@ -129,7 +129,7 @@ $(document).ready(function(e){
 
 
 	/*FILTRO POR CONSOLE*/
-	$(".mn-console ul li").click(function(){
+	$(".mn-console ul li").on('click', function(){
 		if($(this).hasClass("actived")){
 			$(this).removeClass("actived");
 			$("#conteudo_principal").load('imagens.php' + "#conteudo_principal");
@@ -159,7 +159,7 @@ $(document).ready(function(e){
 $(".quadro-galeria:first-child").fadeIn();		
 
 function btn_selected(){
-	$(".galeria .box-galeria-jogos li").click(function(){
+	$(".galeria .box-galeria-jogos li").on('click', function(){
 
 		$(".galeria .box-galeria-jogos li").each(function(i){ //destacar o console clicado
 			$( "li:not(actived)").removeClass("actived");
@@ -173,7 +173,7 @@ btn_selected();
 /*PRIMEIRA PARTE*/
 $(".section:first-child").show(); //mostrar a primeira parte
 
-$("#confirmar-btn").click(function(){
+$("#confirmar-btn").on('click', function(){
 	$("#msg").animate({
 		top:'-50%'
 	}, function(){
@@ -192,7 +192,7 @@ function mensagem(titulo, msg){
 	});			
 }
 /*FAZER O CADASTRO DA IMAGEM*/		
-$("#console-btn").click(function(){	
+$("#console-btn").on('click', function(){	
 	var cont = 0;		
 	$(".galeria .box-galeria-jogos li").each(function(i){				
 		if($(this).hasClass("actived")){	
@@ -213,7 +213,7 @@ $("#console-btn").click(function(){
 });
 
 /*SEGUNDA PARTE*/
-$("#nome-jogo-btn").click(function(){
+$("#nome-jogo-btn").on('click', function(){
 	var nome = $('#txt-jogo').val();
 	if(nome == ''){
 		mensagem('Erro!','Informe o nome do jogo');
@@ -242,12 +242,13 @@ $("#upload_form").on('submit',(function(e) { //faz o upload
 		processData:false,
 		dataType: 'json',
 		success: function(data)
-	    {			    	
-	    	if(data.sucesso == true){
+	    {
+			console.log(data);
+	    	if(data.sucesso == true){				
 				$("#output").html("<img src='"+data.nome+"'>"); //mostrar imagem
 				$("#nome-imagem").val(data.nomeAleatorio);
 			}else{
-				mensagem('Erro na requisição',data.erro);
+				mensagem('Erro na requisição', data.erro);
 			}
 	    },	    
 	  	error: function() 
@@ -258,13 +259,13 @@ $("#upload_form").on('submit',(function(e) { //faz o upload
 }));
 
 //voltar do passo 2 para o 1
-$("#voltar-btn_um").click(function(){
+$("#voltar-btn_um").on('click', function(){
 	$("#box_nome").fadeOut('slow',function(){
 		$("#box_console").fadeIn('fast'); //mostrar quadro do cadastro do nome do jogo da imagem
 	});
 });
 //voltar do passo 2 para o 1
-$("#voltar-btn_dois").click(function(){
+$("#voltar-btn_dois").on('click', function(){
 	$("#box_imagem").fadeOut('slow',function(){
 		$("#box_nome").fadeIn('fast'); //mostrar quadro do cadastro de imagem
 		$("#output").html("");
@@ -274,7 +275,7 @@ $("#voltar-btn_dois").click(function(){
 
 
 /*DEPOIS DE TODOS OS PASSOS, CADASTRAR A IMAGEM*/
-$('#imagem-btn').click(function(){
+$('#imagem-btn').on('click', function(){
 	var imagem = $("#nome-imagem").val();
 	var idConso = $("#id-console").val();
 	var nome = $("#nome-jogo").val();
@@ -305,7 +306,7 @@ $('#imagem-btn').click(function(){
 });
 
 /*SE CANCELAR O PROCESSO DE CADASTRAR IMAGEM, VOLTAR PARA A PÁGINA DAS IMG'S*/
-$(".btn_negar").click(function(){			
+$(".btn_negar").on('click', function(){			
 	var href = 'imagens.php';
 	$("#conteudo_principal").load(href + "#conteudo_principal");
 });

@@ -10,7 +10,7 @@
 				?>
 				<li class="logado"><a href="#">Bem vindo <?php echo $usuario;?></a></li>
 				<li class="logado"><a href="#"><a href="sair.php">Sair</a></li>
-				<?php else :?>
+				<?php else : ?>
 					<li id="user-entrar"><a href="#">Entrar</a></li>
 					<li id="user-cadastrar"><a href="#">Criar conta</a></li>
 				<?php endif; ?>

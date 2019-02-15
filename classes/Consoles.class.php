@@ -76,8 +76,13 @@ final class Consoles extends Crud{
 
 		$sql = "SELECT * FROM $this->table";		
 		$stmt = @BD::conn()->prepare($sql);
-		$stmt->execute();
-		return $stmt->fetchAll();
+
+		try{
+			$stmt->execute();
+			return $stmt->fetchAll();
+		}catch (Exception $e) {
+			return false;
+		}
 
 	}
 

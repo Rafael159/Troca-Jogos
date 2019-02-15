@@ -14,6 +14,7 @@ class Imagens extends Crud{
 	private $idConsole;
 	private $nome; 
 	private $imagem;
+	private $datacriacao;
 
 	//SET'S
 	public function setIdImagem($idimg){
@@ -28,28 +29,35 @@ class Imagens extends Crud{
 	public function setImagem($imagem){
 		$this->imagem = $imagem;
 	}
+	public function setDatacriacao($datacriacao){
+		$this->datacriacao = $datacriacao;
+	}
 
 	//GET'S
 	public function getIdImg(){
-		return $idimg;
+		return $this->idimg;
 	}
 	public function getIdConsole(){
-		return $idconsole;
+		return $this->idconsole;
 	}
 	public function getNomeImagem(){
-		return $nomeimagem;
+		return $this->nomeimagem;
 	}
 	public function getImagem(){
-		return $imagem;
+		return $this->imagem;
+	}
+	public function getDatacriacao(){
+		return $this->datacriacao;
 	}
 
 	public function insert(){
 		
-		$sql = "INSERT INTO $this->table (id_console, nome, imagem) VALUES (:id_console, :nome, :imagem)";
+		$sql = "INSERT INTO $this->table (id_console, nome, imagem, datacriacao) VALUES (:id_console, :nome, :imagem, :datacriacao)";
 		$stmt = @BD::conn()->prepare($sql);
 		$stmt->bindParam(':id_console', $this->idconsole);
 		$stmt->bindParam(':nome', $this->nome);
 		$stmt->bindParam(':imagem', $this->imagem);
+		$stmt->bindParam(':datacriacao', $this->datacriacao);
 		return $stmt->execute();
 
 	}
@@ -72,6 +80,46 @@ class Imagens extends Crud{
 		$stmt->bindParam(':imagem', $this->imagem);
 		$stmt->execute();
 		return $stmt->fetchAll();
+	}
+
+	//listagem das imagens
+	public function getImage($queries = array()){
+		$id = (array_key_exists("id_img", $queries)) ? $queries['id_img'] : ''; 
+		$console = (array_key_exists("id_console", $queries)) ? $queries['id_console'] : '';		
+		$nome = (array_key_exists("nome", $queries)) ? $queries['nome'] : '';		
+		
+		$_where = array();
+		if($id) array_push($_where, " id_img = :id ");
+		if($console) array_push($_where, " id_console = :console ");
+		if($nome) array_push($_where, " nome = :nome ");
+		
+		$w = '';
+		if(sizeof($_where) > 0){
+
+			foreach($_where as $key=>$v){
+				$w .= ' AND '.$v;
+			}
+
+		}
+
+		$where = " WHERE id_img IS NOT NULL";
+		
+		$sql  = "SELECT * FROM $this->table $where $w";
+
+		$stmt = @BD::conn()->prepare($sql);
+
+		if($id) $stmt->bindParam(':id', $id);
+		if($console) $stmt->bindParam(':console', $console);
+		if($nome) $stmt->bindParam(':nome', $nome);
+
+		$stmt->execute();
+		return $stmt->fetchAll();
+	}
+
+	private function getImageHelper($queries = array()){
+		$rows = new Imagens;
+		return $rows->getImage($queries);
+
 	}
 
 }

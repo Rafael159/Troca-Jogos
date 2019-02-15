@@ -93,9 +93,17 @@ function list_games(key, jogo_lista){
      		if(data.length > 0){
      			var linha = '';
      			$.each(data, function(chave, dados){
-	        		/*criar */
-	        		linha += "<li class='autoJogo' onclick='set_item(\""+dados.jogo+' - '+ dados.console + "\")'><img src='game/imagens/"+dados.consolesemEspaco+"/"+dados.imagem+"'/><h3 class='title-game'>"+ slice_string(dados.jogo) + ' - ' + dados.console + "</h3></li>";
-        		});
+					/*criar */
+					console.log(chave);
+					if(chave <= 4){
+						linha += "<li class='autoJogo' onclick='set_item(\""+dados.jogo+' - '+ dados.console + "\")'><img src='game/imagens/"+dados.consolesemEspaco+"/"+dados.imagem+"'/><h3 class='title-game'>"+ slice_string(dados.jogo) + ' - ' + dados.console + "</h3></li>";
+					}else return false;
+				});
+				
+				if(data.length > 4){
+					linha += "<li class='autoJogo'><a href='pesquisa.php?pesquisa="+key+"'>Ver mais jogos para a pesquisa '"+key+"'</a></li>";
+				}
+
           		$('#'+jogo_lista).show().html(linha);//colocar dados na div
      		}else{
      			$('#'+jogo_lista).html('').fadeOut();
@@ -103,7 +111,7 @@ function list_games(key, jogo_lista){
      	}
     });
 }
-window.autoCompletar = function(input){
+window.autoCompletar = function(input){	
 	lista_de_jogos = $(input).next().attr('id');
 	
 	///***  Função de autocomplete  ****///

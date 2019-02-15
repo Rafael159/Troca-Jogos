@@ -3,6 +3,8 @@
 	function __autoload($classe){
 		require ('..\classes/'.$classe.'.class.php');
 	}
+	// DEFINE O FUSO HORARIO COMO O HORARIO DE BRASILIA
+	date_default_timezone_set('America/Sao_Paulo');
 	
 	$img = new Imagens();
 	
@@ -14,6 +16,7 @@
 	$img->setIdConsole($id);
 	$img->setNome($nome);
 	$img->setImagem($imagem);
+	$img->setDatacriacao(date("Y:m:d H:i:s"));
 
 	if(!$img->insert()){
 		echo "Ocorreu um erro! Tente mais tarde";

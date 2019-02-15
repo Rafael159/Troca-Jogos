@@ -1,4 +1,6 @@
 <?php
+	@BD::conn();//conexão com o banco de dados
+
 	function __autoload($classe){
 		require('..\classes/'.$classe.'.class.php');
 	}
@@ -41,7 +43,7 @@
 	        <div class="container-fluid">			
 				<div class="navbar-header">
 					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-menu" aria-expanded="false">
-						<span class="sr-only">Toggle navagation</span>
+						<span class="sr-only">Toggle navegation</span>
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
@@ -52,7 +54,7 @@
 					<ul class="nav navbar-nav navbar-right container-menu">
 						<!-- <li class="menu"><a href="settings.php" title="Configuração" class="link-main" id="settings"><i class="fa fa-cog"></i> Configuração</a></li> -->
 						<li class="menu"><a href="profile.php" title="Meu perfil" class="link-main" id="perfil_user"><i class="fa fa-user"></i> Perfil</a></li>
-						<li class="menu"><a href="..\sair.php" title="Sair" class="link-main" id="settings"><i class="fa fa-sign-out"></i> Sair</a></li>
+						<li class=""><a href="..\sair.php" title="Sair" class="link-main" id="settings"><i class="fa fa-sign-out"></i> Sair</a></li>
 					</ul>
 				</div>							
 		</div>

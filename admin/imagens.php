@@ -48,13 +48,13 @@
 			</ul>
 		</nav>
 		<div class="box_imagens">
-			<?php								
+			<?php
 				$sql = "SELECT * FROM `console` as c, `imagens` as i WHERE c.id_console = i.id_console ORDER BY i.id_img";
 				$qnt = count($imagem->consulta($sql));	
 				if($qnt == 0){
 					echo "<span id='msg-none'>NENHUMA IMAGEM CADASTRADA</span>";
 				}else{
-					foreach($imagem->consulta($sql) as $img=> $valor):								
+					foreach($imagem::getImage() as $img=> $valor):								
 			?>
 			<div class="each-img">
 				<img src="../game/imagens/<?php echo str_replace(' ', '', $valor->nome_console) ?>/<?php echo $valor->imagem?>" alt="<?php echo $valor->nome?>">

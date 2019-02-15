@@ -55,8 +55,7 @@
 							<a href="login/recoverpass.php" id="forgetPass">Esqueci minha senha</a>
 						</label>
 					</p>
-				</form>
-				<button class="facebook" id="logar_facebook">Logar com o Facebook</button>
+				</form>				
 			</div><!--box-login-->
 
 			<div id="box-cadastro" class="cx_content">
@@ -79,6 +78,7 @@
 						</label>								
 					</p>
 				</form>
+				<div id="status"></div>
 				<button class="facebook" id="cadastrar_facebook">Cadastrar com o Facebook</button>
 			</div><!--box-cadastro-->			
 		</div><!--box-login-cadastro-->

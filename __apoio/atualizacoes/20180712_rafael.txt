@@ -19,3 +19,5 @@ alter table trocas add column logdata datetime;
 alter table trocas add column logcriacao datetime;
 
 alter table jogos change status status varchar(30) default 'Ativo';
+
+alter table imagens add column datacriacao datetime;

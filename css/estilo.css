@@ -162,6 +162,15 @@ body{
 		padding: 6px 0 13px;
 		
 	}
+.conteudo .box_pesquisa .input_container ul li a{
+	width: 100%;
+    text-align: center;
+    color: #333;
+    font-size: 1.2em;
+    font-family: Arial, helvetica, sans-serif;
+    text-decoration: none;
+    display: block;
+}
 		.conteudo .box_pesquisa .input_container ul li:hover{
 			background: #eaeaea;
 			cursor: pointer;

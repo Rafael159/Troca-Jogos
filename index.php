@@ -16,17 +16,18 @@
 		<?php
 			session_start();
 			function __autoload($classe){
-       			 require('classes/'.$classe.'.class.php'); /*chama a classe automaticamente*/
+       			require('classes/'.$classe.'.class.php'); /*chama a classe automaticamente*/
    			}
-    		@BD::conn();//conexão com o banco de dados
+			@BD::conn();//conexão com o banco de dados
+			
     		$categoria = new Consoles();
     		$jogos = new Jogos();
 		?>
 		<div class="main_box">
 			<div class="content">
-				<?php include_once 'require/topo.php';?> <!--chama o topo do site-->
+				<?php include_once 'require/topo.php'; ?> <!--chama o topo do site-->
 			<div class="conteudo">
-				<section class="secao"> 
+				<section class="secao">
 					<h3>Procure jogos para trocar</h3> 
 					<h4>Economize dinheiro trocando jogos com outros jogadores</h4> 
 				</section>
@@ -120,9 +121,7 @@
 						<span id="nextBtn" class="flexa"><a href="javascript:void(0);"><img src="imagens/icones/icon-seta.png"></a></span>
 						<div id="slider">
 							<ul>
-								<?php
-									//$sql = "SELECT * FROM `jogos` as j,`console` as c, `imagens` as i WHERE j.id_console = c.id_console AND j.img_jogo = i.id_img ORDER BY j.id DESC LIMIT 10";
-									
+								<?php									
 									foreach($jogos->listarJogos(array('status'=>'Ativo', 'limite'=>'10')) as $jogo=> $valor):		
 								?>
 								<a href='game/game.php?codigo=<?php echo $valor->id;?>'><li><img src="game/imagens/<?php echo str_replace(' ','',$valor->nome_console).'/'.$valor->imagem;?>"><span class="inf-ultimos-jogos"><?php echo substr($valor->n_jogo,0,12).' - '.substr(strtoupper($valor->nome_console),0,6).'...'?></span></li></a>
@@ -169,7 +168,8 @@
 	</div><!--principal-->
 	<?php
 		require 'footer.php';
-	?>		
+	?>
+
     <!--CHAMADA JAVASCRIPT-->		
 	<script src="js/jquery.js"></script>
 	<script src="js/jquery.validate.js"></script>
@@ -183,5 +183,6 @@
         	$('#lista_jogos').slideUp();
 		});
 	</script>
+	
 	</body>
 </html>

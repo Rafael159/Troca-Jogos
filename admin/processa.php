@@ -1,5 +1,4 @@
 <?php
-
 function __autoload($classe){
     require('../classes/'.$classe.'.class.php');
 }
@@ -11,52 +10,74 @@ $data['erro'] = null;
 $data['sucesso'] = false;
 
 if(is_array($_FILES)) {
-
-	$data['jogo'] = $_POST['nome-jogo'];
-	$data['console'] = $_POST['console'];
-
-	$id = $data['console'];
+	
+	//recupera informações
+	$id = $_POST['console'];
+	$imagem = $_FILES['image_file'];
+	$temp = $_FILES['image_file']['tmp_name'];
+	$nome = $_FILES['image_file']['name'];//nome original
 
 	foreach ($console->listarCategorias($id) as $cons) {
 		$data['nomeconsole'] = str_replace(' ', '',$cons->nome_console);
 	}
-
+	//configuração
+	$largura = 195;
+	$extensoes = array('.jpg', '.png', '.jpeg');
+	$caminho = "../game/imagens/".$data['nomeconsole'];
+	$ext = strrchr($nome, ".");
+	
 	if(is_uploaded_file($_FILES['image_file']['tmp_name'])) {
-
-		//recuperando informações do arquivo
-		$temp = $_FILES['image_file']['tmp_name'];
-		$nome = $_FILES['image_file']['name'];
-
-		//configuração
-		$extensoes = array('.jpg', '.png');
-		$caminho = "../game/imagens/".$data['nomeconsole'];
-
-		//se o diretório do arquivo não existe, então crie o diretório
-		if (!file_exists($caminho)){
-			mkdir("$caminho", 0700);
-		}
-
+		
 		if(!in_array(strtolower(strrchr($nome, ".")), $extensoes)){
-			$data['erro'] = 'Extensão não permitida'; 
+			$data['erro'] = 'Extensão não permitida';
 		}
-		//se não houver erro
-		if(!$data['erro']){
 
-			//gerar nome aleatório e único para a imagem
-			$nomeAleatorio = md5(uniqid(time())). strchr($nome,".");
-			//movendo arquivo para o servidor
-			if(move_uploaded_file($temp, "$caminho/$nomeAleatorio")){
-				$data['nome'] = "$caminho/$nomeAleatorio";
-				$data['nomeAleatorio'] = "$nomeAleatorio";
-				}else{
-					$data['erro'] = 'Não foi possível anexar o arquivo';
-				}
+		if(!isset($data['erro'])){
+			//se o diretório do arquivo não existe, então crie o diretório
+			if (!file_exists($caminho)){
+				mkdir("$caminho", 0700);
+			}
+
+			$name = md5(uniqid(rand(),true));//nome criado a partir de chave única
+		
+			if ($imagem['type']=="image/jpeg"){
+				$img = imagecreatefromjpeg($imagem['tmp_name']);
+			}else if ($imagem['type']=="image/png"){
+				$img = imagecreatefromjpeg($imagem['tmp_name']);
+			}
+			$x   = imagesx($img);
+			$y   = imagesy($img);
+			$altura = ($largura * $y)/$x;
+			
+			$nova = imagecreatetruecolor($largura, $altura);
+			imagecopyresampled($nova, $img, 0, 0, 0, 0, $largura, $altura, $x, $y);
+			
+			if ($imagem['type']=="image/jpeg"){
+				$local="$caminho/$name".".jpg";
+				imagejpeg($nova, $local);
+			}else if ($imagem['type']=="image/gif"){
+				$local="$caminho/$name".".gif";
+				imagejpeg($nova, $local);
+			}else if ($imagem['type']=="image/png"){
+				$local="$caminho/$name".".png";
+				imagejpeg($nova, $local);
+			}		
+			
+			imagedestroy($img);
+			imagedestroy($nova);
+			$name = $name.$ext;
+
+			$data['nome'] = "$local";
+			$data['nomeAleatorio'] = "$name";
 			$data['sucesso'] = true;
 		}
+	}else{
+		$data['erro'] = 'Não foi possível anexar o arquivo';
 	}
-	echo json_encode($data);
 }else{
-	echo $data['erro'] = "Falha";
+	$data['erro'] = "Arquivo incompatível. Por favor verifique";
 }
 
+echo json_encode($data);
+die();
 ?>

@@ -10,12 +10,7 @@
 		<!--CHAMADA CSS-->
 		<link rel="stylesheet" type="text/css" href="css/estilo.css"/>
 		<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
-		 <link rel="stylesheet" href="/resources/demos/style.css">
-
-		<!--CHAMADA JS-->		
-		<script src="//code.jquery.com/jquery-1.10.2.js"></script>
-	    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-	    <script src="js/funcoes.js"></script>
+		<!-- <link rel="stylesheet" href="/resources/demos/style.css"> -->
 	</head>
 	<body>
 		<?php 
@@ -24,21 +19,20 @@
 		        require('../classes/'.$classe.'.class.php');
 		    }
 		    @BD::conn();//conexão com o banco de dados
-			$user = new Usuarios();
-
-			//verificar o acesso 
-			if(isset($_SESSION['emailTJ'])){
-				$email = $_SESSION['emailTJ'];
-
-				foreach($user->findEmail($email) as $key=>$usuario):
-					$acesso = $usuario->status; //recupera o nível do usuário
-				endforeach;
-			}
+			
+			$user = Usuarios::getUsuario();
+			
+			$acesso = $user->tipousuario;		
 			/*
 			*	NÍVEL 1 - ADMINISTRADOR
 			*	NÍVEL 0 - USUÁRIO NORMAL
 			*/
-			//if(isset($acesso) AND ($acesso == 1)){
+			if($acesso == 0){
+				echo $msg = '<script type="text/javascript">
+					alert("Você não tem acesso a essa página e será redirecionado...");
+					window.location.href=("../index.php");
+				</script>';				
+			}
 		?>
 		<header id="cabecalho">
 			<img id="logo" src="../imagens/backgrounds/logo.png" alt="TROCA JOGOS"/>
@@ -74,13 +68,9 @@
 
 			</div>
 		</div>
-		<?php
-			/*}else{
-				echo $msg = '<script type="text/javascript">
-					alert("Você não tem acesso a essa página e será redirecionado...");
-					window.location.href=("../index.php");
-				</script>';				
-			}*/
-		?>
+		<!--CHAMADA JS-->		
+		<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+	    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+	    <script src="js/funcoes.js"></script>
 	</body>
 </html>
