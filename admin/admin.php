@@ -26,11 +26,11 @@
 		    }
 		    @BD::conn();//conexão com o banco de dados
 			
-			$user = Usuarios::getUsuario();			
-			$acesso = $user->tipousuario;		
+			$user = Usuarios::getUsuario();//pegar usuário online						
 			/**	NÍVEL 1 - ADMINISTRADOR
-			*	NÍVEL 0 - USUÁRIO NORMAL
-			*/
+			*	NÍVEL 0 - USUÁRIO NORMAL*/
+			$acesso = ($user) ? $user->tipousuario : 0;
+			
 			if($acesso == 0){
 				echo $msg = '<script type="text/javascript">
 					alert("Você não tem acesso a essa página e será redirecionado...");
@@ -39,11 +39,10 @@
 			}
 		?>
 		<header id="cabecalho">
-			<img id="logo" src="../imagens/backgrounds/logo.png" alt="TROCA JOGOS"/>
+			<img id="logo" src="/imagens/backgrounds/logo.png" alt="TROCA JOGOS"/>
 			<div class="user-space">
 				<ul class="user-acao">
-					<?php
-						
+					<?php						
 						if(isset($_SESSION['emailTJ'])){
 							$emailLogado = $_SESSION['emailTJ'];
 							$usuario  = $_SESSION['nomeTJ'];										
@@ -61,16 +60,14 @@
 			<div id="esquerda">
 				<ul class="mn_admin">
 					<li class="mn_opcao dashboard"><a href="" class="link"><i class="fa fa-dashboard" aria-hidden="true"></i> Dashboard</a></li>
-					<li class="mn_opcao jogo"><a href="jogos.php" class="link"><i class="fa fa-gamepad" aria-hidden="true"></i> Jogos</a></li>
+					<li class="mn_opcao jogo"><a href="jogos/index.php" class="link"><i class="fa fa-gamepad" aria-hidden="true"></i> Jogos</a></li>
 					<li class="mn_opcao console"><a href="consoles.php" class="link"><i class="fa fa-database" aria-hidden="true"></i> Consoles</a></li>
 					<li class="mn_opcao imagem"><a href="imagens.php" class="link"><i class="fa fa-picture-o" aria-hidden="true"></i> Imagens</a></li>
 					<li class="mn_opcao troca"><a href="" class="link"><i class="fa fa-exchange" aria-hidden="true"></i> Trocas</a></li>
 					<li class="mn_opcao config"><a href="" class="link"><i class="fa fa-cogs" aria-hidden="true"></i> Configuração</a></li>
 				</ul>
 			</div>
-			<div id="conteudo_principal">
-
-			</div>
+			<div id="conteudo_principal"></div>
 		</div>
 		<!--CHAMADA JS-->		
 		<script src="//code.jquery.com/jquery-1.10.2.js"></script>

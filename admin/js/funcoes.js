@@ -3,17 +3,18 @@ $(document).ready(function(e){
 	/*
 	 * PÁGINA COM AS AÇÕES E ANIMAÇÕES DA PÁGINA ADMIN.PHP 
 	 */
-	 $("#esquerda .mn_admin li").on('click', function(e){ // quando clicar em uma opção
+	 $("#esquerda .mn_admin .mn_opcao").on('click', function(e){ // quando clicar em uma opção
 		e.preventDefault();
 		
 		if($(this).hasClass("actived")){
 			$(this).removeClass("actived");
 		}else{			
-			$("#esquerda .mn_admin li").each(function(i){
+			$("#esquerda .mn_admin .mn_opcao").each(function(i){
 				$("li:not(actived)").removeClass("actived");
 			});
 			
-  			var href = $(this).find('a').attr('href');//recupera href clicado		  			  		
+			var href = $(this).find('a').attr('href');//recupera href clicado
+			//alert(href);	  			  		
 			//verificar se já está ativo
 			$(this).addClass("actived");
 			$("#conteudo_principal").load(href + "#conteudo_principal");		
@@ -192,8 +193,7 @@ $("#console-btn").on('click', function(){
 		});
 	}else{					
 		mensagem('Confirmação de cadastro','Selecione o console');					
-		}
-				
+	}			
 });
 
 /*SEGUNDA PARTE*/

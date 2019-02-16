@@ -21,3 +21,6 @@ alter table trocas add column logcriacao datetime;
 alter table jogos change status status varchar(30) default 'Ativo';
 
 alter table imagens add column datacriacao datetime;
+
+alter table `jogos` drop foreign key `fk_imagem`;
+alter table `jogos` add constraint `fk_imagem` foreign key(`img_jogo`) references `imagens` (`id_img`) on delete cascade;  

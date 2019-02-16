@@ -116,6 +116,7 @@
 		$image->setIdConsole($console_id);
 		$image->setNome($nome_jogo);
 		$image->setImagem($nomeAleatorio);
+		$image->setDatacriacao(date("Y:m:d H:i:s"));
 
 		if(!$image->insert()){
 			$retorno = array('status'=>'0', 'mensagem'=>'Ocorreu um erro ao fazer o upload');
@@ -126,9 +127,7 @@
 		$image->setImagem($nomeAleatorio);
 		if($dados = $image->findPhoto()):
 			foreach ($dados as $key => $value) {
-				$img_id = $value->id_img;
-				/*$retorno = array('status'=>'0', 'mensagem'=>'Encontrou id->'.$img_id);
-				echo json_encode($retorno);*/				
+				$img_id = $value->id_img;							
 			}
 		endif;
 	endif;
