@@ -55,14 +55,14 @@ if(is_array($_FILES)) {
 			session_start();
 			if ($imagem['type']=="image/jpeg"){
 				$local="$caminho/$name".".jpg";
-				//imagejpeg($nova, $local);
+				imagejpeg($nova, $local);
 			}else if ($imagem['type']=="image/gif"){
 				$local="$caminho/$name".".gif";
-				//imagejpeg($nova, $local);
+				imagejpeg($nova, $local);
 			}else if ($imagem['type']=="image/png"){
 				$local="$caminho/$name".".png";
-				//imagejpeg($nova, $local);
-			}		
+				imagejpeg($nova, $local);
+			}
 			
 			imagedestroy($img);
 			imagedestroy($nova);

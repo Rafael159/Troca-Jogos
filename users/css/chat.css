@@ -1,0 +1,162 @@
+.nopadding{padding:0px !important; margin:0px !important; }
+.main{
+    padding:0px;
+    margin:0px;
+    background:#ffffff;
+    width:100%;
+}
+.main .panels{
+    height:75vh;
+    padding:0px;
+    margin:0px;
+}
+.main .panels#leftpanel{
+    width:75%;
+    background: #ffffff;
+    color:#cccccc;
+    padding:0px;
+    margin:0px;
+    float:left;
+}
+.main .panels#rightpanel{
+    width:25%;
+    float: right;
+    background:#2e2d2d;
+}
+/*Painel esquerdo*/
+#leftpanel .chat-content{
+    height: 75vh;
+    background:#ffffff;
+}
+#leftpanel .chat-content .mensagens{
+	height: 68vh;
+    overflow: auto;
+    padding: 20px 5px;
+    background: #fff;
+}
+#leftpanel .chat-content .mensagens .msgs{
+	font-family: 'source_sans_prolight';
+	color:#333;
+	text-align: left;
+	padding: 5px;
+	border:1px solid #ccc;
+	width: 60%;
+	margin:5px;
+	display: inline-block;
+	border-radius: 10px;
+	font-weight: bold;
+}
+#leftpanel .chat-content .mensagens .msg-from{
+	float: right;
+	background: #414142;
+    color: #fff;
+}
+#leftpanel .chat-content .mensagens .msg-to{
+ 	float: left;
+ 	background: #d1d1d1;
+    color: #4a4a4a;
+}
+#leftpanel .chat-content .mensagens .blank_message{
+	font-family: 'source_sans_prolight';
+	color:#333;
+	text-align: center;
+	font-style: italic;
+	font-size: 1.3em;
+}
+
+#leftpanel .chat-content .name-from{
+	font-style: italic;
+}
+#leftpanel .chat-content .box_form{
+    width:100%;
+}
+#leftpanel .chat-content #chat_form{
+    width:100%;
+    background: #2e2d2d;
+    padding: 6px;
+}
+#leftpanel .chat-content #chat_form #field-message{
+    display: inline-block;
+    width: 88%;
+    outline: none;
+    font-family: 'source_sans_prolight';
+    font-size: 1em;
+    color: #333;
+    padding: 5px;
+    font-weight: bold;
+}
+#btn_send{
+    background: #027ab6;
+    color: #fff;
+    padding: 5px;
+    width: 10%;
+    border: .5px solid #fff;
+    border-radius: 2px;
+    font-weight: bold;
+}
+#leftpanel .settings{
+    display: block;
+    background: #2e2d2d;
+    height: auto;
+    padding: 5px;
+    text-align: center;
+}
+.setting{
+    cursor:pointer;
+    padding:5px;
+}
+.setting:hover{
+    background:#027ab6;
+}
+.chat_begin{
+    width:100%;
+    text-align: center;
+    display: block;
+    margin-bottom: 20px;
+}
+/*Fim painel esquerdo*/
+/*Painel direito*/
+#rightpanel #chats, .chat_holder{
+    width:100%;
+    padding:0;
+    margin:0;
+    max-height: 100%;
+    overflow: auto;
+}
+#rightpanel #chats .chat{
+    width: 100%;
+    text-decoration: none;
+    display: block;
+    background:#027ab6;
+    padding:10px;
+    cursor:pointer;
+}
+#rightpanel #chats .chat:hover{
+    background: #0896dd;
+}
+#rightpanel #chats .chat .content{
+    width:100%;
+    text-align: left;
+    color:#fff;
+}
+#rightpanel #chats .chat .content .contact_name,
+#rightpanel #chats .chat .content .contact_consola{
+    font-family: 'source_sans_proregular';
+    color:#ffffff;
+    font-size:1.2em;
+    font-weight: 400;
+}
+
+#rightpanel #chats .chat .content .msgnotread{
+    font-family: 'source_sans_proregular';
+    color:#ffffff;
+    font-size:1.2em;
+    background:#46a746;
+    border-radius: 50%;
+    height: 25px;
+    width: 25px;
+    display: inline-table;
+    text-align: center;
+    float: right;
+}
+/*Fim painel direito*/

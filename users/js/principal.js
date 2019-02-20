@@ -29,14 +29,14 @@ $(document).ready(function (){
      */
 	window.reload = function(href) {
         var content = $('#conteudo');               
-        content.html( '<img src="img/load.gif" alt="Loading..." class="img-responsive loading"/>' );
+        //content.html( '<img src="img/load.gif" alt="Loading..." class="img-responsive loading"/>' );
         
         $.ajax({
             url: href,
             success: function (response) {
-                window.setTimeout(function () {
+               // window.setTimeout(function () {
                     content.html(response);
-                }, 1000);
+                //}, 1000);
             },
             error: function(error){
                 content.html('<div class="error">Erro ao carregar a página! Tente novamente</div>');                
@@ -59,16 +59,16 @@ $(document).ready(function (){
             res = url.split("=");
             link = res[1];
             link = link.replace("#","");
-           
+            
             if(!link){                
                 link = $('#left_menu li:first').find('a').attr('href');
                 link = link+'.php';
-
+               
                 $('#left_menu li:first').addClass('arrow_right');//ativa o link clicado
             }else{
                         
                 $('#'+link).addClass('arrow_right');
-                link = link+'.php';
+                link = link+'.php';                
             }
         }
         reload(link);

@@ -14,15 +14,6 @@ $(function(){
 	    }, 3000);
 
 		return false;
-		//alert(pos);	
-			/*var scrollIndex = $('.msgs:last-child').offset();*/
-		//$(".mensagens").animate({scrollTop:(pos)},500);
-		
-		//var offset = $('.msgs:last-child').offset();
-		/*$('.mensagens').animate({ 
-			scrollTop: $('span[name=lastMessage]').offset().top
-		}, 1000);*/
-
 	}
 
 
@@ -110,7 +101,6 @@ $(function(){
 			idPara : idReceiver
 
 		}, function(back){
-			//console.log(back);
 			if(back != ''){	
 				//scrollDown();
 				$('.mensagens').html(back);
