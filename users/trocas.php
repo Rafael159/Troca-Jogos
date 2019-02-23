@@ -16,7 +16,7 @@
 		header("Location:index.php");
 	endif;  
 ?>
-<link rel="stylesheet" type="text/css" href="../css/fonts.css"/>
+<!-- <link rel="stylesheet" type="text/css" href="../css/fonts.css"/> -->
 <link rel="stylesheet" type="text/css" href="css/trocas.css"/>
 
 <div class="row nopadding">

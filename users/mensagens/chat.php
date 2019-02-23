@@ -1,4 +1,13 @@
-<link rel="stylesheet" type="text/css" href="../css/fonts.css"/>
+<?php
+    //@BD::conn();//conexão com o banco de dados
+    
+    function __autoload($classe){
+		require('../../classes/'.$classe.'.class.php');
+    }
+    $user = new Usuarios();
+    $friends = new Friendships;
+?>
+
 <link rel="stylesheet" type="text/css" href="css/chat.css"/>
 
 <div class="row nopadding">
@@ -41,9 +50,16 @@
             <div class="panels" id="rightpanel">
                 <div id="chats">
                     <ul class="chat_holder">
-                        <li class="chat" id="chat_<id_contato>"><div class="content"><span class="contact_name">John Paul</span> - <span class="contact_consola">PSVITA</span><span class="msgnotread">5</span></div></li>
-                        <li class="chat" id="chat_<id_contato>"><div class="content"><span class="contact_name">Bethany Shu</span> - <span class="contact_consola">XBOX ONE</span><span class="msgnotread">5</span></div></li>
-                        <li class="chat" id="chat_<id_contato>"><div class="content"><span class="contact_name">Christopher Baptist</span> - <span class="contact_consola">PC</span><span class="msgnotread">5</span></div></li>
+                        <?php                            
+                            $row = $friends->getFriends();
+                            $iduser = Usuarios::getUsuario('id_user');//ID logado
+                            
+                            foreach($row as $list):
+								foreach(Usuarios::getRegisterHelper(array('id'=>$list->who_accepted)) as $k => $v):
+						?>
+                            	<li class="chat" id="chat_<?php echo $v->id_user?>"><div class="content"><span class="contact_name"></span><?php echo $v->nomeUser; ?> - <span class="contact_consola"><?php echo strtoupper($v->nome_console)?></span><span class="msgnotread"><?php echo Mensagens::countMensagens(array('cod_from'=>$v->id_user, 'cod_to'=>$iduser, 'lido'=>'nao'))?></span></div></li>
+                        	<?php endforeach; ?>
+                        <?php endforeach; ?>
                     </ul>
                 </div>
             </div>

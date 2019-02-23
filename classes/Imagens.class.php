@@ -11,7 +11,7 @@ class Imagens extends Crud{
 	protected $table = 'imagens';
 
 	private $idimg;
-	private $idConsole;
+	private $idconsole;
 	private $nome; 
 	private $imagem;
 	private $datacriacao;
@@ -63,14 +63,14 @@ class Imagens extends Crud{
 	}
 
 	/**
-	 * Função: Atualizar jogos
+	 * Função: Atualizar imagens
 	 **/
 	public function update(){
-		$sql = "UPDATE $this->table SET nome = :nome WHERE id_img = :id";
-		$stmt = @BD::conn()->prepare($sql);		
-		$stmt->bindParam(':nome', $this->nome);
-		$stmt->bindParam(':id', $this->idimg);
-		return $stmt->execute();
+		// $sql = "UPDATE $this->table SET nome = :nome WHERE id_img = :id";
+		// $stmt = @BD::conn()->prepare($sql);		
+		// $stmt->bindParam(':nome', $this->nome);
+		// $stmt->bindParam(':id', $this->idimg);
+		// return $stmt->execute();
 	}
 	/**
 	* Função: Deletar imagem
@@ -107,7 +107,7 @@ class Imagens extends Crud{
 		if($nome) array_push($_where, " nome = :nome ");
 		
 		$w = '';
-		if(sizeof($_where) > 0){
+		if(count($_where) > 0){
 			foreach($_where as $key=>$v){
 				$w .= ' AND '.$v;
 			}

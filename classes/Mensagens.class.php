@@ -65,7 +65,7 @@ class Mensagens{
 		$stmt->bindValue('1', $this->cod_from);
 		$stmt->bindValue('2', $this->cod_to);
 		$stmt->bindValue('3', $this->cod_to);
-		$stmt->bindValue('4', $this->cod_from);		
+		$stmt->bindValue('4', $this->cod_from);
 		$stmt->execute();
 
 		return $stmt->fetchAll();
@@ -90,6 +90,45 @@ class Mensagens{
 		$stmt = @BD::conn()->prepare($sql);
 		$stmt->bindValue('1', $this->cod_to);
 		$stmt->bindValue('2', $this->cod_from);	
+
+		if($stmt->execute()):
+			$_data = $stmt->rowCount();
+		endif;
+
+		return $_data;
+	}
+
+	public static function countMensagens($queries = array()){
+		//echo '<pre>';print_r($queries);
+
+		$id = (array_key_exists("id", $queries)) ? $queries['id'] : ''; 
+		$cod_from = (array_key_exists("cod_from", $queries)) ? $queries['cod_from'] : ''; 
+		$cod_to = (array_key_exists("cod_to", $queries)) ? $queries['cod_to'] : ''; 
+		$lido = (array_key_exists("lido", $queries)) ? $queries['lido'] : ''; 
+
+		$_where = array();//array que armazena as condições		
+		// echo $cod_from;
+
+		if($id) array_push($_where, " id = $id ");
+		if($cod_from) array_push($_where, " cod_from = $cod_from ");
+		if($cod_to) array_push($_where, " cod_to = $cod_to ");
+		if($lido) array_push($_where, " lido = '$lido' ");
+		
+		
+
+		$w = '';
+		if(sizeof($_where) > 0){
+			foreach($_where as $key=>$v){
+				$w .= ' AND '.$v;
+			}
+		}
+		$where = " WHERE `mensagem` is not null ";
+
+		$sql = "SELECT m.* FROM `mensagens` m $where $w";
+
+		$stmt = @BD::conn()->prepare($sql);
+		
+		//print_r($stmt);
 
 		if($stmt->execute()):
 			$_data = $stmt->rowCount();

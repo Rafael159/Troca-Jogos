@@ -15,7 +15,7 @@ final class Consoles extends Crud{
 		$this->nome_console = $nome_console;
 	}
 	public function getNomeConsole(){
-		return $nome_console;
+		return $this->nome_console;
 	}
 
 	public function consoleById($idconsole){
@@ -56,7 +56,7 @@ final class Consoles extends Crud{
 		
 		$query = "SELECT * FROM $this->table";
 
-		if(sizeof($where)):		
+		if(count($where) > 0):		
 			$query .= ' WHERE '.implode( ' AND ',$where );//add filtros na QUERY
 		endif;
 						

@@ -7,7 +7,8 @@
 	$jogos = new Jogos();
 	$console = new Consoles();
 	$usuario = new Usuarios();
-	$trocas = new Trocas();	
+	$trocas = new Trocas();
+	$msg = new Mensagens();
 ?>
 
 <html>
@@ -28,7 +29,7 @@
 	<div class="alert-overlay"></div>
 	<?php
 		$user = Usuarios::getUsuario();
-	
+
 		if(isset($user)){
 			$nome = $user->nomeUser;
 			$codigo = $user->id_user;

@@ -1,0 +1,8 @@
+create table friendships(
+	id bigint(20) AUTO_INCREMENT primary key,
+	who_sent bigint(20) not null,
+	who_accepted bigint(20) not null,
+	status varchar(20) default "Não Ativo",
+	dataativacao datetime,
+	excluido char(3) default "nao"	
+);
