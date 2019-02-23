@@ -22,10 +22,11 @@
                     </div>
                 </div>
                 <div class="col-lg-8 col-lg-push-3 nopadding">
-                    <div class="chat-content">				
+                    <div class="chat-content">
                         <div class="mensagens" id="jan_">
-                            <i class="chat_begin">Inicio da sua conversa com John Paul</i> 
-                            <div class="msg-from msgs">Então, sobre o jogo, estou afim de trocarEntão, sobre o jogo, estou afim de trocarEntão, sobre o jogo, estou afim de trocar</div>
+                            <i class="chat_begin">Inicio da sua conversa com <span id="talkto"></span></i> 
+                            <div id="chat_msg"></div>
+                            <!-- <div class="msg-from msgs">Então, sobre o jogo, estou afim de trocarEntão, sobre o jogo, estou afim de trocarEntão, sobre o jogo, estou afim de trocar</div>
                             <div class="msg-from msgs">Ainda tem o Raibow Six 6?</div>
                             <div class="msg-to msgs">Tenho sim brow</div>
                             <div class="msg-from msgs">Perfeito. Você aceita o RE2 como troca?</div>
@@ -36,7 +37,7 @@
                             <div class="msg-from msgs">Perfeito. Você aceita o RE2 como troca?</div>
                             <div class="msg-from msgs">Ainda tem o Raibow Six 6?</div>
                             <div class="msg-to msgs">Tenho sim brow</div>
-                            <div class="msg-from msgs">Perfeito. Você aceita o RE2 como troca?</div>
+                            <div class="msg-from msgs">Perfeito. Você aceita o RE2 como troca?</div> -->
                         </div>
                         <div class="box_form">
                             <form method="post" name="chat_form" id="chat_form">
@@ -57,7 +58,7 @@
                             foreach($row as $list):
 								foreach(Usuarios::getRegisterHelper(array('id'=>$list->who_accepted)) as $k => $v):
 						?>
-                            	<li class="chat" id="chat_<?php echo $v->id_user?>"><div class="content"><span class="contact_name"></span><?php echo $v->nomeUser; ?> - <span class="contact_consola"><?php echo strtoupper($v->nome_console)?></span><span class="msgnotread"><?php echo Mensagens::countMensagens(array('cod_from'=>$v->id_user, 'cod_to'=>$iduser, 'lido'=>'nao'))?></span></div></li>
+                            	<li class="chat" id="chat_<?php echo $v->id_user?>" usuario="<?php echo $v->nomeUser; ?>"><div class="content"><span class="contact_name"></span><?php echo $v->nomeUser; ?> - <span class="contact_consola"><?php echo strtoupper($v->nome_console)?></span><span class="msgnotread"><?php echo Mensagens::countMensagens(array('cod_from'=>$v->id_user, 'cod_to'=>$iduser, 'lido'=>'nao'))?></span></div></li>
                         	<?php endforeach; ?>
                         <?php endforeach; ?>
                     </ul>
@@ -66,3 +67,7 @@
         </div>
     </div>
 </div>
+<script type="text/javascript" src="js/chat.js"></script>
+<script>
+    var idlogado = "<?php echo ($iduser) ? $iduser : ""?>";
+</script>

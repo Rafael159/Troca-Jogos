@@ -110,7 +110,7 @@
 .chat_begin{
     width:100%;
     text-align: center;
-    display: block;
+    display: none;
     margin-bottom: 20px;
 }
 /*Fim painel esquerdo*/

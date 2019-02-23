@@ -10,8 +10,28 @@ $user = new Usuarios();
 session_start();
 
 $acao = $_POST['acao'];
+$para = ($_POST['para']) ? $_POST['para'] : '';
 
 switch ($acao) {
+	case 'get':
+		$idFrom = $_SESSION['id_user'];
+		$message->setCodFrom($idFrom);
+		$message->setCodTo($para);
+		
+		$mensagens = '';
+
+		$allMessage = $message->showMessage();
+		foreach ($allMessage as $msg) {
+				
+			if($msg->cod_from == $idFrom){
+				$mensagens .= '<div class="msg-from msgs">'.$msg->mensagem.'</div>';
+			}else{
+				$mensagens .= '<div class="msg-to msgs">'.$msg->mensagem.'</div>';			
+			}
+		}			
+		echo $mensagens;
+
+	break;
 	case 'inserir':
 		$idFrom = $_SESSION['id_user'];
 		$idTo = (isset($_POST['para']) ? $_POST['para'] : '');
