@@ -113,6 +113,13 @@
     display: none;
     margin-bottom: 20px;
 }
+.no_mensagem{
+    width: 100%;
+    text-align: center;
+    display: block;
+    font-size: 1.2em;
+    color: rgb(43, 43, 43);
+}
 /*Fim painel esquerdo*/
 /*Painel direito*/
 #rightpanel #chats, .chat_holder{

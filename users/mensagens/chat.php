@@ -5,7 +5,7 @@
 		require('../../classes/'.$classe.'.class.php');
     }
     $user = new Usuarios();
-    $friends = new Friendships;
+    $friends = new Friendships();
 ?>
 
 <link rel="stylesheet" type="text/css" href="css/chat.css"/>
@@ -40,9 +40,10 @@
                             <div class="msg-from msgs">Perfeito. Você aceita o RE2 como troca?</div> -->
                         </div>
                         <div class="box_form">
-                            <form method="post" name="chat_form" id="chat_form">
+                            <form name="chat_form" id="chat_form">
+                                <input type="hidden" name="idto" id="idto">
                                 <input type="text" name="msg" placeholder="Digite sua mensagem" id="field-message" autocomplete="off"/>
-                                <button onclick="send()" id="btn_send">Enviar</button>
+                                <button id="btn_send">Enviar</button>
                             </form>
                         </div>
                     </div>
@@ -56,10 +57,12 @@
                             $iduser = Usuarios::getUsuario('id_user');//ID logado
                             
                             foreach($row as $list):
-								foreach(Usuarios::getRegisterHelper(array('id'=>$list->who_accepted)) as $k => $v):
-						?>
-                            	<li class="chat" id="chat_<?php echo $v->id_user?>" usuario="<?php echo $v->nomeUser; ?>"><div class="content"><span class="contact_name"></span><?php echo $v->nomeUser; ?> - <span class="contact_consola"><?php echo strtoupper($v->nome_console)?></span><span class="msgnotread"><?php echo Mensagens::countMensagens(array('cod_from'=>$v->id_user, 'cod_to'=>$iduser, 'lido'=>'nao'))?></span></div></li>
-                        	<?php endforeach; ?>
+                                foreach(Usuarios::getRegisterHelper(array('id'=>$list->who_accepted)) as $k => $v):
+                                    if($iduser != $v->id_user):
+                        ?>
+                        <li class="chat" id="chat_<?php echo $v->id_user?>" usuario="<?php echo $v->nomeUser; ?>"><div class="content"><span class="contact_name"></span><?php echo $v->nomeUser; ?> - <span class="contact_consola"><?php echo strtoupper($v->nome_console)?></span><span class="msgnotread"><?php echo Mensagens::countMensagens(array('cod_from'=>$v->id_user, 'cod_to'=>$iduser, 'lido'=>'nao'))?></span></div></li>
+                                <?php endif; ?>
+                            <?php endforeach; ?>
                         <?php endforeach; ?>
                     </ul>
                 </div>

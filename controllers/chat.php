@@ -74,8 +74,7 @@ switch ($acao) {
 	    	echo '';
 	    }
 	break;
-	case 'leitura':
-		
+	case 'leitura':		
 		$para = (isset($_POST['idPara'])) ? $_POST['idPara'] : '';
 	    if(!empty($para)){
 	    	$idFrom = $_SESSION['id_user'];

@@ -116,7 +116,7 @@ class Friendships{
 		if($order) $ordem = $order;
 
 		$sql  = "SELECT * FROM $this->table $where $w $ordem";
-
+		
 		$stmt = @BD::conn()->prepare($sql);
 
 		if($id) $stmt->bindParam(':id', $id);
