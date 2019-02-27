@@ -1,5 +1,71 @@
 $(document).ready(function(){
     /*@param idlogado - id do user logado*/
+    function enviarMensagem(campo, mensagem, to){
+        if(mensagem !== '' && to !== ""){
+            campo.val('');
+            $.post('../controllers/chat.php', {
+                acao : 'inserir',
+                mensagem: mensagem,
+                para: to
+            }, function (retorno){
+                $("#field-message").focus();
+                setTimeout(function(){			
+                    $('#chat_msg').append(retorno);
+                }, 1000);
+            });
+        }
+		return false;
+    }
+    function atualizaChat(){
+        setTimeout(function(){
+            para = $("#idto").val();
+            
+            $.ajax({
+                method:'POST',
+                url: '../controllers/chat.php',
+                dataType: 'json',
+                data: {
+                    idPara: para,
+                    acao: 'atualizar'
+                },
+                success: function(dados){
+                    if(dados != ''){
+                        $('#chat_msg').html(dados);
+                        atualizaChat();
+                    }else{
+                        $('#chat_msg').html('Seja o primeiro a mandar uma mensagem');
+                    }
+                }
+            });      
+        },7000);
+    }
+    function removeChat(de, para){
+        alert(de, para);
+        $.ajax({
+            method:'POST',
+            url: '../controllers/chat.php',
+            dataType: 'html',
+            data: {
+                de: de,
+                para: para,
+                acao: 'excluir'
+            }
+        }).done(function(dados){
+            console.log(dados);
+        });
+        
+    }
+    $("#remove-confirm").on("click", function(){
+
+
+    });
+
+    $("#excluir_yes").on("click", function(){
+        para = $("#idto").val();
+        idlogado = (idlogado) ? idlogado : '';
+
+        removeChat(idlogado, para);
+    });
 
     //pegar o contato
     $(".chat").on("click", function(){
@@ -10,8 +76,7 @@ $(document).ready(function(){
         
         id = (idUser) ? idUser : 0;
         $("#idto").val(id);
-        //idlogado = (idlogado) ? idlogado : 0;
-
+        
         $.ajax({
             method:'POST',
             url: '../controllers/chat.php',
@@ -23,32 +88,19 @@ $(document).ready(function(){
             if(dados !== ""){
                 if(user){
                     $("#talkto").html(user);
-                    $(".chat_begin").css("display", "block");
+                    $(".chat_warning").css("display", "none");
+                    $(".chat_begin, .box_form, .settings").css("display", "block");
                 }
                 $(".mensagens #chat_msg").html(dados);
+                atualizaChat();
             }else{
                 $(".mensagens #chat_msg").html("<span class='no_mensagem'>Não há mensagens para exibir</span>");
                 $(".chat_begin").css("display", "none");
             }
         });
     });
-
-    function enviarMensagem(campo, mensagem, to){
-        if(mensagem !== '' && to !== ""){
-            campo.val('');
-            $.post('../controllers/chat.php', {
-                acao : 'inserir',
-                mensagem: mensagem,
-                para: to
-            }, function (retorno){
-                $("#field-message").focus();
-                setTimeout(function(){			
-                    $('#chat_msg').append(retorno);						
-                }, 1000);
-            });
-        }
-		return false;
-    }
+    
+    
     $("#btn_send").on("click", function(ev){
         ev.preventDefault();
         
@@ -59,27 +111,30 @@ $(document).ready(function(){
     });
 
     $('body').delegate('#field-message', 'keydown', function(e){
-
 		var campo = $(this);
 		var mensagem = campo.val();
         var to = $("#idto").val();
-        if(e.keyCode == 13){        
+        if(e.keyCode == 13){
             enviarMensagem(campo, mensagem, to);
         }		
     });
     
     $('#field-message').focus(function(){
-		idReceiver = (idlogado) ? idlogado : '';
-		//idReceiver = idReceiver.split('_')[1];//separar o ID do usuário
+        para = $("#idto").val();
         
-		$.post('../controllers/chat.php', {			
-			acao: 'leitura',
-			idPara : idReceiver
-		}, function(back){
-			console.log(back);
-			// if(back.status == '1'){
-			// 	//faça algo	
-			// }
-		}, 'jSON');		
-	});
+        $.ajax({
+            method:'POST',
+            url: '../controllers/chat.php',
+            dataType: 'json',
+            data: {
+                para: para, 
+                acao: 'leitura'
+            }
+        }).done(function(dados){
+            if(dados.status === '1'){
+                $("#chat_"+para+" .content .msgnotread").html("0");
+            }
+        });
+    });
+    
 });

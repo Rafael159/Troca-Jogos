@@ -25,6 +25,7 @@ body{
 .sidebar-navbar-collapse .navbar-nav .vt_link{
 	width: 100%;
 }
+.sidebar-navbar-collapse .navbar-nav .vt_link a{ text-shadow: unset !important;}
 
 /*BTN NOVO JOGO*/
 .btn_pattern{

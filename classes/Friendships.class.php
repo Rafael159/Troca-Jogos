@@ -62,14 +62,14 @@ class Friendships{
     public function insert(){
 		
 		$sql = "INSERT INTO $this->table (who_sent, who_accepted, status, dataativacao, excluido) 
-        VALUES (:who_send, :who_accepted, :status, :dataativacao, :excluido)";
+        VALUES (:who_sent, :who_accepted, :status, :dataativacao, :excluido)";
 		$stmt = @BD::conn()->prepare($sql);
-		$stmt->bindParam(':id', $this->id);
 		$stmt->bindParam(':who_sent', $this->whoSent);
 		$stmt->bindParam(':who_accepted', $this->whoAccepted);
 		$stmt->bindParam(':status', $this->status);
 		$stmt->bindParam(':dataativacao', $this->dataativacao);
 		$stmt->bindParam(':excluido', $this->excluido);
+
 		return $stmt->execute();
 
     }
@@ -97,11 +97,11 @@ class Friendships{
 		$order = array_key_exists("order", $queries) ? $queries['order'] : '';       
         
 		$_where = array();
-		if($id) array_push($_where, " id = :id ");
-		if($who_sent) array_push($_where, " who_sent = :who_sent ");
-		if($who_accepted) array_push($_where, " who_accepted = :who_accepted ");
-		if($status) array_push($_where, " status = :status ");
-		if($dataativacao) array_push($_where, " dataativacao = :dataativacao ");
+		if($id) array_push($_where, " id = $id ");
+		if($who_sent) array_push($_where, "(who_sent = $who_sent OR who_accepted = $who_sent)");
+		if($who_accepted) array_push($_where, " (who_accepted = $who_accepted OR who_sent = $who_accepted)");
+		if($status) array_push($_where, " status = $status ");
+		if($dataativacao) array_push($_where, " dataativacao = $dataativacao ");
 		if($excluido) array_push($_where, " excluido = :excluido ");
 		
 		$w = '';
@@ -116,18 +116,26 @@ class Friendships{
 		if($order) $ordem = $order;
 
 		$sql  = "SELECT * FROM $this->table $where $w $ordem";
-		
+
 		$stmt = @BD::conn()->prepare($sql);
 
-		if($id) $stmt->bindParam(':id', $id);
-		if($who_sent) $stmt->bindParam(':who_sent', $who_sent);
-		if($who_accepted) $stmt->bindParam(':who_accepted', $who_accepted);
-		if($status) $stmt->bindParam(':status', $status);
-		if($dataativacao) $stmt->bindParam(':dataativacao', $dataativacao);
-		if($excluido) $stmt->bindParam(':excluido', $excluido);
+		// if($id) $stmt->bindParam(':id', $id);
+		// if($who_sent) $stmt->bindParam(':who_sent', $who_sent);
+		// if($who_accepted) $stmt->bindParam(':who_accepted', $who_accepted);
+		// if($status) $stmt->bindParam(':status', $status);
+		// if($dataativacao) $stmt->bindParam(':dataativacao', $dataativacao);
+		// if($excluido) $stmt->bindParam(':excluido', $excluido);
         
 		$stmt->execute();
 		return $stmt->fetchAll();
+	}
+
+	public static function getFriendsHelper($queries = array()){
+		$rows = new Friendships();
+		$row = $rows->getFriends($queries);
+
+		//if(count($row) == 0) return false;
+		return $row;
 	}
 }
 ?>

@@ -10,10 +10,11 @@ $user = new Usuarios();
 session_start();
 
 $acao = $_POST['acao'];
-$para = ($_POST['para']) ? $_POST['para'] : '';
 
 switch ($acao) {
 	case 'get':
+		$para = ($_POST['para']) ? $_POST['para'] : '';
+
 		$idFrom = $_SESSION['id_user'];
 		$message->setCodFrom($idFrom);
 		$message->setCodTo($para);
@@ -37,6 +38,19 @@ switch ($acao) {
 		$idTo = (isset($_POST['para']) ? $_POST['para'] : '');
 	    $mensagem = strip_tags($_POST['mensagem']);
 
+		//verificar se já existe usuários são amigos
+		$friend = new Friendships();
+		$row = Friendships::getFriendsHelper(array('who_sent'=>$idFrom, 'who_accepted'=>$idTo));
+		
+		if(count($row) == 0){
+			$friend->setWhoSent($idFrom);
+			$friend->setWhoAccepted($idTo);
+			$friend->setStatus("Pendente");
+			$friend->setDataAtivacao(null);
+			$friend->setExcluido("nao");
+			$friend->insert();
+		}
+
 	    $message->setCodFrom($idFrom);
 		$message->setCodTo($idTo);
 		$message->setMensagem($mensagem);
@@ -48,8 +62,8 @@ switch ($acao) {
 		}
 		break;
 	case 'atualizar':
-	
-	    $para = (isset($_POST['idPara'])) ? $_POST['idPara'] : '';
+		$para = (isset($_POST['idPara'])) ? $_POST['idPara'] : '';
+		
 	    if(!empty($para)){
 	    	$idFrom = $_SESSION['id_user'];
 	    	$message->setCodFrom($idFrom);
@@ -67,15 +81,16 @@ switch ($acao) {
 				}else{
 					$mensagens .= '<div class="msg-to msgs">'.$msg->mensagem.'</div>';			
 				}
-			}			
+			}
 			$new = json_encode($mensagens, $qtd);
 			echo $new;
 	    }else{
-	    	echo '';
+	    	echo json_encode('');
 	    }
 	break;
-	case 'leitura':		
-		$para = (isset($_POST['idPara'])) ? $_POST['idPara'] : '';
+	case 'leitura':
+		$para = (isset($_POST['para'])) ? $_POST['para'] : '';
+
 	    if(!empty($para)){
 	    	$idFrom = $_SESSION['id_user'];
 	    	$message->setCodFrom($idFrom);
@@ -83,9 +98,28 @@ switch ($acao) {
 
 	    	if($message->updateMessageRead()){
 				$array = array('status'=>'1');
-				echo json_encode($array);	    		
+				echo json_encode($array);	
 	    	}
-	    }
-	    
+	    }else{
+			$array = array('status'=>'0');
+			echo json_encode($array);
+		}	    
+	break;
+	case 'excluir':
+		$para = (isset($_POST['para'])) ? $_POST['para'] : '';
+		$de = (isset($_POST['de'])) ? $_POST['de'] : '';
+
+		if($para > 0 AND $de > 0){
+			$message->setCodFrom($de);
+			$message->setCodTo($para);
+			
+			if($message->deleteMessage()){
+				$array = array('status'=>'1');
+				echo json_encode($array);
+			}else{
+				$array = array('status'=>'0', 'mensagem'=>'Não foi possível excluir as mensagens');
+				echo json_encode($array);
+			}
+		}
 	break;
 }

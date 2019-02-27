@@ -29,8 +29,8 @@
 	<div class="alert-overlay"></div>
 	<?php
 		$user = Usuarios::getUsuario();
-
-		if(isset($user)){
+		
+		if(isset($user->id_user)){
 			$nome = $user->nomeUser;
 			$codigo = $user->id_user;
 		?>	
@@ -53,7 +53,7 @@
 						<li class=""><a href="..\sair.php" title="Sair" class="link-main" id="settings"><i class="fa fa-sign-out"></i> Sair</a></li>
 					</ul>
 				</div>							
-		</div>
+			</div>
 		</nav>
 		<div id="container">
 			<div class="row nopadding">

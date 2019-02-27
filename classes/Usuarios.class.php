@@ -198,7 +198,7 @@ class Usuarios extends Crud{
 		if($email) array_push($_where, " emailTJ = :email ");
 		
 		$w = '';
-		if(sizeof($_where) > 0){
+		if(count($_where) > 0){
 
 			foreach($_where as $key=>$v){
 				$w .= ' AND '.$v;
@@ -235,7 +235,7 @@ class Usuarios extends Crud{
 		if($email) array_push($_where, " emailTJ = :email ");
 		
 		$w = '';
-		if(sizeof($_where) > 0){
+		if(count($_where) > 0){
 
 			foreach($_where as $key=>$v){
 				$w .= ' AND '.$v;

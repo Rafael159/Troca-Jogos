@@ -21,7 +21,7 @@
 	<div class="lg-box">
 		<ul class="lg-acao">
 			<?php
-				session_start();
+				if(!isset($_SESSION)) session_start();
 				if(isset($_SESSION['emailTJ'])){
 					$emailLogado = $_SESSION['emailTJ'];
 					$usuario  = $_SESSION['nomeTJ'];

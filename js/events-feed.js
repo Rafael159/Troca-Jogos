@@ -92,22 +92,55 @@ $(function(){
 
 	firstLoad();
 	
-	setInterval(function(){
-		idReceiver = $('.mensagens').attr('id');
-		idReceiver = idReceiver.split('_')[1];//separar o ID do usuário
+	// setInterval(function(){
+	// 	idReceiver = $('.mensagens').attr('id');
+	// 	idReceiver = idReceiver.split('_')[1];//separar o ID do usuário
 		
-		$.post('controllers/chat.php', {			
-			acao: 'atualizar',
-			idPara : idReceiver
+	// 	$.post('controllers/chat.php', {			
+	// 		acao: 'atualizar',
+	// 		idPara : idReceiver
+	// 	}, function(back){
+	// 		if(back != ''){	
+	// 			//scrollDown();
+	// 			$('.mensagens').html(back);
+	// 		}else{
+	// 			$('.mensagens').html('Seja o primeiro a mandar uma mensagem');
+	// 		}
+	// 	},'jSON');
 
+	// },3000);
+
+	/** 
+	 * Função: enviar convite
+	 * @param obj - botão clicado
+	 * @id_send - remetente do convite
+	 * @id_receive - destinatário do convite
+	*/
+
+	function addFriend(idsend, idreceiver){
+		$.post('controllers/convites.php', {			
+			acao: 'enviar',
+			idsend : idsend,
+			idreceiver: idreceiver
 		}, function(back){
-			if(back != ''){	
-				//scrollDown();
-				$('.mensagens').html(back);
-			}else{
-				$('.mensagens').html('Seja o primeiro a mandar uma mensagem');
+			if(back.status==="1"){
+				$("#alerta-msg").addClass("alert-success").html("Amigo adicionado com sucesso. Aguarde confirmação").fadeIn();
+				$(".friend-title").html("Convite enviado");
+			}else{				
+				$("#alerta-msg").addClass("alert-danger").html("Houve um erro ao adicionar amigo").fadeIn();
 			}
-		},'jSON');
 
-	},3000);
+			setTimeout(function(){
+				$("#alerta-msg").fadeOut('fast');
+			}, 5000);
+		}, "jSON");
+
+	}
+	$("#invite").on("click", function(ev){
+		ev.preventDefault();
+		idsend = $("#idon").val();
+		idreceiver = $("#coduser").val();
+
+		addFriend(idsend, idreceiver);
+	});
 });

@@ -23,6 +23,25 @@
     float: right;
     background:#2e2d2d;
 }
+.main .panels#rightpanel #chats .amigos-titulo{
+    width: 100%;
+	font-family: 'source_sans_proregular';
+    padding: 5px 0px;
+    display: block;
+    color: #ffffff;
+    font-size: 1.2em;
+    text-align: center;
+    background: #006699;
+}
+.main .panels#rightpanel #chats .contato-alerta{
+    font-family: 'source_sans_proregular';
+    color: #ccc;
+    width: 100%;
+    display: block;
+    text-align: center;
+    font-size: 1.5em;
+    margin-top: 50px;
+}
 /*Painel esquerdo*/
 #leftpanel .chat-content{
     height: 75vh;
@@ -43,7 +62,7 @@
 	width: 60%;
 	margin:5px;
 	display: inline-block;
-	border-radius: 10px;
+	border-radius: 2px;
 	font-weight: bold;
 }
 #leftpanel .chat-content .mensagens .msg-from{
@@ -68,6 +87,7 @@
 }
 #leftpanel .chat-content .box_form{
     width:100%;
+    display: none;
 }
 #leftpanel .chat-content #chat_form{
     width:100%;
@@ -84,6 +104,12 @@
     padding: 5px;
     font-weight: bold;
 }
+#leftpanel .chat-content .chat_warning{
+    font-size: 2.3em;
+    text-align: center;
+    font-family: 'source_sans_proregular';
+    width:100%;
+}
 #btn_send{
     background: #027ab6;
     color: #fff;
@@ -94,7 +120,7 @@
     font-weight: bold;
 }
 #leftpanel .settings{
-    display: block;
+    display: none;
     background: #2e2d2d;
     height: auto;
     padding: 5px;
@@ -106,6 +132,11 @@
 }
 .setting:hover{
     background:#027ab6;
+}
+.setting #box_excluir{
+    padding:5px;
+    border:1px solid #000;
+    position: absolute;
 }
 .chat_begin{
     width:100%;
