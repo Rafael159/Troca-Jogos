@@ -87,7 +87,7 @@
 }
 #leftpanel .chat-content .box_form{
     width:100%;
-    display: none;
+    /* display: none; */
 }
 #leftpanel .chat-content #chat_form{
     width:100%;
@@ -148,8 +148,9 @@
     width: 100%;
     text-align: center;
     display: block;
-    font-size: 1.2em;
-    color: rgb(43, 43, 43);
+    font-size: 2em;
+    color: #2e2d2d;
+    font-family: 'source_sans_proregular';
 }
 /*Fim painel esquerdo*/
 /*Painel direito*/

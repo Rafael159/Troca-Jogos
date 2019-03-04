@@ -53,11 +53,14 @@
                     <span class="amigos-titulo">Contatos</span>
                     <ul class="chat_holder">
                         <?php
-                            $row = $friends->getFriends();                     
                             $iduser = Usuarios::getUsuario('id_user');//ID logado
+                            $row = Friendships::getFriendsHelper(array('who_sent'=>$iduser));                   
+                            
                             if(count($row) > 0):
                                 foreach($row as $list):
-                                    foreach(Usuarios::getRegisterHelper(array('id'=>$list->who_accepted)) as $k => $v):
+                                    $usuario = ($iduser == $list->who_sent) ? $list->who_accepted : $list->who_sent;
+
+                                    foreach(Usuarios::getRegisterHelper(array('id'=>$usuario)) as $k => $v):
                                         if($iduser != $v->id_user):
                             ?>
                                 <li class="chat" id="chat_<?php echo $v->id_user?>" usuario="<?php echo $v->nomeUser; ?>"><div class="content"><span class="contact_name"></span><?php echo $v->nomeUser; ?> - <span class="contact_consola"><?php echo strtoupper($v->nome_console)?></span><span class="msgnotread"><?php echo Mensagens::countMensagens(array('cod_from'=>$v->id_user, 'cod_to'=>$iduser, 'lido'=>'nao'))?></span></div></li>

@@ -116,15 +116,8 @@ class Friendships{
 		if($order) $ordem = $order;
 
 		$sql  = "SELECT * FROM $this->table $where $w $ordem";
-
+		
 		$stmt = @BD::conn()->prepare($sql);
-
-		// if($id) $stmt->bindParam(':id', $id);
-		// if($who_sent) $stmt->bindParam(':who_sent', $who_sent);
-		// if($who_accepted) $stmt->bindParam(':who_accepted', $who_accepted);
-		// if($status) $stmt->bindParam(':status', $status);
-		// if($dataativacao) $stmt->bindParam(':dataativacao', $dataativacao);
-		// if($excluido) $stmt->bindParam(':excluido', $excluido);
         
 		$stmt->execute();
 		return $stmt->fetchAll();

@@ -60,7 +60,9 @@
 							<div class="box-infos">
 								<span class="user-info" id="user-name"><?php echo (isset($dados->nomeUser)) ? $dados->nomeUser : ''; ?></span>
 								<span class="user-info" id="user-address"><?php echo (isset($dados->cidade) && ($dados->cidade!='') ? $dados->cidade : 'Não informado') ?> <?php echo (isset($dados->estado) && ($dados->estado!='') ? ' / '.$dados->estado : '') ?></span>
-								<button class="btn <?php echo (isset($_SESSION['emailTJ'])) ? 'auth-message' : 'access-login' ?>" id="send-msg">Enviar mensagem</button>
+								<?php if(Usuarios::getUsuario('id_user') != $codUser): ?>
+									<button class="btn <?php echo (isset($_SESSION['emailTJ'])) ? 'auth-message' : 'access-login' ?>" id="send-msg">Enviar mensagem</button>
+								<?php endif; ?>
 							</div>
 						</div>
 					</div>

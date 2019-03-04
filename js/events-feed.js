@@ -40,9 +40,9 @@ $(function(){
 					para: idTo
 				}, function (retorno){
 					
-					setTimeout(function(){						
-						$('.mensagens').append(retorno);						
-					}, 5000);
+					// setTimeout(function(){						
+					// 	$('.mensagens').append(retorno);						
+					// }, 3000);
 					//scrollDown();
 				});
 			}
@@ -62,10 +62,8 @@ $(function(){
 			idPara : idReceiver
 
 		}, function(back){
-			//console.log(back);
 			if(back.status == '1'){
-				//faça algo	
-				
+				//faça algo
 			}
 		}, 'jSON');		
 	});

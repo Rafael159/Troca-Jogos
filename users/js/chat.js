@@ -9,9 +9,9 @@ $(document).ready(function(){
                 para: to
             }, function (retorno){
                 $("#field-message").focus();
-                setTimeout(function(){			
+                //setTimeout(function(){		
                     $('#chat_msg').append(retorno);
-                }, 1000);
+                //}, 1000);
             });
         }
 		return false;
@@ -30,14 +30,16 @@ $(document).ready(function(){
                 },
                 success: function(dados){
                     if(dados != ''){
+                        $(".no_mensagem").fadeOut();
                         $('#chat_msg').html(dados);
                         atualizaChat();
-                    }else{
-                        $('#chat_msg').html('Seja o primeiro a mandar uma mensagem');
                     }
+                    // else{
+                    //     $('#chat_msg').html('Seja o primeiro a mandar uma mensagem');
+                    // }
                 }
             });      
-        },7000);
+        },3000);
     }
     function removeChat(de, para){
         alert(de, para);
@@ -56,7 +58,6 @@ $(document).ready(function(){
         
     }
     $("#remove-confirm").on("click", function(){
-
 
     });
 
@@ -94,8 +95,8 @@ $(document).ready(function(){
                 $(".mensagens #chat_msg").html(dados);
                 atualizaChat();
             }else{
-                $(".mensagens #chat_msg").html("<span class='no_mensagem'>Não há mensagens para exibir</span>");
-                $(".chat_begin").css("display", "none");
+                $(".chat_warning, .chat_begin").css("display", "none");
+                $(".mensagens #chat_msg").html("<span class='no_mensagem'>Não há mensagens. Inicie uma conversa agora mesmo</span>");
             }
         });
     });
