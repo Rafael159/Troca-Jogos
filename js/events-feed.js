@@ -40,9 +40,9 @@ $(function(){
 					para: idTo
 				}, function (retorno){
 					
-					// setTimeout(function(){						
-					// 	$('.mensagens').append(retorno);						
-					// }, 3000);
+					setTimeout(function(){						
+						$('.mensagens').append(retorno);						
+					}, 1000);
 					//scrollDown();
 				});
 			}

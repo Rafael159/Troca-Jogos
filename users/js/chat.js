@@ -70,35 +70,47 @@ $(document).ready(function(){
 
     //pegar o contato
     $(".chat").on("click", function(){
-        user = $(this).attr("usuario");
-        chat_id = $(this).attr("id");
-        separarId = chat_id.split("_");
-        idUser = separarId[1];
-        
-        id = (idUser) ? idUser : 0;
-        $("#idto").val(id);
-        
-        $.ajax({
-            method:'POST',
-            url: '../controllers/chat.php',
-            data: {
-                para: id, 
-                acao: 'get'
-            }
-        }).done(function(dados){
-            if(dados !== ""){
-                if(user){
-                    $("#talkto").html(user);
-                    $(".chat_warning").css("display", "none");
-                    $(".chat_begin, .box_form, .settings").css("display", "block");
+        if($(this).hasClass("chosen")){
+            //não fazer nada se for clicado no chat já selecionado
+        }else{
+            $(".chat_holder .chat").each(function(){
+                if($(this).hasClass("chosen")){
+                    $(this).removeClass("chosen");
                 }
-                $(".mensagens #chat_msg").html(dados);
-                atualizaChat();
-            }else{
-                $(".chat_warning, .chat_begin").css("display", "none");
-                $(".mensagens #chat_msg").html("<span class='no_mensagem'>Não há mensagens. Inicie uma conversa agora mesmo</span>");
-            }
-        });
+            });
+            $(this).addClass("chosen");
+
+            user = $(this).attr("usuario");
+            chat_id = $(this).attr("id");
+            separarId = chat_id.split("_");
+            idUser = separarId[1];
+            
+            id = (idUser) ? idUser : 0;
+            $("#idto").val(id);
+            
+            $.ajax({
+                method:'POST',
+                url: '../controllers/chat.php',
+                data: {
+                    para: id, 
+                    acao: 'get'
+                }
+            }).done(function(dados){
+                $("#chat_form").show();
+                if(dados !== ""){
+                    if(user){
+                        $("#talkto").html(user);
+                        $(".chat_warning").css("display", "none");
+                        $(".chat_begin, .box_form, .settings").css("display", "block");
+                    }
+                    $(".mensagens #chat_msg").html(dados);
+                    atualizaChat();
+                }else{                
+                    $(".chat_warning, .chat_begin").css("display", "none");
+                    $(".mensagens #chat_msg").html("<span class='no_mensagem'>Inicie uma conversa agora mesmo</span>");
+                }
+            });
+        }
     });
     
     

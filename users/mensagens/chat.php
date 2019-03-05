@@ -16,7 +16,7 @@
         <div class="main">
             <div class="panels" id="leftpanel">
                 <div class="col-lg-1 col-lg-push-3">
-                    <div class="settings">
+                    <!-- <div class="settings">
                         <div class="setting" id="remove-confirm">
                             <i class="fa fa-trash fa-2x"></i>
                             <div id="box_excluir">
@@ -27,9 +27,9 @@
                                 </div>
                             </div>                           
                         </div>
-                        <!-- <div class="setting"><i class="fa fa-cog fa-2x" aria-hidden="true"></i></div>
-                        <div class="setting"><i class="fa fa-tachometer fa-2x"></i></div> -->
-                    </div>                    
+                         <div class="setting"><i class="fa fa-cog fa-2x" aria-hidden="true"></i></div>
+                        <div class="setting"><i class="fa fa-tachometer fa-2x"></i></div>
+                    </div>                     -->
                 </div>
                 <div class="col-lg-8 col-lg-push-3 nopadding">
                     <div class="chat-content">
@@ -68,7 +68,10 @@
                                 <?php endforeach; ?>
                             <?php endforeach; ?>
                         <?php else: ?>
-                            <span class="contato-alerta">Ops :( <br>Nenhum contato para exibir</span>
+                            <span class="contato-alerta">Ops :( <br>
+                            Nenhum contato para exibir<br><br><br>
+                            Para adicionar uma contato, vá até o perfil do contato e clique em adicionar contato ou mande uma mensagem
+                            </span>
                         <?php endif; ?>
                     </ul>
                 </div>

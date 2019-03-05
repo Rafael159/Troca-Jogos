@@ -1,4 +1,7 @@
 .nopadding{padding:0px !important; margin:0px !important; }
+.chosen{
+    background:#006699 !important;
+}
 .main{
     padding:0px;
     margin:0px;
@@ -31,7 +34,7 @@
     color: #ffffff;
     font-size: 1.2em;
     text-align: center;
-    background: #006699;
+    background: #2e2d2d;
 }
 .main .panels#rightpanel #chats .contato-alerta{
     font-family: 'source_sans_proregular';
@@ -86,13 +89,13 @@
 	font-style: italic;
 }
 #leftpanel .chat-content .box_form{
-    width:100%;
-    /* display: none; */
+    width:100%;   
 }
 #leftpanel .chat-content #chat_form{
     width:100%;
     background: #2e2d2d;
     padding: 6px;
+    display:none;
 }
 #leftpanel .chat-content #chat_form #field-message{
     display: inline-block;
