@@ -24,7 +24,7 @@
 				</p>
 				<p>
 					<label>
-						<input type="button" name="logar" value="Logar" id="btn-login"/>									
+						<input type="button" name="logar" value="ENTRAR" id="btn-login"/>									
 					</label>								
 				<p>
 					<label>

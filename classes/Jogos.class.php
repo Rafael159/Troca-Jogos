@@ -119,6 +119,7 @@ class Jogos extends Crud{
 		$jogo = array_key_exists("jogo", $queries) ? $queries['jogo'] : '';
 		$id = array_key_exists("id", $queries) ? $queries['id'] : '';
 		$console = array_key_exists("console", $queries) ? $queries['console'] : '';
+		$idconsole = array_key_exists("idconsole", $queries) ? $queries['idconsole'] : '';
 		$order = array_key_exists("order", $queries) ? $queries['order'] : '';
 		$id_gamer = array_key_exists("id_gamer", $queries) ? $queries['id_gamer'] : '';
 		$status = array_key_exists("status", $queries) ? $queries['status'] : '';
@@ -128,6 +129,7 @@ class Jogos extends Crud{
 		if($jogo) array_push($_where, " UPPER(j.n_jogo) LIKE UPPER('%".$jogo."%')");
 		if($id) array_push($_where, " id = $id");
 		if($console) array_push($_where, " nome_console = '$console'");
+		if($idconsole) array_push($_where, " j.id_console = '$idconsole'");
 		if($id_gamer) array_push($_where, " id_gamer = '$id_gamer'");		
 		if($status) {
 			if($status == 'Ambos') array_push($_where, " (j.status = 'Ativo' OR j.status = 'Inativo')"); 
@@ -200,8 +202,6 @@ class Jogos extends Crud{
 		$sql = "SELECT * FROM $this->table WHERE id_gamer is not null $w";
 
 		$stmt = @BD::conn()->prepare($sql);
-		// $stmt->bindParam(':cod', $this->idGamer);	
-
 		$stmt->execute();
 		return $stmt->rowCount();
 

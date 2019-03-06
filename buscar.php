@@ -70,7 +70,7 @@
 	<!--<div class="imagem-troca"><img src="imagens/ps3/<?php $jogos ?>" alt="RESIDENT EVIL 6"/></div>-->
 	<div class="info-gamer">
 		<ul>			
-			<li>Jogo: 
+			<li>
 				<?php
 					$num = strlen($exibeJogo->n_jogo);
 					if($num >15){
@@ -80,9 +80,9 @@
 					}
 				?>
 			</li>
-			<li>Console: <?php echo strtoupper($exibeJogo->nome_console)?></li>
+			<li><?php echo strtoupper($exibeJogo->nome_console)?></li>
 			<li><a href="feed.php?codigo=<?php echo $exibeJogo->id_user?>" class="usuario"><?php echo $exibeJogo->nomeUser;?></a></li>
-			<li>Local: <?php echo substr($exibeJogo->cidade,0,10) ." / ". $exibeJogo->estado?></li>
+			<li><?php echo substr($exibeJogo->cidade,0,10) ." / ". $exibeJogo->estado?></li>
 		</ul>
 	</div><!--class info-gamer-->
 </div><!--class contorno-->

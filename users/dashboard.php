@@ -78,7 +78,7 @@
 				            <li class="vt_link text-center nav_op_left" id="jogos"><a href="jogos"><i class="fa fa-gamepad fa-3x"></i><br/>Jogos<br/><span class="badge"><?php echo $jogos->contarJogos(array('id_gamer'=> $codigo, 'status'=>'Ambos'))?></span></a></li>
 				            <li class="vt_link text-center nav_op_left" id="trocas"><a href="trocas"><i class="fa fa-refresh fa-3x"></i><br/>Trocas <br/><span class="badge"><?php $trocas->setByUser($codigo); echo $trocas->contaTrocaById()?></span></a></li>				            				            
 				            <li class="vt_link text-center nav_op_left" id="mensagens"><a href="mensagens/chat"><i class="fa fa-commenting fa-3x"></i><br/>Mensagens<br/><span class="badge"><?php echo Mensagens::countMensagens(array('cod_to'=>$codigo, 'lido'=>'nao')); ?></span></a></li>
-				            <li class="vt_link text-center nav_op_left" id="contato"><a href="contato"><i class="fa fa-envelope fa-3x"></i><br/>Contate-nos</a></li>				            
+				            <!-- <li class="vt_link text-center nav_op_left" id="contato"><a href="contato"><i class="fa fa-envelope fa-3x"></i><br/>Contate-nos</a></li>				             -->
 				          </ul>
 				        </div><!--/.nav-collapse -->
 				      </div>
@@ -105,7 +105,7 @@
 	<script type="text/javascript" src="js/principal.js"></script>
 	<script src="js/jquery.form.min.js"></script>
 	<!--JS BOOTSTRAP-->
-	<script src="..\bootstrap/js/bootstrap.min.js"></script>
+	<script src="../bootstrap/js/bootstrap.min.js"></script>
 </body>
 </html>
 

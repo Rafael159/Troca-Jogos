@@ -280,36 +280,34 @@ span.alert-vazio p{
     display: none;
 }
 .contorno{
-    width: 250px;
+    width: 22%;
     border: 0px solid #ccc;
-    display: inline;
-    float: left;
-    /*background: #212020;*/
-    margin: 8px 8px;
-    padding:8px 0 8px 18px;
+    float: left;    
+    margin: 8px;
+    padding: 8px 0px 8px 0px;
     border-radius: 4px;
-    transition-duration:0.5s;
+    transition-duration: 0.5s;
     cursor: pointer;
 }
 .contorno:hover{
     box-shadow: #006699 2px 1px 22px;
 }
 .contorno figure{
-    margin:5px 0 5px 15px;
-    padding:7px 0 3px;
-    width:202px;
-    border-radius:4px 5px 5px 4px;
+    margin: auto;
+    padding: 7px 0px 3px;
+    width: 183px;
+    border-radius: 4px 5px 5px 4px;
 }
 .contorno figure img{
-    width: 195px;
-    height: 250px;
+    width: 175px;
+    height: 215px;
 }
 .contorno .info-gamer{
-    width:202px;
-    margin:5px 0 5px 15px;
+    width: 184px;
+    margin: 5px 0 5px 13px;
     background: #ffffff;
     opacity: 0.8;
-    border-radius:4px;
+    border-radius: 4px;
 }
 .contorno .info-gamer ul{
     margin: 6px 2px 6px 4px;

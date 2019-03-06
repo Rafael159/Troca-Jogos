@@ -11,6 +11,7 @@
         <link rel="stylesheet" href="bootstrap/css/bootstrap-theme.css"/>		
 		<link rel="stylesheet" href="css/cadastro.css"/>
 		<link rel="stylesheet" href="font-awesome/css/font-awesome.css"/>
+		<link rel="stylesheet" href="css/fonts.css"/> 
 
 		<title>Crie sua conta</title>		
 	</head>

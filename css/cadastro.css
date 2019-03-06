@@ -5,24 +5,11 @@ body{
 	background-repeat: no-repeat;
 	background-size: 100%;
 }
-
-.main{
-	width: 100%;	
-}
-.main .top{
-	width: 100%;
-}
-.main .top .brand{ 	
-	margin-left: 2%; 
-}
-
-.cleafix{
-	clear:both;
-	content: '';
-}
-.nopadding{
-	margin:0; padding:0;
-}
+.main{ width: 100%;	}
+.main .top{ width: 100%; }
+.main .top .brand{ margin-left: 2%; }
+.cleafix{ clear:both; content: ''; }
+.nopadding{ margin:0; padding:0; }
 .top span .content{
 	background:url('../imagens/icones/iconesCadastro.png');
 	width:28px;
@@ -31,10 +18,7 @@ body{
 	float:right;
 	margin-top:-6px;
 }
-#box{	
-	margin:0px auto;
-	padding:10px;	
-}
+#box{ margin:0px auto; padding:10px; }
 #box #top-title{
 	width: 100%;
     font-family: 'source_sans_proregular';
@@ -43,11 +27,11 @@ body{
     margin: 10px 0px;
 }
 #box label.faixa{
-	background-image: linear-gradient(to bottom, #929292, #fff, #929292);
 	display: block;
-	text-align: center;
-	border-radius: 20px;
-	padding: 1px 0px;
+    text-align: center;
+    border-radius: 4px;
+    padding: 1px 0px;
+    background: #ffffff;
 }
 #box .bt-inicial{
 	width:145px;
@@ -81,9 +65,11 @@ body{
 	color:#333333;
 }
 .first_title{
+	font-family: 'source_sans_probold';
 	color: #484848;
 	text-shadow: 1px 1px 4px #ddd;
 	margin:10px 0px;
+	font-weight: 500;
 }
 #retorno,#retorno2{
 	padding: 4px;

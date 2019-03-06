@@ -246,7 +246,7 @@ nav.opcoes-user ul li.each-opcao:hover{
     margin-left: -150px; 
     display: none;
     z-index: 999;
-
+    padding:5px;
     box-shadow: 1px 1px 3px #fbfbfb;
     -webkit-box-shadow: 1px 1px 3px #fbfbfb;
     -moz-box-shadow: 1px 1px 3px #fbfbfb;
@@ -291,7 +291,8 @@ nav.opcoes-user ul li.each-opcao:hover{
     margin-bottom: 4px;
 }
 .box-login-cadastro .form-acesso p label a{
-    font:0.8em Arial, helvetica, sans-serif;
+    font-family: 'source_sans_proregular';
+    font-size:1em;
     color:#fff;
     margin-left: 10px;
     text-decoration: none;
@@ -317,24 +318,23 @@ nav.opcoes-user ul li.each-opcao:hover{
 }
 /*botão logar/cadastrar */
 .box-login-cadastro .form-acesso p #btn-login,.box-login-cadastro .form-acesso p #btn-cadastrar{
-    width: 290px;
+    width: 100%;
     padding: 6px 0px;
     border-radius: 3px;
-    border: none;       
-    font: 16px Arial, Lato, sans-serif;
+    border: none;
+    font-family: 'source_sans_proregular';
     color: #fff;
     cursor: pointer;
     margin-top: 5px;
-    margin-bottom: 0px;
     outline: none;
     font-weight: bold;
     letter-spacing: 2px;
     box-shadow: 1px 1px 2px #3D3D3D;
-
     background: -webkit-linear-gradient(#A31313,#c91212);
     background: -o-linear-gradient(#A31313,#c91212);
     background: linear-gradient(#A31313,#c91212);
     background: -moz-linear-gradient(#A31313,#c91212);
+    font-size: 1.1em;
 }
     .box-login-cadastro .form-acesso p #btn-login:hover, .box-login-cadastro .form-acesso p #btn-cadastrar:hover {
         background: -webkit-linear-gradient(#c91212,#A31313);
@@ -360,15 +360,14 @@ nav.opcoes-user ul li.each-opcao:hover{
 /*botão conectar com facebook*/
 .facebook{
     background:#3A5795;
-    width: 290px;
+    width: 100%;
     border: none;
     border-radius:3px;
     padding: 10px;
     text-align:center;
-    margin:4px 5px;
     cursor:pointer;
-    font:14px Arial, helvetica, sans-serif;
-    font-weight: bold;
+    font-family: 'source_sans_probold';
+    font-size:1.1em;    
     text-transform: uppercase;
     text-shadow:#3d3d3d 1px 1px 0;
     color:#fff;

@@ -141,10 +141,10 @@
 					<!--Dentro de cada console, verificar os jogos disponíveis-->
 					<?php 
 						$sql = "SELECT * FROM `jogos` as j, `imagens` as i WHERE j.id_console = $id AND j.img_jogo = i.id_img LIMIT 4";
-
-						$numero_jogo = count($console->consulta($sql));
+						$games = $jogos->listarJogos(array('status'=>'Ativo', 'idconsole'=>$id));
+						$numero_jogo = count($games);
 						
-						if($numero_jogo != 0){ //se tiver jogo cadastrado para o console, mostre
+						if($numero_jogo > 0){ //se tiver jogo cadastrado para o console, mostre
 							foreach ($console->consulta($sql) as $chave => $jogo) {
 					?>
 						<li><a href="game.php?codigo=<?php echo $jogo->id?>"><img src="imagens/<?php echo strtolower($nome)?>/<?php echo $jogo->imagem?>" alt="<?php echo $jogo->n_jogo?>"><h4><?php echo $jogo->n_jogo?></h4></a></li>

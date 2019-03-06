@@ -76,9 +76,9 @@
 								}
 							?>
 						</li>
-						<li>Console: <?php echo strtoupper($valor->nome_console)?></li>
+						<li><?php echo strtoupper($valor->nome_console)?></li>
 						<li><a href="feed.php?codigo=<?php echo $valor->id_user?>" class="usuario"><?php echo $valor->nomeUser;?></a></li>
-						<li>Local: <?php echo substr($valor->cidade,0,10) ." / ". $valor->estado?></li>
+						<li><?php echo substr($valor->cidade,0,10) ." / ". $valor->estado?></li>
 					</ul>
 				</div>
 			</div>
@@ -104,7 +104,7 @@
 								}
 							?>
 						</li>
-						<li>Desde: <?php echo date("d/m/Y",strtotime($valor->data))?></li>
+						<li><?php echo strtoupper($valor->nome_console)?></li>						
 						<li><a href="feed.php?codigo=<?php echo $valor->id_user?>" class="usuario"><?php echo substr($valor->nomeUser, 0,20)?></a></li>
 						<li><?php echo $valor->cidade ." / ". $valor->estado?></li>
 					</ul>

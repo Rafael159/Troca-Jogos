@@ -96,13 +96,12 @@ header.tj-top .user-space{
 #main-menu .nav ul li#pc{ background: #989898; }
 
 #main-menu .nav ul li .link{
-	font:1em Lato,Arial, sans-serif;
+	font-family: 'source_sans_proregular';
+	font-size:1em;
 	color:#ffffff;
 	text-align: center;
 	text-transform: uppercase;
 	text-decoration:none;
-	border-bottom-color: transparent;	
-	padding: 0px;		
 	width: 100%;
 	display: block;
 	outline: none;
@@ -122,19 +121,18 @@ header.tj-top .user-space{
 }
 	#boxConsole #info #nomeConsole{
 		margin-left: 3%;
-		font-family: Arial, helvetica, sans-serif;
+		font-family: 'source_sans_probold';
 		font-size: 3em;
 		color:#1b6fbe;
-		text-shadow:1px 1px 1px #ffffff;
 	}
 	#boxConsole #info #qtdJogo{
-		margin-left: 5%;
-		font-family: Arial, helvetica, sans-serif;
+		margin-left: 2%;
+		font-family: 'source_sans_proregular';
 		font-size: 3em;
 		color:#23292f;
 	}
-	#boxConsole #info b{
-		font-family: Arial, helvetica, sans-serif;
+	#boxConsole #info > b{
+		font-family: 'source_sans_proregular';
 		font-size: 1.2em;
 		font-weight: normal;
 		color:#fff;
@@ -167,20 +165,19 @@ header.tj-top .user-space{
 	display: block;
 }
 #notFound{
-	font-family: Impact, Charcoal, sans-serif;
-	color:#fff;
-	text-shadow:1px 1px 1px #333333;
-	font-size: 2em;
-	margin: 2%;
-	width: 100%;
-	padding-top: 10px;
-	display: block;
+	font-family: 'source_sans_proregular';
+    color: #4b4b4b;    
+    font-size: 2em;
+    margin: 2%;
+    width: 100%;
+    padding-top: 10px;
+    display: block;
 }
 #select{
 	width: 240px;
    height: 34px;
    overflow: hidden;
-   background: #ddd; /* novo ícone para o <select> */
+   background: #ddd; 
    border: 1px solid #ccc;
    float: right;
    margin-top: 18px;

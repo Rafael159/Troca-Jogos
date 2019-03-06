@@ -4,6 +4,7 @@ $(document).ready(function(){
 		op = $(this).val();//opção para exibição
 		
 		cod = $('#cod').val();//id console
+		
 		$.ajax({
 			url:"require/buscaJogo.php",
 			type:"POST",

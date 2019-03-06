@@ -33,9 +33,8 @@ final class Consoles extends Crud{
 	}
 	/*buscar a categoria do jogo pelo id*/
 	public function listarCategorias($id){
-
-		$sql = "SELECT * FROM $this->table WHERE id_console = $id";		
-		$stmt = @BD::conn()->prepare($sql);
+		$sql = "SELECT * FROM $this->table WHERE id_console = $id";	
+		$stmt = @BD::conn()->prepare($sql);		
 		$stmt->execute();
 		return $stmt->fetchAll();
 
@@ -44,16 +43,13 @@ final class Consoles extends Crud{
 	public function showAll($dados=array()){
 
 		if(array_key_exists("id", $dados)) $id = $dados['id'];
-		if(array_key_exists("console", $dados)) $console = $dados['console'];
-		
+		if(array_key_exists("console", $dados)) $console = $dados['console'];		
 		
 		$where = array();
-
 		if(count($dados) > 0):
 			if(isset($id)) array_push($where, "id_console = $id ");
 			if(isset($console)) array_push($where, "nome_console LIKE '%$console%' ");
-		endif;
-		
+		endif;		
 		$query = "SELECT * FROM $this->table";
 
 		if(count($where) > 0):		
