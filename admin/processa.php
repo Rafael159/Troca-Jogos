@@ -35,7 +35,7 @@ if(is_array($_FILES)) {
 		if(!isset($data['erro'])){
 			//se o diretório do arquivo não existe, então crie o diretório
 			if (!file_exists($caminho)){
-				mkdir("$caminho", 0700);
+				mkdir("$caminho", 0700); 
 			}
 
 			$name = md5(uniqid(rand(),true));//nome criado a partir de chave única

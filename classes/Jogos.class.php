@@ -61,7 +61,7 @@ class Jogos extends Crud{
 		$stmt->bindParam(':data',$this->data);
 		$stmt->bindParam(':descricao',$this->descricao);
 		$stmt->bindParam(':infoExtra',$this->infoExtra);
-
+		
 		$stmt->execute();
 		return @BD::conn()->lastInsertId();//retorno o ID do jogo que foi inserido
 		
