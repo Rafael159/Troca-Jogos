@@ -1,5 +1,4 @@
 $(document).ready(function(e){
-
 	/*
 	 * PÁGINA COM AS AÇÕES E ANIMAÇÕES DA PÁGINA ADMIN.PHP 
 	 */
@@ -79,7 +78,7 @@ $(document).ready(function(e){
 					mensagem('Erro ao atualizar imagem!','Ocorreu um erro.Tente mais tarde');
 				}else{
 					mensagem('Sucesso', 'Imagem atualizada com sucesso');											
-				}								
+				}
 			}, 'jSON');
 		});
 	}
@@ -294,4 +293,97 @@ $(".btn_negar").on('click', function(){
 	$("#conteudo_principal").load(href + "#conteudo_principal");
 });
 
+/*Função: Tirar espaços entre a letras
+	 *@param str - string com espaço
+	 *@return res - retorna string sem espaço
+	*/
+	function replacestr(str) {
+		res = str.replace(/ /g, "");
+		return res;
+	}
+	/*Função: Verificar o tipo de troca
+	 *@param vlr - int contendo o tipo da troca
+	 *@return type - retornar uma string com o tipo da troca
+	*/
+	function typeExchange(vlr){
+		switch(vlr){
+			case '0':
+				type = "Meu jogo vale mais";
+			break;
+			case '1':
+				type = "Equilibrado";
+			break;
+			default:
+				type = "Meu jogo vale menos";
+			break;
+		}
+		return type;
+	}
+
+viewTroca = function(idTroca){
+	
+	$.ajax({
+		url : 'trocas/view-troca.php',
+		type : 'post',
+		data : 'idTroca='+idTroca,
+		dataType : 'json'
+	}).done(function(data){
+		if(data.status == '0'){
+			$('#box_error').modal();
+			$('#box-msg-error').html(data.mensagem);
+		}else{
+			/*MONTAR BOX DE RETORNO*/
+			console = replacestr(data.dados_troca[0].nome_console);
+			imagem_oferta = data.dados_troca[0].imagem;
+			valor = data.dados_troca[0].valor;
+			jogo_oferta = data.dados_troca[0].n_jogo;/*nome do jogo*/
+			mensagem = data.dados_troca[0].mensagem;
+			type = typeExchange(data.dados_troca[0].tipo);
+			statustroca = data.dados_troca[0].estado_atual;
+			
+			//dados do segundo jogo
+			seg_console = replacestr(data.dados_jogo[0].nome_console);
+			seg_img = data.dados_jogo[0].imagem;
+			seg_jogo = data.dados_jogo[0].n_jogo;
+
+			//dados do segundo usuário
+			user_nome = data.dados_user.nomeUser;
+			user_celular = data.dados_user.celular;
+			user_telefone = data.dados_user.telefone;
+
+			//primeiro jogo
+			box = '<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">';
+			box +=	'<div class="box-games" style="border: 2px solid #000">';
+			box +=      '<span class="game-title">Jogo Principal</span>';
+			box +=	    '<img src="../game/imagens/'+console+'/'+imagem_oferta+'" alt="'+jogo_oferta+'" class="img-responsive img-games"/>';
+			box +=	'<label class="game-name">'+jogo_oferta+' - '+console+'</label></div></div>';     	
+			//segundo jogo
+			box += '<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">';
+			box +=    	'<div class="box-games" style="border: 2px solid #069">';
+			box +=    		'<span class="game-title">Jogo Pretendido</span>';
+			box +=    		'<img src="../game/imagens/'+seg_console+'/'+seg_img+'" alt="'+seg_jogo+'" class="img-responsive img-games"/>';
+			box += '<label class="game-name">'+seg_jogo+' - '+seg_console+'</label></div></div>';
+
+			box += '<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">';
+			box +=      '<div class="personal-info">';
+			box +=			'<h4>Dados da troca</h4>';
+			box +=          '<label class="info-troca">Tipo de troca:</label> <span class="real-info">'+type+'</span><br/>';
+			box +=    		'<label class="info-troca">Valor de retorno:</label><span class="real-info"> R$'+valor+'</span><br/>';
+			box +=    		'<label class="info-troca">Status atual:</label> <span class="real-info">'+statustroca+'</span><br/></div></div>';
+
+			box +='<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">';
+			box +='<div class="personal-info">';
+			box +='<h4>Dados do destinatário</h4>';
+			box +='<label class="info-troca">Nome: </label><span class="real-info"> '+user_nome+'</span><br/>';
+			box +='<label class="info-troca">Celular: </label> <span class="real-info">'+user_celular+'</span><br/>';
+			box +='<label class="info-troca">Telefone: </label><span class="real-info">'+user_telefone+'</span><br/></div></div>';
+
+			box +='<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">';
+			box +='<div class="personal-info"><div id="mensagem-troca"><span><strong>MENSAGEM: </strong>'+mensagem+'</span></div></div></div>';
+
+			$('#view_troca').html(box);
+			$('#view-modal').modal();
+		}
+	});		
+}
 });

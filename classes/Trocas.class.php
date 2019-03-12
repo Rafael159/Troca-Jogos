@@ -107,12 +107,12 @@
 				}
 			}
 
-			$sql = "SELECT tc.id AS 'id_troca', tc.idUm, tc.idDois, tc.tipo, tc.valor, tc.by_user, j.n_jogo AS 'game', tc.jogoum, tc.jogodois, tc.status, u.nomeUser
+			$sql = "SELECT tc.id, tc.idUm, tc.idDois, tc.tipo, tc.valor, tc.by_user, j.n_jogo AS 'game', tc.jogoum, tc.jogodois, tc.status, u.nomeUser
 					FROM  `trocas` AS tc, (((`jogos` AS j
 					INNER JOIN  `console` AS c ON j.id_console = c.id_console)
 					INNER JOIN  `imagens` AS i ON j.img_jogo = i.id_img)
 					INNER JOIN  `usuarios` AS u ON j.id_gamer = u.id_user)
-					WHERE tc.status is not null					
+					WHERE tc.status is not null	AND (tc.jogodois = j.id)				
 					$w
 					GROUP BY tc.id
 					ORDER BY tc.id DESC";
@@ -123,6 +123,13 @@
 			$stmt->execute();
 			return $stmt->fetchAll();
 		}
+		public static function getTrocasHelper($queries = array()){
+			$row = new Trocas;
+			$rows = $row->getTrocas($queries);
+			if(count($rows) == 0) return false;
+			return $rows;	
+		}
+
 		/*
 		 * Função: Mostrar todas as trocas relacionada ao usuário
 		 * @return lista com registros das trocas

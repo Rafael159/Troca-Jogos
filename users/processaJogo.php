@@ -205,7 +205,7 @@
 		$lastinserted = (int)$sql;//garantir que valor seja inteiro
 		$qtnGenero = count($genero);
 
-		for($i=0; $i<$qtnGenero; $i++) {			
+		for($i=0; $i<$qtnGenero; $i++) {
 			$jogocategoria->setJogoID($lastinserted);
 			$jogocategoria->setCategoriaID($genero[$i]);
 			$jogocategoria->insert();

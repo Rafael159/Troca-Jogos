@@ -44,7 +44,7 @@
 						$jogo->setIdGamer($idUser);
 						$qnt = $jogo->contaJogoById();
 						
-						$row = $jogo->listarJogos(array('id_gamer'=>$idUser, 'status'=>'Ambos', 'order'=>'ORDER BY j.status'));
+						$row = $jogo->listarJogos(array('id_gamer'=>$idUser, 'status'=>'Ambos', 'order'=>'ORDER BY j.id DESC'));
 						
 						if($qnt == 0){
 							echo "<span id='msg-none'>NENHUM JOGO CADASTRADO</span>";

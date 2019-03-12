@@ -14,7 +14,7 @@
     <div id="box" class="col-lg-12 col-md-12 col-sm-12">
         
         <div id="formulario-update">
-            <div class="msgcrud"></div>                          
+            <div class="msgcrud"></div>
             <form method="POST" id="form-update" action="" class="form">	
                 
                 <div class="steps" id="first-step">

@@ -4,8 +4,6 @@
 	}
 	$console = new Consoles();
 	$imagem  = new Imagens();
-
-	//define( 'PATH_ROOT', dirname(__FILE__) );
 ?>
 <title>Imagens</title>
 
@@ -43,7 +41,6 @@
 	</nav>
 	<div class="box_imagens">
 		<?php
-			//$sql = "SELECT * FROM `console` as c, `imagens` as i WHERE c.id_console = i.id_console ORDER BY i.id_img";
 			$imagens = $imagem->getImage(array('order'=>'ORDER BY id_img DESC'));
 			$qnt = count($imagens);	
 			if($qnt == 0):
@@ -56,11 +53,11 @@
 			<div class="box-opcao">
 				<span><input type="text" value="<?php echo $valor->nome?>" class="nm_jogo"/></span>
 				<ul id="<?php echo $valor->id_img;?>">
-					<li><i class="fa fa-trash fa-2x icon-deletar" style="color:red"></i>
-						<!-- <img src="images/deletar.png" alt="Deletar" class="icon-deletar"> -->
+					<li>
+						<i class="fa fa-trash fa-2x icon-deletar" style="color:red"></i>						
 					</li>
-					<li><i class="fa fa-edit fa-2x icon-editar" style="color:green"></i>
-						<!-- <img src="images/editar.png" alt="Editar" class="icon-editar"> -->
+					<li>
+						<i class="fa fa-edit fa-2x icon-editar" style="color:green"></i>						
 					</li>
 				</ul>
 			</div>

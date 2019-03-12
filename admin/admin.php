@@ -7,12 +7,12 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<!--CHAMADA CSS-->
-		<link type="text/css" href="css/imagens.css" rel="stylesheet"/>
-
 		<!--CSS BOOTSTRAP-->
 		<link rel="stylesheet" type="text/css" href="..\bootstrap/css/bootstrap.min.css"/>
-		<link rel="stylesheet" type="text/css" href="..\font-awesome/css/font-awesome.css"/>
+		<link rel="stylesheet" type="text/css" href="../font-awesome/css/font-awesome.css"/>
+		<!--CHAMADA CSS-->
+		<link type="text/css" href="css/imagens.css" rel="stylesheet"/>
+		<link type="text/css" href="css/trocas.css" rel="stylesheet"/>
 
 		<!--CHAMADA CSS-->
 		<link rel="stylesheet" type="text/css" href="css/estilo.css"/>
@@ -63,7 +63,7 @@
 					<li class="mn_opcao jogo"><a href="jogos/index.php" class="link"><i class="fa fa-gamepad" aria-hidden="true"></i> Jogos</a></li>
 					<li class="mn_opcao console"><a href="consoles.php" class="link"><i class="fa fa-database" aria-hidden="true"></i> Consoles</a></li>
 					<li class="mn_opcao imagem"><a href="imagens.php" class="link"><i class="fa fa-picture-o" aria-hidden="true"></i> Imagens</a></li>
-					<li class="mn_opcao troca"><a href="" class="link"><i class="fa fa-exchange" aria-hidden="true"></i> Trocas</a></li>
+					<li class="mn_opcao troca"><a href="trocas/index.php" class="link"><i class="fa fa-exchange" aria-hidden="true"></i> Trocas</a></li>
 					<li class="mn_opcao config"><a href="" class="link"><i class="fa fa-cogs" aria-hidden="true"></i> Configuração</a></li>
 				</ul>
 			</div>
@@ -73,5 +73,6 @@
 		<script src="//code.jquery.com/jquery-1.10.2.js"></script>
 	    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 	    <script src="js/funcoes.js"></script>
+		<script src="..\bootstrap/js/bootstrap.min.js"></script>
 	</body>
 </html>

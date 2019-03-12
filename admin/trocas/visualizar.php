@@ -1,43 +1,47 @@
 <?php
 	function __autoload($classe){
-        require('..\classes/'.$classe.'.class.php');
+        require('../../classes/'.$classe.'.class.php');
     }
-        
+    //define( 'ABSPATH', dirname(__FILE__) );
+
+    //echo ABSPATH;
     $user  = new Usuarios();   
     $troca = new Trocas();
     $jogo  = new Jogos(); 
 	
-	$userID = Usuarios::getUsuario('id_user');
+	//$userID = Usuarios::getUsuario('id_user');
 
 	//recebe o tipo de consulta
 	$tipo = (isset($_POST['type']) ? $_POST['type'] : 'all');
 	
-	$troca->setByUser((int)$userID);
+	//$troca->setByUser((int)$userID);
         		
 	switch ($tipo) {
 		case 'all':
-			$dados = $troca->showAll();
+			$queries = array();
 		break;
         case 'accepted':
-            $dados = $troca->showAccepted();
+			$queries = array('tipo'=>'Aceito');
         break;        
 		case 'done':
-			$dados = $troca->showDone();
+            $queries = array('tipo'=>'Finalizada');			
 		break;
 		case 'received':
-			$dados = $troca->showReceived();
+            $queries = array('tipo'=>'Pendente');
 		break;
 		case 'refused':
-			$dados = $troca->showRefused();
+            $queries = array('tipo'=>'Recusado');
 		break;
 		case 'finished':
-			//$dados = $troca->showFinished();
-			$dados = $troca->getTrocas(array('tipo'=>'Finalizada', 'idgamer'=>$userID));
+            $queries = array('tipo'=>'Finalizada');		
 		break;
 		default:
-			$dados = $troca->showAll();
+            $queries = array();        
 		break;
-	}
+    }
+        
+    $dados = Trocas::getTrocasHelper($queries);
+
 	if(empty($dados)):		
 	else:
 ?>
@@ -98,7 +102,7 @@
         	?>	
             <tr class="line">
             	<div class="col-lg-1">
-            		<th class="each-record">#<?php echo $rs->id_troca?></th>
+            		<th class="each-record">#<?php echo $rs->id?></th>
             	</div>
                 <div class="col-lg-1">
             		<th class="each-record"><?php echo substr($rs->nomeUser, 0, 20)?></th>
@@ -119,30 +123,9 @@
             		<th class="each-record"><?php echo $rs->status; ?></th>
             	</div>
             	<div class="col-lg-2">
-                    <td class="actions">
-                        <?php  
-                            $owner = $rs->by_user;//pega o id de quem fez a troca
-                            $vlr = $rs->status;
-                            if($vlr=="Pendente" && ($owner != $userID) && ($tipo=='received' || $tipo=='all')):
-                        ?>
-                        <span class="edge-btn"><a class="btn btn-success btn-xs" onclick="update(<?php echo $rs->id_troca?>, 'Aceito')" >Aceitar <i class="fa fa-handshake-o" aria-hidden="true"></i></a></span>
-                        <span class="edge-btn"><a class="btn btn-danger btn-xs" onclick="update(<?php echo $rs->id_troca?>, 'Recusado')">Recusar <i class="fa fa-remove" aria-hidden="true"></i></a></span>
-						<?php endif; ?>
-						<?php if($vlr=="Aceito" AND $owner==$userID): ?><span class="edge-btn"><a class="btn btn-success btn-xs" onclick="finalizarTroca(<?php echo $rs->id_troca?>)">Finalizar Troca <i class="fa fa-check" aria-hidden="true"></i></a></span><?php endif; ?>
+                    <td class="actions">                        
                         <div class="secao-btn">
-							<span class="edge-btn"><a class="btn btn-warning btn-xs op_trocas" data-toggle="modal" onclick="viewTroca(<?php echo $rs->id_troca?>)">Visualizar <i class="fa fa-eye" aria-hidden="true"></i></a></span>
-							<?php if($vlr == "Pendente"): ?>
-								<span class="edge-btn"><a class="btn btn-danger btn-xs op_delete" onclick='deleteTroca(this)'>Excluir <i class="fa fa-remove" aria-hidden="true"></i></a></span>
-								<div class="confirm-box">
-									<div class="confirm-header">Tem certeza que deseja excluir a troca?</div>
-									<div class="confirm-content">
-										<div class="btn-group">
-											<button class="btn btn-danger btn-md btnCancel" onclick='cancelDelete(this)'>Não <i class="fa fa-remove" aria-hidden="true"></i></button>
-											<button class="btn btn-success btn-md" onclick='confirmDelete(<?php echo $rs->id_troca?>)'>Sim <i class="fa fa-check" aria-hidden="true"></i></button>
-										</div>
-									</div>
-								</div>
-							<?php endif; ?>
+							<span class="edge-btn"><a class="btn btn-warning btn-xs op_trocas" data-toggle="modal" onclick="viewTroca(<?php echo $rs->id?>)">Visualizar <i class="fa fa-eye" aria-hidden="true"></i></a></span>							
                         </div>                        
                     </td>
                 </div>

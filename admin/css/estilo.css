@@ -5,8 +5,7 @@
 body{
 	width: 100%;
 	font-family: Arial, helvetica, sans-serif;
-	color:#ffffff;
-	font-size:16px;
+	font-size:1.6em;
 	background: #8d8d8d;
 }
 #cabecalho{
@@ -71,7 +70,8 @@ body{
     background-position: 9px 2px;
     cursor: pointer;
     transition: 0.5s;
-    text-align: center;
+	text-align: center;
+	list-style: none;
 }
 #esquerda ul.mn_admin li.mn_opcao:hover{
 	background:#333;

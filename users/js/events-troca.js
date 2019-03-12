@@ -21,6 +21,7 @@ $(document).ready(function(){
 	show_exchanges('all');/*primeiro load da página*/
 	/*mudar tipo de trocas*/
 	$('.btn_exchange').bind('click', function(){
+		alert('ok');
 		btn = $(this);//pegar botão clicado
 		$('.btn_exchange').each(function(){
 			if($(this).hasClass('btnActived')){
