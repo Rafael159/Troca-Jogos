@@ -11,8 +11,10 @@
 		<link rel="stylesheet" type="text/css" href="..\bootstrap/css/bootstrap.min.css"/>
 		<link rel="stylesheet" type="text/css" href="../font-awesome/css/font-awesome.css"/>
 		<!--CHAMADA CSS-->
+		<link type="text/css" href="../css/fonts.css" rel="stylesheet"/>
 		<link type="text/css" href="css/imagens.css" rel="stylesheet"/>
 		<link type="text/css" href="css/trocas.css" rel="stylesheet"/>
+		<link type="text/css" href="css/jogos.css" rel="stylesheet"/>
 
 		<!--CHAMADA CSS-->
 		<link rel="stylesheet" type="text/css" href="css/estilo.css"/>
@@ -39,7 +41,7 @@
 			}
 		?>
 		<header id="cabecalho">
-			<img id="logo" src="/imagens/backgrounds/logo.png" alt="TROCA JOGOS"/>
+			<img id="logo" class="brand" src="../imagens/backgrounds/logo.png" alt="TROCA JOGOS"/>
 			<div class="user-space">
 				<ul class="user-acao">
 					<?php						

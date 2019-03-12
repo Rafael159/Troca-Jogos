@@ -192,7 +192,8 @@
 
     	opacity: 1;
     	color: #CD6C03;
-    	position: relative;
+		position: relative;
+		animation: moveFromTop 300ms ease-in-out;
     	-webkit-animation: moveFromTop 300ms ease-in-out;
         -moz-animation: moveFromTop 300ms ease-in-out;
         -ms-animation: moveFromTop 300ms ease-in-out;

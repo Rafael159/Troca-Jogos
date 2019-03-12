@@ -13,7 +13,7 @@
 	<div class="col-lg-12 nopadding">
 		<div id="ctr_trocas">
             <header>
-				<h3 class="title_page">Trocas</h3>
+				<h3 class="title_page">Gerenciamento da trocas</h3>
 			</header>
 			<div class="col-lg-12">				
 				<div class="btn-group">

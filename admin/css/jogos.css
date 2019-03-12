@@ -1,0 +1,351 @@
+
+/*reset margin*/
+.nopadding{
+	margin:0;
+	padding:0;
+}
+#minha-escolha{
+	display: none;
+	margin-bottom: 10px;
+}
+.actived{
+	background:#000000 !important;
+    opacity: 1;
+    color: #CD6C03 !important;
+}
+/*box que recebe a mensagem de erro ao cadastrar*/
+#msg_error{
+	position: fixed;
+	right: 25px;
+	bottom: 0;
+	display: none;
+}
+#msg_update{
+	width: 100%;
+    padding: 5px;
+    text-align: center;
+    font-family: Arial, helvetica, sans-serif;
+    color: #fff;
+    font-size: 1.2em;
+    border-color: #fff;
+    display: block;    
+    border-radius: 3px;
+    margin: 10px 0px;
+    display: none;
+}
+.news{
+	padding: 5px;
+    background: #275c8b;
+    font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+    font-size: 1em;
+    color: #fff;
+    display: block;
+    border-radius: 4px;
+    margin: 10px 0px;
+}
+.btn span.glyphicon {    			
+	opacity: 0;				
+}
+.btn.active span.glyphicon {				
+	opacity: 1;				
+}
+.checkbox-genre {
+    display: inline-block;
+    padding: 5px;
+    margin: 3px;
+}
+#update_jogo .btn input[type=checkbox]{
+	position: static !important;
+	width: 20px;
+	outline: none;
+}
+
+/*MEUS JOGOS*/
+#main_game{
+	width: 100%;
+	background: #ffffff;		
+}
+#main_game header{	
+    width: 100%;
+    background: #DEDEDE;
+    padding: 6px 0;
+}
+#main_game header h3.title_page{
+    
+    text-align: center;
+    font: 1.5em Arial, helvetica, sans-serif;
+    color:#333333;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.title_modal{
+	font-size: 24px;
+    color: #3c3a3a;
+}
+nav.mn-console{
+	width: 90%;
+	margin: 0 auto;
+}
+nav.mn-console > ul{
+	width: 100%;
+	margin-top:10px;
+	padding: 0;
+
+}
+nav.mn-console ul .each-console{
+	list-style: none;
+	width: auto;
+	padding: 15px;
+	border-radius: 3px;
+	background: #dedede;
+	display: inline-block;;
+	margin-left: 0.5%;
+	text-align: center;	
+	transition:0.5s;
+}
+
+nav.mn-console ul .each-console a{
+	font-family: Arial, helvetica, sans-serif;
+	color:#0085d1;					
+	font-size: 1.0em;	
+	text-decoration: none;
+	font-weight: bold;
+}
+.box_jogos{
+	width: 90%;
+    margin: 10px auto;
+    padding: 10px;
+    display: table;
+}
+.box_jogos #qntjogos{
+    background: #008800;
+    color: #ffffff;
+    font-size: 1.2em;
+    font-family: 'source_sans_proregular';
+    border-radius: 50%;
+    padding: 10px 10px;
+    text-align: center;  
+}
+.box_jogos .each-game, .inativo{
+	margin-top: 20px;
+}
+.box_jogos .each-game > img, .inativo > img{
+	width: 68%;
+    height: 200px;
+    cursor: pointer;
+    margin: 0 auto;
+    display: block;
+}
+.inativo{ opacity: 0.6; }
+.inativo > img{
+	cursor: not-allowed !important;
+}
+
+.each-game .box-opcao{
+    border-radius: 0 0 5px 5px;
+    margin: 0 auto;
+    opacity: 0.8;
+    padding: 0;
+    width: 68%;
+    height: 54px;
+    background: #000;
+}
+
+.each-game .box-opcao span.nm_jogo{
+	font-family: Arial, helvetica, sans-serif;
+    font-size: 1em;
+    color: #333;
+    text-align: left;
+    width: 100%;
+    display: block;
+    margin-left: 0;
+    padding: 5px 4px;
+    background: #e5e5e5;
+}
+#box_confirmacao{
+	width: 500px;
+	height: 150px;
+	padding: 10px;
+	border-radius:5px;
+	background:#ffffff;
+	top:50%;
+	margin-top:-75px;
+	left: 50%;
+	margin-left: -250px;
+	position: absolute;
+	display: none;
+	z-index: 101;
+}
+#box_confirmacao .alert-title{
+	width: 100%;
+	background: #747373;
+	border-radius: 4px;
+	padding:8px 0;
+	text-align: center;
+	font:15px Arial, helvetica, sans-serif;
+	color:#ccc;
+	text-transform: uppercase;
+}
+#box_confirmacao .alert-msg{
+	width: 99%;
+	height: 70px;
+	background:#ccc;
+	display: block;
+	padding:5px 0 5px 5px;
+	color:#666666;
+	font-size: 1.5em;
+}
+#box_confirmacao .alert-btn{
+	width: 100px;
+	padding:8px;
+	border-radius: 4px;
+	background:#e5e5e5;
+	border:none;
+	font:15px Arial, helvetica, sans-serif;
+	color:#747373;
+	cursor: pointer;
+	margin-top: 5px;
+	float: right;
+	margin-right: 3px;
+	transition:0.3s;
+	outline: none;
+}
+#alert-confirma:hover{
+	background: #00b11e;
+	color:#ffffff;
+}
+#alert-cancela:hover{
+	background: #ef1924;
+	color:#ffffff;
+}
+.alert-overlay{
+	top:0;
+	width: 100%;
+	height: 100%;
+	left: 0;
+	position: absolute;
+	background: #cccccc;
+	opacity:0.8;
+	z-index:100;
+	display: none;
+}
+
+#msg{	
+	width: 300px;
+	height: auto;
+	border-radius:5px;
+	border:1px solid #ccc;
+	background: #000;
+	opacity: 0.9;
+	z-index: 11;
+	display: block;
+	padding: 0px 0px 17px;
+	left:50%;
+	margin-left:-150px;
+	top:-50%;
+	position: absolute;
+	display: none;
+}
+	#msg header{
+		background:#FFFFFF;
+	 	border-bottom-color:#FFFFFF;
+	    border-bottom-style:dotted;
+	    border-bottom-width:1px;
+	    border-radius:6px;
+	    color:#333333;
+	    height:15px;
+	    margin:10px auto;
+	    padding:10px 0;
+	    text-align:center;
+	    text-transform:uppercase;
+	    width:95%;
+	}
+	#msg span{
+		color:#FFFFFF;
+	  	font-family:arial, helvetica, sans-serif;
+	  	font-size:1.5em;
+	  	margin:10px;
+	 	padding:4px 0;
+	  	text-align:left;
+	  	width:95%;
+
+	}
+#msg-none{
+	width: 100%;
+	font:28px Arial, helvetica, sans-serif;
+	color:#069;
+	border:1px solid #ccc;
+	display: block;
+	padding:15px;
+}
+.submit-btn {
+	border: none;
+	padding: 10px;	
+	background:#61BAE4;	
+	border-radius: 5px;
+	color: #FFF;
+	cursor:pointer;
+	transition:0.5s;
+}
+.actived{
+	background:#000000 !important;
+    opacity: 1;
+    color: #ffffff !important;
+}
+
+/*PÁGINA ATUALIZAR E DELETAR JOGO*/
+#boxAtualiza{
+	padding: 0;
+	z-index: 9999;
+}
+ .clearfix:after{
+ 	content: ".";
+ 	display: block;
+ 	height: 0;
+ 	clear: both;
+ 	visibility: hidden;
+ }
+#boxGame{ 
+	background: #ffffff;
+    padding: 7px; 
+}
+
+#boxGame .img_jogo{ width: 100%; }
+
+#boxGame #form #btn_group{ width: 100%; margin-top:15px;}
+#boxGame #form #btnAtualiza{ background: #e48e05; }
+#boxGame #form #btnDeleta{ 
+	width: 100%;
+	margin-top: 10px;
+ }
+ #boxGame #form #btnCancelaDelete{
+ 	width: 100%;
+ }
+/*box confirma deleção*/
+#confirm-delete{
+	width: 100%;
+    background: #fff;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    display: none;
+}
+#confirm-delete .box-dialog{width: 100%;}
+#confirm-delete .box-dialog .box-content{
+	width: 100%;
+	padding:5px;
+}
+#confirm-delete .box-dialog .box-content .box-header{
+	width: 100%;
+	text-align: center;
+}
+#confirm-delete .box-dialog .box-content .box-header h4{ 
+    font-size: 16px;
+    color: #3c3a3a;
+}
+
+.form-control{margin-bottom: 10px;}
+@media screen and (min-width: 480px) and (max-width: 767px){
+	.box_jogos .each-game > img{ width:40% }
+	.box_jogos .each-game .box-opcao{ width: 40%}
+}

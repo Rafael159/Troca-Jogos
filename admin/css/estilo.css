@@ -14,34 +14,37 @@ body{
 	display: block;
 	background: #333;
 }
-#cabecalho .user-space{
- 	float:right;
-    margin-top:10px;
-    margin-right: 60px;
-    padding:2px;
-    width:50%;
+#cabecalho .brand{
+	margin-left:15px;
 }
-#cabecalho .user-space .user-acao{
+#cabecalho .user-space{
 	float: right;
-	width: 500px;
+    margin-top: 10px;
+    margin-right: 20px;
+    padding: 2px;
+    width: auto;    
+}
+#cabecalho .user-space .user-acao{	
+	width: 100%;
 }
 #cabecalho .user-space .user-acao li, .logado{
 	list-style-type: none;
-	cursor:pointer;
-	width:auto;
-	padding: 8px;
-	background:rgba(255, 255, 255, 0.0666667);
-	margin-left:2px;
-	text-align: center;	
-	border-radius:4px;
-	display: inline-block;
+    cursor: pointer;
+    width: auto;
+    padding: 8px;   
+    margin-left: 2px;
+    text-align: center;
+    border-radius: 4px;
+    display: inline-block;
+    background: #fff;
+    color: #525252;
 }
 #cabecalho .user-space .user-acao li a{
-	font:14px Arial,Lato, helvetica;
-	color:#069;
-	text-decoration: none;
+	font: 14px Arial,Lato, helvetica;
+    color: #525252;
+    text-decoration: none;
 }
-#cabecalho .user-space .user-acao li a:hover{ color:#0083ff; }
+#cabecalho .user-space .user-acao li a:hover{ color:#131313; }
 
 /*FORMATAÇÃO DO BOX PRINCIPAL QUE RECEBE MENU E CONTEÚDO*/
 #container{

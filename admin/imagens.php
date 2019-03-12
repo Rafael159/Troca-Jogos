@@ -54,10 +54,10 @@
 				<span><input type="text" value="<?php echo $valor->nome?>" class="nm_jogo"/></span>
 				<ul id="<?php echo $valor->id_img;?>">
 					<li>
-						<i class="fa fa-trash fa-2x icon-deletar" style="color:red"></i>						
+						<i class="fa fa-trash icon-deletar" style="color:red; font-size:1.5em"></i>						
 					</li>
 					<li>
-						<i class="fa fa-edit fa-2x icon-editar" style="color:green"></i>						
+						<i class="fa fa-edit icon-editar" style="color:green; font-size:1.5em"></i>						
 					</li>
 				</ul>
 			</div>

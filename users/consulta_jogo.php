@@ -8,7 +8,8 @@
 	$console = new Consoles;
 	$jogocatego = new JogoCategoria();
 	session_start();
-
+	$tipouser = Usuarios::getUsuario('tipousuario');
+	
 	if(isset($_POST['idJ'])){
 		$id = $_POST['idJ'];
 	}
@@ -88,7 +89,8 @@
 				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 					<div id='msg_update'></div><!--recebe as mensagens de erro-->
 				</div>
-
+				
+				<?php if($tipouser == 0): ?>
 				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 					<div id="btn_group">
 						<button id="btnAtualiza" class="btn btn-warning" type="submit">Atualizar</button>						
@@ -108,9 +110,12 @@
 					    </div>
 					</div>
 				</div>	
+				<?php endif; ?>
 			</form>			
 		</div>
 	</div>
 	<?php } ?>
 </div>
-<script src="js/update_game.js"></script>
+<?php if($tipouser == 0): ?>
+	<script src="js/update_game.js"></script>
+<?php endif; ?>

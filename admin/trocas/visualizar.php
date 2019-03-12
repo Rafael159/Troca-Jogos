@@ -2,14 +2,9 @@
 	function __autoload($classe){
         require('../../classes/'.$classe.'.class.php');
     }
-    //define( 'ABSPATH', dirname(__FILE__) );
-
-    //echo ABSPATH;
     $user  = new Usuarios();   
     $troca = new Trocas();
     $jogo  = new Jogos(); 
-	
-	//$userID = Usuarios::getUsuario('id_user');
 
 	//recebe o tipo de consulta
 	$tipo = (isset($_POST['type']) ? $_POST['type'] : 'all');
