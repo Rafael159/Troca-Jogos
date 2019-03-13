@@ -189,21 +189,21 @@ class Usuarios extends Crud{
 
 	//exibir registro individual
 	public function getRegister($queries = array()){		
-		
 		$id = (array_key_exists("id", $queries)) ? $queries['id'] : ''; 
 		$email = (array_key_exists("email", $queries)) ? $queries['email'] : '';		
+		$tipousuario = (array_key_exists("tipousuario", $queries)) ? $queries['tipousuario'] : '';		
 
 		$_where = array();
+
 		if($id) array_push($_where, " id_user = :id ");
 		if($email) array_push($_where, " emailTJ = :email ");
-		
+		if($tipousuario == "0" || $tipousuario == "1") array_push($_where, " tipousuario = :tipousuario");
+
 		$w = '';
 		if(count($_where) > 0){
-
 			foreach($_where as $key=>$v){
 				$w .= ' AND '.$v;
 			}
-
 		}
 
 		$where = " WHERE status = 'sim'";
@@ -213,14 +213,19 @@ class Usuarios extends Crud{
 		$stmt = @BD::conn()->prepare($sql);
 		if($id) $stmt->bindParam(':id', $id);
 		if($email) $stmt->bindParam(':email', $email);
+		if($tipousuario == "0" || $tipousuario == "1") $stmt->bindParam(':tipousuario', $tipousuario);
 		$stmt->execute();
-		return $stmt->fetchAll();
+		return $stmt->fetchAll();		
 	}
 
 	public static function getRegisterHelper($queries = array()){
+		$contar = (array_key_exists("contar", $queries)) ? $queries['contar'] : ''; 
+		
 		$rows = new Usuarios;
 		$row = $rows->getRegister($queries);
+		
 		if(count($row) == 0) return false;
+		if($contar == "sim") return count($row);
 		return $row;
 	}
 

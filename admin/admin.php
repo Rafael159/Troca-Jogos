@@ -7,6 +7,7 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
+		<title>Dashboard</title>
 		<!--CSS BOOTSTRAP-->
 		<link rel="stylesheet" type="text/css" href="..\bootstrap/css/bootstrap.min.css"/>
 		<link rel="stylesheet" type="text/css" href="../font-awesome/css/font-awesome.css"/>
@@ -15,6 +16,7 @@
 		<link type="text/css" href="css/imagens.css" rel="stylesheet"/>
 		<link type="text/css" href="css/trocas.css" rel="stylesheet"/>
 		<link type="text/css" href="css/jogos.css" rel="stylesheet"/>
+		<link type="text/css" href="css/dash.css" rel="stylesheet"/>
 
 		<!--CHAMADA CSS-->
 		<link rel="stylesheet" type="text/css" href="css/estilo.css"/>
@@ -61,7 +63,7 @@
 		<div id="container">
 			<div id="esquerda">
 				<ul class="mn_admin">
-					<li class="mn_opcao dashboard"><a href="" class="link"><i class="fa fa-dashboard" aria-hidden="true"></i> Dashboard</a></li>
+					<li class="mn_opcao dashboard"><a href="dashboard/dash.php" class="link"><i class="fa fa-dashboard" aria-hidden="true"></i> Dashboard</a></li>
 					<li class="mn_opcao jogo"><a href="jogos/index.php" class="link"><i class="fa fa-gamepad" aria-hidden="true"></i> Jogos</a></li>
 					<li class="mn_opcao console"><a href="consoles.php" class="link"><i class="fa fa-database" aria-hidden="true"></i> Consoles</a></li>
 					<li class="mn_opcao imagem"><a href="imagens.php" class="link"><i class="fa fa-picture-o" aria-hidden="true"></i> Imagens</a></li>

@@ -130,6 +130,16 @@
 			return $rows;	
 		}
 
+		public static function contaTrocasrHelper($queries = array()){
+			$contar = (array_key_exists("contar", $queries)) ? $queries['contar'] : ''; 
+			
+			$rows = new Trocas;
+			$row = $rows->getTrocas($queries);
+			
+			if(count($row) == 0) return false;
+			if($contar == "sim") return count($row);
+			return $row;
+		}
 		/*
 		 * Função: Mostrar todas as trocas relacionada ao usuário
 		 * @return lista com registros das trocas
@@ -146,8 +156,6 @@
 					ORDER BY tc.id DESC";
 			
 			$stmt = @BD::conn()->prepare($sql);
-			// echo '<pre>';
-			// print_r($stmt);
 			$stmt->bindParam(':by_user', $this->by_user);
 			$stmt->execute();
 			return $stmt->fetchAll();

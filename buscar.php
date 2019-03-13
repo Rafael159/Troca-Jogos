@@ -92,29 +92,26 @@ else:
 	//caso o filtro não obtenha nenhum jogo, então mostrar outros os jogos para o cliente
 	?>
 	<span id="exclama"><img src='imagens/icones/exclama.png'/>Hmm! Nada encontrado para o termo escolhido, mas selecionamos outros produtos que possa gostar</span>
-	<?php
-	$sql = "SELECT * FROM `console` as c, `imagens` as i, `jogos` as j, `usuarios` as u WHERE c.id_console = j.id_console AND j.img_jogo = i.id_img AND j.id_gamer = u.id_user AND j.status = 1 ORDER BY j.id";
-
-	foreach($jogos->listaTodosJogos() as $key=> $valor):
+	<?php	
+		foreach($jogos->listaTodosJogos() as $key=> $valor):
 	?> 
 		<div class="contorno">
-			<figure id="console" nome="<?php echo strtoupper($valor->nome_console);?>"><a href="game/game.php?codigo=<?php echo $valor->id;?>&&console=<?php echo $valor->id_console;?>"><img src="game/imagens/<?php echo str_replace(' ', '',$valor->nome_console)?>/<?php echo $valor->imagem?>" alt="<?php echo strtoupper($valor->n_jogo)?>"/></a></figure>
-			<!--<div class="imagem-troca"><img src="imagens/ps3/gta5.jpg" alt="RESIDENT EVIL 6"/></div>-->
+			<figure id="console" nome="<?php echo strtoupper($valor->nome_console);?>"><a href="game/game.php?codigo=<?php echo $valor->id;?>&&console=<?php echo $valor->id_console;?>"><img src="game/imagens/<?php echo str_replace(' ', '',$valor->nome_console)?>/<?php echo $valor->imagem?>" alt="<?php echo strtoupper($valor->n_jogo)?>"/></a></figure>			
 			<div class="info-gamer">
 				<ul>
-					<li>Jogo: 
+					<li> 
 						<?php
-					$num = strlen($valor->n_jogo);
-					if($num >15){
-						echo substr($valor->n_jogo,0,15);
-					}else{
-						echo strtoupper($valor->n_jogo);
-					}
+							$num = strlen($valor->n_jogo);
+							if($num >15){
+								echo substr($valor->n_jogo,0,15);
+							}else{
+								echo strtoupper($valor->n_jogo);
+							}
 				?>
 					</li>
-					<li>Console: <?php echo strtoupper($valor->nome_console)?></li>
+					<li><?php echo strtoupper($valor->nome_console)?></li>
 					<li><a href="feed.php?codigo=<?php echo $valor->id_user?>" class="usuario"><?php echo $valor->nomeUser;?></a></li>
-					<li>Local: <?php echo substr($valor->cidade,0,10) ." / ". $valor->estado?></li>
+					<li><?php echo substr($valor->cidade,0,10) ." / ". $valor->estado?></li>
 				</ul>
 			</div>
 		</div><!--class contorno-->				

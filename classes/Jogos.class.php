@@ -203,8 +203,15 @@ class Jogos extends Crud{
 
 		$stmt = @BD::conn()->prepare($sql);
 		$stmt->execute();
-		return $stmt->rowCount();
+		return $stmt->fetchAll();
 
+	}
+	public static function contarJogosHelper($queries = array()){		
+		$rows = new Jogos;
+		$row = $rows->contarJogos($queries);
+				
+		if(count($row) == 0) return false;
+		return count($row);
 	}
 	public function listaJogoByUser($status = 'Ativo'){
 		

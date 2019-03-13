@@ -129,12 +129,21 @@ class Imagens extends Crud{
 		return $stmt->fetchAll();
 	}
 
-	private function getImageHelper($queries = array()){
-		$rows = new Imagens();
+	public static function getImageHelper($queries = array()){
+		$rows = new Imagens;
 		return $rows->getImage($queries);
-
 	}
 
+	public static function contaImagesHelper($queries = array()){
+		$contar = (array_key_exists("contar", $queries)) ? $queries['contar'] : ''; 
+		
+		$rows = new Imagens;
+		$row = $rows->getImage($queries);
+		
+		if(count($row) == 0) return false;
+		if($contar == "sim") return count($row);
+		return $row;
+	}
 }
 	
 ?>

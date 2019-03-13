@@ -14,6 +14,7 @@
 		$idUser = $_SESSION['id_user'];
 	}
 	?>
+	<title>Jogos</title>
 	<div class="col-lg-6 col-lg-push-3">
 		<!--SERÁ CARREGADO AS INFORMAÇÕES DOS JOGOS PARA ATUALIZAR OU DELETA<div id="boxAtualiza"></div>-->
 	</div>	

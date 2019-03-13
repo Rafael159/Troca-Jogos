@@ -77,11 +77,12 @@
 }
 .filtro-plataforma .controle .item .checkbox .filter_name,
 .filtro-genero .controle .item .checkbox .filter_name{
-    font-size: 12px;
-    font-family: 'Lato', helvetica, sans-serif;    
-    display: block;   
+    font-size: 0.6em;
+    font-family: 'Lato', helvetica, sans-serif;
+    display: block;
     width: 100%;
     margin-top: 3px;
+    text-transform: uppercase;
 }
 
 .filtro-plataforma .controle .item .checkbox,

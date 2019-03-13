@@ -109,7 +109,7 @@
 						<li><?php echo $valor->cidade ." / ". $valor->estado?></li>
 					</ul>
 				</div>
-			</div>			
+			</div>
 		<?php		
 		endforeach;//fecha o While dos jogos gerais
 		}?>
