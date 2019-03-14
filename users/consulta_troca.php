@@ -98,7 +98,7 @@
         	?>	
             <tr class="line">
             	<div class="col-lg-1">
-            		<th class="each-record">#<?php echo $rs->id_troca?></th>
+            		<th class="each-record">#<?php echo $rs->id?></th>
             	</div>
                 <div class="col-lg-1">
             		<th class="each-record"><?php echo substr($rs->nomeUser, 0, 20)?></th>
@@ -125,12 +125,12 @@
                             $vlr = $rs->status;
                             if($vlr=="Pendente" && ($owner != $userID) && ($tipo=='received' || $tipo=='all')):
                         ?>
-                        <span class="edge-btn"><a class="btn btn-success btn-xs" onclick="update(<?php echo $rs->id_troca?>, 'Aceito')" >Aceitar <i class="fa fa-handshake-o" aria-hidden="true"></i></a></span>
-                        <span class="edge-btn"><a class="btn btn-danger btn-xs" onclick="update(<?php echo $rs->id_troca?>, 'Recusado')">Recusar <i class="fa fa-remove" aria-hidden="true"></i></a></span>
+                        <span class="edge-btn"><a class="btn btn-success btn-xs" onclick="update(<?php echo $rs->id?>, 'Aceito')" >Aceitar <i class="fa fa-handshake-o" aria-hidden="true"></i></a></span>
+                        <span class="edge-btn"><a class="btn btn-danger btn-xs" onclick="update(<?php echo $rs->id?>, 'Recusado')">Recusar <i class="fa fa-remove" aria-hidden="true"></i></a></span>
 						<?php endif; ?>
-						<?php if($vlr=="Aceito" AND $owner==$userID): ?><span class="edge-btn"><a class="btn btn-success btn-xs" onclick="finalizarTroca(<?php echo $rs->id_troca?>)">Finalizar Troca <i class="fa fa-check" aria-hidden="true"></i></a></span><?php endif; ?>
+						<?php if($vlr=="Aceito" AND $owner==$userID): ?><span class="edge-btn"><a class="btn btn-success btn-xs" onclick="finalizarTroca(<?php echo $rs->id?>)">Finalizar Troca <i class="fa fa-check" aria-hidden="true"></i></a></span><?php endif; ?>
                         <div class="secao-btn">
-							<span class="edge-btn"><a class="btn btn-warning btn-xs op_trocas" data-toggle="modal" onclick="viewTroca(<?php echo $rs->id_troca?>)">Visualizar <i class="fa fa-eye" aria-hidden="true"></i></a></span>
+							<span class="edge-btn"><a class="btn btn-warning btn-xs op_trocas" data-toggle="modal" onclick="viewTroca(<?php echo $rs->id?>)">Visualizar <i class="fa fa-eye" aria-hidden="true"></i></a></span>
 							<?php if($vlr == "Pendente"): ?>
 								<span class="edge-btn"><a class="btn btn-danger btn-xs op_delete" onclick='deleteTroca(this)'>Excluir <i class="fa fa-remove" aria-hidden="true"></i></a></span>
 								<div class="confirm-box">
@@ -138,7 +138,7 @@
 									<div class="confirm-content">
 										<div class="btn-group">
 											<button class="btn btn-danger btn-md btnCancel" onclick='cancelDelete(this)'>Não <i class="fa fa-remove" aria-hidden="true"></i></button>
-											<button class="btn btn-success btn-md" onclick='confirmDelete(<?php echo $rs->id_troca?>)'>Sim <i class="fa fa-check" aria-hidden="true"></i></button>
+											<button class="btn btn-success btn-md" onclick='confirmDelete(<?php echo $rs->id?>)'>Sim <i class="fa fa-check" aria-hidden="true"></i></button>
 										</div>
 									</div>
 								</div>

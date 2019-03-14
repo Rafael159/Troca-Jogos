@@ -208,7 +208,7 @@ class Jogos extends Crud{
 	}
 	public static function contarJogosHelper($queries = array()){		
 		$rows = new Jogos;
-		$row = $rows->contarJogos($queries);
+		$row = $rows->listarJogos($queries);
 				
 		if(count($row) == 0) return false;
 		return count($row);

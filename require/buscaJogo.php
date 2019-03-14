@@ -20,7 +20,7 @@
 		$games = $jogos->listarJogos(array('status'=>'Ativo', 'idconsole'=>$cod, 'order'=>'ORDER BY j.n_jogo DESC'));		
 	}
 	 
-	$qtd = $jogos->contarJogos(array('status'=>'Ativo', 'idconsole'=>$cod));
+	$qtd = Jogos::contarJogosHelper(array('status'=>'Ativo', 'idconsole'=>$cod));
     echo '<label id="info"><span id="nomeConsole">'.strtoupper($cons).'</span><span id="qtdJogo">'.$qtd.'</span> <b>jogo(s) encontrado(s)</b></label><input type="hidden" value="'.$cod.' "id="cod"/>';
     if($qtd != 0){
         foreach($games as $valor): ?>

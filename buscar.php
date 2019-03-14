@@ -18,7 +18,7 @@
 	if(!isset($where)){
 		$where = array();//criar array com os dados da pesquisa
 	}
-	
+	$where[] = "j.status = 'Ativo'";
 	if(!empty($pesquisa)){
 		$pos = strripos($pesquisa, '-');//encontrar separador
 		//caso exista
@@ -53,7 +53,7 @@
 		$sql .= ' WHERE '.implode( ' AND ',$where );//add filtros na QUERY	
 	}	
 	$sql.= ' GROUP BY jc.jogo_id';
-	
+	print_r($where);
 		
 	$arrayJogo = $jogos->consulta($sql);
 		
@@ -93,7 +93,7 @@ else:
 	?>
 	<span id="exclama"><img src='imagens/icones/exclama.png'/>Hmm! Nada encontrado para o termo escolhido, mas selecionamos outros produtos que possa gostar</span>
 	<?php	
-		foreach($jogos->listaTodosJogos() as $key=> $valor):
+		foreach($jogos->listarJogos(array('status'=>'Ativo')) as $key=> $valor):
 	?> 
 		<div class="contorno">
 			<figure id="console" nome="<?php echo strtoupper($valor->nome_console);?>"><a href="game/game.php?codigo=<?php echo $valor->id;?>&&console=<?php echo $valor->id_console;?>"><img src="game/imagens/<?php echo str_replace(' ', '',$valor->nome_console)?>/<?php echo $valor->imagem?>" alt="<?php echo strtoupper($valor->n_jogo)?>"/></a></figure>			

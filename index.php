@@ -2,15 +2,16 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
+		<meta name="description" content="Restart Games - Porque o jogo não pode parar"/>
 		<meta name="description" content="Troque seus jogos antigos por jogos que ainda não teve"/>
 		<meta name="description" content="Troque jogos - divirta-se sem gastar mais"/>
-		<meta name="keywords" content="Troca,Jogo,Games,Jogadores"/>
+		<meta name="keywords" content="Restart,Games,Troca,Jogo,Jogadores,Jogos"/>
 
 		<!--CHAMADA CSS-->
 		<link rel="stylesheet" type="text/css" href="css/estilo.css"/>   
 		<link rel="stylesheet" type="text/css" href="css/style-footer.css"/>
 		<link rel="stylesheet" type="text/css" href="css/fonts.css"/>
-		<title>TJ - Troque jogos com outros jogadores</title>
+		<title>RG - Troque jogos com outros jogadores</title>
 	</head>
 	<body class="center">
 		<?php

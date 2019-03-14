@@ -146,7 +146,7 @@
 		 */
 		public function showAll($queries = array()){			
 
-			$sql = "SELECT tc.id AS 'id_troca', tc.idUm, tc.idDois, tc.tipo, tc.valor, tc.by_user, j.n_jogo AS 'game', tc.jogoum, tc.jogodois, tc.status, u.nomeUser
+			$sql = "SELECT tc.id, tc.idUm, tc.idDois, tc.tipo, tc.valor, tc.by_user, j.n_jogo AS 'game', tc.jogoum, tc.jogodois, tc.status, u.nomeUser
 					FROM  `trocas` AS tc, (((`jogos` AS j
 					INNER JOIN  `console` AS c ON j.id_console = c.id_console)
 					INNER JOIN  `imagens` AS i ON j.img_jogo = i.id_img)
@@ -167,7 +167,7 @@
 		 */
 		public function showDone(){
 
-			$sql = "SELECT tc.id AS 'id_troca', tc.idUm, tc.idDois, tc.tipo, tc.valor, tc.by_user, j.n_jogo AS 'game', tc.jogoum, tc.jogodois, tc.status, u.nomeUser
+			$sql = "SELECT tc.id, tc.idUm, tc.idDois, tc.tipo, tc.valor, tc.by_user, j.n_jogo AS 'game', tc.jogoum, tc.jogodois, tc.status, u.nomeUser
 					FROM  `trocas` AS tc, (((`jogos` AS j
 					INNER JOIN  `console` AS c ON j.id_console = c.id_console)
 					INNER JOIN  `imagens` AS i ON j.img_jogo = i.id_img)
@@ -189,7 +189,7 @@
 		 */
 		public function showReceived(){
 
-			$sql = "SELECT tc.id AS 'id_troca', tc.idUm, tc.idDois, tc.tipo, tc.valor,tc.by_user, j.n_jogo AS 'game', tc.jogoum, tc.jogodois, tc.status, u.nomeUser
+			$sql = "SELECT tc.id, tc.idUm, tc.idDois, tc.tipo, tc.valor,tc.by_user, j.n_jogo AS 'game', tc.jogoum, tc.jogodois, tc.status, u.nomeUser
 					FROM  `trocas` AS tc, (((`jogos` AS j
 					INNER JOIN  `console` AS c ON j.id_console = c.id_console)
 					INNER JOIN  `imagens` AS i ON j.img_jogo = i.id_img)
@@ -210,7 +210,7 @@
 		 */
 		public function showRefused(){
 
-			$sql = "SELECT tc.id AS 'id_troca', tc.idUm, tc.idDois, tc.tipo, tc.valor, tc.by_user, j.n_jogo AS 'game', tc.jogoum, tc.jogodois, tc.status, u.nomeUser
+			$sql = "SELECT tc.id, tc.idUm, tc.idDois, tc.tipo, tc.valor, tc.by_user, j.n_jogo AS 'game', tc.jogoum, tc.jogodois, tc.status, u.nomeUser
 					FROM  `trocas` AS tc, (((`jogos` AS j
 					INNER JOIN  `console` AS c ON j.id_console = c.id_console)
 					INNER JOIN  `imagens` AS i ON j.img_jogo = i.id_img)
@@ -227,7 +227,7 @@
 		}
 		public function showAccepted(){
 
-			$sql = "SELECT tc.id AS 'id_troca', tc.idUm, tc.idDois, tc.tipo, tc.valor, tc.by_user, j.n_jogo AS 'game', tc.jogoum, tc.jogodois, tc.status, u.nomeUser
+			$sql = "SELECT tc.id, tc.idUm, tc.idDois, tc.tipo, tc.valor, tc.by_user, j.n_jogo AS 'game', tc.jogoum, tc.jogodois, tc.status, u.nomeUser
 					FROM  `trocas` AS tc, (((`jogos` AS j
 					INNER JOIN  `console` AS c ON j.id_console = c.id_console)
 					INNER JOIN  `imagens` AS i ON j.img_jogo = i.id_img)
@@ -268,12 +268,25 @@
 		public function changeStatus(){
 
 			$sql = "UPDATE $this->table SET status = :status, logdata = :logdata WHERE id = :id";
+			
 			$stmt = @BD::conn()->prepare($sql);
 			$stmt->bindParam(':status', $this->status);
 			$stmt->bindParam(':logdata', $this->logdata);
 			$stmt->bindParam(':id', $this->id);
 			return $stmt->execute();
 
+		}
+
+		public function changeStatusInGroup($queries = array()){
+			$idjogo = array_key_exists("id", $queries) ? $queries["id"] : '';
+			$oldStatus = array_key_exists("oldStatus", $queries) ? $queries["oldStatus"] : '';
+			$newStatus = array_key_exists("newStatus", $queries) ? $queries["newStatus"] : '';
+			$logdata = array_key_exists("logdata", $queries) ? $queries["logdata"] : '';
+
+			$sql = "UPDATE `trocas` SET `status` = '$newStatus', `logdata` = '$logdata' WHERE (`jogoum` = $idjogo OR `jogodois` = $idjogo) and status = '$oldStatus'";
+			$stmt = @BD::conn()->prepare($sql);
+
+			return $stmt->execute();
 		}
 
 		//contar quantas trocas ativas o usuário possui, passando o ID como parâmetro

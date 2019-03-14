@@ -57,7 +57,7 @@
 			<div id="boxGame">          
 			<?php
 				if($idConsole){
-					$qtd = $jogos->contarJogos(array('status'=>'Ativo', 'idconsole'=>$idConsole));             
+					$qtd = Jogos::contarJogosHelper(array('status'=>'Ativo', 'idconsole'=>$idConsole));             
 					echo '<label id="info"><span id="nomeConsole">'.strtoupper($cons).'</span><span id="qtdJogo">'.$qtd.'</span> <b>jogo(s) encontrado(s)</b></label>';
 
 					if($qtd != 0){

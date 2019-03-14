@@ -200,13 +200,12 @@
 	<div id="box_meu_jogo">
 		<span id="topo"><h4>Escolha seu jogo</h4><img src="..\users/img/pop-botao-fecha.png" alt="Fechar" id="close_pop_up"/></span>
 		<section class="section">
-			<?php
-				$jogo->setIdGamer($idUser);//setar ID do usuário logado
-				//$num_game = $jogo->contaJogoById();//quantidade de jogos
-				$num_game = $jogo->contarJogos(array('status'=>'Ativo'));
-
+			<?php			
+				$num_game = Jogos::contarJogosHelper(array('id_gamer'=>$idUser, 'status'=>'Ativo'));
+				
 				if($num_game > 0):
-					foreach ($jogo->listaJogoByUser('Ativo') as $chave => $result):
+					$meusjogos = $jogo->listarJogos(array('id_gamer'=>$idUser, 'status'=>'Ativo'));
+					foreach ($meusjogos as $chave => $result):
 			?>	
 			<div class="mygames">
 				<a href="trocar_game.php?id=<?php echo $_GET['id']?>&id_troca=<?php echo $result->id?>"><img src="imagens/<?php echo strtolower(str_replace(' ','',$result->nome_console))?>/<?php echo $result->imagem?>"/></a>

@@ -53,11 +53,11 @@
 
 		//deletar registro pelo id
 		public function delete(){
-
-			$sql  = "DELETE FROM $this->table WHERE $campo = :id";
-			$stmt = @BD::conn()->prepare($sql);
-			$stmt->bindParam(':id',$id, PDO::PARAM_INT);
-			return $stmt->execute();
+			
+			// $sql  = "DELETE FROM $this->table WHERE $campo = :id";
+			// $stmt = @BD::conn()->prepare($sql);
+			// $stmt->bindParam(':id',$id, PDO::PARAM_INT);
+			// return $stmt->execute();
 
 		}
 

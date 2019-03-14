@@ -29,6 +29,9 @@
 								
 				$jogos->changeStatus($dados->jogoum, 'Inativo');
 				$jogos->changeStatus($dados->jogodois, 'Inativo');
+				
+				$trocas->changeStatusInGroup(array("id"=>$dados->jogoum, "oldStatus"=>"Pendente", "newStatus"=>"Recusado", "logdata"=>date("Y-m-d H:i:s")));
+				$trocas->changeStatusInGroup(array("id"=>$dados->jogodois, "oldStatus"=>"Pendente", "newStatus"=>"Recusado", "logdata"=>date("Y-m-d H:i:s")));
 			}
 			if($tipo == 'Cancelada'){
 				$dados = (object)$troca;

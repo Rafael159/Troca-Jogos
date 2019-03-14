@@ -24,7 +24,7 @@
     	$user = $usuario->find($exibeJogo->id_gamer); //buscar informações do dono do jogo
     ?>
 <div class="contorno">
-	<figure id="console" nome="<?php echo strtoupper($nomeConsole)?>" <a href="#"><img src="imagens/<?php echo str_replace(' ','',$nomeConsole)?>/<?php echo $exibeJogo->img_jogo;?>" alt="<?php echo strtoupper($exibeJogo->n_jogo) ?>"/></a></figure>
+	<figure id="console" nome="<?php echo strtoupper($nomeConsole)?>"><a href="#"><img src="imagens/<?php echo str_replace(' ','',$nomeConsole)?>/<?php echo $exibeJogo->img_jogo;?>" alt="<?php echo strtoupper($exibeJogo->n_jogo) ?>"/></a></figure>
 	<!--<div class="imagem-troca"><img src="imagens/ps3/<?php $jogos ?>" alt="RESIDENT EVIL 6"/></div>-->
 	<div class="info-gamer">
 		<ul>
@@ -42,7 +42,7 @@
 	?>
 		<span id="exclama"><img src='imagens/icones/exclama.png'/>Hmm! Nada encontrado para o termo escolhido, mas selecionamos outros produtos que possa gostar</span>
 		<?php
-		foreach($jogos->findAll() as $key=> $valor):
+		foreach($jogos->listarJogos(array('status'=>'Ativo')) as $key=> $valor):
 			foreach($console->listarCategorias($valor->id_console) as $conso):
 					$nomeConsole = $conso->nome_console;															
 				endforeach;

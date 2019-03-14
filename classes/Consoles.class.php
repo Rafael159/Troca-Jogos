@@ -19,7 +19,7 @@ final class Consoles extends Crud{
 	}
 
 	public function consoleById($idconsole){
-		$sql = "SELECT nome_console FROM $this->table WHERE id_console = :id_console";
+		$sql = "SELECT id_console, nome_console FROM $this->table WHERE id_console = :id_console";
 		$stmt = @BD::conn()->prepare($sql);
 		$stmt->bindValue(':id_console',$idconsole);	
 

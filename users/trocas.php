@@ -24,7 +24,8 @@
 		<div id="ctr_trocas">
 			<header>
 				<h3 class="title_page">/ MINHAS TROCAS</h3>
-			</header>		
+			</header>
+					
 			<div class="col-lg-12">
 				<a href="..\pesquisa.php" id="add_troca"><i class="fa fa-plus-square fa-5x"></i><br/><strong>Add troca</strong></a>
 				<div class="btn-group">
