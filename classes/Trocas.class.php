@@ -118,7 +118,7 @@
 					ORDER BY tc.id DESC";
 			
 			$stmt = @BD::conn()->prepare($sql);
-
+			
 			// $stmt->bindParam(':by_user', $this->by_user);
 			$stmt->execute();
 			return $stmt->fetchAll();

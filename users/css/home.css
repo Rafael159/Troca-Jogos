@@ -1,0 +1,45 @@
+.nopadding{
+    margin:0px !important;
+    padding:0px !important;
+}
+.content{
+    padding:15px;
+}
+.card-stats{
+    width:100%;
+    border:1px solid #ccc;
+    border-radius:4px;
+    margin:15px;
+}
+.card-stats .card-body{
+    width:100%;
+    background:#ffffff;    
+}
+.card-stats .card-body .card-title{
+    color:#ffffff;
+    text-align: center;
+    font-family: 'source_sans_probold';
+    font-size: 1em;
+    padding:5px 0px;
+}
+.card-stats .card-body .card-category-icon,
+.card-stats .card-body .card-category-numbers{ padding: 10px; }
+
+.card-stats .card-body .card-category-icon{
+    text-align: center;
+    margin-top: 6px;
+}
+.card-stats .card-body .card-category-numbers{
+    font-size: 3em;
+    text-align: center;
+    background: #ffffff;
+    font-weight: 600;
+}
+.card-stats .card-body .card-users{ background:#ffa534;}
+.card-stats .card-body .card-numbers-users{ color:#ffa534;}
+.card-stats .card-body .card-game{ background:#0086ca; }
+.card-stats .card-body .card-numbers-game{ color: #0086ca; }
+.card-stats .card-body .card-exchange{ background:#b40000; }
+.card-stats .card-body .card-numbers-exchange{ color:#b40000; }
+.card-stats .card-body .card-images{ background:#005700; }
+.card-stats .card-body .card-numbers-images{ color:#005700; }

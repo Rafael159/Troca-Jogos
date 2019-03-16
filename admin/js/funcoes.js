@@ -356,13 +356,13 @@ viewTroca = function(idTroca){
 			box +=	'<div class="box-games" style="border: 2px solid #000">';
 			box +=      '<span class="game-title">Jogo Principal</span>';
 			box +=	    '<img src="../game/imagens/'+console+'/'+imagem_oferta+'" alt="'+jogo_oferta+'" class="img-responsive img-games"/>';
-			box +=	'<label class="game-name">'+jogo_oferta+' - '+console+'</label></div></div>';     	
+			box +=	'<label class="game-name">'+jogo_oferta+' <br> '+console+'</label></div></div>';     	
 			//segundo jogo
 			box += '<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">';
 			box +=    	'<div class="box-games" style="border: 2px solid #069">';
 			box +=    		'<span class="game-title">Jogo Pretendido</span>';
 			box +=    		'<img src="../game/imagens/'+seg_console+'/'+seg_img+'" alt="'+seg_jogo+'" class="img-responsive img-games"/>';
-			box += '<label class="game-name">'+seg_jogo+' - '+seg_console+'</label></div></div>';
+			box += '<label class="game-name">'+seg_jogo+' <br> '+seg_console+'</label></div></div>';
 
 			box += '<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">';
 			box +=      '<div class="personal-info">';

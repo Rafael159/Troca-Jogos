@@ -21,8 +21,11 @@
     <link rel="stylesheet" type="text/css" href="..\bootstrap/css/bootstrap-theme.css"/>
 		<!--CSS FONT-AWESOME-->		
     <link rel="stylesheet" type="text/css" href="..\font-awesome/css/font-awesome.css"/>
-    <!--CSS JOGOS-->
+		
+		<link type="text/css" href="../css/fonts.css" rel="stylesheet"/>
+				
 		<link rel="stylesheet" type="text/css" href="css/jogos.css"/>
+		<link rel="stylesheet" type="text/css" href="css/home.css"/>
 		<title>Dashboard - Troca Jogos</title>
 	</head>
 <body>
