@@ -103,8 +103,8 @@
 										<?php 
 											if(isset($_GET['id_troca']) AND $_GET['id_troca'] != ''){
 												$idTroca = $_GET['id_troca'];
-												//buscar o jogo selecionado
-												// $sql = "SELECT * FROM `jogos` as j,`console` as c, `imagens` as i WHERE j.id_console = c.id_console AND j.img_jogo = i.id_img AND j.id = $idTroca";
+
+												//buscar o jogo selecionado												
 												$meujogo = $jogo->listarJogos(array('id'=>$idTroca));
 												foreach ($meujogo as $meuJogo => $valor):
 										?>	
@@ -139,13 +139,13 @@
 										  <label for='menosVale'><input type="radio" name="optradio" value='2' class='btn-opcao' id='menosVale'>Meu jogo vale <b>MENOS</b></label>
 										</div>																		
 									</div>	  
-									<div class='col-lg-12'>
-										<span id="quadroOpcao">
+									<div class='col-lg-12' id="quadroOpcao">
+										<div>
 							   				<label class="titulOpcao">VALOR DE RETORNO: R$</label><input type="text" name="valor" class="form-control" id="txtValor" value="0"/>
 							   				<button type="button" data-target='#infoTroca' data-toggle="modal" class="btn btn-link">Entenda o valor</button>   
-							   			</span>
+							   			</div>
 									</div>
-								</div>
+								</div><br/>
 								<div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
 		                            <label for="mensagem" class="titlemsg">Mensagem</label>
 		                            <textarea class="form-control" name="mensagem" id="mensagem" placeholder="Deixe sua mensagem..."></textarea>   
@@ -155,8 +155,7 @@
 							        	<a id="btnCancelar" class="btnTroca btn btn-danger" href='../pesquisa.php'>Cancelar</a>
 										<button type="button" id="btnConfirmar" class="btnTroca btn btn-success">Confirmar</button>
 							        </div>
-							    </div>	
-							    
+							    </div>
 							</form>				 	
 						</div>
 					</div>

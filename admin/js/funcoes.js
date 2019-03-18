@@ -1,4 +1,9 @@
 $(document).ready(function(e){
+	
+	window.load = function(href){		
+		$("#conteudo_principal").load(href + "#conteudo_principal");
+	}
+
 	/*
 	 * PÁGINA COM AS AÇÕES E ANIMAÇÕES DA PÁGINA ADMIN.PHP 
 	 */
@@ -7,16 +12,15 @@ $(document).ready(function(e){
 		
 		if($(this).hasClass("actived")){
 			$(this).removeClass("actived");
-		}else{			
+		}else{
+			//verificar se já está ativo
 			$("#esquerda .mn_admin .mn_opcao").each(function(i){
 				$("li:not(actived)").removeClass("actived");
 			});
-			
-			var href = $(this).find('a').attr('href');//recupera href clicado
-			//alert(href);	  			  		
-			//verificar se já está ativo
 			$(this).addClass("actived");
-			$("#conteudo_principal").load(href + "#conteudo_principal");		
+			
+			var href = $(this).find('a').attr('href');//recupera href clicado			
+			load(href);//chama a função que carrega a página
 		}
 	});
 

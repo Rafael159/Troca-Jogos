@@ -24,12 +24,12 @@ function message(msg){
 
 function MaisMenos(){
 	$("#txtValor").attr("disabled",false);
-	$("span#quadroOpcao ").css({"visibility":"visible"});
+	$("#quadroOpcao ").css({"display":"block"});
 	$("#txtValor").val("");	
 }
 /*CONFIGURAÇÃO INICIAL ANTES DE ENVIAR A PROPOSTA*/
 $("#igualVale").parent().parent().addClass("type_active");//ativar o botão EQUILIBRADO
-$("span#quadroOpcao ").css({"visibility":"hidden"});//esconder o campo para inserção de valores
+$("#quadroOpcao ").css({"display":"none"});//esconder o campo para inserção de valores
 
 $('.btn-opcao').change(function(){
 	//remover class ativo onde estiver
@@ -50,7 +50,7 @@ $('.btn-opcao').change(function(){
 		case '1':							
 			$("#txtValor").attr("disabled",true);
 			$("#txtValor").val('0');
-			$("span#quadroOpcao ").css({"visibility":"hidden"});
+			$("#quadroOpcao ").css({"display":"none"});
 		break;
 		case '2':							
 			MaisMenos();//chama função com algumas configurações											

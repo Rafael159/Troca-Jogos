@@ -78,5 +78,11 @@
 	    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 	    <script src="js/funcoes.js"></script>
 		<script src="..\bootstrap/js/bootstrap.min.js"></script>
+		<script>
+			$(document).ready(function(){
+				//ao carregar a página
+				load('dashboard/dash.php');
+			});
+		</script>
 	</body>
 </html>
