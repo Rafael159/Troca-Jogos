@@ -26,7 +26,7 @@
 		<meta name="description" content="Troque jogos - divirta-se sem gastar mais"/>
 		<meta name="description" content="Jogos únicos + informações"/>
 		<meta name="keywords" content="Troca,Jogo,Games,Jogadores"/>
-		
+		<title>RG - Porque o jogo não pode parar</title>
 		<!--CHAMADA CSS-->
 		<link rel="stylesheet" type="text/css" href="css/games.css"/>
 		<link rel="stylesheet" type="text/css" href="css/style.css" />

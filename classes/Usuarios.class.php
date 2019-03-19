@@ -86,7 +86,7 @@ class Usuarios extends Crud{
 			
 		if(!isset($_SESSION['usuario'])) return false;		
 		$usuario = unserialize($_SESSION['usuario']);
-		
+		// print_r($usuario);
 		if(is_null($field)){
 			return $usuario;
 		}

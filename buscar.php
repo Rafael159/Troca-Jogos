@@ -53,7 +53,6 @@
 		$sql .= ' WHERE '.implode( ' AND ',$where );//add filtros na QUERY	
 	}	
 	$sql.= ' GROUP BY jc.jogo_id';
-	print_r($where);
 		
 	$arrayJogo = $jogos->consulta($sql);
 		

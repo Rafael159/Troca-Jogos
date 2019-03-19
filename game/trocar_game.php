@@ -15,18 +15,12 @@
     $user = new Usuarios();
 
     session_start();
-    if($_SESSION['emailTJ']){
+    if($_SESSION AND isset($_SESSION['emailTJ'])){
     	$email = $_SESSION['emailTJ'];
     	$idUser = $_SESSION['id_user'];
     }else{
     	header("Location:..\index.php");
 	};
-	
-	$user->setEmail($email);
-	$queries = array();
-    foreach ($user->findEmail($queries) as $usuario) {
-    	echo '<input type="hidden" name="idUserDois" value='.$usuario->id_user.' id="idUserDois"/>';
-    }
 ?>
 <!DOCTYPE HTML>
 <html>
@@ -38,6 +32,8 @@
 		<meta name="description" content="Trocar jogos">
 		<meta name="keywords" content="Troca,Jogo,Games,Jogadores"/>
 
+		<title>RG - Porque o jogo não pode parar</title>
+
 		<!--CHAMADA CSS-->
 		<link rel="stylesheet" type="text/css" href="css/games.css"/>
 		<link rel="stylesheet" type="text/css" href="css/style.css" />
@@ -45,9 +41,10 @@
 		<link rel="stylesheet" type="text/css" href="../css/fonts.css"/>
 		<!--CSS BOOTSTRAP-->
 		<link rel="stylesheet" href="..\bootstrap/css/bootstrap.min.css"/>
-        <link rel="stylesheet" href="..\bootstrap/css/bootstrap-theme.css"/>
+    <link rel="stylesheet" href="..\bootstrap/css/bootstrap-theme.css"/>
 	</head>
 <body>
+	<input type="hidden" name="idUserDois" value='<?php echo $idUser ?>' id="idUserDois"/>
 	<div class="content">
 		<div class="clearfix">			
 			<header> <!--CHAMADA DO HEADER-->
@@ -147,9 +144,9 @@
 									</div>
 								</div><br/>
 								<div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
-		                            <label for="mensagem" class="titlemsg">Mensagem</label>
-		                            <textarea class="form-control" name="mensagem" id="mensagem" placeholder="Deixe sua mensagem..."></textarea>   
-		                        </div>	
+									<label for="mensagem" class="titlemsg">Mensagem</label>
+									<textarea class="form-control" name="mensagem" id="mensagem" placeholder="Deixe sua mensagem..."></textarea>   
+								</div>	
 		                        <div class='col-lg-12'>					 
 							        <div class="btn-group">
 							        	<a id="btnCancelar" class="btnTroca btn btn-danger" href='../pesquisa.php'>Cancelar</a>
@@ -173,22 +170,22 @@
                 </div>
                 <div class="modal-body">
                 	<label class="lbl_info">
-                		<p>O Trocas Jogos acredita que todo jogo, independente se é usado ou não, tem valores diferentes. Pensando assim, cremos que você tem o <b>direito</b> de 
+                		<p>A Restart Games acredita que todo jogo, independente se é usado ou não, tem valores diferentes. Pensando assim, cremos que você tem o <b>direito</b> de 
                 		pedir algum valor como retorno ou oferecer um valor em dinheiro na hora da troca</p>
                 		<p>Para isso há 3 possíveis situações:</p>
 
                 		<div class="alert alert-warning">
-						  <strong>EQUILIBRADOS!</strong> Uma troca (Jogo) por (Jogo). Ambos os jogos tem o mesmo valor
+						  <strong>EQUILIBRADOS!</strong> Uma troca (Jogo) por (Jogo). Ambos os jogos têm o mesmo valor
 						</div>
                 		<div class="alert alert-success">
-						  <strong>VALE MAIS!</strong> (Jogo) por (Jogo <strong>+</strong> Dinheiro). Você troca o seu jogo e recebe um jogo + algum valor(R$)
+						  <strong>VALE MAIS!</strong> (Jogo) por (Jogo <strong>+</strong> Dinheiro). O usuário troca o seu jogo e recebe um jogo + algum valor(R$)
 						</div>
                 		<div class="alert alert-danger">
-						  <strong>VALE MENOS!</strong> (Jogo <strong>+</strong> Dinheiro) por (Jogo). Você dá o seu jogo + algum valor(R$) e recebe apenas o jogo
+						  <strong>VALE MENOS!</strong> (Jogo <strong>+</strong> Dinheiro) por (Jogo). O usuário oferece seu jogo + algum valor(R$) e recebe apenas o jogo
 						</div>						            		
                 	</label>
                 	<label class="lbl_info">
-                		<p>O Troca Jogos não é responsável pelos valores informados, sendo de inteira responsabilidade do proprietário do jogo</p>
+                		<p>A Restart Games não é responsável pelos valores informados, sendo de inteira responsabilidade do proprietário do jogo</p>
                 		<p>Todo valor pode ser discutidos entre os jogadores. Assim, nenhum valor é definitivo, podendo ser acordado um novo valor entre os jogadores</p>
                 	</label>
                 </div>

@@ -8,10 +8,14 @@
 		<meta name="keywords" content="Restart,Games,Troca,Jogo,Jogadores,Jogos"/>
 
 		<!--CHAMADA CSS-->
+				<!--CSS BOOTSTRAP-->
+		<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css"/>
+    	<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap-theme.css"/>
+
 		<link rel="stylesheet" type="text/css" href="css/estilo.css"/>   
 		<link rel="stylesheet" type="text/css" href="css/style-footer.css"/>
 		<link rel="stylesheet" type="text/css" href="css/fonts.css"/>
-		<title>RG - Troque jogos com outros jogadores</title>
+		<title>RG - Porque o jogo não pode parar</title>
 	</head>
 	<body class="center">
 		<?php
@@ -41,133 +45,98 @@
 				</form><br/>
 			</div>
 			
-			<main class="main">
-				<div class="clearfix">
-				<!--<div id="box-jogos-destaque">
-					<div id="games-top" class="destaque_games">
-						<a href="teste.php">
-							<figure class="quadro-maior"><div class="sombraImg"></div><img src="imagens/background.jpg" alt="Game" width="470px" height="300px"/>
-								<figcaption>
-									<h3>Assassin's Creed</h3><h4>R$ 120,00</h4>
-							    </figcaption>
-							</figure>
-						</a>
-						<a href="teste.php">
-							<figure class="quadro-menor"><div class="sombraImg"></div><img src="imagens/jogo2.jpg" alt="Game" width="250px" height="300px"/>
-								<figcaption>
-									<h3>Assassin's Creed - Brotherhood IV...</h3><h4>R$ 320,00</h4>
-							    </figcaption>
-							</figure>
-						</a>
-						<a href="teste.php">
-							<figure class="quadro-maior"><div class="sombraImg"></div><img src="imagens/sonic.jpg" alt="Game" width="470px" height="300px"/>
-								<figcaption>
-									<h3>Assassin's Creed</h3><h4>R$ 200,00</h4>
-							    </figcaption>
-							</figure>
-						</a>
-					</div>
-					<div id="games-bottom" class="destaque_games">								
-						<a href="teste.php">
-							<figure class="quadro-menor"><div class="sombraImg"></div><img src="imagens/pes.jpg" alt="Game" width="250px" height="300px">
-								<figcaption>
-									<h3>Assassin's Creed</h3><h4>R$ 320,00</h4>
-							    </figcaption>
-							</figure>
-						</a>
-						<a href="teste.php">
-							<figure class="quadro-maior"><div class="sombraImg"></div><img src="imagens/tiro.jpg" alt="Game" width="470px" height="300px">
-								<figcaption>
-									<h3>Assassin's Creed</h3><h4>R$ 320,00</h4>
-							    </figcaption>
-							</figure>
-						</a>						
-						<a href="teste.php">	
-							<figure class="quadro-maior"><div class="sombraImg"></div><img src="imagens/juiced.jpg" alt="Game" width="470px" height="300px">
-								<figcaption>
-									<h3>Assassin's Creed</h3><h4>R$ 420,00</h4>
-							    </figcaption>
-							</figure>
-						</a>	
-					</div>
-				</div>
-			</div>-->
+			<main class="main">				
 				<!--menu galeria de jogos em estoque-->
-				<span id="titulo-galeria"><h4>GALERIA DE JOGOS POR CATEGORIA</h4></span>
+				<!-- <span id="titulo-galeria"><h4>GALERIA DE JOGOS POR CATEGORIA</h4></span> -->
 				<!--enviar o id do console e retorno os jogos referentes ao mesmo-->
+				<div class="row nopadding">
+					<!-- <div class="galeria"> -->
+						<div class="col-lg-3 col-md-3 col-sm-4 nopadding">
+							<div class="galeria">
+								<ul class="box-galeria-jogos">			
+									<div class="arrow"></div>
+									<?php								
+										foreach($categoria->listarTodos() as $valor):
+									?>
+									<li name="" value="<?php echo $valor->id_console?>" class="link"><?php echo strtoupper($valor->nome_console)?></li>		 							
+									<?php endforeach; ?>
+								</ul>
+							</div>
+						</div>
+						<div class="col-lg-9 col-md-9 col-sm-8 nopadding">
+							<div class="galeria">
+								<div id="galeria">
+								</div><!--id galeria-->
+							</div>
+						</div>
+					<!-- </div> -->
+				</div>
 				
-				<div class="galeria">
-					<ul class="box-galeria-jogos">			
-						<div class="arrow"></div>
-						<?php								
-							foreach($categoria->listarTodos() as $valor):
-						?>
- 						<li name="" value="<?php echo $valor->id_console?>" class="link"><?php echo strtoupper($valor->nome_console)?></li>		 							
-						<?php endforeach; ?>
-					</ul>
-				   
-				   <div id="galeria">
-			  		<!--
-					* 	essa div recebe o resultado dos jogos de cada console
-					* 	ao clicar no nome do console será retornado o jogos referente ao console 
-					*   os jogos de PS4 já ficarão visíveis	
-				  	-->					  	
-					</div><!--id galeria-->
-				</div><!--class galeria-->
-				<div class="clearfix">
 				<!--últimos cadastrados-->
 					<?php
 						$jogoAll = $jogos->listarJogos(array('status'=>'Ativo', 'limite'=>'10'));
 						if(count($jogoAll) > 0):
 					?>
-					<div id="sidebar-left">
-						<h5>Últimos <b>10</b> jogos cadastrados</h5>
-						<span id="prevId" class="flexa"><a href="javascript:void(0);"><img src="imagens/icones/icon-seta.png"></a></span> 
-						<span id="nextBtn" class="flexa"><a href="javascript:void(0);"><img src="imagens/icones/icon-seta.png"></a></span>
-						<div id="slider">
-							<ul>
-								<?php									
-									foreach($jogoAll as $jogo=> $valor):		
-								?>
-								<a href='game/game.php?codigo=<?php echo $valor->id;?>'><li><img src="game/imagens/<?php echo str_replace(' ','',$valor->nome_console).'/'.$valor->imagem;?>"><span class="inf-ultimos-jogos"><?php echo substr($valor->n_jogo,0,12).' - '.substr(strtoupper($valor->nome_console),0,6).'...'?></span></li></a>
-								<?php endforeach;?>
-							</ul>							
+					<div class="row">
+						<div class="col-lg-4 col-lg-offset-8">
+							<div id="sidebar-left">
+								<h5>Últimos <b>10</b> jogos cadastrados</h5>
+								<span id="prevId" class="flecha"><a href="javascript:void(0);"><img src="imagens/icones/icon-seta.png"></a></span> 
+								<span id="nextBtn" class="flecha"><a href="javascript:void(0);"><img src="imagens/icones/icon-seta.png"></a></span>
+								<div id="slider">
+									<ul>
+										<?php									
+											foreach($jogoAll as $jogo=> $valor):		
+										?>
+										<a href='game/game.php?codigo=<?php echo $valor->id;?>'><li><img src="game/imagens/<?php echo str_replace(' ','',$valor->nome_console).'/'.$valor->imagem;?>"><span class="inf-ultimos-jogos"><?php echo substr($valor->n_jogo,0,12).' - '.substr(strtoupper($valor->nome_console),0,6).'...'?></span></li></a>
+										<?php endforeach;?>
+									</ul>							
+								</div>
+							</div><!--sidebar-->
 						</div>
-					</div><!--sidebar-->
+					</div>
 					<?php endif; ?>
 				</div>
-				<div class="clearfix">
-					<div id="info-funcional">
-						<header><h3>Como funciona?</h3></header>
-						<ul id="passo-a-passo">
-							<li class="passos">
-								<div class="img-passos" id="img-cadastrar"></div>
-								<h4 id="first-title">Cadastrar</h4>
-								<span class="topo-info">
-									<p>Cadastre-se no site</p> 
-									<p>Cadastre os seus jogos</p>
-								</span>
-							</li>
-							<li class="passos">
-								<div class="img-passos" id="img-pesquisar"></div>
-								<h4 id="second-title">Pesquisar</h4>
-								<span class="topo-info">
-									<p>Procure os jogos que interessam<p>
-									<p>Entre em contato com 
-									o dono<p>
-									<p>Marque um ponto de encontro para a troca<p>
-								</span>
-							</li>							
-							<li class="passos">
-								<div class="img-passos" id="img-concluir"></div>
-								<h4 id="third-title">Concluir</h4>
-								<span class="topo-info">										
-									<p>Pegue seu novo jogo</p> 
-									<p>Divirta-se <b>Muito +</b></p>
-								</span>
-							</li>							
-						</ul>
-					</div><!-- final do id info-funcional-->
+				<div class="row">
+					<div class="content">
+						<div id="info-funcional">
+							<header><h3>Como funciona?</h3></header>
+							<ul id="passo-a-passo">
+								<div class="col-lg-4">
+									<li class="passos">
+										<div class="img-passos" id="img-cadastrar"></div>
+										<h4 id="first-title">Cadastrar</h4>
+										<span class="topo-info">
+											<p>Cadastre-se no site</p> 
+											<p>Cadastre os seus jogos</p>
+										</span>
+									</li>
+								</div>
+								<div class="col-lg-4">
+									<li class="passos">
+										<div class="img-passos" id="img-pesquisar"></div>
+										<h4 id="second-title">Pesquisar</h4>
+										<span class="topo-info">
+											<p>Procure os jogos que interessam<p>
+											<p>Entre em contato com 
+											o dono<p>
+											<p>Marque um ponto de encontro para a troca<p>
+										</span>
+									</li>
+								</div>
+								<div class="col-lg-4">						
+									<li class="passos">
+										<div class="img-passos" id="img-concluir"></div>
+										<h4 id="third-title">Concluir</h4>
+										<span class="topo-info">										
+											<p>Pegue seu novo jogo</p> 
+											<p>Divirta-se <b>Muito +</b></p>
+										</span>
+									</li>
+								</div>						
+							</ul>
+						</div><!-- final do id info-funcional-->
+					</div>
 				</div>				
 			</main>											
 		</div><!--content-->	
@@ -175,11 +144,10 @@
 	<?php
 		require 'footer.php';
 	?>
-
     <!--CHAMADA JAVASCRIPT-->		
 	<script src="js/jquery.js"></script>
 	<script src="js/jquery.validate.js"></script>
-	<script src="js/events.js"></script><!--referente ao autocomplete do campo pesquisa-->
+	<script src="js/events.js"></script><!--referente ao autocomplete do campo pesquisa -->
 	<script src="js/funcoes.js"></script>
 	<script src="js/validacao.js"></script>
 	<script src="js/animation.js"></script><!--animação dos últimos jogos cadastrados-->
@@ -188,7 +156,6 @@
 		$(document).ready(function(){
         	$('#lista_jogos').slideUp();
 		});
-	</script>
-	
+	</script>	
 	</body>
 </html>

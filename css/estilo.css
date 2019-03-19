@@ -68,38 +68,39 @@ body{
 	margin-top:5px;
 	display: block;
 }
-#main-menu .nav{
+#main-menu .navs{
 	width: 100%;
 	height:30px;
 	border-bottom-width:3px;
 	border-bottom-style:solid;
 	border-bottom-color:rgba(255, 255, 255, 0.0666667);
 }
-#main-menu .nav >ul{
+#main-menu .navs >ul{
 	width: 100%;
 	margin: 0;
 }
-#main-menu .nav ul .cns-menu{
+#main-menu .navs ul .cns-menu{
 	width:100px;
 	height: 20px;
 	display: inline-block;	
 	padding: 5px;
 }
 
-#main-menu .nav ul .cns-menu .link{
+#main-menu .navs ul .cns-menu .link{
 	font-family: 'source_sans_probold';
-	font-size: 1em;
-	color:#ffffff;
-	text-align: left;
-	text-transform: uppercase;
-	text-decoration:none;
-	border-bottom-color: transparent;
-	height: 20px;
-	padding: 5px;
-	position: absolute;
-	outline: none;
+    font-size: 1.2em;
+    color: #ffffff;
+    text-align: left;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-bottom-color: transparent;
+    /* height: 20px; */
+    padding: 2px 7px 0px 7px;
+    /* position: absolute; */
+    outline: none;
+    /* background: #000; */
 }
-#main-menu .nav ul .cns-menu .link:hover{
+#main-menu .navs ul .cns-menu .link:hover{
 	border-bottom-color:#069;
 	border-bottom-width: 3px;
 	border-bottom-style: solid;
@@ -155,7 +156,7 @@ body{
 }
 	.conteudo .box_pesquisa .input_container ul li{
 		width: 81%;
-		margin-left: 28px;
+		margin: 0px 0px 0px 28px !important;
 		background: #ccc;
 		list-style-type: none;
 		border-bottom: 1px dotted #333333;
@@ -186,7 +187,8 @@ body{
 				font:20px Arial, helvetica, sans-serif;
 				color:#333;
 				padding-top:5px;
-				padding-left:65px; 
+				padding-left:65px;
+				margin:0px;
 			}	
 
 	.conteudo .box_pesquisa .btn-enviar{
@@ -256,10 +258,10 @@ body{
 	.btn_cancela_acesso b{
 		text-align: center;
 		font: 15px Arial, helvetica, sans-serif;
-		color: #fff;	
-		margin-left:14px;
-		margin-top:10px;
-		position:absolute;
+		color: #fff;
+		margin-left: 13px;
+		margin-top: 9px;
+		position: absolute;
 	}
 /*formatação do formulário de login*/
 .box-login-cadastro .titulo-acesso{
@@ -292,16 +294,12 @@ body{
 		border:none;
   		border-radius:3px;
   		color:#8d8d8d;
-  		font-family:Arial, helvetica, sans-serif;
+  		font-family:'source_sans_proregular';
   		font-size:15px;
-  		font-stretch:normal;
-  		font-style:normal;
-  		font-variant:normal;
-  		font-weight:normal;
   		height:30px;
   		line-height:normal;
 		margin-bottom:10px;
-  		width:98%;
+  		width:100%;
   		padding: 2px;
   		outline: none;
 	}
@@ -336,16 +334,16 @@ body{
 	.box-login-cadastro .form-acesso p input[type='text']:focus,.box-login-cadastro .form-acesso p input[type='password']:focus{
 		border:1px solid #0094f5;
 	}
-	#result{
+#result{
 	padding: 4px;
-	margin: 1px auto;
-	border: 1px solid #ed0000;
-	font:0.9em Arial, helvetica,sans-serif;
-	color: #fff;
-	background:#ed0000;
-	display: none;
-	text-align: center;
-	opacity: 0.9;
+    margin: 10px auto;
+    border: 1px solid #ed0000;
+    font-size: 1.2em;
+    color: #fff;
+    background: #820c0c;
+    display: none;
+    text-align: center;
+    font-family: 'source_sans_proregular';	
 }
 /*botão conectar com facebook*/
 .facebook{
@@ -369,120 +367,6 @@ body{
 	background: #373737;
 	margin-top: 50px;
 }
-	.main #box-jogos-destaque{
-		width: 100%;
-		padding: 0;
-	}
-	.main #box-jogos-destaque .destaque_games{
-		width: 1206px;
-		height: 300px;
-		display: block;
-		cursor: pointer;
-	}	
-		.main #box-jogos-destaque .destaque_games div{
-			display: inline-block;
-		}
-	.main #box-jogos-destaque .quadro-menor{
-		width:250px;
-		background: #000;
-		height: 100%;
-		display: inline-block;
-		position: relative;
-	}
-	.main #box-jogos-destaque .quadro-maior{
-		width: 470px;
-		height: 100%;
-		background: #000;
-		display: inline-block;	
-		position: relative;			
-	}
-/*Detalhes sobre o jogo **** valor, nome */
-.main #box-jogos-destaque .quadro-maior figcaption{
-	width:470px;
-	position: absolute;
-	z-index: 10;
-	height:100px;
-	opacity: 0.7;
-	background: #000;
-	bottom: 0;
-}
-.main #box-jogos-destaque .quadro-menor figcaption{
-	width:250px;
-	position: absolute;
-	z-index: 10;
-	height:100px;
-	opacity: 0.7;
-	background: #000;
-	bottom: 0;
-}
-.main #box-jogos-destaque .quadro-maior figcaption h3,.main #box-jogos-destaque .quadro-maior figcaption h4{
-	font:18px Arial, helvetica, sans-serif;
-	color: #fff;
-	text-transform: uppercase;
-	text-shadow:#3d3d3d 1px 1px 0;
-}
-.main #box-jogos-destaque .quadro-maior figcaption h3 {
-	margin:40px 0 0 10px;
-	position: absolute;
-}
-.main #box-jogos-destaque .quadro-maior figcaption h4{
-	float: right;
-	margin:40px 20px 0 0;
-	position:relative;
-	}
-.main #box-jogos-destaque .quadro-menor figcaption h3{
-	margin-top: 10px;
-	font:13px Arial, helvetica, sans-serif;
-	color: #fff;
-	text-transform: uppercase;
-	text-shadow:#3d3d3d 1px 1px 0;
-	float: left;
-	padding:2px 10px 0px 10px;
-}
-.main #box-jogos-destaque .quadro-menor figcaption h4{
-    position: absolute;
-	margin-left:28%;
-	margin-top: 50px;
-	color:#fff;
-}
-
-/*efeito de opacidade nas imagens*/
-.main #box-jogos-destaque .quadro-maior .sombraImg{
-	box-shadow:#0094f5 -2px 18px 101px 157px inset;
-	height:300px;
-	opacity:0.8;
-	position:absolute;
-	width:470px;
-	z-index:10;
-	-webkit-transition:0.2s; /* Safari */
-	transition:0.2s; 
-}
-	.main #box-jogos-destaque .quadro-maior .sombraImg:hover{
-		box-shadow: none;
-	}
-.main #box-jogos-destaque .quadro-menor .sombraImg{
-	box-shadow:#0094f5 -2px 18px 101px 157px inset;
-	height:99%;
-	opacity:0.8;
-	position:absolute;
-	width:250px;
-	z-index:10;
-	-webkit-transition:0.2s; /* Safari */
-	transition:0.2s; 
-}
-	.main #box-jogos-destaque .quadro-menor .sombraImg:hover{
-		box-shadow: none;
-	}
-	.main #box-jogos-destaque .quadro-maior img, .main #box-jogos-destaque .quadro-menor img{
-		opacity: 1;
-		-webkit-transition: width 2s; /* Safari */
-   		transition: width 2s;   				
-	}
-	.main #box-jogos-destaque .quadro-maior img:hover, .main #box-jogos-destaque .quadro-menor img:hover{
-		box-shadow: inset 2px 10px 150px #fff;
-		opacity: 1;
-	}	
-
 /*sidebar direito*/
 #sidebar-left{
 	width: 300px;
@@ -532,7 +416,7 @@ body{
 		width: 150px;
 		height: 200px;
 	}
-#sidebar-left .flexa{
+#sidebar-left .flecha{
 	width: 30px;
 	height: 230px;
 	background: #8c8c8c;
@@ -541,22 +425,22 @@ body{
 	transition:0.5s;
 	-webkit-transition:0.5s;
 }
-	#sidebar-left .flexa:hover{
+	#sidebar-left .flecha:hover{
 		background: #054255;
 	}
-.flexa a img{
+.flecha a img{
 	margin:100px 2px;
 }
-	#sidebar-left .flexa#nextBtn{margin-left: 226px;}
-		.flexa#nextBtn a img{
+	#sidebar-left .flecha#nextBtn{margin-left: 226px;}
+		.flecha#nextBtn a img{
 		-webkit-transform:rotate(-90deg);
 		-moz-transform:rotate(-90deg);
 		-ms-transform:rotate(-90deg);
 		-o-transform:rotate(-90deg);
 		transform:rotate(-90deg);
 	}
-	#sidebar-left .flexa#prevId{margin-left: 44px;}
-		.flexa#prevId a img{
+	#sidebar-left .flecha#prevId{margin-left: 44px;}
+		.flecha#prevId a img{
 			-webkit-transform:rotate(90deg);
 			-moz-transform:rotate(90deg);
 			-ms-transform:rotate(90deg);
@@ -582,29 +466,29 @@ body{
 	transform:rotate(90deg);
 
 }
-	.arrow.top {
-	    top: -26px;
-	    bottom: auto;
-	}
-	.arrow.left {
-   	 left: 50%;
-	}
-		.arrow:after {
-		    content: "";   
-			position:absolute;
-		    left: 89px;
-		    top: -90px;
-		    width: 28px;
-		    height: 28px;
-		    box-shadow: 6px 5px 9px -9px black;
-		    -webkit-transform: rotate(135deg);
-		    -moz-transform: rotate(135deg);
-		    -ms-transform: rotate(135deg);
-		    -o-transform: rotate(135deg);
-		    transform: rotate(135deg);	
-			background:#fff;
-			z-index: 10;
-	}
+.arrow.top {
+	top: -26px;
+	bottom: auto;
+}
+.arrow.left {
+	left: 50%;
+}
+.arrow:after {
+	content: "";   
+	position:absolute;
+	left: 89px;
+	top: -90px;
+	width: 28px;
+	height: 28px;
+	box-shadow: 6px 5px 9px -9px black;
+	-webkit-transform: rotate(135deg);
+	-moz-transform: rotate(135deg);
+	-ms-transform: rotate(135deg);
+	-o-transform: rotate(135deg);
+	transform: rotate(135deg);	
+	background:#fff;
+	z-index: 10;
+}
 span#titulo-galeria{
 	width: 100%;
 	height: 50px;
@@ -615,62 +499,64 @@ span#titulo-galeria{
 	display: block;
 	padding: 9px 0 2px 0;
 }
-	span#titulo-galeria h4{
-		font:40px Arial, helvetica, sans-serif;
-		color:#ffffff;
-		height:20px;
-		text-align: center;
-	}
+span#titulo-galeria h4{
+	font:40px Arial, helvetica, sans-serif;
+	color:#ffffff;
+	height:20px;
+	text-align: center;
+}
+.nopadding{
+	padding:0px !important;
+	margin:0px !important;
+}
 .main .galeria{
 	width: 100%;
-	border: 2px solid #292929;
 	margin: 25px 0 10px 0;
 }
-	.main .galeria .box-galeria-jogos{
-		width: 100%;
-		position: relative;
-	}
-	.main .galeria .box-galeria-jogos li{
-		z-index: 10;
-		width: 115px;
-		height: 20px;
-		padding: 10px 10px;
-		list-style-type: none;
-		background:linear-gradient(#02222D, #05495E,#02222D);
-		background: -webkit-linear-gradient(#02222D, #05495E,#02222D); /* Para Safari 5.1 to 6.0 */
-  		background: -o-linear-gradient(#02222D, #05495E,#02222D); /* Para Opera 11.1 to 12.0 */
-  		background: -moz-linear-gradient(#02222D, #05495E,#02222D); /* Para Firefox 3.6 to 15 */
-  		text-align: left;
-  		cursor: pointer;
-  		font:15px Lato,Arial, sans-serif;
-  		color: #D0CBC0;
-		text-decoration: none;
-	}
-    .main .galeria .box-galeria-jogos li:hover{
-    	background:linear-gradient(#05495E,#02222D,#05495E);
-		background: -webkit-linear-gradient(#05495E,#02222D,#05495E); /* Para Safari 5.1 to 6.0 */
-  		background: -o-linear-gradient(#05495E,#02222D,#05495E); /* Para Opera 11.1 to 12.0 */
-  		background: -moz-linear-gradient(#05495E,#02222D,#05495E); /* Para Firefox 3.6 to 15 */
+.main .galeria .box-galeria-jogos{
+	width: 100%;
+	position: relative;
+}
+.main .galeria .box-galeria-jogos li{
+	z-index: 10;
+	width: 100%;		
+	padding: 10px 10px;
+	list-style-type: none;
+	background: linear-gradient(#02222D, #05495E,#02222D);
+	background: -webkit-linear-gradient(#02222D, #05495E,#02222D);
+	background: -o-linear-gradient(#02222D, #05495E,#02222D);
+	background: -moz-linear-gradient(#02222D, #05495E,#02222D);
+	text-align: left;
+	cursor: pointer;
+	font: 15px Lato,Arial, sans-serif;
+	color: #D0CBC0;
+	text-decoration: none;
+}
+.main .galeria .box-galeria-jogos li:hover{
+	background:linear-gradient(#05495E,#02222D,#05495E);
+	background: -webkit-linear-gradient(#05495E,#02222D,#05495E); /* Para Safari 5.1 to 6.0 */
+	background: -o-linear-gradient(#05495E,#02222D,#05495E); /* Para Opera 11.1 to 12.0 */
+	background: -moz-linear-gradient(#05495E,#02222D,#05495E); /* Para Firefox 3.6 to 15 */
 
-    	opacity: 1;
-    	color: #CD6C03;
-		position: relative;
-		animation: moveFromTop 300ms ease-in-out;
-    	-webkit-animation: moveFromTop 300ms ease-in-out;
-        -moz-animation: moveFromTop 300ms ease-in-out;
-        -ms-animation: moveFromTop 300ms ease-in-out;
+	opacity: 1;
+	color: #CD6C03;
+	position: relative;
+	animation: moveFromTop 300ms ease-in-out;
+	-webkit-animation: moveFromTop 300ms ease-in-out;
+	-moz-animation: moveFromTop 300ms ease-in-out;
+	-ms-animation: moveFromTop 300ms ease-in-out;
+}
+@keyframes moveFromTop{
+	from {
+		opacity: 0;
+		-webkit-transform: translateY(-25%);
 	}
-	@keyframes moveFromTop{
-		from {
-			opacity: 0;
-			-webkit-transform: translateY(-25%);
-		}
-		to {
-			opacity: 1;
-			-webkit-transform: translateY(0%);
-		}
+	to {
+		opacity: 1;
+		-webkit-transform: translateY(0%);
 	}
-    @-webkit-keyframes moveFromTop {
+}
+@-webkit-keyframes moveFromTop {
     from {
         opacity: 0;
         -webkit-transform: translateY(-25%);
@@ -709,35 +595,29 @@ span#titulo-galeria{
     opacity: 1;
     color: #CD6C03 !important;
 }
-
 .bgfiltro{
 	background: #069 !important;
 }
 /*configurar dentro de cada quadro onde os games serão mostrados*/
 .main .galeria #resultado-links{
-	width: 1078px;
-	background: #d5d5d5;	
-	height: 359px;
-	margin-top: -360px;
-	float: right;
-	z-index:10;
-  	margin-right:2px;
+	width: 100%;
+    background: #d5d5d5;
+    z-index: 10;
 }
 .main .galeria #resultado-links .quadro-galeria{
-	width: 1071px;
-	height: 359px;
-	position: absolute;
-	margin-left: 7px;	
+	width: 100%;
+    height: 359px;
 }
 /*formatação da vitrine dos jogos*/
 .main .galeria #resultado-links .quadro-galeria .galeria-principal{
 	width: 100%;
-	height: 308px;
-	padding: 5px 0px;
-	background: #ccc;
-	margin-top: 40px;
+    padding: 13px 0px;
+    background: #ccc;
 	list-style-type: none;
+	display: inline-block;
+	min-height: 335px;
 }
+
 .main .galeria #resultado-links .quadro-galeria .galeria-principal .msgFalha{
 	width: 99%;
     padding: 10px 1px 10px 10px;
@@ -761,43 +641,38 @@ span#titulo-galeria{
     font-size: 0.8em;	    
 }
 .main .galeria #resultado-links .quadro-galeria .galeria-principal .vitrine{
-	width: 210px;
-	height: 308px;
 	list-style-type: none;
-	display: inline-block;	
-	margin-left: 0px;
-	margin-top: -4px;
-	transition:0.5s;
+	transition: 0.5s;
+	padding: 5px;
+	width: 100%;
+	text-align: center;
 }
 	.main .galeria #resultado-links .quadro-galeria .galeria-principal .vitrine:hover{
 		background: #373737;
 
 	}
 .main .galeria #resultado-links .quadro-galeria .galeria-principal .vitrine > a img {
-	width: 195px; 
-	height: 250px;
-	margin-left: 7px;
-	margin-top: 4px;
+	width: 95%;
+    height: 250px;
+    margin: auto;
 }
-.main .galeria #resultado-links .quadro-galeria .galeria-principal .vitrine:first-child{margin-left: 5px;}
 
 .main .galeria #resultado-links .quadro-galeria .galeria-principal .vitrine .infogame{
-	background:#02232F;
- 	display:block;
-  	height:21px;
-	margin-left:7px;
-  	padding:13px 0;
-  	text-align:center;
-  	width:195px;
-  	font-family: Arial, helvetica, sans-serif;
+	background: #02232F;
+    display: block;   
+    padding: 13px 0;
+    text-align: center;
+    font-family: Arial, helvetica, sans-serif;
 }
+
 /*Quadro como funciona*/
 #info-funcional{
 	width: 100%;
 	padding:3px 0;
 	margin-top: 20px;
 	margin-bottom: 50px;
-	background-color: #d8d8d8;	
+	background-color: #d8d8d8; 
+	min-height: 410px;	
 }
 	#info-funcional header{
 		width: 100%;
@@ -813,7 +688,7 @@ span#titulo-galeria{
 	width: 150px;
 	height: 120px;
 	background-image: url(../imagens/icones/bg_etapas.png);
-	margin: 5px 0 0 62px;
+	margin: auto;
 }
 #info-funcional .passos .img-passos#img-cadastrar{
 	background-position: 0px 0px ;
@@ -829,15 +704,13 @@ span#titulo-galeria{
 
 #info-funcional #passo-a-passo{
 	width: 100%;
-	margin: 19px 33px;
 }
 	#info-funcional #passo-a-passo li.passos{
-		width: 25%;
+		width: 100%;
 		height: 300px;
 		padding: 4px;
-		display: inline-block;
 		box-shadow: 0px 0px 4px #515151;
-		margin-left: 50px;
+		margin-top:15px;
 	}
 #info-funcional #passo-a-passo li.passos:hover{box-shadow: 0px 0px 10px #515151;}
 #info-funcional #passo-a-passo li.passos h4{

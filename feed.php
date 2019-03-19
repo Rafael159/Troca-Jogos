@@ -12,14 +12,16 @@
 
     /*recupera o ID do usuário*/
     $codUser = (isset($_GET['codigo']) && ($_GET['codigo'] != '') ? $_GET['codigo'] : '');
+	$user->setIdUser($codUser);
+	$dados = $user->findRegister();//dados do user da página
 
     /*se o ID não tiver setado, redireciona*/
-    if(!$codUser):
+    if(!$dados):
     	header("location:index.php");
     	exit;
 	endif;
-	
-	$idOn = Usuarios::getUsuario('id_user');
+	$codUser = $dados->id_user;
+	$idOn = Usuarios::getUsuario('id_user');//user logado
 ?>
 <!DOCTYPE HTML>
 <html>
@@ -30,6 +32,8 @@
 		<meta name="description" content="Perfil do usuário do Troca Jogos"/>
 		<meta name="keywords" content="Troca,Jogo, jogos, Games,Jogadores"/>
 		
+		<title>RG - <?php echo " $dados->nomeUser"; ?></title>
+
 		<link rel="stylesheet" type="text/css" href="css/fonts.css"/>
 		<link rel="stylesheet" href="css/style-feed.css"/>		
 		<link rel="stylesheet" type="text/css" href="css/header.css"/>
@@ -52,11 +56,7 @@
 						<div class="prf-top">
 							<!--<img src="imagens/icones/profile.png" alt="Perfil" class="img-responsive" id="prf-img"/>-->
 						</div>
-						<div class="prf-down">
-							<?php							
-								$user->setIdUser($codUser);
-								$dados = $user->findRegister();						
-							?>
+						<div class="prf-down">							
 							<div class="box-infos">
 								<span class="user-info" id="user-name"><?php echo (isset($dados->nomeUser)) ? $dados->nomeUser : ''; ?></span>
 								<span class="user-info" id="user-address"><?php echo (isset($dados->cidade) && ($dados->cidade!='') ? $dados->cidade : 'Não informado') ?> <?php echo (isset($dados->estado) && ($dados->estado!='') ? ' / '.$dados->estado : '') ?></span>

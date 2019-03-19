@@ -11,11 +11,18 @@
     </head>
 <body>
 	  <?php 
-	  	   session_start();
+			 session_start();
+			//  echo '<pre>';
+			//  var_dump($_SESSION);
+
+			//  echo $_SESSION['status'];
+			//  die();
 	  	   unset($_SESSION['emailTJ']);
 	  	   unset($_SESSION['id_user']);
 	  	   unset($_SESSION['nomeTJ']);
-	  	   unset($_SESSION['status']);
+			 unset($_SESSION['status']);
+			 
+			 session_destroy();
 	  	   sleep(1);
 	  	   header("Location:index.php");	  	 
 	  ?>

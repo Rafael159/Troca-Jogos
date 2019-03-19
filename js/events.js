@@ -94,12 +94,7 @@ $(document).ready(function (){
 		$(this).addClass("actived");
 		/*recebe o link que será mostrado*/			
 	});
-
-	/*mostra as informações dos jogos ao passar o mouse sobre o jogo - vitrine de cada console*/
-	$(".vitrine").hover(function(){ 
-		//alert('ok');
-	});       
-
+   
 	function colorir(){	
 		/*mudar cor do fundo das imagens dos jogos*/
 		$('.contorno figure').each(function(i){  /*percorre todas as divs com o nome .contorno figure*/ 		

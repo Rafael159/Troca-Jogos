@@ -13,7 +13,7 @@
 		<link rel="stylesheet" href="font-awesome/css/font-awesome.css"/>
 		<link rel="stylesheet" href="css/fonts.css"/> 
 
-		<title>Crie sua conta</title>		
+		<title>Restart Games - Crie sua conta</title>		
 	</head>
 	<body>
 		<?php	
@@ -115,7 +115,7 @@
 											<section class="information"><a href="#" id="linkExplica" data-toggle="modal" data-target="#show-reason">Por que informar o endereço?</a></section>
 										</div>
 										<div class="col-lg-12 col-md-6 col-sm-6 col-xs-12">
-											<h5><input type="checkbox" name="termos" value="Termos" id="termos"/> <br/>Ao clicar em Cadastrar você concorda com os <a href="termos.php" target="blank">Termos de Política e Privacidade</a> do Troca Jogos</h5>										
+											<h5><input type="checkbox" name="termos" value="Termos" id="termos"/>Ao clicar em Cadastrar você concorda com os <a href="termos.php" target="blank">Termos de Política e Privacidade</a> do Troca Jogos</h5>										
 											<div class="alert alert-danger" id='msg_error'>
 												<strong></strong>
 											</div>
@@ -140,15 +140,13 @@
 							<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 							<h1 class="title_modal">Por que preencher o endereço?</h1>
 						</div>
-						<div class="modal-body">
-							
-								<p>A visão do Troca Jogos é possibilitar que jogadores do Brasil possam se encontrar na nossa plataforma e trocar os seus jogos</p>
-								<p>Pensando nisso, nada melhor do que saber onde entregar o jogo quando uma troca for acordada entre os players</p>
-								<br>
-								<p>Você não é obrigado a informar o seu endereço. Apenas garanta que a comunicação entre os interessados possa proporcionar uma troca com 100% de sucesso</p>
-								<br>
-								<p>Divirta-se!!!</p>
-							
+						<div class="modal-body">							
+							<p>A visão do Restart Games é possibilitar que jogadores do Brasil possam se encontrar na nossa plataforma e trocar os seus jogos</p>
+							<p>Pensando nisso, nada melhor do que saber onde entregar o jogo quando uma troca for acordada entre os players</p>
+							<br>
+							<p>Você não é obrigado a informar o seu endereço. Apenas garanta que a comunicação entre os interessados possa proporcionar uma troca com 100% de sucesso</p>
+							<br>
+							<p>Divirta-se!!!</p>							
 						</div>
 					</div>	
 				</div>				

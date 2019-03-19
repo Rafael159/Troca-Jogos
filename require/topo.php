@@ -85,7 +85,7 @@
 
 		
 		<div id="main-menu">
-			<nav class="nav">
+			<nav class="navs">
 				<ul>
 					<?php 
 						foreach($categoria->listarTodos() as $value):

@@ -29,8 +29,9 @@
 					}else{											
 						foreach($games as $valor):
 				?>
+			<div class="col-lg-3 col-md-4 col-sm-6 col-xs-6">
 				<li class="vitrine">
-					<a href="game/game.php?codigo=<?php echo $valor->id ?>"><img src="game/imagens/<?php echo str_replace(' ', '', $conso).'/'.$valor->imagem?>"/></a>
+					<a href="game/game.php?codigo=<?php echo $valor->id ?>"><img src="game/imagens/<?php echo str_replace(' ', '', $conso).'/'.$valor->imagem?>" class="img-responsive"/></a>
 					<span class="infogame">
 						<?php
 							$num = strlen($valor->n_jogo);
@@ -42,6 +43,7 @@
 						?>
 					</span>
 				</li>
+			</div>
 				<?php
 					endforeach;
 				}

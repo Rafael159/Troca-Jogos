@@ -179,6 +179,7 @@
     width:100%;
     text-align: left;
     color:#fff;
+    padding:3px;
 }
 #rightpanel #chats .chat .content .contact_name,
 #rightpanel #chats .chat .content .contact_consola{
