@@ -70,7 +70,7 @@
                         <?php else: ?>
                             <span class="contato-alerta">Ops :( <br>
                             Nenhum contato para exibir<br><br><br>
-                            Para adicionar uma contato, vá até o perfil do contato e clique em adicionar contato ou mande uma mensagem
+                            Para adicionar um contato, vá até o perfil do contato e clique em adicionar contato ou mande uma mensagem
                             </span>
                         <?php endif; ?>
                     </ul>

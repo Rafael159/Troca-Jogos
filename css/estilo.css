@@ -271,9 +271,8 @@ body{
 	width: 280px; 
 }
 	.box-login-cadastro .form-acesso{
-		width: 292px;
-		margin:20px 0px;
-		padding: 4px;
+		width: 100%;
+		padding: 10px;
 	}
 	.box-login-cadastro .form-acesso p{display: block;}
 	.box-login-cadastro .form-acesso p label{
@@ -305,20 +304,20 @@ body{
 	}
 	/*botão logar/cadastrar */
 	.box-login-cadastro .form-acesso p #btn-logar,.box-login-cadastro .form-acesso p #btn-cadastrar{
-		width: 290px;
+		width: 100%;
 		padding: 6px 0px;
 		border-radius: 3px;
-		border: none;		
-		font: 16px Arial, Lato, sans-serif;
+		border: none;
+		font-family:'source_sans_proregular';
+		font-size: 1.2em;
 		color: #fff;
 		cursor: pointer;
 		margin-top: 10px;
 		margin-bottom: 10px;
 		outline: none;
 		font-weight: bold;
-		letter-spacing: 2px;
+		letter-spacing: 1px;
 		box-shadow: 1px 1px 2px #3D3D3D;
-
 		background: -webkit-linear-gradient(#A31313,#c91212);
 		background: -o-linear-gradient(#A31313,#c91212);
 		background: linear-gradient(#A31313,#c91212);
@@ -668,11 +667,11 @@ span#titulo-galeria h4{
 /*Quadro como funciona*/
 #info-funcional{
 	width: 100%;
-	padding:3px 0;
-	margin-top: 20px;
-	margin-bottom: 50px;
-	background-color: #d8d8d8; 
-	min-height: 410px;	
+    padding: 30px;
+    margin-top: 20px;
+    margin-bottom: 50px;
+    background-color: #d8d8d8;
+    display: inline-table;
 }
 	#info-funcional header{
 		width: 100%;
@@ -707,32 +706,30 @@ span#titulo-galeria h4{
 }
 	#info-funcional #passo-a-passo li.passos{
 		width: 100%;
-		height: 300px;
+		min-height: 230px;
 		padding: 4px;
 		box-shadow: 0px 0px 4px #515151;
 		margin-top:15px;
 	}
 #info-funcional #passo-a-passo li.passos:hover{box-shadow: 0px 0px 10px #515151;}
 #info-funcional #passo-a-passo li.passos h4{
-	font-family:Calibri, Arial, helvetica;
-	font-size:27px;
+	font-family:'source_sans_probold';
+	font-size:2em;
 	margin:2px 0;
 	text-align:center;
-
 }
 #info-funcional #passo-a-passo li.passos h4#first-title{color:#0f8a8b;}
-#info-funcional #passo-a-passo li.passos h4#second-title{color:#cdb21f;}
-#info-funcional #passo-a-passo li.passos h4#third-title,#info-funcional #passo-a-passo li.passos b{color:#01af32;}
+#info-funcional #passo-a-passo li.passos h4#second-title{color:#8c0d0d;}
+#info-funcional #passo-a-passo li.passos h4#third-title,#info-funcional #passo-a-passo li.passos b{color:#0b95ca;}
 
 #info-funcional #passo-a-passo li.passos .topo-info{
 	display:inline-table;		 
     margin:-5px 14px;
 	width:90%;
-
 }
 #info-funcional #passo-a-passo li.passos .topo-info p{
 	font-family: 'source_sans_proregular';
-	font-size: 18px;
+	font-size: 1.2em;
 	text-align: left;
 	margin-top: 13px;
 	color:#313131;
@@ -769,3 +766,7 @@ span#titulo-galeria h4{
 	::-webkit-scrollbar-thumb:window-inactive {
 	  background: rgba(142,142,142,.6);
 	}
+
+@media only screen and (max-width: 767px) {
+	#info-funcional #passo-a-passo li.passos .topo-info p{ text-align:center; font-size:1.5em; }
+}

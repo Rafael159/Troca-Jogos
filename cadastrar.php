@@ -36,11 +36,10 @@
 		exit();
 	endif;
 
-	$user->setEmail($email);
-	$_row = $user->findEmail();
-	$qtd=count($_row);
+	$_row = $user->findEmail(array('email'=>$email));
+	$qtd = count($_row);
 
-	if(count($_row) == "1"):
+	if($qtd >= '1'):
 		$retorno = array('status'=>'0', 'mensagem'=>'Email já existe, por favor insira outro');
 		echo json_encode($retorno);
 		exit();		

@@ -111,15 +111,14 @@ header{
     margin-left: 15px;
 }
 #main-menu .nav ul li .link{
-    font:1em Lato,Arial, sans-serif;
-    color:#ffffff;
+    font-family: 'source_sans_probold';
+    font-size: 1.1em;
+    color: #ffffff;
     text-align: left;
     text-transform: uppercase;
-    text-decoration:none;
+    text-decoration: none;
     border-bottom-color: transparent;
-    height: 20px;
-    padding: 5px;
-    position: absolute; 
+    outline: none;
 }
 #main-menu .nav ul li .link:hover{
     border-bottom-color:#069;

@@ -87,24 +87,23 @@ class Jogos extends Crud{
 	}
 
 	/*
-		 * Função: Mudar o status do jogo pelo ID
-		 * @return jogo
-		 */
-		public function changeStatus($id, $status){
+	* Função: Mudar o status do jogo pelo ID
+	* @return jogo
+	*/
+	public function changeStatus($id, $status){
 
-			$sql = "UPDATE $this->table SET status = :status WHERE id = :id";
-			$stmt = @BD::conn()->prepare($sql);
-			$stmt->bindParam(':status', $status);		
-			$stmt->bindParam(':id', $id);
-			return $stmt->execute();
+		$sql = "UPDATE $this->table SET status = :status WHERE id = :id";
+		$stmt = @BD::conn()->prepare($sql);
+		$stmt->bindParam(':status', $status);		
+		$stmt->bindParam(':id', $id);
+		return $stmt->execute();
 
-		}
+	}
 
 	/*
 	 * Função: Deletar jogo
 	*/
 	public function delete(){
-
 		$sql  = "DELETE FROM $this->table WHERE (id = :id_jogo)";
 		$stmt = @BD::conn()->prepare($sql);
 		$stmt->bindParam(':id_jogo', $this->id);			
@@ -115,7 +114,6 @@ class Jogos extends Crud{
 
 	/*listar jogos de acordo com a pesquisa feita*/
 	public function listarJogos($queries = array()){
-
 		$jogo = array_key_exists("jogo", $queries) ? $queries['jogo'] : '';
 		$id = array_key_exists("id", $queries) ? $queries['id'] : '';
 		$console = array_key_exists("console", $queries) ? $queries['console'] : '';
@@ -206,6 +204,15 @@ class Jogos extends Crud{
 		return $stmt->fetchAll();
 
 	}
+	public static function listarJogosHelper($queries = array()){		
+		$rows = new Jogos;
+		$row = $rows->listarJogos($queries);
+				
+		if(count($row) == 0) return false;
+		return $row;
+	}
+
+	//contar jogos
 	public static function contarJogosHelper($queries = array()){		
 		$rows = new Jogos;
 		$row = $rows->listarJogos($queries);

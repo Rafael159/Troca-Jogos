@@ -22,18 +22,20 @@ $(document).ready(function (){
 		},function(){
 			$("#nextBtn").show(); //após o primeiro clique o botão de anterior aparece
 		positop = $("#slider ul").offset().top;
-			if(positop == posiMain){
+			if(positop >= posiMain){
 				hide($("#prevId"));	//no ultimo , esconder botão de próximo								
 			}				
 		});
 	}
 	function animate_down(){
-		$('#slider ul').animate({	
+		$('#slider ul').animate({
 			marginTop: '-='+altura+'px'
 		},function(){
 			$("#prevId").show();
 			ultimo = $("#slider li:last").offset().top;
-			if(ultimo == posiMain){
+			console.log(ultimo, '--', posiMain);
+
+			if(ultimo <= posiMain){
 				hide($("#nextBtn"));
 			}
 		});	

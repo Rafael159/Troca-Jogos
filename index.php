@@ -15,6 +15,9 @@
 		<link rel="stylesheet" type="text/css" href="css/estilo.css"/>   
 		<link rel="stylesheet" type="text/css" href="css/style-footer.css"/>
 		<link rel="stylesheet" type="text/css" href="css/fonts.css"/>
+
+		<link rel="stylesheet" type="text/css" href="font-awesome/css/font-awesome.css"/>
+
 		<title>RG - Porque o jogo não pode parar</title>
 	</head>
 	<body class="center">
@@ -51,7 +54,7 @@
 				<!--enviar o id do console e retorno os jogos referentes ao mesmo-->
 				<div class="row nopadding">
 					<!-- <div class="galeria"> -->
-						<div class="col-lg-3 col-md-3 col-sm-4 nopadding">
+						<div class="col-lg-2 col-md-3 col-sm-4 nopadding">
 							<div class="galeria">
 								<ul class="box-galeria-jogos">			
 									<div class="arrow"></div>
@@ -63,7 +66,7 @@
 								</ul>
 							</div>
 						</div>
-						<div class="col-lg-9 col-md-9 col-sm-8 nopadding">
+						<div class="col-lg-10 col-md-9 col-sm-8 nopadding">
 							<div class="galeria">
 								<div id="galeria">
 								</div><!--id galeria-->
@@ -100,37 +103,38 @@
 				<div class="row">
 					<div class="content">
 						<div id="info-funcional">
-							<header><h3>Como funciona?</h3></header>
+							<header><h3>Como funciona a Restart Games?</h3></header>
 							<ul id="passo-a-passo">
-								<div class="col-lg-4">
+								<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
 									<li class="passos">
-										<div class="img-passos" id="img-cadastrar"></div>
-										<h4 id="first-title">Cadastrar</h4>
+										<!-- <div class="img-passos" id="img-cadastrar"></div> -->
+										<h4 id="first-title">Cadastrar <i class="fa fa-user-plus fa-2x" aria-hidden="true"></i></h4>
 										<span class="topo-info">
-											<p>Cadastre-se no site</p> 
-											<p>Cadastre os seus jogos</p>
+											<p><i class="fa fa-check" style="color:#0f8a8b"></i> Cadastre-se no site</p> 
+											<p><i class="fa fa-check" style="color:#0f8a8b"></i> Cadastre seus jogos</p>
 										</span>
 									</li>
 								</div>
-								<div class="col-lg-4">
+								<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
 									<li class="passos">
-										<div class="img-passos" id="img-pesquisar"></div>
-										<h4 id="second-title">Pesquisar</h4>
+										<!-- <div class="img-passos" id="img-pesquisar"></div> -->
+										<h4 id="second-title">Pesquisar <i class="fa fa-search fa-2x" aria-hidden="true"></i></h4>
 										<span class="topo-info">
-											<p>Procure os jogos que interessam<p>
-											<p>Entre em contato com 
+											<p><i class="fa fa-check" style="color:#8c0d0d"></i> Procure os jogos que interessam<p>
+											<p><i class="fa fa-check" style="color:#8c0d0d"></i> Entre em contato com 
 											o dono<p>
-											<p>Marque um ponto de encontro para a troca<p>
+											<p><i class="fa fa-check" style="color:#8c0d0d"></i> Marque um ponto de encontro para a troca<p>
 										</span>
 									</li>
 								</div>
-								<div class="col-lg-4">						
+								<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">						
 									<li class="passos">
-										<div class="img-passos" id="img-concluir"></div>
-										<h4 id="third-title">Concluir</h4>
+										<!-- <div class="img-passos" id="img-concluir"></div> -->
+										<h4 id="third-title">Concluir <i class="fa fa-refresh fa-2x" aria-hidden="true"></i></h4>
 										<span class="topo-info">										
-											<p>Pegue seu novo jogo</p> 
-											<p>Divirta-se <b>Muito +</b></p>
+											<p><i class="fa fa-check" style="color:#0b95ca"></i> Faça a troca</p> 
+											<p><i class="fa fa-check" style="color:#0b95ca"></i> Pegue seu novo jogo</p> 
+											<p><i class="fa fa-check" style="color:#0b95ca"></i> Divirta-se <b>muito +</b></p>
 										</span>
 									</li>
 								</div>						

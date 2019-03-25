@@ -34,7 +34,7 @@
 			<div id="box-login" class="cx_content">
 				<label class="btn_cancela_acesso" id="cancelar_login"><b>X</b></label>
 				<!--formulário de LOGIN-->
-				<div class="titulo-acesso">Faça seu login utilizando sua conta do Facebook ou insira seus dados de acesso nos campos indicados.</div>
+				<div class="titulo-acesso">Faça seu login utilizando sua conta cadastrada na Restart Games</div>
 				<form method="POST" action="" name="form-acesso" class="form-acesso" id="form-acesso">
 					<div id="result"></div>
 					<p>
@@ -47,7 +47,8 @@
 					</p>
 					<p>
 						<label>
-							<input type="button" name="logar" value="Logar" id="btn-logar"/>									
+							<button name="logar" id="btn-logar">Logar  <i class="fa fa-sign-in" aria-hidden="true"></i></button>
+							<!-- <input type="button" name="logar" value="Logar" id="btn-logar"/>									 -->
 						</label>								
 					<p>
 						<label>
@@ -61,7 +62,7 @@
 			<div id="box-cadastro" class="cx_content">
 				<label class="btn_cancela_acesso" id="cancelar_login"><b>X</b></label>
 				<!--formulário CADASTRO-->
-				<div class="titulo-acesso">Para se cadastrar utilize uma conta do Facebook ou informe seu nome e e-mail nos campos indicados.</div>
+				<div class="titulo-acesso">Para se cadastrar informe seu e-mail e senha nos campos indicados</div>
 				<form method="POST" action="cadastro.php" name="cadastro" class="form-acesso" enctype="multipart/form-data">
 					<p>
 						<label for="email_cadastro">Email:</label>
@@ -73,13 +74,13 @@
 					</p>
 					<p>
 						<label>
-							<input type="submit" name="Cadastro" value="Cadastrar" id="btn-cadastrar"/>	
+							<button class="Cadastro" id="btn-cadastrar">Cadastrar <i class="fa fa-user-plus" aria-hidden="true"></i></button>
 							<input type="hidden" name="envio" value="enviado"/>								
 						</label>								
 					</p>
 				</form>
 				<div id="status"></div>
-				<button class="facebook" id="cadastrar_facebook">Cadastrar com o Facebook</button>
+				<!-- <button class="facebook" id="cadastrar_facebook">Cadastrar com o Facebook</button> -->
 			</div><!--box-cadastro-->			
 		</div><!--box-login-cadastro-->
 

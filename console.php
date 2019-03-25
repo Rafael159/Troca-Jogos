@@ -34,21 +34,21 @@
      
     	<div id="main-menu">
 			<nav class="nav">
-			<ul>
-				<?php 
-				foreach($console->listarTodos() as $value):
-				?>
-				<li id="<?php echo str_replace(' ', '', $value->nome_console)?>"><a href="console.php?codigo=<?php echo $value->id_console?>&nome_console=<?php echo $value->nome_console?>" class="link"><?php echo $value->nome_console?></a></li>
-				<?php endforeach;?>
-			</ul> 
+				<ul>
+					<?php 
+					foreach($console->listarTodos() as $value):
+					?>
+					<li id="<?php echo str_replace(' ', '', $value->nome_console)?>"><a href="console.php?codigo=<?php echo $value->id_console?>&nome_console=<?php echo $value->nome_console?>" class="link"><?php echo $value->nome_console?></a></li>
+					<?php endforeach;?>
+				</ul> 
 			</nav>
 		</div>  
 		<div id="boxConsole">
 			<div id="select">
-			<select name="selecao" id="selecao">           
-				<option value="crescente">Crescente (A-Z)</option>
-				<option value="decrescente">Decrescente (Z-A)</option>
-			</select> 
+				<select name="selecao" id="selecao">           
+					<option value="crescente">Crescente (A-Z)</option>
+					<option value="decrescente">Decrescente (Z-A)</option>
+				</select> 
 			</div>
 			<?php
 				$idConsole = ((isset($_GET['codigo']) AND !empty($_GET['codigo'])) ? $_GET['codigo'] : '');
@@ -79,8 +79,9 @@
 		</div>
       <?php 
         require('footer.php');
-      ?>      
-      <script type="text/javascript" src="js/jquery.js"></script>  
-      <script type="text/javascript" src="js/console.js"></script> 
+      ?>
+		<script type="text/javascript" src="js/jquery.js"></script>  
+		<script type="text/javascript" src="js/console.js"></script>		
+		<script type="text/javascript" src="js/events.js"></script>
   </body>
 </html>
