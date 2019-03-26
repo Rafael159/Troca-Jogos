@@ -35,11 +35,11 @@
 		<div class='container-fluid'>
 			<div id='box_confirmation' class='col-lg-8 col-lg-push-2 nopadding'>
 				<div class='alert alert-success'>
-					<strong>Parabéns <?php echo $user_nome; ?>!</strong><small> Seu cadastro foi confirmado com sucesso</small>
+					<strong>Parabéns <?php echo $user_nome; ?>!</strong><small> Seu cadastro foi recebido com sucesso</small>
 				</div>
 				<div class='col-lg-12'>
-					<p>Um e-mail de confirmação foi enviado para o e-mail informado: <strong><?php echo $user_email?></strong></p>
-					<p>Acesse seu e-mail e confirme seu cadastro</p>
+					<p>Um e-mail de confirmação foi enviado para: <strong><?php echo $user_email?></strong></p>
+					<p>Agora falta pouco. Acesse seu e-mail e confirme seu cadastro</p>
 					<a href="index.php">Área principal</a>
 				</div>
 			</div>

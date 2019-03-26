@@ -14,16 +14,14 @@ body #top{
 body #top img{margin-left: 15px;}
 body #top img{margin-left: 15px;}
 
-#box_logar{
+#box_logar, .success{
 	width: 550px;
     background-image: linear-gradient(to bottom, #bdbdbd, #ccc, #bdbdbd);
     margin: 5% auto;
-    border-radius: 5px;
+    border-radius: 0px;
     padding: 5px;
 }
-#box_logar form{
-	margin-top: 30px;
-}
+
 #box_logar form p{
 	width: 100%;
 	height: 20px;

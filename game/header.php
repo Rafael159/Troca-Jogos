@@ -24,7 +24,8 @@
 				</p>
 				<p>
 					<label>
-						<input type="button" name="logar" value="ENTRAR" id="btn-login"/>									
+						<!-- <input type="button" name="logar" value="ENTRAR" id="btn-login"/> -->
+						<button name="logar" id="btn-login">Logar  <i class="fa fa-sign-in" aria-hidden="true"></i></button>
 					</label>								
 				<p>
 					<label>
@@ -33,7 +34,7 @@
 					</label>								
 				</p>
 			</form>
-			<button class="facebook" id="logar_facebook">Logar com o Facebook</button>
+			<!-- <button class="facebook" id="logar_facebook">Logar com o Facebook</button> -->
 		</div><!--box-login-->
 
 		<div id="box-cadastro">
@@ -56,7 +57,7 @@
 					</label>								
 				</p>
 			</form>
-			<button class="facebook" id="cadastrar_facebook">Cadastrar com o Facebook</button>
+			<!-- <button class="facebook" id="cadastrar_facebook">Cadastrar com o Facebook</button> -->
 		</div><!--box-cadastro-->
 	</div>
 	<!--FIM BOX LOGIN-->		

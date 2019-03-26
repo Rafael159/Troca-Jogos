@@ -12,7 +12,7 @@ $senha = trim($_POST['senha']);
 if(empty($email) || empty($senha)){
 	echo "O email e a senha devem ser preenchidos !";
 }else{
-	$query = "SELECT * FROM usuarios WHERE emailTJ = '$email'";
+	$query = "SELECT * FROM usuarios WHERE emailTJ = '$email' AND status = 'sim'";
 	$stmt = @BD::conn()->prepare($query);		
 
 	if($stmt->execute()){

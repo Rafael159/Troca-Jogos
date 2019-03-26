@@ -86,7 +86,7 @@ class Usuarios extends Crud{
 			
 		if(!isset($_SESSION['usuario'])) return false;		
 		$usuario = unserialize($_SESSION['usuario']);
-		// print_r($usuario);
+		
 		if(is_null($field)){
 			return $usuario;
 		}
@@ -187,12 +187,21 @@ class Usuarios extends Crud{
 
 	}
 
+	//Mudar o status do usuário
+	public function changeStatus($status, $id){
+		$sql = "UPDATE $this->table SET status = '$status' WHERE id_user = $id";
+		$stmt = @BD::conn()->prepare($sql);
+		if($stmt->execute()){
+			return true;
+		}
+	}
+
 	//exibir registro individual
 	public function getRegister($queries = array()){		
 		$id = (array_key_exists("id", $queries)) ? $queries['id'] : ''; 
 		$email = (array_key_exists("email", $queries)) ? $queries['email'] : '';		
 		$tipousuario = (array_key_exists("tipousuario", $queries)) ? $queries['tipousuario'] : '';		
-
+		$status = (array_key_exists("status", $queries)) ? $queries['status'] : '';		
 		$_where = array();
 
 		if($id) array_push($_where, " id_user = :id ");
@@ -205,8 +214,9 @@ class Usuarios extends Crud{
 				$w .= ' AND '.$v;
 			}
 		}
-
-		$where = " WHERE status = 'sim'";
+		$situacao = 'sim';
+		if($status) $situacao = $status;
+		$where = " WHERE status = '$situacao'";
 		
 		$sql  = "SELECT c.*, u.* FROM `usuarios` u inner join `console` c on(u.console = c.id_console) $where $w";
 		
@@ -264,7 +274,7 @@ class Usuarios extends Crud{
 	 */
 	public function loginUser(){
 
-		$sql = "SELECT * FROM $this->table WHERE emailTJ = :email AND senha = :senha";
+		$sql = "SELECT * FROM $this->table WHERE emailTJ = :email AND senha = :senha AND status = 'sim'";
 		$stmt = @BD::conn()->prepare($sql);
 		$stmt->bindParam(':email', $this->email);
 		$stmt->bindParam(':senha', $this->senha);

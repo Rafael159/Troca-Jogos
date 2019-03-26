@@ -10,7 +10,7 @@
 	</head>
 <body>
 	<div id="top">
-		<a href="../index.php"><img src="../imagens/backgrounds/logo.png" alt="TrocaJogos"></a>
+		<a href="../index.php"><img src="../imagens/backgrounds/logo.png" alt="Restart Games"></a>
 	</div>
 	<div class="row nopadding">
 		<div class="control-form" id="box_logar">
