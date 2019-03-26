@@ -61,7 +61,7 @@ if (empty($conf_senha)) :
 	exit();
 endif;
 if ($conf_senha != $senha) :
-	$retorno = array('status' => '0', 'mensagem' => 'Senha não coincidem. Informe a mesma senha');
+	$retorno = array('status' => '0', 'mensagem' => 'Senhas não coincidem. Informe a mesma senha');
 	echo json_encode($retorno);
 	exit();
 endif;

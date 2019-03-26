@@ -13,6 +13,7 @@
 	<div id="top">
 		<a href="../index.php"><img src="../imagens/backgrounds/logo.png" alt="TrocaJogos"></a>
     </div>
+    
     <div class="row nopadding">
         <div class="control-form" id="boxRecover">
             <form method="POST" action="" name="form-acesso" class="form-acesso" id="form-logar"> 
@@ -30,7 +31,6 @@
                 </div>
                 <div class="alert" id="return_msg"></div>
             </form>
-            
         </div>
     </div>
    

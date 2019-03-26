@@ -196,6 +196,15 @@ class Usuarios extends Crud{
 		}
 	}
 
+	//atualizar senha
+	public function updatePass($email, $senha){
+		$sql = "UPDATE $this->table SET senha = '$senha' WHERE emailTJ = '$email'";
+		$stmt = @BD::conn()->prepare($sql);
+		if($stmt->execute()){
+			return true;
+		}else return false;
+	}
+
 	//exibir registro individual
 	public function getRegister($queries = array()){		
 		$id = (array_key_exists("id", $queries)) ? $queries['id'] : ''; 

@@ -13,7 +13,10 @@ body #top{
 }
 body #top img{margin-left: 15px;}
 body #top img{margin-left: 15px;}
-
+.nopadding{
+	margin:0px !important;
+	padding:0px !important;
+}
 #box_logar, .success{
 	width: 550px;
     background-image: linear-gradient(to bottom, #bdbdbd, #ccc, #bdbdbd);
@@ -95,4 +98,21 @@ body #top img{margin-left: 15px;}
 #email_recover{
 	padding: 20px 10px;
     font-size: 1.2em;
+}
+
+/*Recuperação de senha*/
+#boxNewPass{
+	width: 500px;   
+    padding: 10px;
+    margin: 5% auto;
+    background:#e2e2e2;
+}
+#boxNewPass #titlerecover{
+    display: block;
+    padding: 5px;
+    text-align: center;
+    background: #fff;
+    font-size: 1.6em;
+    font-family: Calibri, arial, sans-serif;
+    margin-bottom: 15px;
 }
