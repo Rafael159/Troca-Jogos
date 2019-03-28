@@ -18,7 +18,7 @@
 
 		<link rel="stylesheet" type="text/css" href="font-awesome/css/font-awesome.css"/>
 
-		<title>RG - Porque o jogo não pode parar</title>
+		<title>Restart Games - Porque o jogo não pode parar</title>
 	</head>
 	<body class="center">
 		<?php
@@ -29,7 +29,9 @@
 			@BD::conn();//conexão com o banco de dados
 			
     		$categoria = new Consoles();
-    		$jogos = new Jogos();
+			$jogos = new Jogos();
+			
+			$user = Usuarios::getUsuario();
 		?>
 		<div class="main_box">
 			<div class="content">
@@ -74,31 +76,34 @@
 						</div>
 					<!-- </div> -->
 				</div>
-				
-				<!--últimos cadastrados-->
-					<?php
-						$jogoAll = $jogos->listarJogos(array('status'=>'Ativo', 'limite'=>'10'));
-						if(count($jogoAll) > 0):
-					?>
+				<?php
+					$queries = array('status'=>'Ativo', 'limite'=>'6', 'order'=>'ORDER BY id DESC');
+					if($user){
+						$idconsole = $user->console;
+						$queries['idconsole'] = $idconsole;
+					}
+
+					$jogoAll = $jogos->listarJogos($queries);
+					if(count($jogoAll) > 0):
+				?>
 					<div class="row">
-						<div class="col-lg-4 col-lg-offset-8">
-							<div id="sidebar-left">
-								<h5>Últimos <b>10</b> jogos cadastrados</h5>
-								<span id="prevId" class="flecha"><a href="javascript:void(0);"><img src="imagens/icones/icon-seta.png"></a></span> 
-								<span id="nextBtn" class="flecha"><a href="javascript:void(0);"><img src="imagens/icones/icon-seta.png"></a></span>
-								<div id="slider">
-									<ul>
-										<?php									
-											foreach($jogoAll as $jogo=> $valor):		
-										?>
-										<a href='game/game.php?codigo=<?php echo $valor->id;?>'><li><img src="game/imagens/<?php echo str_replace(' ','',$valor->nome_console).'/'.$valor->imagem;?>"><span class="inf-ultimos-jogos"><?php echo substr($valor->n_jogo,0,12).' - '.substr(strtoupper($valor->nome_console),0,6).'...'?></span></li></a>
-										<?php endforeach;?>
-									</ul>							
-								</div>
-							</div><!--sidebar-->
+						<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+							<div id="lastgamesBox">
+								<label class="last-records">Últimos jogos cadastrados que podem te interessar</label>
+								<?php foreach($jogoAll as $jogo=> $valor): ?>
+									<div class="col-lg-2 col-md-3 col-sm-4 col-xs-6">
+										<div class="single-game">
+											<a href='game/game.php?codigo=<?php echo $valor->id;?>'><img src="game/imagens/<?php echo str_replace(' ','',$valor->nome_console).'/'.$valor->imagem;?>" class="img-game"></a>
+											
+											<span class="name-game"><b><?php echo substr($valor->n_jogo,0,15).'...'?></b></span>
+										</div>
+									</div>
+								<?php endforeach; ?>
+							<?php //endif; ?>
+							</div>
 						</div>
 					</div>
-					<?php endif; ?>
+				<?php endif;?>				
 				</div>
 				<div class="row">
 					<div class="content">
@@ -154,7 +159,7 @@
 	<script src="js/events.js"></script><!--referente ao autocomplete do campo pesquisa -->
 	<script src="js/funcoes.js"></script>
 	<script src="js/validacao.js"></script>
-	<script src="js/animation.js"></script><!--animação dos últimos jogos cadastrados-->
+	<!-- <script src="js/animation.js"></script>animação dos últimos jogos cadastrados -->
 	<script src="js/global.js"></script>
 	<script>
 		$(document).ready(function(){

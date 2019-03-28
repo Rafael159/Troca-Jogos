@@ -154,7 +154,8 @@ class Jogos extends Crud{
 				WHERE j.img_jogo is not null $w $ordem $limit";
 		
 		$stmt = @BD::conn()->prepare($sql);
-		$stmt->bindValue(':busca', '%'.$this->nome.'%');
+		
+		// $stmt->bindValue(':busca', '%'.$this->nome.'%');
 		$stmt->execute();
 		$resultado = $stmt->fetchAll();
 		

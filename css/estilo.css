@@ -366,86 +366,44 @@ body{
 	background: #373737;
 	margin-top: 50px;
 }
-/*sidebar direito*/
-#sidebar-left{
-	width: 300px;
-	height: 340px;
-	background: #ccc;
-	float: right;
-	margin:8px 5px;
+#lastgamesBox{
+	width: 100%;
+    background: #ffffff;
+    padding: 15px;
+    display: inline-table;
+	min-height: 360px;
 }
-	#sidebar-left h5{
-		width: 100%;
-		background: #fff;
-		padding: 6px 0;
-		text-align: center;
-		font: 20px arial, helvetica, sans-serif;
-		color:#333;
-		margin-bottom: 40px;
-	}	
-#slider{
-	width:230px;
-	height:250px;
-	background:#000;
-	margin:0 auto;
-	position:relative;
-}	
-#slider a{
-	text-decoration: none;
+#lastgamesBox .last-records{
+	display: block;
+    padding: 8px 15px;
+    text-align: left;
+    font-family: 'source_sans_probold';
+    font-size: 1.4em;
+    color: #333;
+    background: #ccc;
+    margin-bottom: 15px;
 }
-#slider ul, #slider li{
-	margin:0;
-	padding:0;
-	list-style:none;
-	}
-#slider, #slider li{ 
-	width:150px;
-	height:230px;
-	overflow:hidden; 
-	}
-#slider li span{
-	font-family: Arial, helvetica, sans-serif;
-	font-size: 12px;
-	text-align: left;
-	color:#cecece;
-	padding-left: 3px;
+#lastgamesBox .single-game{
+	width:100%;
+	background:#595094;
+	padding:10px;
+	cursor:pointer;
+	margin: 10px 0px;
 }
-	#slider li > img{
-		position:relative;
-		width: 150px;
-		height: 200px;
-	}
-#sidebar-left .flecha{
-	width: 30px;
-	height: 230px;
-	background: #8c8c8c;
-	position: absolute;
-	cursor: pointer;
-	transition:0.5s;
-	-webkit-transition:0.5s;
+#lastgamesBox .single-game:hover{
+	background: #473b99;
 }
-	#sidebar-left .flecha:hover{
-		background: #054255;
-	}
-.flecha a img{
-	margin:100px 2px;
+#lastgamesBox .single-game .img-game{ width:100%; height: 190px;}
+#lastgamesBox .single-game .name-game{
+	display: block;
+    background: #333;
+    text-align: center;
+    padding: 7px;
+    font-size: 1em;
+    font-family: 'source_sans_proregular';
+    color: #fefefe;
 }
-	#sidebar-left .flecha#nextBtn{margin-left: 226px;}
-		.flecha#nextBtn a img{
-		-webkit-transform:rotate(-90deg);
-		-moz-transform:rotate(-90deg);
-		-ms-transform:rotate(-90deg);
-		-o-transform:rotate(-90deg);
-		transform:rotate(-90deg);
-	}
-	#sidebar-left .flecha#prevId{margin-left: 44px;}
-		.flecha#prevId a img{
-			-webkit-transform:rotate(90deg);
-			-moz-transform:rotate(90deg);
-			-ms-transform:rotate(90deg);
-			-o-transform:rotate(90deg);
-			transform:rotate(90deg);
-		}
+
 
 /*****||||||FORMATAÇÃO DA GALERIA DE JOGOS|||||||****/
 .arrow{	
@@ -769,4 +727,6 @@ span#titulo-galeria h4{
 
 @media only screen and (max-width: 767px) {
 	#info-funcional #passo-a-passo li.passos .topo-info p{ text-align:center; font-size:1.5em; }
+
+	#lastgamesBox .single-game .img-game{ height:260px; }
 }

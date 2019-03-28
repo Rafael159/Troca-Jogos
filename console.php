@@ -27,7 +27,7 @@
     <link rel="stylesheet" type="text/css" href="css/fonts.css" />
     <link rel="stylesheet" type="text/css" href="css/style-footer.css"/>
 
-    <title>Tudo sobre <?php echo strtoupper($cons)?></title> 
+    <title>Restart Games - Tudo sobre <?php echo strtoupper($cons)?></title> 
   	</head>
   	<body>
     	<?php require 'require/header.php';?>

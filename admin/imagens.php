@@ -71,7 +71,7 @@
 <div class="alert-overlay"></div>
 <div id="box_confirmacao">
 	<header class="alert-title">Deletar Imagem</header>
-	<p><span class="alert-msg">Imagem será deletado do banco. Tem certeza que deseja continuar?</span></p>
+	<p><span class="alert-msg">A imagem será deletada permanentemente. Tem certeza que deseja continuar?</span></p>
 	<button class="alert-btn" id="alert-confirma" name="confirma">Confirmar</button>
 	<button class="alert-btn" id="alert-cancela" name="cancela">Cancelar</button>
 	<input type="hidden" value="" id="recuperaId">

@@ -29,8 +29,8 @@
 					</label>								
 				<p>
 					<label>
-						<a href="..\cadastro.php">Cadastre-se</a>
-						<a href="#user-cadastrar">Esqueci minha senha</a>
+						<a href="../cadastro.php">Cadastre-se</a>
+						<a href="../login/recoverpass.php">Esqueci minha senha</a>
 					</label>								
 				</p>
 			</form>

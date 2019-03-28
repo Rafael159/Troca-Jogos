@@ -32,7 +32,7 @@
 		<meta name="description" content="Troque seus jogos antigos por jogos que ainda não teve"/>
 		<meta name="description" content="Troque jogos - divirta-se sem gastar mais"/>
 		<meta name="keywords" content="Troca,Jogo,Games,Jogadores,Console, Diversão"/>
-		<title>RG - Pesquise jogos para trocar</title>
+		<title>Restart Games - Pesquise jogos para trocar</title>
 		<!--CHAMADAS CSS-->
 		<link rel="stylesheet" type="text/css" href="css/pesquisa.css">
 		<link rel="stylesheet" type="text/css" href="css/estilo.css"/>
