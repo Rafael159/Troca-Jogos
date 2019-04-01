@@ -115,7 +115,7 @@
 											<section class="information"><a href="#" id="linkExplica" data-toggle="modal" data-target="#show-reason">Por que informar o endereço?</a></section>
 										</div>
 										<div class="col-lg-12 col-md-6 col-sm-6 col-xs-12">
-											<h5><input type="checkbox" name="termos" value="Termos" id="termos"/>Ao clicar em Cadastrar você concorda com os <a href="termos.php" target="blank">Termos de Política e Privacidade</a> do Troca Jogos</h5>										
+											<h5><input type="checkbox" name="termos" value="Termos" id="termos"/>Ao clicar em Cadastrar você concorda com os <a href="termos_privacidade.php" target="blank">Termos de Política e Privacidade</a> do Troca Jogos</h5>										
 											<div class="alert alert-danger" id='msg_error'>
 												<strong></strong>
 											</div>

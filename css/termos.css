@@ -1,0 +1,31 @@
+body{
+    background: url('../imagens/backgrounds/capa.png') #211d1d;	
+	background-repeat: no-repeat;
+	background-size: 100%;
+}
+.boxtermos{ 
+    width: 100%;
+    padding: 15px;
+    background: #ececec;
+}
+.nopadding{
+    margin:0px !important;
+    padding:0px !important;
+}
+.boxtermos .clausula{
+    text-align: justify;
+    font-size: 1.1em;
+    font-family: 'source_sans_proregular';
+    color: #000;
+}
+.clausula ul{ padding:0px !important; }
+.clausula ul li{ padding:5px; width:100%; display: block; }
+.boxtermos .title-clausula{
+    margin: 20px;
+    font-family: 'source_sans_proregular';
+    font-weight: bold;
+    text-align: center;
+}
+
+.top{ width: 100%; }
+.top .brand{ margin-left: 2%; }
