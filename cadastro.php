@@ -12,7 +12,7 @@
 		<link rel="stylesheet" href="css/cadastro.css"/>
 		<link rel="stylesheet" href="font-awesome/css/font-awesome.css"/>
 		<link rel="stylesheet" href="css/fonts.css"/> 
-
+		<link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
 		<title>Restart Games - Crie sua conta</title>		
 	</head>
 	<body>

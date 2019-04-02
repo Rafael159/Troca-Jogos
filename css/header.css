@@ -216,8 +216,8 @@ span#resultados{
         text-align: center;
         font: 15px Arial, helvetica, sans-serif;
         color: #fff;    
-        margin-left:14px;
-        margin-top:10px;
+        margin-left:12px;
+        margin-top:8px;
         position:absolute;
     }
 
@@ -229,7 +229,7 @@ span#resultados{
     width: 280px; 
 }
     .box-login-cadastro .form-acesso{
-        width: 96%;
+        width: 100%;
         padding: 2%;
     }
     .box-login-cadastro .form-acesso p{display: block;}
@@ -257,7 +257,7 @@ span#resultados{
         height: 30px;
         line-height: normal;
         margin-bottom: 10px;
-        width: 98%;
+        width: 100%;
         padding: 1%;
         outline: none;
     }

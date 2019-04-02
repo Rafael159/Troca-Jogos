@@ -1,9 +1,3 @@
-<!--
-	*****Página de troca de jogos   					   ********
-	*****Programador : RAFAEL ALVES CARDOSO    			   ********
-	*****DATA: 22/02/2017                        	       ********
-	*****Função: Página que mostrará troca dos jogos       ********
--->
 <?php
 	header('Content-Type: text/html; charset=utf-8');
 	function __autoload($classe){
@@ -42,6 +36,8 @@
 		<!--CSS BOOTSTRAP-->
 		<link rel="stylesheet" href="..\bootstrap/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="..\bootstrap/css/bootstrap-theme.css"/>
+		<link rel="shortcut icon" type="image/x-icon" href="../favicon.ico">
+
 	</head>
 <body>
 	<input type="hidden" name="idUserDois" value='<?php echo $idUser ?>' id="idUserDois"/>

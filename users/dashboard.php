@@ -26,6 +26,8 @@
 				
 		<link rel="stylesheet" type="text/css" href="css/jogos.css"/>
 		<link rel="stylesheet" type="text/css" href="css/home.css"/>
+		<link rel="shortcut icon" type="image/x-icon" href="../favicon.ico">
+
 		<title>Dashboard - Troca Jogos</title>
 	</head>
 <body>

@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="font-awesome/css/font-awesome.css"/>
     <link rel="stylesheet" href="css/fonts.css"/>
     <link rel="stylesheet" type="text/css" media="screen" href="css/termos.css">
+	<link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
 </head>
 <body>
     <div class="container">

@@ -88,8 +88,13 @@ $(function(){
 		},'jSON');
 	}
 
-	firstLoad();
-	
+	/**
+	 * playerON - id do usuário online
+	 * variável está vindo do feed.php
+	 */
+	if(playerON){
+		firstLoad();
+	}
 	// setInterval(function(){
 	// 	idReceiver = $('.mensagens').attr('id');
 	// 	idReceiver = idReceiver.split('_')[1];//separar o ID do usuário

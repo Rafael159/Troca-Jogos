@@ -22,8 +22,7 @@
 	if($pos){
 		$cnsl = trim(substr(strrchr($key, '-'), 1));
 		$key = trim(substr($key, 0, $pos));//retira o nome do console
-	}
-	
+	}	
 ?>
 <!DOCTYPE HTML>
 <html>
@@ -38,9 +37,8 @@
 		<link rel="stylesheet" type="text/css" href="css/estilo.css"/>
 		<link rel="stylesheet" type="text/css" href="css/style-footer.css"/>
 		<link rel="stylesheet" type="text/css" href="css/fonts.css"/>
-		<link rel="stylesheet" type="text/css" href="css/header.css"/><!--estilo topo-->
-		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
-		
+		<link rel="stylesheet" type="text/css" href="css/header.css"/><!--estilo topo-->		
+		<link rel="shortcut icon" type="image/x-icon" href="favicon.ico">		
 	</head>
 <body class="center">
 	<?php include_once('require/header.php'); ?>

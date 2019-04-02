@@ -5,6 +5,7 @@
 	<!--CSS BOOTSTRAP-->
     <link rel="stylesheet" href="..\bootstrap/css/bootstrap.min.css"/>
 	<link rel="stylesheet" href="..\bootstrap/css/bootstrap-theme.css"/>
+	<link rel="shortcut icon" type="image/x-icon" href="../favicon.ico">
 	
 	<title>Entre agora mesmo !</title>
 	</head>

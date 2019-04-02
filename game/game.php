@@ -34,6 +34,8 @@
 		<link rel="stylesheet" type="text/css" href="../css/fonts.css" />
 
 		<link rel="stylesheet" type="text/css" href="../css/style-footer.css"/>
+		<link rel="shortcut icon" type="image/x-icon" href="../favicon.ico">
+
 	</head>
 <body class="center">
 	<div class="content">	

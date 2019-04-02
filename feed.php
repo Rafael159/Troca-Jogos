@@ -44,6 +44,7 @@
         <link rel="stylesheet" href="bootstrap/css/bootstrap-theme.css"/>
 
 		<link rel="stylesheet" type="text/css" href="font-awesome/css/font-awesome.css"/>
+		<link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
 	</head>
 <body>
 	<div class="container-fluid nopadding">
@@ -68,7 +69,7 @@
 					</div>
 				</div>
 				<div class="col-lg-3 nopadding col-lg-push-1">
-					<?php if($idOn): ?>					
+					<?php if($idOn): ?>
 						<div class="friend-box">							
 							<?php
 								$row = Friendships::getFriendsHelper(array('who_sent'=>$idOn, 'who_accepted'=>$codUser));
@@ -149,11 +150,17 @@
 	
 	<!--CHAMADA JAVASCRIPT-->
 	<script type="text/javascript" src="js/jquery.js"></script><!--chama o arquivo principal do jquery-->
+	<script>
+		$(document).ready(function(){			
+			playerON = '<?php echo Usuarios::getUsuario('id_user'); ?>';
+		});
+	</script>
 	<!--JS BOOTSTRAP-->
 	<script src="bootstrap/js/bootstrap.min.js"></script>
 	<script src="js/global.js"></script>
 	<script src="js/funcoes.js"></script>
 	<script src="js/events.js"></script>
 	<script src="js/events-feed.js"></script>
+	
 </body>
 </html>

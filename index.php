@@ -17,10 +17,10 @@
 		<link rel="stylesheet" type="text/css" href="css/fonts.css"/>
 
 		<link rel="stylesheet" type="text/css" href="font-awesome/css/font-awesome.css"/>
-
+		<link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
 		<title>Restart Games - Porque o jogo não pode parar</title>
 	</head>
-	<body class="center">
+	<body class="center">	
 		<?php
 			session_start();
 			function __autoload($classe){
@@ -147,7 +147,10 @@
 						</div><!-- final do id info-funcional-->
 					</div>
 				</div>				
-			</main>											
+			</main>	
+			<div class="advertising">
+				
+			</div>
 		</div><!--content-->	
 	</div><!--principal-->
 	<?php
@@ -159,12 +162,33 @@
 	<script src="js/events.js"></script><!--referente ao autocomplete do campo pesquisa -->
 	<script src="js/funcoes.js"></script>
 	<script src="js/validacao.js"></script>
-	<!-- <script src="js/animation.js"></script>animação dos últimos jogos cadastrados -->
 	<script src="js/global.js"></script>
-	<script>
+	
+	<!-- <script src="js/adblocks.js" type="text/javascript"></script>
+	<script type="text/javascript">
+	
+		if(document.getElementById('drall_team_PRS_JS__random')){
+		alert('Bloqueando anúncio: Não');
+		} else {
+		alert('Bloqueando anúncio: Sim');
+		}
+	</script> -->
+
+	<!-- <script src="js/animation.js"></script>animação dos últimos jogos cadastrados -->
+	<!-- <script>
 		$(document).ready(function(){
-        	$('#lista_jogos').slideUp();
+			$('#lista_jogos').slideUp();
+			alert(jQuery('.advertising').height());
+			jQuery(document).ready(function() {
+				if (jQuery('.advertising').height() == 0) {
+					// AdBlock active
+					alert('ANÚNCIO DESATIVADO');
+				}else{
+					alert('ANÚNCIO ATIVO');
+				}
+			});
 		});
-	</script>	
+	</script> -->
+	
 	</body>
 </html>
