@@ -54,6 +54,7 @@
 				<div class="collapse navbar-collapse" id="main-menu">
 					<ul class="nav navbar-nav navbar-right container-menu">
 						<!-- <li class="menu"><a href="settings.php" title="Configuração" class="link-main" id="settings"><i class="fa fa-cog"></i> Configuração</a></li> -->
+						<li class=""><a href="../index.php" title="Meu perfil" class="link-main"  id="back"><i class="fa fa-arrow-left" aria-hidden="true"></i> Voltar ao site</a></li>
 						<li class="menu"><a href="profile.php" title="Meu perfil" class="link-main" id="perfil_user"><i class="fa fa-user"></i> Perfil</a></li>
 						<li class=""><a href="..\sair.php" title="Sair" class="link-main" id="settings"><i class="fa fa-sign-out"></i> Sair</a></li>
 					</ul>

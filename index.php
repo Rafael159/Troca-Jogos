@@ -7,11 +7,11 @@
 		<meta name="description" content="Troque jogos - divirta-se sem gastar mais"/>
 		<meta name="keywords" content="Restart,Games,Troca,Jogo,Jogadores,Jogos"/>
 
-		<!--CHAMADA CSS-->
-				<!--CSS BOOTSTRAP-->
+		<!--CSS BOOTSTRAP-->
 		<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css"/>
     	<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap-theme.css"/>
-
+		
+		<!--CHAMADA CSS-->
 		<link rel="stylesheet" type="text/css" href="css/estilo.css"/>   
 		<link rel="stylesheet" type="text/css" href="css/style-footer.css"/>
 		<link rel="stylesheet" type="text/css" href="css/fonts.css"/>

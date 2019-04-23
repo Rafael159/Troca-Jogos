@@ -305,7 +305,7 @@ span.alert-vazio p{
 }
 .contorno .info-gamer{
     width: 184px;
-    margin: 5px 0 5px 13px;
+    margin: 0px auto;
     background: #ffffff;
     opacity: 0.8;
     border-radius: 4px;

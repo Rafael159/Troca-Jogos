@@ -136,8 +136,8 @@ class Usuarios extends Crud{
 
 	public function insert(){
 
-		$sql  = "INSERT INTO $this->table(nomeUser, emailTJ, senha, console, celular, telefone, cep, rua, numero, cidade, estado, tipousuario, complemento, status, logfirst, logusuario ) VALUES 
-		(:nome, :email, :senha, :console, :celular, :telefone, :cep, :rua, :numero, :cidade, :estado, :tipousuario, :complemento, :status, :logfirst, :logusuario)";
+		$sql  = "INSERT INTO $this->table(nomeUser, emailTJ, senha, console, celular, telefone, cep, rua, numero, bairro, cidade, estado, complemento, tipousuario, status, logfirst, logusuario) VALUES 
+		(:nome, :email, :senha, :console, :celular, :telefone, :cep, :rua, :numero, :bairro, :cidade, :estado,:complemento, :tipousuario, :status, :logfirst, :logusuario)";
 		$stmt = @BD::conn()->prepare($sql);
 		$stmt->bindParam(':nome',$this->nome);
 		$stmt->bindParam(':email',$this->email);
@@ -148,10 +148,11 @@ class Usuarios extends Crud{
 		$stmt->bindParam(':cep', $this->cep);
 		$stmt->bindParam(':rua',$this->rua);
 		$stmt->bindParam(':numero',$this->numero);
+		$stmt->bindParam(':bairro',$this->bairro);
 		$stmt->bindParam(':cidade',$this->cidade);
 		$stmt->bindParam(':estado',$this->estado);
-		$stmt->bindParam(':tipousuario',$this->tipousuario);
-		$stmt->bindParam(':complemento',$this->comple);
+		$stmt->bindParam(':complemento', $this->complemento);
+		$stmt->bindParam(':tipousuario', $this->tipousuario);
 		$stmt->bindParam(':status', $this->status);
 		$stmt->bindParam(':logfirst', $this->logFirst);
 		$stmt->bindParam(':logusuario', $this->logUsuario);

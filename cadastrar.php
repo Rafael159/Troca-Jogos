@@ -15,6 +15,7 @@ $console = (isset($_POST['console'])) ? $_POST['console'] : '';
 $cep = (isset($_POST['cep'])) ? $_POST['cep'] : '';
 $rua = (isset($_POST['rua'])) ? trim($_POST['rua']) : '';
 $numero = (isset($_POST['numero'])) ? trim($_POST['numero']) : '';
+$bairro = (isset($_POST['bairro'])) ? trim($_POST['bairro']) : '';
 $cidade = (isset($_POST['cidade'])) ? trim($_POST['cidade']) : '';
 $estado = (isset($_POST['estado'])) ? trim($_POST['estado']) : '';
 $complemento = (isset($_POST['complemento'])) ? trim($_POST['complemento']) : '';
@@ -91,13 +92,14 @@ $user->setConsole($console);
 $user->setCEP($cep);
 $user->setRua($rua);
 $user->setNumero($numero);
+$user->setBairro($bairro);
 $user->setCidade($cidade);
 $user->setEstado($estado);
 $user->setComplemento($complemento);
 $user->setStatus('nao');
 $user->setTipoUsuario((int)$tipo);
 $user->setLogFirst(date('Y-m-d H:i'));
-$user->setLogUsuario('');
+$user->setLogUsuario(null);
 
 //Se não cadastrar, mande uma mensagem de erro
 if (!$user->insert()) :
@@ -178,9 +180,5 @@ else :
 		$retorno = array('status' => '0', 'mensagem' => 'Houve um erro ao efetuar o cadastro');
 		echo json_encode($retorno);
 	}
-
-//fim da confirmação por email
-
-
 endif;
 

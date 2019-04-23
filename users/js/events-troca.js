@@ -158,13 +158,14 @@ $(document).ready(function(){
 		});
 	}
 
-	viewTroca = function(idTroca){
+	viewTroca = function(idTroca){		
 		$.ajax({
 			url : 'view-troca.php',
 			type : 'post',
 			data : 'idTroca='+idTroca,
 			dataType : 'json'
 		}).done(function(data){
+			console.table(data);
 			if(data.status == '0'){
 				$('#box_error').modal();
 				$('#box-msg-error').html(data.mensagem);

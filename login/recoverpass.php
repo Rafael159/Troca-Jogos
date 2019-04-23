@@ -32,6 +32,7 @@
                 </div>
                 <div class="alert" id="return_msg"></div>
             </form>
+            <div id="progress"><img src="../imagens/icones/loading.gif" alt="Carregando" id="loading"></div>
         </div>
     </div>
    

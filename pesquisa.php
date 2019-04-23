@@ -3,7 +3,6 @@
 	*****Programador : RAFAEL ALVES CARDOSO     ********
 	*****DATA: 27/07/2015                       ********
 -->
-
 <?php
 	header("Content-Type: text/html;  charset=UTF-8",true);
 	function __autoload($classe){
@@ -15,8 +14,7 @@
     $usuario = new Usuarios();
 	$console = new Consoles();
 	$key = ( isset($_GET['pesquisa']) AND !empty($_GET['pesquisa'])) ? $_GET['pesquisa'] : '';
-	
-	
+		
 	$pos = strpos($key, '-');//posição do "-"
 	
 	if($pos){
@@ -28,17 +26,20 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
+		<meta name="description" content="Restart Games - Porque o jogo não pode parar"/>
 		<meta name="description" content="Troque seus jogos antigos por jogos que ainda não teve"/>
 		<meta name="description" content="Troque jogos - divirta-se sem gastar mais"/>
-		<meta name="keywords" content="Troca,Jogo,Games,Jogadores,Console, Diversão"/>
+		<meta name="keywords" content="Restart, Games, Troca,Jogo, Jogadores,Console, Diversão"/>
 		<title>Restart Games - Pesquise jogos para trocar</title>
-		<!--CHAMADAS CSS-->
+		
+		<!--CHAMADAS CSS-->		
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 		<link rel="stylesheet" type="text/css" href="css/pesquisa.css">
 		<link rel="stylesheet" type="text/css" href="css/estilo.css"/>
 		<link rel="stylesheet" type="text/css" href="css/style-footer.css"/>
 		<link rel="stylesheet" type="text/css" href="css/fonts.css"/>
-		<link rel="stylesheet" type="text/css" href="css/header.css"/><!--estilo topo-->		
-		<link rel="shortcut icon" type="image/x-icon" href="favicon.ico">		
+		<link rel="stylesheet" type="text/css" href="css/header.css"/><!--estilo topo-->
+		<link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
 	</head>
 <body class="center">
 	<?php include_once('require/header.php'); ?>

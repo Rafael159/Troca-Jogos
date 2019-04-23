@@ -40,6 +40,7 @@
 	}
 	if(empty($dados)):		
 	else:
+
 ?>
 <div class="table-responsive col-lg-12 col-md-12">
     <table class="table table-striped" cellspacing="0" cellpadding="0" id="tbl-trocas">
@@ -60,15 +61,15 @@
             	<div class="col-lg-2">
             		<th class="top-title">TIPO TROCA</th>
             	</div>
-            	<div class="col-lg-2">
-            		<th class="top-title">VALOR RETORNO</th>
+            	<div class="col-lg-1">
+            		<th class="top-title">RETORNO</th>
             	</div>
 				<div class="col-lg-2">
             		<th class="top-title">STATUS</th>
             	</div>
             	<div class="col-lg-2">
             		<th class="top-title actions">AÇÕES</th>
-            	</div>
+				</div>				
             </tr>
         </thead>
         <tbody>
@@ -91,7 +92,8 @@
 
 			    	$jogo->setID($takeID);//id do jogo do user 
 			    	$datagame = $jogo->listaJogoById();
-			    	
+					$owner = $rs->by_user;//pega o id de quem fez a troca
+				
 			    	foreach ($datagame as $marker => $rst):
 			    		$mainjogo = $rst->n_jogo;
 			    	endforeach;
@@ -101,7 +103,15 @@
             		<th class="each-record">#<?php echo $rs->id?></th>
             	</div>
                 <div class="col-lg-1">
-            		<th class="each-record"><?php echo substr($rs->nomeUser, 0, 20)?></th>
+            		<th class="each-record">
+						<?php if($owner != $userID): ?>
+							<a href="../feed.php?codigo=<?php echo $owner?>">
+						<?php endif;?>
+							<?php echo substr($rs->nomeUser, 0, 20)?>
+							<?php if($owner != $userID): ?>
+						</a>
+							<?php endif; ?>
+					</th>
             	</div>
             	<div class="col-lg-2">
             		<th class="each-record"><?php echo (isset($mainjogo)) ? $mainjogo : ''; ?></th>
@@ -112,16 +122,15 @@
             	<div class="col-lg-2">
             		<th class="each-record"><?php echo $type?></th>
             	</div>
-            	<div class="col-lg-2">
+            	<div class="col-lg-1">
             		<th class="each-record"><?php echo "R$ $rs->valor"?></th>
             	</div>
 				<div class="col-lg-2">
             		<th class="each-record"><?php echo $rs->status; ?></th>
-            	</div>
+				</div>				
             	<div class="col-lg-2">
                     <td class="actions">
-                        <?php  
-                            $owner = $rs->by_user;//pega o id de quem fez a troca
+                        <?php
                             $vlr = $rs->status;
                             if($vlr=="Pendente" && ($owner != $userID) && ($tipo=='received' || $tipo=='all')):
                         ?>
@@ -145,7 +154,7 @@
 							<?php endif; ?>
                         </div>                        
                     </td>
-                </div>
+				</div>				
             </tr>
             <?php endforeach;?>
         </tbody>

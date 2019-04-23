@@ -106,8 +106,8 @@
 											</select>									
 										</div>
 										<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-											<label for="comple">Complemento</label>
-											<input type="text" name="comple" id="complemento" placeholder="Complemento" class="form-control"/>
+											<label for="complemento">Complemento</label>
+											<input type="text" name="complemento" id="complemento" placeholder="Complemento" class="form-control"/>
 										</div>
 										<div id="retorno"></div><!--recebe a mensagem de erro-->
 

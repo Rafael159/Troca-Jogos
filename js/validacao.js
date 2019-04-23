@@ -59,7 +59,7 @@ $('#cep').blur(function(){
 
 //Validar info de cadastro antes de enviar
 	$("#form-cadastro").submit(function(e){
-	 	e.preventDefault();	 	
+		 e.preventDefault();	 		 
 	 }).validate({
 		onKeyup : true,
 			eachValidField : function() {
@@ -95,7 +95,6 @@ $('#cep').blur(function(){
 			termos:{
 				required: true
 			}
-
 		},
 		messages:{
 			nome:{
@@ -127,15 +126,17 @@ $('#cep').blur(function(){
 		},
 		submitHandler: function(){
 			var form = $("#form-cadastro");
-			
+			$("#btCadastrar").prop("disabled", true);
 			$.ajax({
                 type: 'post',
                 url: 'cadastrar.php',
                 data: form.serialize(),
-                success:function(result){                	
+                success:function(result){
+					console.table(result);               	
                 	result = $.parseJSON(result);
-
+					
                 	if(result.status=='0'){
+						$("#btCadastrar").prop("disabled", true);
                     	$('#msg_error').show().text(result.mensagem);
                     }else{                    	
                     	window.location.href = 'register-confirmation.php';

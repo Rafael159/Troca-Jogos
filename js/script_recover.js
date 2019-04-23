@@ -6,16 +6,23 @@ $(document).ready(function () {
         email = $('input[name=email_recover]').val();
 
         if (email.length > 0) {
+            $("button[name=btn-recover]").prop("disabled", true);
+            $("#progress").css("display", "block");
             $.ajax({
                 method: 'POST',
                 url: 'verifica.php',
                 data: { email: email, tipo: 'recuperar' },
                 success: function (dados) {
                     dados = JSON.parse(dados);
+                    console.log(dados);
                     if (dados.status == '0') {
                         //erro
+                        $("#progress").css("display", "none");
+                        $("button[name=btn-recover]").prop("disabled", false);
                         $('#return_msg').addClass('alert-danger').text(dados.mensagem).fadeIn();
                     } else {
+                        $("button[name=btn-recover]").prop("disabled", false);
+                        $("#progress").css("display", "none");
                         mensagem = "Um link para redefinição da senha foi enviado para <br/><b style='font-size:1.2em'>" + dados.mensagem + "</b>";
                         mensagem += "<br/> Verifique o seu e-mail para redefinir a sua senha";
                         mensagem += "<br/> Você deve redefinir sua senha em até <b>24h</b>. Após esse prazo o link enviado expirará";
@@ -39,7 +46,9 @@ $(document).ready(function () {
         senha = $('#new_pass').val();
         confirm_pass = $('#confirm_pass').val();
 
-        if (senha.length > 0 && confirm_pass.length > 0) {
+        if (senha.length > 0 && confirm_pass.length > 0) {            
+            $("#btn-recover").prop("disabled", true);
+                        
             $.ajax({
                 method: 'POST',
                 url: 'verifica.php',
