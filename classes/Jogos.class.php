@@ -12,6 +12,7 @@ class Jogos extends Crud{
 	private $jogoTroca;
 	private $data;
 	private $descricao;
+	private $generos;
 
 	public function setID($id){
 		$this->id = $id;
@@ -46,11 +47,14 @@ class Jogos extends Crud{
 	public function setStatus($status){
 		$this->status = $status;
 	}
+	public function setGeneros($generos){
+		$this->generos = $generos;
+	}
 
 	//inserir jogos no banco de dados
 	public function insert(){
-		$sql = "INSERT INTO $this->table (n_jogo, img_jogo, id_console, id_gamer, jogoTroca, idJogoTroca, data, descricao, informacao) VALUES (
-				:nome, :imagem, :idCons, :idGamer, :jogoTroca, :idJogoTroca, :data, :descricao, :infoExtra)";
+		$sql = "INSERT INTO $this->table (n_jogo, img_jogo, id_console, id_gamer, jogoTroca, idJogoTroca, data, descricao, informacao, generos) VALUES (
+				:nome, :imagem, :idCons, :idGamer, :jogoTroca, :idJogoTroca, :data, :descricao, :infoExtra, :generos)";
 		$stmt = @BD::conn()->prepare($sql);
 		$stmt->bindParam(':nome', $this->nome);
 		$stmt->bindParam(':imagem',$this->imagem);
@@ -61,6 +65,7 @@ class Jogos extends Crud{
 		$stmt->bindParam(':data',$this->data);
 		$stmt->bindParam(':descricao',$this->descricao);
 		$stmt->bindParam(':infoExtra',$this->infoExtra);
+		$stmt->bindParam(':generos', $this->generos);
 		
 		$stmt->execute();
 		return @BD::conn()->lastInsertId();//retorno o ID do jogo que foi inserido
@@ -71,7 +76,7 @@ class Jogos extends Crud{
 	*/
 	public function update(){
 		$sql = "UPDATE $this->table SET n_jogo = :nome, img_jogo = :imagem, id_gamer = :idGamer,
-		 								 jogoTroca = :jogoTroca, descricao = :descricao, informacao = :infoExtra WHERE id = :id";
+		 								 jogoTroca = :jogoTroca, descricao = :descricao, informacao = :infoExtra, generos = :generos WHERE id = :id";
 		$stmt = @BD::conn()->prepare($sql);
 		$stmt->bindParam(':nome', $this->nome);
 		$stmt->bindParam(':imagem',$this->imagem);
@@ -81,6 +86,7 @@ class Jogos extends Crud{
 		//$stmt->bindParam(':data',$this->data);
 		$stmt->bindParam(':descricao',$this->descricao);
 		$stmt->bindParam(':infoExtra',$this->infoExtra);
+		$stmt->bindParam(':generos',$this->generos);
 		$stmt->bindParam(':id', $this->id);
 					
 		return $stmt->execute();		
@@ -121,6 +127,7 @@ class Jogos extends Crud{
 		$order = array_key_exists("order", $queries) ? $queries['order'] : '';
 		$id_gamer = array_key_exists("id_gamer", $queries) ? $queries['id_gamer'] : '';
 		$status = array_key_exists("status", $queries) ? $queries['status'] : '';
+		//$generos = array_key_exists("genero", $queries) ? $queries['genero'] : '';
 		$limite = array_key_exists("limite", $queries) ? $queries['limite'] : '';
 
 		$_where = array();
@@ -263,7 +270,7 @@ class Jogos extends Crud{
 	*/
 	public function listaJogoById(){
 		$sql = "SELECT j.id, j.n_jogo, j.img_jogo, j.id_console, j.id_gamer, j.jogoTroca, j.idJogoTroca, j.data,
-				j.descricao, j.informacao, j.status, c.nome_console, i.id_img, i.nome, i.imagem, u.id_user,
+				j.descricao, j.informacao, j.status, j.generos, c.nome_console, i.id_img, i.nome, i.imagem, u.id_user,
 				u.nomeUser, u.celular, u.telefone, u.rua, u.numero, u.cidade, u.estado, u.complemento, u.console
 				FROM ((($this->table as j INNER JOIN `console` as c ON j.id_console = c.id_console)
 				INNER JOIN `imagens` as i ON j.img_jogo = i.id_img)

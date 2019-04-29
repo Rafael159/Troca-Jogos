@@ -197,6 +197,11 @@ body, html{
 	display: inline-block;
 	border-radius: 10px;
 	font-weight: bold;
+	word-wrap: break-word;
+}
+.chat .chat-content .mensagens .msgs p{
+	text-align: justify;
+    width: 100%;
 }
 .chat .chat-content .mensagens .msg-from{
 	float: right;

@@ -23,15 +23,18 @@ $(function(){
 	});	
 
 	$('body').delegate('#field-message', 'keydown', function(e){
-
+		
 		var campo = $(this);
 		var mensagem = campo.val();
 		var to = campo.prev().attr('id');
 		
+		mensagem = $.trim(mensagem);
+
 		idTo = to.split('_')[1];//separar o ID do usuário
 		//$(this).disabled();
 
 		if(e.keyCode == 13){
+			
 			if(mensagem != ''){
 				campo.val('');
 				$.post('controllers/chat.php', {
@@ -39,12 +42,14 @@ $(function(){
 					mensagem: mensagem,
 					para: idTo
 				}, function (retorno){
-					
-					setTimeout(function(){						
-						$('.mensagens').append(retorno);						
-					}, 1000);
+					// console.log(retorno);
+					// setTimeout(function(){						
+					// 	$('.mensagens').append(retorno);						
+					// }, 1000);
 					//scrollDown();
 				});
+			}else{
+				alert('Nada para enviar');
 			}
 			return false;
 		}	
@@ -88,6 +93,16 @@ $(function(){
 		},'jSON');
 	}
 
+	$("#field-message").keyup(function(e){
+        var len = this.value.length;
+        console.log(len);
+        if (len >= 200) { //VERIFICA SE TEM MAIS DE 350 CARACTERES
+            this.value = this.value.substring(0, 200);
+        }
+        //$j('#resta').text(350 - len); //EXIBE OS CARACTERES RESTANTES
+        
+    });
+
 	/**
 	 * playerON - id do usuário online
 	 * variável está vindo do feed.php
@@ -95,23 +110,23 @@ $(function(){
 	if(playerON){
 		firstLoad();
 	}
-	// setInterval(function(){
-	// 	idReceiver = $('.mensagens').attr('id');
-	// 	idReceiver = idReceiver.split('_')[1];//separar o ID do usuário
+	setInterval(function(){
+		idReceiver = $('.mensagens').attr('id');
+		idReceiver = idReceiver.split('_')[1];//separar o ID do usuário
 		
-	// 	$.post('controllers/chat.php', {			
-	// 		acao: 'atualizar',
-	// 		idPara : idReceiver
-	// 	}, function(back){
-	// 		if(back != ''){	
-	// 			//scrollDown();
-	// 			$('.mensagens').html(back);
-	// 		}else{
-	// 			$('.mensagens').html('Seja o primeiro a mandar uma mensagem');
-	// 		}
-	// 	},'jSON');
+		$.post('controllers/chat.php', {			
+			acao: 'atualizar',
+			idPara : idReceiver
+		}, function(back){
+			if(back != ''){	
+				//scrollDown();
+				$('.mensagens').html(back);
+			}else{
+				$('.mensagens').html('Seja o primeiro a mandar uma mensagem');
+			}
+		},'jSON');
 
-	// },3000);
+	},2000);
 
 	/** 
 	 * Função: enviar convite

@@ -25,9 +25,9 @@ switch ($acao) {
 		foreach ($allMessage as $msg) {
 				
 			if($msg->cod_from == $idFrom){
-				$mensagens .= '<div class="msg-from msgs">'.$msg->mensagem.'</div>';
+				$mensagens .= '<div class="msg-from msgs"><p>'.$msg->mensagem.'</p></div>';
 			}else{
-				$mensagens .= '<div class="msg-to msgs">'.$msg->mensagem.'</div>';			
+				$mensagens .= '<div class="msg-to msgs"><p>'.$msg->mensagem.'</p></div>';			
 			}
 		}			
 		echo $mensagens;
@@ -38,7 +38,12 @@ switch ($acao) {
 		$idTo = (isset($_POST['para']) ? $_POST['para'] : '');
 	    $mensagem = strip_tags($_POST['mensagem']);
 
-		//verificar se já existe usuários são amigos
+		if(strlen($mensagem) <= 0){
+			echo '<div class="msg-erro">Mensagem não enviada</div>';
+			break;
+		}
+
+		//verificar se os usuários já são amigos
 		$friend = new Friendships();
 		$row = Friendships::getFriendsHelper(array('who_sent'=>$idFrom, 'who_accepted'=>$idTo));
 		
@@ -77,9 +82,9 @@ switch ($acao) {
 			foreach ($allMessage as $msg) {
 				
 				if($msg->cod_from == $idFrom){
-					$mensagens .= '<div class="msg-from msgs">'.$msg->mensagem.'</div>';
+					$mensagens .= '<div class="msg-from msgs"><p>'.$msg->mensagem.'</p></div>';
 				}else{
-					$mensagens .= '<div class="msg-to msgs">'.$msg->mensagem.'</div>';			
+					$mensagens .= '<div class="msg-to msgs"><p>'.$msg->mensagem.'</p></div>';			
 				}
 			}
 			$new = json_encode($mensagens, $qtd);

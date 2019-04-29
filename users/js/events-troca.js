@@ -164,8 +164,7 @@ $(document).ready(function(){
 			type : 'post',
 			data : 'idTroca='+idTroca,
 			dataType : 'json'
-		}).done(function(data){
-			console.table(data);
+		}).done(function(data){			
 			if(data.status == '0'){
 				$('#box_error').modal();
 				$('#box-msg-error').html(data.mensagem);

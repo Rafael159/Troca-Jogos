@@ -91,24 +91,26 @@
 				<fieldset>
 					<legend>DESCRIÇÃO DO JOGO</legend>
 					<label>				
-						“<?php echo $valor->descricao?>”
+						“<?php echo $valor->descricao; ?>”
 					</label>
 				</fieldset>				
 				<fieldset>
 					<legend>INDICADO PARA QUEM GOSTA DE:</legend>
 					<label>
 						<ul id="genre">
-							<?php 
-								$generoJogo->setJogoID($idJogo);//setar id do jogo
+							<?php
+								$array_generos = explode(",", $valor->generos);
+								//print_r($array_generos);
+								//$generoJogo->setJogoID($idJogo);//setar id do jogo
 
-								$result = $generoJogo->findAllByID();
+								//$result = $generoJogo->findAllByID();
 								
-								foreach($result as $value):
-									$genero->setId($value->categoria_id);
+								foreach($array_generos as $key => $value):									
+									$genero->setId($value);
 									$genero->findGenreByID();
 							?>
-								<li class="genreGame"><?php echo $genero->getNome()?></li>
-							<?php endforeach;?>															
+								<li class="genreGame"><?php echo $genero->getNome(); ?></li>
+							<?php endforeach; ?>
 						</ul>
 					</label>
 				</fieldset>

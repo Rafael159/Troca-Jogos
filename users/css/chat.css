@@ -9,7 +9,7 @@
     width:100%;
 }
 .main .panels{
-    height:75vh;
+    height:90vh;
     padding:0px;
     margin:0px;
 }
@@ -51,7 +51,7 @@
     background:#ffffff;
 }
 #leftpanel .chat-content .mensagens{
-	height: 68vh;
+	height: 81vh;
     overflow: auto;
     padding: 20px 5px;
     background: #fff;
@@ -66,7 +66,8 @@
 	margin:5px;
 	display: inline-block;
 	border-radius: 2px;
-	font-weight: bold;
+    font-weight: bold;
+    word-wrap: break-word
 }
 #leftpanel .chat-content .mensagens .msg-from{
 	float: right;
@@ -92,10 +93,11 @@
     width:100%;   
 }
 #leftpanel .chat-content #chat_form{
-    width:100%;
+    width: 100%;
     background: #2e2d2d;
-    padding: 6px;
-    display:none;
+    padding: 8px;
+    display: none;
+    margin: 0px;
 }
 #leftpanel .chat-content #chat_form #field-message{
     display: inline-block;
@@ -106,6 +108,7 @@
     color: #333;
     padding: 5px;
     font-weight: bold;
+    resize: none;
 }
 #leftpanel .chat-content .chat_warning{
     font-size: 2.3em;
@@ -121,6 +124,8 @@
     border: .5px solid #fff;
     border-radius: 2px;
     font-weight: bold;
+    margin: 9px;
+    position: absolute;
 }
 #leftpanel .settings{
     display: none;

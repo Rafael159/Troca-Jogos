@@ -78,11 +78,10 @@
 									if($row->status == "Pendente"):
 							?>
 								<div class="alert alert-success" style="margin-left:15px; width:100%; text-align: center; ">Convite já enviado. Aguarde </div>	
-							<?php else: ?>
-								<span class="friend-title">Amigo adicionado <i class="fa fa-user-plus fa-1x" aria-hidden="true"></i></span>
-								
-							<?php endif; ?>
-							<?php else: ?>
+								<?php else: ?>
+									<span class="friend-title">Amigo adicionado <i class="fa fa-user-plus fa-1x" aria-hidden="true"></i></span>
+								<?php endif; ?>
+							<?php elseif($codUser != $idOn): ?>
 								<input type="hidden" id="coduser" value="<?php echo $codUser?>">
 								<input type="hidden" id="idon" value="<?php echo $idOn?>">
 								<span class="friend-title">Adicionar aos amigos <button class="btn btn-success" id="invite"><i class="fa fa-user-plus fa-1x" aria-hidden="true"></i></button></span>
@@ -141,7 +140,8 @@
 				<div class="mensagens" id="jan_<?php echo $valor->id_user;?>"> 
 					<div class="blank_message">Nenhuma mensagem</div>
 				</div>
-				<input type="text" name="msg" placeholder="Digite sua mensagem" id="field-message" autocomplete="off"/>
+				<!-- <input type="text" name="msg" placeholder="Digite sua mensagem" id="field-message" autocomplete="off"/> -->
+				<textarea name="msg" placeholder="Digite sua mensagem" id="field-message" autocomplete="off"></textarea>
 			</div>
 		</div>
 		<?php endif; ?>

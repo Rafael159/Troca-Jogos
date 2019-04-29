@@ -105,11 +105,12 @@
                 <div class="col-lg-1">
             		<th class="each-record">
 						<?php if($owner != $userID): ?>
-							<a href="../feed.php?codigo=<?php echo $owner?>">
-						<?php endif;?>
+							<a href="../feed.php?codigo=<?php echo $owner?>">							
+							<i class="fa fa-comments" aria-hidden="true"></i>
+						<?php endif; ?>
 							<?php echo substr($rs->nomeUser, 0, 20)?>
 							<?php if($owner != $userID): ?>
-						</a>
+						</a>						
 							<?php endif; ?>
 					</th>
             	</div>

@@ -41,7 +41,8 @@
                         <div class="box_form">
                             <form name="chat_form" id="chat_form">
                                 <input type="hidden" name="idto" id="idto">
-                                <input type="text" name="msg" placeholder="Digite sua mensagem" id="field-message" autocomplete="off"/>
+                                <!-- <input type="text" name="msg" placeholder="Digite sua mensagem" id="field-message" autocomplete="off"/> -->
+                                <textarea name="msg" placeholder="Digite sua mensagem" id="field-message" autocomplete="off"></textarea>
                                 <button id="btn_send">Enviar</button>
                             </form>
                         </div>

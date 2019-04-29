@@ -433,6 +433,8 @@ acaoimagem();//CONFIGURA O EFEITO NAS IMAGENS CARREGADAS
 			dataType:'html',
 			data:'idJ='+ idJ,/*ID do jogo*/
 			success : function(data){
+
+				console.table(data);
 			/*levar a página para o topo e remover o scroll da página*/
 			var body = $("html, body");
 			body.stop().animate({scrollTop:0}, '500', 'swing');											

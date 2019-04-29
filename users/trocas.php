@@ -70,7 +70,7 @@
 			            <div class="modal-body">
 			            	<div class="row">
 			            		<div id="view_troca">
-			            		<!-- mostra os dados da troca -->								
+			            		<!-- mostra os dados da troca -->
 			            		</div><!-- /end #view_troca -->
 			            	</div>
 			            </div>			            

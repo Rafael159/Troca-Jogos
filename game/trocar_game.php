@@ -67,7 +67,7 @@
 									<?php						
 										$idJogo = (isset($_GET['id']) AND $_GET['id'] !== '') ? $_GET['id'] : '';//id do jogo
 
-										if($idJogo){
+										if($idJogo):
 										//buscar o jogo selecionado					
 										$jogo->setId($idJogo);
 										foreach ($jogo->listaJogoById() as $chave => $valor):
@@ -79,13 +79,13 @@
 									<label><?php echo strtoupper($valor->n_jogo)?> - <?php echo strtoupper($valor->nome_console)?></label>
 									<?php 
 									endforeach;
-										}else{ ?>
+										else: ?>
 											<a href="../pesquisa.php"><img src="imagens/padrao_sem_jogo.jpg" alt="Add o jogo que deseja" class="img-responsive"/></a>
 											<label>
 												<p>JOGO</p>
 											</label>
 										<?php
-										}
+										endif;
 									?>
 									</div>
 								</div>
@@ -120,7 +120,7 @@
 									</div>
 								</div>
 								<div id='fieldTroca'>
-									<div class='col-lg-12'>								
+									<div class='col-lg-12'>
 										<span id='fieldTitle'>Como considera essa troca?</span>
 										<div class="col-lg-4 avalia-metodo">
 										  <label for='maisVale'><input type="radio" name="optradio" value='0' class='btn-opcao' id='maisVale'>Meu jogo vale <b>MAIS</b></label>
@@ -134,7 +134,7 @@
 									</div>	  
 									<div class='col-lg-12' id="quadroOpcao">
 										<div>
-							   				<label class="titulOpcao">VALOR DE RETORNO: R$</label><input type="text" name="valor" class="form-control" id="txtValor" value="0"/>
+							   				<label class="titulOpcao">VALOR DE RETORNO: R$</label><input type="text" name="valor" class="form-control" id="txtValor" value="0" placeholder="Valor máximo - R$99,99"/>
 							   				<button type="button" data-target='#infoTroca' data-toggle="modal" class="btn btn-link">Entenda o valor</button>   
 							   			</div>
 									</div>
@@ -166,9 +166,9 @@
                 </div>
                 <div class="modal-body">
                 	<label class="lbl_info">
-                		<p>A Restart Games acredita que todo jogo, independente se é usado ou não, tem valores diferentes. Pensando assim, cremos que você tem o <b>direito</b> de 
+                		<p>A Restart Games acredita que todo jogo, independente se é usado ou não, tem valores diferentes. Pensando assim, acreditamos que você tem o <b>direito</b> de 
                 		pedir algum valor como retorno ou oferecer um valor em dinheiro na hora da troca</p>
-                		<p>Para isso há 3 possíveis situações:</p>
+                		<p>Há 3 possíveis situações:</p>
 
                 		<div class="alert alert-warning">
 						  <strong>EQUILIBRADOS!</strong> Uma troca (Jogo) por (Jogo). Ambos os jogos têm o mesmo valor
@@ -206,7 +206,7 @@
 			<?php
 				endforeach;
 				else:
-					echo "<span class='alert-vazio'><p>OPS! Nenhum jogo encontrado :( </p><p>Cadastre agora <a href='../users/dashboard.php?secao=jogos'>Aqui</a></p></span>";
+					echo "<span class='alert-vazio'><p>OPS! Nenhum jogo encontrado :( </p><p><a href='../users/dashboard.php?secao=jogos'>Cadastre agora</a></p></span>";
 				endif;
 			?>
 		</section>

@@ -27,6 +27,12 @@
 	$descricao = (isset($_POST['descricao']) ? trim($_POST['descricao']) : ""); //descrição do jogo
 	$infoExtra = (isset($_POST['infoExtra']) ? trim($_POST['infoExtra']) : "");//opcional - informação extra
 
+	
+
+	// $retorno = array('status'=>'0', 'mensagem'=>$lista_generos);
+	// echo json_encode($retorno);
+	// exit();
+
 	$retorno = array();//retornará o status e mensagem
 
 	if(!$console_id):
@@ -174,6 +180,9 @@
 		endif;
 	endif;
 
+	//transformar array de gêneros em string
+	$lista_generos = implode(",", $genero);
+
 	//INSERIR OS DADOS NO BANCO DE DADOS		
 	//SETAR TODOS OS CAMPOS
 	$jogo->setNome($nome_jogo);
@@ -185,6 +194,7 @@
 	$jogo->setData(date('Y-m-d'));
 	$jogo->setDescricao($descricao);
 	$jogo->setInfoExtra($infoExtra);
+	$jogo->setGeneros($lista_generos);
 
 	$sql = $jogo->insert();
 	
@@ -202,14 +212,14 @@
 		echo json_encode($retorno);
 		exit();
 	}else{		
-		$lastinserted = (int)$sql;//garantir que valor seja inteiro
-		$qtnGenero = count($genero);
+		// $lastinserted = (int)$sql;//garantir que valor seja inteiro
+		// $qtnGenero = count($genero);
 
-		for($i=0; $i<$qtnGenero; $i++) {
-			$jogocategoria->setJogoID($lastinserted);
-			$jogocategoria->setCategoriaID($genero[$i]);
-			$jogocategoria->insert();
-		}
+		// for($i=0; $i<$qtnGenero; $i++) {
+		// 	$jogocategoria->setJogoID($lastinserted);
+		// 	$jogocategoria->setCategoriaID($genero[$i]);
+		// 	$jogocategoria->insert();
+		// }
 		$retorno = array('status'=>'1', 'mensagem'=>'Jogo salvo com sucesso');
 		echo json_encode($retorno);
 	}	

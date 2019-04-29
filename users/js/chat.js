@@ -1,6 +1,7 @@
 $(document).ready(function(){
-    /*@param idlogado - id do user logado*/
+    /*@param to - id do user logado*/
     function enviarMensagem(campo, mensagem, to){
+        mensagem = $.trim(mensagem);
         if(mensagem !== '' && to !== ""){
             campo.val('');
             $.post('../controllers/chat.php', {
@@ -8,10 +9,13 @@ $(document).ready(function(){
                 mensagem: mensagem,
                 para: to
             }, function (retorno){
-                $("#field-message").focus();
-                //setTimeout(function(){		
-                    $('#chat_msg').append(retorno);
-                //}, 1000);
+                $("#field-message").val('');
+                $("#field-message").focus();		
+                $('#chat_msg').append(retorno);
+            });
+        }else{            
+            $('#field-message').focus(function() {
+                $(this).val('');
             });
         }
 		return false;
@@ -38,7 +42,7 @@ $(document).ready(function(){
                     //     $('#chat_msg').html('Seja o primeiro a mandar uma mensagem');
                     // }
                 }
-            });      
+            });
         },3000);
     }
     function removeChat(de, para){
@@ -130,6 +134,15 @@ $(document).ready(function(){
         if(e.keyCode == 13){
             enviarMensagem(campo, mensagem, to);
         }		
+    });
+
+    $("#field-message").keyup(function(e){
+        var len = this.value.length;
+        if (len >= 200) { //VERIFICA SE TEM MAIS DE 350 CARACTERES
+            this.value = this.value.substring(0, 200);
+        }
+        //$j('#resta').text(350 - len); //EXIBE OS CARACTERES RESTANTES
+        
     });
     
     $('#field-message').focus(function(){

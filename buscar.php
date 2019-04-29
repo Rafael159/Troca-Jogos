@@ -15,45 +15,46 @@
 	$generos  = (isset($_POST['genre']) ? $_POST['genre'] : '');
 	$pesquisa = (isset($_POST['pesquisa']) ? $_POST['pesquisa'] : '');
 
-	if(!isset($where)){
-		$where = array();//criar array com os dados da pesquisa
-	}
-	$where[] = "j.status = 'Ativo'";
+	$where = array();//criar array com os dados da pesquisa
+	
+	array_push($where, "j.status = 'Ativo'");
 	if(!empty($pesquisa)){
 		$pos = strripos($pesquisa, '-');//encontrar separador
 		//caso exista
 		if($pos){
 			$pesquisa = trim(substr($pesquisa, 0, $pos));//remover o nome do console
-			$where[] = "UPPER(j.n_jogo) LIKE UPPER('%".$pesquisa."%')";
+			array_push($where, "UPPER(j.n_jogo) LIKE UPPER('%".$pesquisa."%')");
 		}else{
-			$where[] = "UPPER(j.n_jogo) LIKE UPPER('%".$pesquisa."%')";
+			array_push($where, "UPPER(j.n_jogo) LIKE UPPER('%".$pesquisa."%')");
 		}		
 	}
 
-	if(!empty($consoles)):		
+	if(!empty($consoles)):
 		$listaConsole = implode(" OR j.id_console = ", $consoles);
-		$where[] = "(j.id_console = ".$listaConsole.")";
+		array_push($where, "(j.id_console = ".$listaConsole.")");
 	endif;
 	
 	if(!empty($generos)):
-		$listaGeneros = implode(" OR jc.categoria_id = ", $generos);
-		$where[] = "(jc.categoria_id = ".$listaGeneros.")";
+		foreach($generos as $filter => $genero){
+			//garantir que seja uma string                       
+			array_push($where, " FIND_IN_SET('$genero', j.generos)");
+		}		
 	endif;
 
 	/*criar QUERY para pesquisa os jogos*/
 	$sql  = "SELECT j.id, j.n_jogo, j.img_jogo, j.id_console, j.id_gamer, j.jogoTroca, j.idJogoTroca, j.data,
-				j.descricao, j.informacao, j.status, c.nome_console, i.id_img, i.nome, i.imagem, u.id_user,
-				u.nomeUser, u.celular, u.telefone, u.rua, u.numero, u.cidade, u.estado, u.complemento, u.console FROM ((((`jogos` as j INNER JOIN `console` as c ON j.id_console = c.id_console)"; 
-	$sql .= "INNER JOIN `imagens` as i ON j.img_jogo = i.id_img)"; 
-	$sql .= "INNER JOIN `jogocategoria` as jc ON j.id = jc.jogo_id)";
-	$sql .= "INNER JOIN `usuarios` as u on j.id_gamer = u.id_user)";
+				j.descricao, j.informacao, j.status, j.generos, c.nome_console, i.id_img, i.nome, i.imagem, u.id_user,
+				u.nomeUser, u.celular, u.telefone, u.rua, u.numero, u.cidade, u.estado, u.complemento, u.console 
+				FROM (((`jogos` as j INNER JOIN `console` as c ON j.id_console = c.id_console)"; 
+	$sql .= " INNER JOIN `imagens` as i ON j.img_jogo = i.id_img)";
+	$sql .= " INNER JOIN `usuarios` as u on j.id_gamer = u.id_user)";
 	
 	/*se existir filtro*/
 	if(sizeof($where)){
 		$sql .= ' WHERE '.implode( ' AND ',$where );//add filtros na QUERY	
 	}	
-	$sql.= ' GROUP BY jc.jogo_id';
-		
+	$sql.= ' GROUP BY j.id';
+	
 	$arrayJogo = $jogos->consulta($sql);
 		
 	$contarProdutos = count($arrayJogo);//contar quantos jogos retornaram na consulta

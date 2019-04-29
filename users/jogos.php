@@ -209,7 +209,7 @@
 					<div class="modal-content">
 						<div class="modal-header">
 							<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-							<h1 class="title_modal">Atualizar jogo <i class="fa fa-gamepad fa-lg"></i></h1>
+							<h1 class="title_modal">Editar/Excluir jogo <i class="fa fa-gamepad fa-lg"></i></h1>
 						</div>
 						<div class="modal-body">
 							<div id="boxAtualiza"></div>

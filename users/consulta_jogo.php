@@ -17,11 +17,12 @@
 <div id="boxGame" class="row">
 	<?php
 		$jogo->setID($id);
-		foreach ($jogo->listaJogoById() as $game => $dados) {			
+		
+		foreach ($jogo->listaJogoById() as $game => $dados) {						
 	?>
 	<?php if($dados->status == 'Inativo'):?>
 		<div class="col-lg-12">
-			<label class="alert alert-warning">Esse jogo está inativo. Você <strong>não</strong> poderá trocá-lo enquanto ele fizer parte de um processo de troca</label>
+			<label class="alert alert-warning">Esse jogo está inativo. Você <strong>não</strong> poderá trocá-lo / editá-lo ou excluí-lo enquanto ele fizer parte de um processo de troca</label>
 		</div>
 	<?php endif; ?>
 	<div class="col-lg-4">
@@ -51,30 +52,23 @@
 
 				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 					<label>Gênero(s) do seu jogo</label><br/>
-					<?php						
-						$id_jogo = $dados->id;//ID do jogo
-						$jogocatego->setJogoID($id_jogo);//setar ID do jogo
-						$checkboxgenero = $jogocatego->findAllByID();//array com gêneros do jogo selecionado
-
-						$all_checks = array();
-						foreach ($checkboxgenero as $value){
-							array_push($all_checks, $value->categoria_id); //isolar o ID dos gêneros vindos do banco
-						}
-						
+					<?php	
+						$all_checks = explode(",", $dados->generos);
 						$result = $generos->findAll();//buscar todos gêneros
 
-						if(!empty($result)):														
+						//if(!empty($result)):														
 							foreach ($result as $chave => $genre):	
+								//print_r($genre);
 								$idGenero = $genre->id;	//separar o ID									
 					?>
 						<div class="btn-group" data-toggle="buttons">
 							<label class="btn btn-primary checkbox-genre">
-								<input type="checkbox" name="upgenero[]" value="<?php echo $genre->id;?>" autocomplete="off"  <?php echo in_array((int)$idGenero,$all_checks) ?' checked="checked"':'';?>><?php echo $genre->nome?>
+								<input type="checkbox" name="upgenero[]" value="<?php echo $genre->id;?>" autocomplete="off"  <?php echo in_array((int)$idGenero, $all_checks) ?' checked="checked"':'';?>><?php echo $genre->nome?>
 							</label>
 						</div>						
 				    <?php				    			
 				    		endforeach;//final do foreach GÊNEROS
-				    	endif;
+				    	//endif;
 				    ?>
 				</div>
 				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">					
@@ -92,10 +86,12 @@
 				
 				<?php if($tipouser == 0): ?>
 				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-					<div id="btn_group">
-						<button id="btnAtualiza" class="btn btn-warning" type="submit">Atualizar</button>						
-						<a href="#" class="btn btn-danger" id="buttonApagar">Apagar</a>
-					</div>
+					<?php if($dados->status == 'Ativo'):?>
+						<div id="btn_group">
+							<button id="btnAtualiza" class="btn btn-warning" type="submit">Atualizar</button>						
+							<a href="#" class="btn btn-danger" id="buttonApagar">Apagar</a>
+						</div>
+					<?php endif; ?>
 					<div id="confirm-delete">
 					    <div class="box-dialog">
 					        <div class="box-content">					           

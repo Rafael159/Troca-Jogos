@@ -198,6 +198,19 @@ body{
 	float: left;
 	border: 1px solid #000;
 }
+/*Box de notificação
+*/
+.content-alert{
+	width:25%;
+	height:250px;
+	background:#fff;
+	display: block;
+	/* position:absolute; */
+	z-index:9999;
+}
+.box-notification{
+	background:#ccc;
+}
 @media only screen and (max-width:462px){
     .title-main{font-size: 1.7em;}
     .lbl-standard{ font-size: 1.2em;}
