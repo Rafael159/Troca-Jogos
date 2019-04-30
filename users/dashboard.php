@@ -9,6 +9,7 @@
 	$usuario = new Usuarios();
 	$trocas = new Trocas();
 	$msg = new Mensagens();
+	$notice = new Notificacoes();
 ?>
 
 <html>
@@ -18,12 +19,10 @@
 		<link rel="stylesheet" type="text/css" href="css/dashboard.css" />
 		<!--CSS BOOTSTRAP-->
 		<link rel="stylesheet" type="text/css" href="..\bootstrap/css/bootstrap.min.css"/>
-    <link rel="stylesheet" type="text/css" href="..\bootstrap/css/bootstrap-theme.css"/>
+    	<link rel="stylesheet" type="text/css" href="..\bootstrap/css/bootstrap-theme.css"/>
 		<!--CSS FONT-AWESOME-->		
-    <link rel="stylesheet" type="text/css" href="..\font-awesome/css/font-awesome.css"/>
-		
-		<link type="text/css" href="../css/fonts.css" rel="stylesheet"/>
-				
+    	<link rel="stylesheet" type="text/css" href="..\font-awesome/css/font-awesome.css"/>		
+		<link type="text/css" href="../css/fonts.css" rel="stylesheet"/>				
 		<link rel="stylesheet" type="text/css" href="css/jogos.css"/>
 		<link rel="stylesheet" type="text/css" href="css/home.css"/>
 		<link rel="shortcut icon" type="image/x-icon" href="../favicon.ico">
@@ -56,7 +55,7 @@
 						<!-- <li class="menu"><a href="settings.php" title="Configuração" class="link-main" id="settings"><i class="fa fa-cog"></i> Configuração</a></li> -->
 						<li class=""><a href="../index.php" title="Meu perfil" class="link-main"  id="back"><i class="fa fa-arrow-left" aria-hidden="true"></i> Voltar ao site</a></li>
 						<li class="box-notification">
-							<a href="#" title="Notificação" id="notification" style="color:#b70202; "><i class="fa fa-bell"></i> <span class="qnt-notice">2</span></a>
+							<a href="#" title="Notificação" id="notification" style="color:#b70202; "><i class="fa fa-bell"></i> <span class="qnt-notice"><?php echo Notificacoes::contarNotificacoes(array('receptor'=>$codigo, 'lido'=>'nao'))?></span></a>
 						</li>
 						<li class="menu"><a href="profile.php" title="Meu perfil" class="link-main" id="perfil_user"><i class="fa fa-user"></i> Perfil</a></li>
 						<li class=""><a href="..\sair.php" title="Sair" class="link-main" id="settings"><i class="fa fa-sign-out"></i> Sair</a></li>
@@ -98,6 +97,47 @@
 					<!--/ Todo o conteúdo vem aqui-->
 				</div>
 			</div>
+		</div>
+		<div class="toast">
+			<div class="toast_title">Notificações</div>
+			<?php
+				$notificacoes = $notice->getNotificacoes(array('receptor'=>$codigo, 'lido'=>'nao'));
+				if(count($notificacoes)):
+					foreach($notificacoes as $notices => $notice):
+				?>
+					<div class="toast__content toast_<?php echo $notice->tipo; ?>">
+						<div class="toast_header">
+							<div class="toast__icon toast_back_<?php echo $notice->tipo; ?>">
+								<?php
+									switch($notice->tipo){
+										case("info"):
+											$icon = "info";
+											break;
+										case("warning"):
+											$icon = "exclamation";
+											break;
+										case("success"):
+											$icon = "check";
+											break;
+										default:
+											$icon = "check";
+									}
+								?>
+								<i class="fa fa-<?php echo $icon; ?> fa-2x"></i>
+							</div>
+							<p class="toast__type"><?php echo $notice->titulo; ?></p>
+						</div>
+						<p class="toast__message"><?php echo $notice->mensagem; ?></p>
+						<div class="toast__close">
+							<span class="toast_btn" id="<?php echo $notice->id; ?>">x</span>
+						</div>
+					</div>
+				<?php endforeach; ?>
+				<?php else: ?>
+					<div class="toast_no_message">
+						<span>Você não possui nenhuma notificação</span>
+					</div>
+				<?php endif; ?>
 		</div>
 	</div>
 		<?php

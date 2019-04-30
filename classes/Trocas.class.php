@@ -1,5 +1,4 @@
 <?php
-
 	class Trocas extends Crud
 	{
 		protected $table = 'trocas';
@@ -130,7 +129,7 @@
 			return $rows;	
 		}
 
-		public static function contaTrocasrHelper($queries = array()){
+		public static function contaTrocasHelper($queries = array()){
 			$contar = (array_key_exists("contar", $queries)) ? $queries['contar'] : ''; 
 			
 			$rows = new Trocas;

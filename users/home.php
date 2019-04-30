@@ -39,7 +39,7 @@
                             <div class="col-lg-7 card-category-numbers">
                                 <div class="card-numbers card-numbers-exchange">
                                     <?php
-                                        $trocaQnt = Trocas::contaTrocasrHelper(array("idgamer"=>$idUser, "contar"=>"sim"));
+                                        $trocaQnt = Trocas::contaTrocasHelper(array("idgamer"=>$idUser, "contar"=>"sim"));
                                         echo isset($trocaQnt) ? $trocaQnt : "0";
                                     ?>
                                 </div>

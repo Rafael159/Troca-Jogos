@@ -24,6 +24,9 @@ class Mensagens{
 	public function setMensagem($mensagem){
 		$this->mensagem = $mensagem;
 	}
+	public function setDataHora($datahora){
+		$this->datahora = $datahora;
+	}
 	public function setLido($lido){
 		$this->lido = $lido;
 	}
@@ -40,6 +43,9 @@ class Mensagens{
 	}
 	public function getMensagem(){
 		return $this->mensagem;
+	}
+	public function getDataHora(){
+		return $this->datahora;
 	}
 	public function getLido(){
 		return $this->lido;

@@ -110,4 +110,17 @@ $(document).ready(function (){
             reload(link);
         }        
     });
+
+    /**************************************
+     * INÍCIO
+     * Funções NOTIFICAÇÃO
+     **************************************/
+    $("#notification, .toast_title").on('click', function(){
+        $(".toast").toggle();
+    });
+
+    /**************************************
+     * FIM
+     * Funções NOTIFICAÇÃO
+     **************************************/
 });

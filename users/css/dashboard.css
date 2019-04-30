@@ -200,16 +200,103 @@ body{
 }
 /*Box de notificação
 */
-.content-alert{
-	width:25%;
-	height:250px;
-	background:#fff;
-	display: block;
-	/* position:absolute; */
-	z-index:9999;
+.toast{
+	width:300px;
+	max-height: 350px;
+	border:1px solid #333;
+	position: fixed;
+	right:15px;
+	bottom:15px;
+	overflow: auto;
+	text-align:left;
+    background-color:#fff;
+    border-radius:4px;
+	box-shadow: -6px 6px 14px 7px rgba(0,0,0,0.2);
+	/* display: none; */
 }
-.box-notification{
-	background:#ccc;
+.toast .toast_title{
+	width: 100%;
+	padding:5px;
+	background:#2b2b2b;
+	color:#fff;
+	font-size: 1.2em;
+	font-family: 'source_sans_proregular';
+	text-align: center;
+	cursor: pointer;
+}
+.toast .toast__content{
+	width: 96%;
+	padding:2%;
+	text-align: left;
+	margin:10px 5px;	
+	text-align:left;
+    background-color:#fff;
+    border-radius:4px;
+    box-shadow: 0px 0px 10px 2px rgba(0,0,0,0.2);
+}
+.toast .toast__content .toast_header{
+	width:100%;
+	display: block;
+	padding:5px;
+}
+.toast .toast__content .toast_header .toast__icon{
+	padding: 2px;
+    border-radius: 50%;
+    display: inline-table;
+    width: 35px;
+	float: left;
+	text-align: center;
+}
+.toast .toast__content .toast_header .toast__type {
+    font-weight: 700;    
+    text-align: center;
+    margin: auto;
+    width: 80%;
+}
+.toast__message{
+	width:100%;
+	display:table;
+	padding:5px;
+}
+.toast__close{
+	position: absolute;
+    right: 10px;
+    z-index: 9999;
+    margin-top: -33%;
+    font-size: 1.3em;
+    font-weight: 800;
+    color: #8a8a8a;
+    cursor: pointer;
+    text-align: center;
+    border-radius: 50%;
+    padding: 0px 6px;
+    transition: 0.3s;
+    -webkit-transition: 0.3s;
+    font-family: 'source_sans_proregular';
+}
+.toast__close:hover{
+	background:#027ab6;
+	color:#ffffff;
+}
+
+.toast_info{ border-left:5px solid #027ab6; }
+.toast_warning{ border-left:5px solid #b49900; }
+.toast_success{ border-left:5px solid #2BDE3F; }
+
+.toast_back_success{ background:#2BDE3F; }
+.toast_back_info { background:#027ab6; }
+.toast_back_warning{ background:#b49900; }
+
+.toast_no_message{
+	padding: 5px;
+    background: #ffffff;
+    text-align: center;
+    font-size: 1.1em;
+    font-style: oblique;
+    font-weight: 400;
+}
+.toast_no_message span{
+	color:#2b2b2b;
 }
 @media only screen and (max-width:462px){
     .title-main{font-size: 1.7em;}

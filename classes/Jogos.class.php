@@ -225,7 +225,7 @@ class Jogos extends Crud{
 		$rows = new Jogos;
 		$row = $rows->listarJogos($queries);
 				
-		if(count($row) == 0) return false;
+		//if(count($row) == 0) return false;
 		return count($row);
 	}
 	public function listaJogoByUser($status = 'Ativo'){

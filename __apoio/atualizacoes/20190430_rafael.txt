@@ -1,0 +1,9 @@
+CREATE TABLE notificacoes(
+	id BIGINT(11) AUTO_INCREMENT PRIMARY KEY,
+	titulo VARCHAR(100) NOT NULL,
+	tipo VARCHAR(100) NOT NULL,
+	mensagem VARCHAR(255),
+	receptor varchar(255) NOT NULL,
+	lido CHAR(3) DEFAULT "nao", 
+	dataalerta datetime
+);
