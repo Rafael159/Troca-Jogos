@@ -3,6 +3,7 @@ function __autoload($classe){
 	require('classes/' . $classe . '.class.php');
 }
 $user = new Usuarios();
+$notice = new Notificacoes();
 
 //validação e cadastro do usuário	
 $nome = (isset($_POST['nome'])) ? trim($_POST['nome']) : '';
@@ -100,9 +101,10 @@ $user->setStatus('nao');
 $user->setTipoUsuario((int)$tipo);
 $user->setLogFirst(date('Y-m-d H:i'));
 $user->setLogUsuario(null);
+$sql = $user->insert();
 
 //Se não cadastrar, mande uma mensagem de erro
-if (!$user->insert()) :
+if (!$sql) :
 	$retorno = array('status' => '0', 'mensagem' => 'Ocorreu algum erro! Tente novamente mais tarde');
 	echo json_encode($retorno);
 	exit();
@@ -170,8 +172,22 @@ else :
 	//Destinatário
 	$mailer->addAddress($email);
 
+	
 	if ($mailer->Send()) {
 		session_start();
+		
+		/**
+		 * BOAS-VINDAS
+		*/
+		$lastinserted = (int)$sql;//garantir que valor seja inteiro
+		$notice->setTitulo("Bem vindo à Restast Games");
+		$notice->setTipo("info");
+		$notice->setMensagem("Seja bem-vindo jogador! Aproveite o máximo da Restart Games. Essa plataforma foi feita para você");
+		$notice->setReceptor($lastinserted);
+		$notice->setLido("nao");
+		$notice->setDataalert(date('Y-m-d H:i:s'));
+		$notice->insertNotificacao();
+
 		$_SESSION['novo_usuario'] = $nome;
 		$_SESSION['novo_email'] = $email;
 		$retorno = array('status' => '1', 'mensagem' => '');

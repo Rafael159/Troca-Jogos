@@ -100,7 +100,7 @@
 											      <div class="btn">
 											        <span>Escolher Imagem <i>(jpg/jpeg/png)</i></span>
 											        <input type="file" name="imagem" id="add_new_img"/>
-											      </div>		      
+											      </div>
 											    </div> 
 											</div>											
 										</div>

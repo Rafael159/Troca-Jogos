@@ -118,7 +118,6 @@ $(document).ready(function (){
     $("#notification, .toast_title").on('click', function(){
         $(".toast").toggle();
     });
-
     /**************************************
      * FIM
      * Funções NOTIFICAÇÃO

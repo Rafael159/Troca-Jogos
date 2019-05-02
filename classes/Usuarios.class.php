@@ -157,7 +157,11 @@ class Usuarios extends Crud{
 		$stmt->bindParam(':logfirst', $this->logFirst);
 		$stmt->bindParam(':logusuario', $this->logUsuario);
 
-		return $stmt->execute();
+		if($stmt->execute()){
+			return @BD::conn()->lastInsertId();
+		}else{
+			return false;
+		}
 	}
 
 	public function update(){

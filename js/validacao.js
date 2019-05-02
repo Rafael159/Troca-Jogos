@@ -131,12 +131,11 @@ $('#cep').blur(function(){
                 type: 'post',
                 url: 'cadastrar.php',
                 data: form.serialize(),
-                success:function(result){
-					console.table(result);               	
+                success:function(result){					            	
                 	result = $.parseJSON(result);
 					
                 	if(result.status=='0'){
-						$("#btCadastrar").prop("disabled", true);
+						$("#btCadastrar").prop("disabled", false);
                     	$('#msg_error').show().text(result.mensagem);
                     }else{                    	
                     	window.location.href = 'register-confirmation.php';

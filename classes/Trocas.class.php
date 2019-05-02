@@ -133,9 +133,8 @@
 			$contar = (array_key_exists("contar", $queries)) ? $queries['contar'] : ''; 
 			
 			$rows = new Trocas;
-			$row = $rows->getTrocas($queries);
-			
-			if(count($row) == 0) return false;
+			$row = $rows->getTrocas($queries);			
+			//if(count($row) == 0) return false;
 			if($contar == "sim") return count($row);
 			return $row;
 		}
