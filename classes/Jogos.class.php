@@ -164,9 +164,9 @@ class Jogos extends Crud{
 		
 		// $stmt->bindValue(':busca', '%'.$this->nome.'%');
 		$stmt->execute();
-		$resultado = $stmt->fetchAll();
+		$rows = $stmt->fetchAll();
 		
-		return $resultado;
+		return $rows;
 	}/*Final listar Jogo*/
 
 	//contar quantos jogos o usuário possui, passando o ID como parâmetro

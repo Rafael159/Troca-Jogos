@@ -141,7 +141,7 @@
 						<?php if($vlr=="Aceito" AND $owner==$userID): ?><span class="edge-btn"><a class="btn btn-success btn-xs" onclick="finalizarTroca(<?php echo $rs->id?>)">Finalizar Troca <i class="fa fa-check" aria-hidden="true"></i></a></span><?php endif; ?>
                         <div class="secao-btn">
 							<span class="edge-btn"><a class="btn btn-warning btn-xs op_trocas" data-toggle="modal" onclick="viewTroca(<?php echo $rs->id?>)">Visualizar <i class="fa fa-eye" aria-hidden="true"></i></a></span>
-							<?php if($vlr == "Pendente"): ?>
+							<?php if($vlr == "Pendente" AND $owner==$userID): ?>
 								<span class="edge-btn"><a class="btn btn-danger btn-xs op_delete" onclick='deleteTroca(this)'>Excluir <i class="fa fa-remove" aria-hidden="true"></i></a></span>
 								<div class="confirm-box">
 									<div class="confirm-header">Tem certeza que deseja excluir a troca?</div>

@@ -692,6 +692,34 @@ span#titulo-galeria h4{
 	margin-top: 13px;
 	color:#313131;
 }
+#devices{
+	width:100%;
+	display: inline-table;
+	padding:10px;
+}
+#devices .device{
+	width:100%;
+	display: block;
+	list-style: none;
+	margin:10px;
+}
+#devices .soon{
+	opacity: 0.5;
+}
+#devices .device .for_device{
+	width:100%;
+	padding:5px;
+	display: block;
+	text-align: center;
+	font-family: 'source_sans_probold';
+	color: #333333;
+	font-size: 1.2em;
+	background:#ffffff;
+}
+#devices .device .img-device{
+	margin:auto;
+	display: block;
+}
 /*FORMATAÇÃO DO SCROLLBAR*/
 	::-webkit-scrollbar{
 	  width: 10px;

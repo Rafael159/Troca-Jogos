@@ -81,7 +81,7 @@ $(document).ready(function(){
 	}
 	/*FUNÇÃO MUDA STATUS DA TROCA
 	 * @param idtroca = recebe o id da troca
-	 * @param tipotroca = 1{aceita} 2{recusa}
+	 * @param tipotroca = 1{aceita} 2{recusada}
 	 */
 	window.update = function(idtroca, tipotroca){
 
@@ -95,21 +95,25 @@ $(document).ready(function(){
 			data: 'idtroca='+idtroca+'&type='+tipotroca,	
 			dataType: 'html'
 		}).done(function(dados){
-						
+			console.log(dados);
 			if(dados.status == '0'){
-				$('#box_error').modal();
+				$('#box_error').modal('toggle');
 				$('#box-msg-error').html(dados.mensagem);
 			}else{
 				if(tipotroca=="Aceito"){
+
 					$("#accepted").addClass("btnActived");
 					show_exchanges('accepted');
 					$("#modal-accepted").modal('toggle');
 					$(".msgpara").html(dados.nomeUser);
 					$("input[name=by_user]").val(dados.by_user);
+
 				}else if(tipotroca=="Cancelada" || tipotroca=="Finalizada"){
+
 					$("#all").addClass("btnActived");
 					show_exchanges('all');
 					$("#modal-finaliza").modal('toggle');
+
 				}else{
 					qnt = $('#trocas .badge').text();
 			   		qnt = parseInt(qnt) - 1;//add 1
@@ -158,7 +162,7 @@ $(document).ready(function(){
 		});
 	}
 
-	viewTroca = function(idTroca){		
+	viewTroca = function(idTroca){
 		$.ajax({
 			url : 'view-troca.php',
 			type : 'post',

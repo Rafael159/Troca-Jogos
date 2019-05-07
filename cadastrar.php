@@ -174,8 +174,7 @@ else :
 
 	
 	if ($mailer->Send()) {
-		session_start();
-		
+		session_start();		
 		/**
 		 * BOAS-VINDAS
 		*/

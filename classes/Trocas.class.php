@@ -264,7 +264,7 @@
 		 * @return lista com registros das trocas
 		 */
 		public function changeStatus(){
-
+			
 			$sql = "UPDATE $this->table SET status = :status, logdata = :logdata WHERE id = :id";
 			
 			$stmt = @BD::conn()->prepare($sql);

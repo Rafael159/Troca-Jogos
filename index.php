@@ -146,7 +146,30 @@
 							</ul>
 						</div><!-- final do id info-funcional-->
 					</div>
-				</div>				
+				</div>
+
+				<div class="row">
+					<ul id="devices">
+						<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+							<li class="device">
+								<span class="for_device">Computador</span>
+								<img src="imagens/icones/version_computer.jpg" alt="Disponível para computador" class="img-device img-responsive">
+							</li>
+						</div>
+						<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+							<li class="device soon">
+								<span class="for_device">Breve: Mobile</span>
+								<img src="imagens/icones/version_computer.jpg" alt="Disponível para mobile" class="img-device img-responsive">
+							</li>
+						</div>
+						<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">						
+							<li class="device soon">
+								<span class="for_device">Breve: Tablet</span>
+								<img src="imagens/icones/version_computer.jpg" alt="Disponível para tablet" class="img-device img-responsive">
+							</li>
+						</div>						
+					</ul>
+				</div>
 			</main>	
 			<div class="advertising">
 				
