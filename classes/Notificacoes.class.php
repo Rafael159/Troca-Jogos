@@ -86,6 +86,14 @@ class Notificacoes{
         
         return $stmt->execute();
     }
+    public function updateNotificacaoRead(){
+		$sql = "UPDATE $this->table SET lido = :lido WHERE id = :id";
+		$stmt = @BD::conn()->prepare($sql);
+		$stmt->bindParam(':lido', $this->lido);
+		$stmt->bindParam(':id', $this->id);
+		
+		return $stmt->execute();
+	}
 
     public function getNotificacoes($queries = array()){
         $id = (array_key_exists("id", $queries)) ? $queries["id"] : "";

@@ -104,8 +104,8 @@
 				if(count($notificacoes)):
 					foreach($notificacoes as $notices => $notice):
 				?>
-					<div class="toast__content toast_<?php echo $notice->tipo; ?>">
-						<div class="toast_header">
+					<div class="toast__content toast_<?php echo $notice->tipo; ?> toast_id_<?php echo $notice->id;?>">
+						<div class="toast_header">						
 							<div class="toast__icon toast_back_<?php echo $notice->tipo; ?>">
 								<?php
 									switch($notice->tipo){
@@ -125,11 +125,11 @@
 								<i class="fa fa-<?php echo $icon; ?> fa-2x"></i>
 							</div>
 							<p class="toast__type"><?php echo $notice->titulo; ?></p>
+							<div class="toast__close" id="<?php echo $notice->id; ?>">
+								<span class="toast_btn"><i class="fa fa-eye"></i></span>
+							</div>
 						</div>
-						<p class="toast__message"><?php echo $notice->mensagem; ?></p>
-						<div class="toast__close">
-							<span class="toast_btn" id="<?php echo $notice->id; ?>">x</span>
-						</div>
+						<p class="toast__message"><?php echo $notice->mensagem; ?></p>						
 					</div>
 				<?php endforeach; ?>
 				<?php else: ?>
@@ -137,6 +137,15 @@
 						<span>Você não possui nenhuma notificação</span>
 					</div>
 				<?php endif; ?>
+		
+		</div>
+		<div id="response">
+			<div class="response_title">Alerta</div>
+			<span class="response_message">Marcar mensagem como lida?</span>
+			<div class="response_buttons">
+				<button class="rps_btn btn btn-danger"  onclick="closenotice()">Não</button>			
+				<button class="rps_btn btn btn-success" id="btn-read" onclick="readnotice()">Sim</button>
+			</div>
 		</div>
 	</div>
 		<?php

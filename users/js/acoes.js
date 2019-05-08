@@ -432,18 +432,16 @@ acaoimagem();//CONFIGURA O EFEITO NAS IMAGENS CARREGADAS
 			type: "POST",
 			dataType:'html',
 			data:'idJ='+ idJ,/*ID do jogo*/
-			success : function(data){
-
-				console.table(data);
-			/*levar a página para o topo e remover o scroll da página*/
-			var body = $("html, body");
-			body.stop().animate({scrollTop:0}, '500', 'swing');											
-				$('#up_del_game').modal('show');
-				$('#boxAtualiza').html('<img src="img/progresso.gif" alt="Loading...">');
-				setTimeout(function(){
-					$('#boxAtualiza').html(data);
-				},2000);			
-			},
+			success : function(data){;
+				/*levar a página para o topo e remover o scroll da página*/
+				var body = $("html, body");
+				body.stop().animate({scrollTop:0}, '500', 'swing');											
+					$('#up_del_game').modal('show');
+					$('#boxAtualiza').html('<img src="img/progresso.gif" alt="Loading...">');
+					setTimeout(function(){
+						$('#boxAtualiza').html(data);
+					},2000);			
+				},
 			error: function(jqXHR, textStatus, errorThrown){
 				$('#up_del_game').modal('show');
 				$('#boxAtualiza').text("Desculpa :( Ocorreu um erro no carregamento do jogo! Tente novamente");

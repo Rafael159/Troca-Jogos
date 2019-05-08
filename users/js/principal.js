@@ -115,9 +115,55 @@ $(document).ready(function (){
      * INÍCIO
      * Funções NOTIFICAÇÃO
      **************************************/
-    $("#notification, .toast_title").on('click', function(){
+    $("#notification, .toast_title").on("click", function(){
         $(".toast").toggle();
     });
+
+    window.closenotice = function(){
+        $("#response").fadeOut();
+        $(".toast").fadeIn();
+    }
+
+    window.readnotice = function(){        
+        idnote = $("#btn-read").attr("name");
+       
+        $.ajax({
+            url: "mensagens/readnotice.php",
+            type: "POST",
+            dataType:'json',
+            data:'idnote='+ idnote,
+
+            success: function (response) {                
+                if(response.status == "1"){
+                    $(".toast_id_"+idnote).fadeOut();
+                    closenotice();
+                    $(".toast").fadeIn(); 
+
+                    quant = $(".qnt-notice").text();
+                    quant = parseInt(quant);
+                    if(quant>0){
+                        quant = quant - 1;
+                    }
+                    $(".qnt-notice").html(quant);
+                }
+            },
+            error: function(error){
+                content.html('<div class="error">Erro ao carregar a página! Tente novamente</div>');                
+            }
+        });
+    }
+    
+    //marcar notificações lidas
+    $(".toast__close").on("click", function(){
+        idnote = $(this).attr("id");
+        
+        if(idnote != ""){
+            $("#btn-read").attr("name", idnote);
+            $("#response").fadeIn();
+            $(".toast").toggle();
+        }
+    });
+
     /**************************************
      * FIM
      * Funções NOTIFICAÇÃO
