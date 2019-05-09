@@ -149,26 +149,26 @@
 				</div>
 
 				<div class="row">
-					<ul id="devices">
+					<div id="devices">
 						<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-							<li class="device">
+							<div class="device">
 								<span class="for_device">Computador</span>
 								<img src="imagens/icones/version_computer.jpg" alt="Disponível para computador" class="img-device img-responsive">
-							</li>
+							</div>
 						</div>
 						<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-							<li class="device soon">
+							<div class="device soon">
 								<span class="for_device">Breve: Mobile</span>
-								<img src="imagens/icones/version_computer.jpg" alt="Disponível para mobile" class="img-device img-responsive">
-							</li>
+								<img src="imagens/icones/version_mobile.jpg" alt="Disponível para mobile" class="img-device img-responsive">
+							</div>
 						</div>
 						<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">						
-							<li class="device soon">
+							<div class="device soon">
 								<span class="for_device">Breve: Tablet</span>
-								<img src="imagens/icones/version_computer.jpg" alt="Disponível para tablet" class="img-device img-responsive">
-							</li>
+								<img src="imagens/icones/version_tablet.jpg" alt="Disponível para tablet" class="img-device img-responsive">
+							</div>
 						</div>						
-					</ul>
+					</div>
 				</div>
 			</main>	
 			<div class="advertising">

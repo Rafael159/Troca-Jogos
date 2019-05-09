@@ -81,7 +81,7 @@
 				<?php
 					}
 				?>
-				<div class="btn-botao btnShare"><a href="#">Compartilhar para ajudar</a></div>
+				<!--<div class="btn-botao btnShare"><a href="#">Compartilhar para ajudar</a></div>-->
 			</div>
 			<div class="right-jogo">
 			<span class="nome-jogo"><?php echo strtoupper($valor->n_jogo)?> - <?php echo strtoupper($valor->nome_console)?></h4></span>
@@ -100,11 +100,7 @@
 						<ul id="genre">
 							<?php
 								$array_generos = explode(",", $valor->generos);
-								//print_r($array_generos);
-								//$generoJogo->setJogoID($idJogo);//setar id do jogo
-
-								//$result = $generoJogo->findAllByID();
-								
+																
 								foreach($array_generos as $key => $value):									
 									$genero->setId($value);
 									$genero->findGenreByID();

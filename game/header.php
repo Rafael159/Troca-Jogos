@@ -11,7 +11,7 @@
 		<div id="box-login">
 			<label class="btn_cancela_acesso" id="cancelar_login"><b>X</b></label>
 			<!--formulário de LOGIN-->
-			<div class="titulo-acesso">Faça seu login utilizando sua conta do Facebook ou insira seus dados de acesso nos campos indicados.</div>
+			<div class="titulo-acesso">Faça seu login utilizando sua conta cadastrada na Restart Games</div>
 			<form method="POST" action="" name="form-acesso" class="form-acesso" id="form-logar">
 				<div id="result"></div>
 				<p>
@@ -40,7 +40,7 @@
 		<div id="box-cadastro">
 			<label class="btn_cancela_acesso" id="cancelar_login"><b>X</b></label>
 			<!--formulário CADASTRO-->
-			<div class="titulo-acesso">Para se cadastrar utilize uma conta do Facebook ou informe seu nome e e-mail nos campos indicados.</div>
+			<div class="titulo-acesso">Para se cadastrar informe seu e-mail e senha nos campos indicados</div>
 			<form method="POST" action="../cadastro.php" name="cadastro" class="form-acesso" enctype="multipart/form-data">
 				<p>
 					<label for="email_cadastro">Email:</label>

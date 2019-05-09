@@ -124,7 +124,7 @@ $(document).ready(function (){
         $(".toast").fadeIn();
     }
 
-    window.readnotice = function(){        
+    window.readnotice = function(){
         idnote = $("#btn-read").attr("name");
        
         $.ajax({
