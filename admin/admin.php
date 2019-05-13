@@ -43,7 +43,7 @@
 			}
 		?>
 		<header id="cabecalho">
-			<img id="logo" class="brand" src="../imagens/backgrounds/logo.png" alt="TROCA JOGOS"/>
+			<img id="logo" class="brand" src="../imagens/icones/logo.png" alt="TROCA JOGOS"/>
 			<div class="user-space">
 				<ul class="user-acao">
 					<?php						

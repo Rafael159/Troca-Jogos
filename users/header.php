@@ -44,7 +44,7 @@
 			<input type="submit" name="enviar" id="btn-enviar" value="Pesquisar"/>
 		</form><br/>
 
-		<div id="logo"><a href="../index.php"><img src="../imagens/backgrounds/logo.png"></a></div>			
+		<div id="logo"><a href="../index.php"><img src="../imagens/icones/logo.png"></a></div>			
 	</header>		
 	<div id="main-menu">
 		<nav class="nav">

@@ -17,7 +17,7 @@
 		</div>
 		
 	</form><br/>
-	<div id="logo"><a href="index.php"><img src="imagens/backgrounds/logo.png"></a></div>
+	<div id="logo"><a href="index.php"><img src="imagens/icones/logo.png"></a></div>
 	<div class="lg-box">
 		<ul class="lg-acao">
 			<?php

@@ -10,7 +10,7 @@
 	</head>
 <body>
 	<div id="top">
-		<a href="../index.php"><img src="../imagens/backgrounds/logo.png" alt="TrocaJogos"></a>
+		<a href="../index.php"><img src="../imagens/icones/logo.png" alt="TrocaJogos"></a>
 	</div>
 	<div id="box_logar">
 		<form method="POST" action="" name="form-acesso" class="form-acesso">			

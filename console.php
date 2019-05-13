@@ -16,20 +16,20 @@
 ?>
 <!DOCTYPE HTML>
 <html>
-  <head>
-  	<meta charset="UTF-8">
-	<meta name="description" content="Todos os jogos por console"/>
-    <meta name="description" content="Console e seus jogos"/>
-    <meta name="description" content="Trocar jogos"/>
-    <meta name="keywords" content="troca,jogo,games,consoles"/>
-    <link rel="stylesheet" type="text/css" href="css/console.css"/>
-    <link rel="stylesheet" type="text/css" href="css/header.css"/>
-    <link rel="stylesheet" type="text/css" href="css/fonts.css" />
-    <link rel="stylesheet" type="text/css" href="css/style-footer.css"/>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="description" content="Todos os jogos por console"/>
+		<meta name="description" content="Console e seus jogos"/>
+		<meta name="description" content="Trocar jogos"/>
+		<meta name="keywords" content="troca,jogo,games,consoles"/>
+		<link rel="stylesheet" type="text/css" href="css/console.css"/>
+		<link rel="stylesheet" type="text/css" href="css/header.css"/>
+		<link rel="stylesheet" type="text/css" href="css/fonts.css" />
+		<link rel="stylesheet" type="text/css" href="css/style-footer.css"/>
 		<link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
 
-    <title>Restart Games - Tudo sobre <?php echo strtoupper($cons)?></title> 
-  	</head>
+		<title>Restart Games - Tudo sobre <?php echo strtoupper($cons)?></title>
+	</head>
   	<body>
     	<?php require 'require/header.php';?>
      

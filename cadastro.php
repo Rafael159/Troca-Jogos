@@ -25,7 +25,7 @@
 		<main class="main">
 		<div class="container-fluid nopadding">
 			<div class="row top">
-				<a href="index.php" class="brand"><img src="imagens/backgrounds/logo.png" alt="TrocaJogos"></a>
+				<a href="index.php" class="brand"><img src="imagens/icones/logo.png" alt="TrocaJogos"></a>
 				<span><a href="login/logar.php" class="btn pull-right btn-success"> Entrar <span class="glyphicon glyphicon-log-in"></span></a></span>
 			</div>			
 			<div class="row nopadding">

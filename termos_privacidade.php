@@ -15,7 +15,7 @@
 <body>
     <div class="container">
         <div class="row top">
-            <a href="index.php" class="brand"><img src="imagens/backgrounds/logo.png" alt="TrocaJogos"></a>
+            <a href="index.php" class="brand"><img src="imagens/icones/logo.png" alt="TrocaJogos"></a>
         </div>
         <div class="row nopadding">
             <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 col-lg-offset-2 col-md-offset-2">

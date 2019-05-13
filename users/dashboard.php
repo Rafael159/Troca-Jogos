@@ -47,7 +47,7 @@
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</button> 
-					<a href="../index.php" class="navbar-brand nopadding" title="Home"><img src="../imagens/backgrounds/logo.png" alt="Troca Jogos" class="img-responsive"/></a>
+					<a href="../index.php" class="navbar-brand nopadding" title="Home"><img src="../imagens/icones/logo.png" alt="Troca Jogos" class="img-responsive"/></a>
 				</div>
 				<div class="collapse navbar-collapse" id="main-menu">
 					<ul class="nav navbar-nav navbar-right container-menu">

@@ -276,7 +276,7 @@ body{
 	}
 	.box-login-cadastro .form-acesso p{display: block;}
 	.box-login-cadastro .form-acesso p label{
-		font:16px Lato, helvetica,sans-serif;
+		font:16px 'source_sans_proregular';
 		color:#cccccc;
 		display: block;
 		margin-bottom: 4px;

@@ -12,7 +12,7 @@
         </ul>
     </div>
     <div class="boxes">
-        <img src="imagens/backgrounds/logo.png" alt="Rodapé" class="brand">
+        <img src="imagens/icones/logo.png" alt="Rodapé" class="brand">
         <p class="text-bold">© RestartGames <?php echo date('Y'); ?></p>
     </div>
 </div>

@@ -16,7 +16,7 @@
 	?>
 	<header class="tj-top">
 		<div class="inf clearfix">
-			<span id="logo" class="clearfix"><a href="../index.php"><img src="../imagens/backgrounds/logo.png" alt="Logo"/></a></span>
+			<span id="logo" class="clearfix"><a href="../index.php"><img src="../imagens/icones/logo.png" alt="Logo"/></a></span>
 			<div class="user-space">
 				<ul class="user-acao">
 					<?php

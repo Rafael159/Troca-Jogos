@@ -201,26 +201,25 @@ span#resultados{
 	-moz-box-shadow: 1px 1px 3px #fbfbfb;
 }
 .btn_cancela_acesso{
-    background:#333333;
-    border:3px solid #FFFFFF;
-    border-radius:50%;
-    float:right;
-    height:40px;
-    position:absolute;
-    right:-23px;
-    top:-14px;
-    width:40px;
+    background: #333333;
+    border: 3px solid #FFFFFF;
+    border-radius: 50%;
+    float: right;
+    height: 35px;
+    position: absolute;
+    right: -19px;
+    top: -19px;
+    width: 35px;
     cursor: pointer;
 }
-    .btn_cancela_acesso b{
-        text-align: center;
-        font: 15px Arial, helvetica, sans-serif;
-        color: #fff;    
-        margin-left:12px;
-        margin-top:8px;
-        position:absolute;
-    }
-
+.btn_cancela_acesso b{
+    text-align: center;
+    font: 15px Arial, helvetica, sans-serif;
+    color: #fff;
+    margin-left: 13px;
+    margin-top: 9px;
+    position: absolute;
+}
 /*formatação do formulário de login*/
 .box-login-cadastro .titulo-acesso{
     font: 14px ruda, sans-serif;
@@ -236,7 +235,6 @@ span#resultados{
     .box-login-cadastro .form-acesso p label{
         font:16px Lato, helvetica,sans-serif;
         color:#cccccc;
-        display: block;
         margin-bottom: 4px;
     }
     .box-login-cadastro .form-acesso p label a{
@@ -251,14 +249,13 @@ span#resultados{
         border: none;
         border-radius: 3px;
         color: #8d8d8d;
-        font-family: Arial, helvetica, sans-serif;
-        font-size: 1.2em;
-        font-weight: normal;
+        font-family: 'source_sans_proregular';
+        font-size: 15px;
         height: 30px;
         line-height: normal;
         margin-bottom: 10px;
         width: 100%;
-        padding: 1%;
+        padding: 2px;
         outline: none;
     }
     /*botão logar/cadastrar */

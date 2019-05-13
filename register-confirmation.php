@@ -29,7 +29,7 @@
 <body>
 	<main class='main'>
 		<div class='top'>
-			<a href="index.php"><img src="imagens/backgrounds/logo.png" alt="TrocaJogos"></a>
+			<a href="index.php"><img src="imagens/icones/logo.png" alt="TrocaJogos"></a>
 			<span><a href="login/logar.php">Entrar</a></span>
 		</div>
 		<div class='container-fluid'>

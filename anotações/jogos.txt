@@ -1,8 +1,0 @@
-n_jogo
-img_jogo
-id_console
-id_gamer
-jogoTroca
-data
-descricao
-status
