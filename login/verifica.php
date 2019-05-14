@@ -1,7 +1,7 @@
 <?php
-function __autoload($classe){
+spl_autoload_register(function($classe) {
 	require('../classes/'.$classe.'.class.php'); /*chama a classe automaticamente*/
-}
+});
 $user = new Usuarios;
 
 /*Get email e senha*/

@@ -248,7 +248,7 @@ class Usuarios extends Crud{
 		$rows = new Usuarios;
 		$row = $rows->getRegister($queries);
 		
-		if(count($row) == 0) return false;
+		//if(count($row) == 0) return false;
 		if($contar == "sim") return count($row);
 		return $row;
 	}

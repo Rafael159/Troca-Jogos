@@ -1,9 +1,9 @@
 <?php
-	function __autoload($classe){
+	spl_autoload_register(function($classe) {
 		require ('..\classes/'.$classe.'.class.php');
-	}
+	});
 	
-	$jogo  = new Jogos;
+	$jogo  = new Jogos();
 
 	$id = (isset($_POST['id'])? $_POST['id'] : "");
 	$retorno = array();

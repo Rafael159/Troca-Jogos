@@ -1,8 +1,8 @@
 <?php
   
-   function __autoload($classe){
-    require('../classes/'.$classe.'.class.php');
-}
+    spl_autoload_register(function($classe) {
+        require('../classes/'.$classe.'.class.php');
+    });
     $user = new Usuarios();	
 
     $nome = (isset($_POST['nome'])) ? trim($_POST['nome']) : '';

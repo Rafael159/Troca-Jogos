@@ -140,10 +140,9 @@ class Imagens extends Crud{
 		$rows = new Imagens;
 		$row = $rows->getImage($queries);
 		
-		if(count($row) == 0) return false;
+		//if(count($row) == 0) return false;
 		if($contar == "sim") return count($row);
 		return $row;
 	}
-}
-	
+}	
 ?>

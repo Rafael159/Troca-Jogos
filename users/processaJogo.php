@@ -1,8 +1,8 @@
 <?php	
 	session_start();
-	function __autoload($classe){
+	spl_autoload_register(function($classe) {
 		require ('..\classes/'.$classe.'.class.php');
-	}
+	});
 	
 	$jogo = new Jogos();//chamada da CLASSE JOGOS
 	$console = new Consoles();//classe CONSOLES

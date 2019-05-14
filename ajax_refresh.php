@@ -1,7 +1,7 @@
 <?php
-	function __autoload($classe){
+	spl_autoload_register(function($classe) {
 	 	require('classes/'.$classe.'.class.php'); /*chama a classe automaticamente*/
- 	}
+ 	});
 	$keyword = (isset($_POST['keyword']) ? strtolower($_POST['keyword']) : '');
 
 	$jogo = new Jogos();

@@ -1,8 +1,8 @@
 <?php
-	function __autoload($classe){
+	spl_autoload_register(function($classe) {
         require('../../classes/'.$classe.'.class.php');
-    }
-    $user  = new Usuarios();   
+    });
+    $user  = new Usuarios;   
     $troca = new Trocas();
     $jogo  = new Jogos(); 
 

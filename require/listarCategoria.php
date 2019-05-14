@@ -1,9 +1,9 @@
 <?php
-	function __autoload($classe){
+	spl_autoload_register(function($classe) {
 	    require('../classes/'.$classe.'.class.php');
-	}
-	$consoles = new Consoles;
-	$jogos = new Jogos;
+	});
+	$consoles = new Consoles();
+	$jogos = new Jogos();
 	session_start();
 
 	$id = (isset($_POST['id'])) ? $_POST['id'] : 1;

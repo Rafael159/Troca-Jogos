@@ -5,9 +5,9 @@
 -->
 <?php
 	header("Content-Type: text/html;  charset=UTF-8",true);
-	function __autoload($classe){
+	spl_autoload_register(function($classe) {
         require('classes/'.$classe.'.class.php');
-    }
+    });
     @BD::conn();
 
     $jogos = new Jogos();

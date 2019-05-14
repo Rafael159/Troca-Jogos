@@ -20,15 +20,14 @@
 	</head>
 <body>	
 	<?php
-
 		session_start();
 		header("Content-type: text/html;charset=utf-8");
-		function __autoload($classe){
+		spl_autoload_register(function($classe) {
 			require ('..\classes/'.$classe.'.class.php');
-		}
+		});
 
-		$console = new Consoles;
-		$imagem  = new Imagens;
+		$console = new Consoles();
+		$imagem  = new Imagens();
 
 	   @BD::conn();//conexão com o banco de dados
 		$user = new Usuarios();

@@ -1,7 +1,7 @@
 <?php
-    function __autoload($classe){
+    spl_autoload_register(function($classe) {
         require ('../../classes/'.$classe.'.class.php');
-    }
+    });
     $notes = new Notificacoes();
 
     $idnote = $_POST['idnote'];

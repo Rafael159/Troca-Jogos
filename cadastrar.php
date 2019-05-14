@@ -1,7 +1,7 @@
 ﻿<?php
-function __autoload($classe){
+spl_autoload_register(function($classe) {
 	require('classes/' . $classe . '.class.php');
-}
+});
 $user = new Usuarios();
 $notice = new Notificacoes();
 
@@ -133,17 +133,17 @@ else :
 	$mailer->SMTPSecure = 'tls';
 
 	//nome do servidor
-	$mailer->Host = 'smtp.live.com';
+	$mailer->Host = 'smtp.hostinger.com.br';
 	$mailer->Port = 587;
 
 	//nome do usuário do email
-	$mailer->Username = 'rafael-hyuga@hotmail.com';
-	$mailer->Password = '08597rafah@';
+	$mailer->Username = 'contato@restartgames.com.br';
+	$mailer->Password = 'dev@RGames<2019!';
 
 	//E-mail remetente
-	$mailer->From = 'rafael-hyuga@hotmail.com';
+	$mailer->From = 'contato@restartgames.com.br';
 
-	$mailer->FromName = 'Restart Games';
+	$mailer->FromName = 'Equipe Restart Games';
 
 	//Assunto da mensagem
 	$mailer->Subject = 'Boas-vindas à Restart Games';
@@ -157,7 +157,7 @@ else :
 				<tr><td colspan='2' style='background-color: #000000;'><h2 style='margin: 0; padding: 5px; border: 0; font-size: 0px; font: inherit; vertical-align: baseline; font-weight: bold; font-size: 15px; color:#ffffff;'>Para ativar sua conta, click no link abaixo</h2></td></tr>
 				<tr><td colspan='2' style='width:100%; text-align: center;'><br/><h2 style='margin: 0; padding: 0; border: 0; font-size: 0px; font: inherit; vertical-align: baseline; font-weight: bold; font-size: 30px; color: #000000;'><a href='http://www.restartgames.com.br/account_activation.php?email=$email&nome=$nome' style='color:#333; font-size:1em;' target='blink'>Ativar minha conta agora</a></h2><br/></td></tr></table>
 				<h2 style='margin: 0; padding: 0; border: 0; font-size: 0px; font: inherit; vertical-align: baseline; font-weight: bold; font-size: 12px; color: #000000; text-align: center; font-family: 'Arial', 'Calibri'; display: block;'>ATENÇÃO: Esse email foi enviado para $email, <br/> pois o mesmo foi usado no cadastro da conta na Restart Games.<br>Se não é você ou você não fez esse cadastro, favor desconsiderar esse e-mail</h2>
-				<table style='margin-top: 20px; color:#fff; background: #333; padding: 1%; border: 0; font-size: 100%; font: inherit; vertical-align: baseline; border-collapse: collapse; border-spacing: 0; width: 98%; text-align: center; font-family: 'Arial', 'Calibri'; color: #ffffff; display: block;'>
+				<table style='margin: 10px auto; color:#fff; background: #333; padding: 1%; border: 0; font-size: 100%; font: inherit; vertical-align: baseline; border-collapse: collapse; border-spacing: 0; width: 98%; text-align: center; font-family: 'Arial', 'Calibri'; color: #ffffff; display: block;'>
 					<tr><th colspan='2' style='width: 200px;'><h1 style='margin: 0; padding: 0; border: 0; font-size: 0px; font: inherit; vertical-align: baseline; font-weight: bold; font-size: 20px;'>CONTATOS</h1></th></tr>
 					<tr><td colspan='2'><h2 style='margin: 0; padding: 0; border: 0; font-size: 0px; font: inherit; vertical-align: baseline; font-weight: regular; font-size: 1em;'>contato@restartgames.com</h2></td></tr>
 					<tr><td colspan='2'><h3 style='margin: 0; padding: 0; border: 0; font-size: 0px; font: inherit; vertical-align: baseline; font-weight: regular; font-size: .9em;'>SIGA-NOS NA REDES SOCIAIS</h3></td></tr>

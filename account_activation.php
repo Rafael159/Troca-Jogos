@@ -1,7 +1,7 @@
 <?php
-    function __autoload($classe){
+    spl_autoload_register(function($classe) {
         require('classes/' . $classe . '.class.php');
-    }
+    });
     $usuario = new Usuarios();
 
     $email = (isset($_GET['email'])) ? $_GET['email'] : '';

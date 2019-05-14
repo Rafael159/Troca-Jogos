@@ -1,8 +1,8 @@
 <?php
-	function __autoload($classe){
+	spl_autoload_register(function($classe) {
 		require ('..\classes/'.$classe.'.class.php');
-	}
-	$imagem  = new Imagens;
+	});
+	$imagem  = new Imagens();
 	if(isset($_POST['jogo'])){ $jogo = $_POST['jogo']; }
 	if(isset($_POST['id'])){ $id = $_POST['id']; }
 

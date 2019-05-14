@@ -21,11 +21,12 @@
 		<title>Restart Games - Porque o jogo não pode parar</title>
 	</head>
 	<body class="center">	
-		<?php
+		<?php			
 			session_start();
-			function __autoload($classe){
+
+			spl_autoload_register(function($classe) {
        			require('classes/'.$classe.'.class.php'); /*chama a classe automaticamente*/
-   			}
+   			});
 			@BD::conn();//conexão com o banco de dados
 			
     		$categoria = new Consoles();

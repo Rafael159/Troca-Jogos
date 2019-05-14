@@ -1,7 +1,7 @@
 <?php
-	function __autoload($classe){
+	spl_autoload_register(function($classe) {
 		require ('../../classes/'.$classe.'.class.php');
-    }
+    });
     $jogos = new Jogos();
 	// $console = new Consoles();
 	// $imagem  = new Imagens();

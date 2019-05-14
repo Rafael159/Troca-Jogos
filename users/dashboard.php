@@ -1,9 +1,9 @@
 <?php
 	@BD::conn();//conexão com o banco de dados
 
-	function __autoload($classe){
+	spl_autoload_register(function($classe) {
 		require('..\classes/'.$classe.'.class.php');
-	}
+	});
 	$jogos = new Jogos();
 	$console = new Consoles();
 	$usuario = new Usuarios();

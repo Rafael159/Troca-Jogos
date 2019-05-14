@@ -1,7 +1,7 @@
 <?php
-    function __autoload($classe){
+    spl_autoload_register(function($classe) {
         require('..\classes/'.$classe.'.class.php');
-    }
+    });
     session_start();
     $userID = (isset($_SESSION['id_user']) ? $_SESSION['id_user'] : '');
 

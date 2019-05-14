@@ -4,9 +4,9 @@
 	*****DATA: 06/03/2015                       ********
 -->
 <?php
-  function __autoload($classe){
+  spl_autoload_register(function($classe) {
       require('classes/'.$classe.'.class.php');
-  }
+  });
   @BD::conn();//conexão com o banco de dados
   $console = new Consoles();
   $jogos = new Jogos();

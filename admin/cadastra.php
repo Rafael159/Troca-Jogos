@@ -1,8 +1,8 @@
 <?php
 	header("Content-type: text/html;charset=utf-8");
-	function __autoload($classe){
+	spl_autoload_register(function($classe) {
 		require ('..\classes/'.$classe.'.class.php');
-	}
+	});
 	// DEFINE O FUSO HORARIO COMO O HORARIO DE BRASILIA
 	date_default_timezone_set('America/Sao_Paulo');
 	
