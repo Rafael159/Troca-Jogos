@@ -1,5 +1,5 @@
 <?php
-class JogoCategoria extends CRUD{
+class JogoCategoria extends Crud{
 	protected $table = 'jogocategoria';
 
 	private $id_jogo;

@@ -1,6 +1,6 @@
 ﻿<?php
 spl_autoload_register(function($classe) {
-	require('classes/' . $classe . '.class.php');
+	require(dirname((__FILE__)).'/classes/'.$classe.'.class.php');	
 });
 $user = new Usuarios();
 $notice = new Notificacoes();
@@ -25,6 +25,9 @@ $tipo = (isset($_POST['tipousuario'])) ? $_POST['tipousuario'] : 0;
 //$mail->execute(array($email));	
 
 $retorno = array();
+$retorno = array('status' => '0', 'mensagem' => 'erro');
+	echo json_encode($retorno);
+	exit();
 
 if (empty($nome)) :
 	$retorno = array('status' => '0', 'mensagem' => 'Campo recomendado! Insira seu nome');
@@ -159,11 +162,10 @@ else :
 				<h2 style='margin: 0; padding: 0; border: 0; font-size: 0px; font: inherit; vertical-align: baseline; font-weight: bold; font-size: 12px; color: #000000; text-align: center; font-family: 'Arial', 'Calibri'; display: block;'>ATENÇÃO: Esse email foi enviado para $email, <br/> pois o mesmo foi usado no cadastro da conta na Restart Games.<br>Se não é você ou você não fez esse cadastro, favor desconsiderar esse e-mail</h2>
 				<table style='margin: 10px auto; color:#fff; background: #333; padding: 1%; border: 0; font-size: 100%; font: inherit; vertical-align: baseline; border-collapse: collapse; border-spacing: 0; width: 98%; text-align: center; font-family: 'Arial', 'Calibri'; color: #ffffff; display: block;'>
 					<tr><th colspan='2' style='width: 200px;'><h1 style='margin: 0; padding: 0; border: 0; font-size: 0px; font: inherit; vertical-align: baseline; font-weight: bold; font-size: 20px;'>CONTATOS</h1></th></tr>
-					<tr><td colspan='2'><h2 style='margin: 0; padding: 0; border: 0; font-size: 0px; font: inherit; vertical-align: baseline; font-weight: regular; font-size: 1em;'>contato@restartgames.com</h2></td></tr>
+					<tr><td colspan='2'><h2 style='margin: 0; padding: 0; border: 0; font-size: 0px; font: inherit; vertical-align: baseline; font-weight: regular; font-size: 1em;'>contato@restartgames.com.br</h2></td></tr>
 					<tr><td colspan='2'><h3 style='margin: 0; padding: 0; border: 0; font-size: 0px; font: inherit; vertical-align: baseline; font-weight: regular; font-size: .9em;'>SIGA-NOS NA REDES SOCIAIS</h3></td></tr>
 					<tr><td colspan='2'>
-					<a href='https://www.instagram.com/?hl=pt-br' style='margin: 0; padding: 0; border: 0; font-size: 0px; font: inherit; vertical-align: baseline; display: inline-block; float: right; margin-left: 8px; width: 20px; height: 20px; background-image: url('http://www.mirandataxi.com.br/icon-inst-email.png'); background-repeat: no-repeat;'></a>
-					<a href='https://www.facebook.com/' style='margin: 0; padding: 0; border: 0; font-size: 0px; font: inherit; vertical-align: baseline; display: inline-block; float: right; width: 20px; height: 20px; background-image: url('http://www.mirandataxi.com.br/icon-face-email.png'); background-repeat: no-repeat;'></a></td></tr>
+					</td></tr>
 					<tr><td colspan='2'><h4 style='margin: 0; padding: 0; border: 0; font-size: 0px; font: inherit; vertical-align: baseline; font-weight: regular; font-size: .8em;'>© RestartGames. All rights reserved.</h4></td></tr>
 				</table>
 			</div>

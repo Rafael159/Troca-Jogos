@@ -1,7 +1,7 @@
 <?php
 
 spl_autoload_register(function($classe) {
-	 require('classes/'.$classe.'.class.php'); /*chama a classe automaticamente*/
+	require(dirname(dirname(dirname(__FILE__))).'/classes/'.$classe.'.class.php');	
  });
 
 include_once('../../classes/BD.class.php');//conexão com o banco de dados

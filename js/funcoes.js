@@ -19,7 +19,7 @@ $(document).ready(function (){
 						window.location.href=(urluser+"dashboard.php");//Dashboard usuário comum				
 			}
 		});
-	}
+	};
 
 	/*ENVIAR EMAIL E SENHA PARA LOGAR AO SITE*/
 	$("#btn-logar").bind('click',function (ev) {
@@ -43,11 +43,12 @@ $(document).ready(function (){
 			method:'POST',
 			url: 'controllers/carregaConsole.php',
 			dateType:'json',
-			contentType: 'application/json',
 			success: function(dados){
 				
-				if(dados != null){
-					var consoles = $.parseJSON(dados);//transforma string em objeto
+				if(dados.length == 0){
+					//vazio
+				}else{
+					var consoles = $.parseJSON(dados);//transforma string em objeto					
 					var selectBox = select;
 					
 		            $.each(consoles, function(key, value){
@@ -56,7 +57,7 @@ $(document).ready(function (){
 				}            
 			}
 		});
-	}
+	};
 	
 	/* Carregar combo dos ESTADOS
 	** @param selectBox
@@ -70,7 +71,7 @@ $(document).ready(function (){
 				$('<option>').val(dados[uf].Sigla).text(dados[uf].Nome).appendTo(comboBox);//popular comboxBox
 			});
 		});
-	}	
+	};	
 
 });
 

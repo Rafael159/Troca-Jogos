@@ -2,7 +2,7 @@
 	header("Content-Type: text/html;  charset=UTF-8",true);
 	
 	spl_autoload_register(function($classe) {
-       	require('classes/'.$classe.'.class.php'); /*chama a classe automaticamente*/
+		require(dirname((__FILE__)).'/classes/'.$classe.'.class.php');       	
    	});
 	@BD::conn();//conexão com o banco de dados
 

@@ -1,8 +1,7 @@
 <?php
-	@BD::conn();//conexão com o banco de dados
 
 	spl_autoload_register(function($classe) {
-		require('..\classes/'.$classe.'.class.php');
+		require(dirname(dirname(__FILE__)).'/classes/'.$classe.'.class.php');
 	});
 	$jogos = new Jogos();
 	$console = new Consoles();
@@ -157,8 +156,8 @@
 	<!--<script type="text/javascript" src="../js/jquery.js"></script>chama o arquivo principal do jquery-->
 
 	<script
-  src="https://code.jquery.com/jquery-3.3.1.js"
-  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+  src="https://code.jquery.com/jquery-3.4.0.js"
+  integrity="sha256-DYZMCC8HTC+QDr5QNaIcfR7VSPtcISykd+6eSmBW5qo="
   crossorigin="anonymous"></script>
 	<script type="text/javascript" src="js/principal.js"></script>
 	<script src="js/jquery.form.min.js"></script>

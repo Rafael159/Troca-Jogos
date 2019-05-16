@@ -1,7 +1,8 @@
 <?php 
     spl_autoload_register(function($classe) {
-	    require('../../classes/'.$classe.'.class.php');
+		require(dirname(dirname(dirname((__FILE__)))).'/classes/'.$classe.'.class.php'); 
     });
+    
 ?>
 <title>Dashboard</title>
 <div class="row nopadding">

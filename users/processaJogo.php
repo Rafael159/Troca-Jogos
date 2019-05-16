@@ -1,7 +1,7 @@
 <?php	
 	session_start();
 	spl_autoload_register(function($classe) {
-		require ('..\classes/'.$classe.'.class.php');
+		require(dirname(dirname(__FILE__)).'/classes/'.$classe.'.class.php');
 	});
 	
 	$jogo = new Jogos();//chamada da CLASSE JOGOS

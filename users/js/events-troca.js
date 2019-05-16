@@ -95,7 +95,7 @@ $(document).ready(function(){
 			data: 'idtroca='+idtroca+'&type='+tipotroca,	
 			dataType: 'html'
 		}).done(function(dados){
-			console.log(dados);
+			
 			if(dados.status == '0'){
 				$('#box_error').modal('toggle');
 				$('#box-msg-error').html(dados.mensagem);

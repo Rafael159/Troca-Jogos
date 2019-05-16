@@ -1,5 +1,5 @@
 <?php
-	@BD::conn();//conexão com o banco de dados
+	//@BD::conn();//conexão com o banco de dados
 	$categoria = new Consoles();		
 ?>
 <!DOCTYPE HTML>

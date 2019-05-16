@@ -1,6 +1,6 @@
 <?php
     spl_autoload_register(function($classe) {
-        require('..\classes/'.$classe.'.class.php');
+        require(dirname(dirname(__FILE__)).'/classes/'.$classe.'.class.php');
     });
     session_start();
     $userID = (isset($_SESSION['id_user']) ? $_SESSION['id_user'] : '');
@@ -108,7 +108,10 @@
     </div>
 </div>
 </div>
-<script src="../js/jquery.js" type="text/javascript"></script>
+<script
+  src="https://code.jquery.com/jquery-3.4.0.js"
+  integrity="sha256-DYZMCC8HTC+QDr5QNaIcfR7VSPtcISykd+6eSmBW5qo="
+  crossorigin="anonymous"></script>
 <script src="../js/jquery.validate.js" type="text/javascript"></script>
 <script src="../js/jquery.mask.js" type="text/javascript"></script>
 <script src="js/profile.js" type="text/javascript"></script>

@@ -1,6 +1,6 @@
 <?php
 	spl_autoload_register(function($classe) {
-        require('..\classes/'.$classe.'.class.php');
+        require(dirname(dirname(__FILE__)).'/classes/'.$classe.'.class.php');
 	});
 	
 	date_default_timezone_set('America/Sao_Paulo');
@@ -20,7 +20,7 @@
     	exit;
     }else{
 		$troca = $trocas->getTrocas(array('id'=>$idtroca));
-		$troca = $troca[0];		
+		$troca = $troca[0];
     	$trocas->setId($idtroca);
     	$trocas->setStatus($tipo);
     	$trocas->setlogData(date("Y-m-d H:i:s"));

@@ -127,7 +127,6 @@ class Notificacoes{
 		$sql  = "SELECT * FROM $this->table $where $w $ordem";
 		
 		$stmt = @BD::conn()->prepare($sql);
-        
 		$stmt->execute();
 		return $stmt->fetchAll();
     }
@@ -135,7 +134,7 @@ class Notificacoes{
     public static function contarNotificacoes($queries = array()){        
         $rows = new Notificacoes;
         $row = $rows->getNotificacoes($queries);
-        
+       
         return count($row);
     }
 }

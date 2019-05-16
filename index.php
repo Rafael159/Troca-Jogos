@@ -23,10 +23,10 @@
 	<body class="center">	
 		<?php			
 			session_start();
-
+			
 			spl_autoload_register(function($classe) {
-       			require('classes/'.$classe.'.class.php'); /*chama a classe automaticamente*/
-   			});
+       			require(dirname(__FILE__).'/classes/'.$classe.'.class.php'); /*chama a classe automaticamente*/
+			});
 			@BD::conn();//conexão com o banco de dados
 			
     		$categoria = new Consoles();

@@ -36,7 +36,7 @@ $(document).ready(function(){
 
 
     function setConsoles(select){
-        $.post("carrega-consoles.php", function(data){
+        $.post("carrega-consoles.php", function(data){            
             $(select).html(data);
             if(form_values.console!='undefined') $('select[name=console]').val(form_values.console); 
         });
@@ -48,8 +48,8 @@ $(document).ready(function(){
 	function setEstados(select){
 		$.getJSON('../util/estados.json', function(dados){
 			var comboBox = $(select);//combo que receberá os estados 
-			
-			$.each(dados, function(uf, state){//uf = Sigla  <---> state = Nome do estado
+			//uf = Sigla  <---> state = Nome do estado
+			$.each(dados, function(uf, state){
                 $('<option>').val(dados[uf].Sigla).text(dados[uf].Nome).appendTo(comboBox);//popular comboxBox
             });
             if(form_values.estado!='undefined') $('select[name=estado]').val(form_values.estado); 

@@ -43,13 +43,11 @@ $(function(){
 					para: idTo
 				}, function (retorno){
 					// console.log(retorno);
-					// setTimeout(function(){						
-					// 	$('.mensagens').append(retorno);						
-					// }, 1000);
+					 setTimeout(function(){						
+					 	$('.mensagens').append(retorno);						
+					 }, 1000);
 					//scrollDown();
 				});
-			}else{
-				alert('Nada para enviar');
 			}
 			return false;
 		}	
@@ -95,7 +93,7 @@ $(function(){
 
 	$("#field-message").keyup(function(e){
         var len = this.value.length;
-        console.log(len);
+        
         if (len >= 200) { //VERIFICA SE TEM MAIS DE 350 CARACTERES
             this.value = this.value.substring(0, 200);
         }

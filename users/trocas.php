@@ -1,6 +1,6 @@
 <?php
 	spl_autoload_register(function($classe) {
-        require('..\classes/'.$classe.'.class.php');
+        require(dirname(dirname(__FILE__)).'/classes/'.$classe.'.class.php');
     });
         
     $user  = new Usuarios();   
@@ -24,6 +24,9 @@
 		<div id="ctr_trocas">
 			<header>
 				<h3 class="title_page">/ MINHAS TROCAS</h3>
+				<?php
+					echo dirname(dirname(__FILE__));
+				?>
 			</header>
 					
 			<div class="col-lg-12">

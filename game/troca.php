@@ -1,7 +1,7 @@
 <?php
 	date_default_timezone_set('America/Sao_Paulo');
 	spl_autoload_register(function($classe) {
-		require ('..\classes/'.$classe.'.class.php');
+		require(dirname(dirname(__FILE__)).'/classes/'.$classe.'.class.php');	
 	});
 	$troca = new Trocas();//chama a classe Troca
 	$jogos = new Jogos();

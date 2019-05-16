@@ -85,7 +85,7 @@ function buscarJogo(jogo, id){
 	    },
 	  	error: function() 
     	{
-    		alert('Ocorreu um erro! Tente mais tarde');
+    		//vazio
     	}
 	});
 }
@@ -122,7 +122,7 @@ function buscar(jogo, id){
 		    },
 		  	error: function()
 	    	{
-	    		alert('Ocorreu um erro! Tente mais tarde');
+	    		//vazio
 	    	} 	        
 			});
 	}					

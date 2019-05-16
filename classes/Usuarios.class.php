@@ -1,5 +1,5 @@
 <?php
-require_once 'CRUD.class.php';
+require_once 'Crud.class.php';
 
 class Usuarios extends Crud{
 	protected $table = 'usuarios'; //definindo a tabela

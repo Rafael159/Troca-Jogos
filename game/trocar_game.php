@@ -1,7 +1,7 @@
 <?php
 	header('Content-Type: text/html; charset=utf-8');
 	spl_autoload_register(function($classe) {
-        require('..\classes/'.$classe.'.class.php');
+		require(dirname(dirname(__FILE__)).'/classes/'.$classe.'.class.php');        
     });
     @BD::conn();//conexão com o banco de dados	
     

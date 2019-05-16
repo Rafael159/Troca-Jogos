@@ -131,8 +131,8 @@ $('#cep').blur(function(){
                 type: 'post',
                 url: 'cadastrar.php',
                 data: form.serialize(),
-                success:function(result){					            	
-                	result = $.parseJSON(result);
+                success:function(result){										            	
+					result = $.parseJSON(result);
 					
                 	if(result.status=='0'){
 						$("#btCadastrar").prop("disabled", false);

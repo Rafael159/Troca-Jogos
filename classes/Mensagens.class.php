@@ -137,7 +137,7 @@ class Mensagens{
 		$where = " WHERE `mensagem` is not null ";
 		$sql = "SELECT m.* FROM `mensagens` m $where $w";
 		$stmt = @BD::conn()->prepare($sql);
-
+		
 		$_data = '';
 		if($stmt->execute()):
 			$_data = $stmt->rowCount();
