@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="..\bootstrap/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="..\bootstrap/css/bootstrap-theme.css"/>
 
-	<title>Troca Games - Recuperar Senha</title>
+	<title>Restart Games - Recuperar Senha</title>
 	</head>
 <body>
 	<div id="top">

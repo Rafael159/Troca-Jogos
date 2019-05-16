@@ -14,6 +14,6 @@
     </div>
     <div class="boxes">
         <img src="..\imagens/icones/logo.png" alt="Rodapé" class="brand">
-        <p class="text-bold">© Troca Jogos <?php echo date('Y'); ?></p>
+        <p class="text-bold">© Restart Games <?php echo date('Y'); ?></p>
     </div>
 </div>

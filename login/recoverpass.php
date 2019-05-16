@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="..\bootstrap/css/bootstrap-theme.css"/>
 	<link rel="shortcut icon" type="image/x-icon" href="../favicon.ico">
 
-	<title>Troca Games - Recuperar Senha</title>
+	<title>Restart Games - Recuperar Senha</title>
 	</head>
 <body>
 	<div id="top">

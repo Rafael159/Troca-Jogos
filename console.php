@@ -1,5 +1,5 @@
 <!--
-	*****SITE TROCA JOGOS						********
+	*****SITE Restart Games						********
 	*****Programador : RAFAEL ALVES CARDOSO     ********
 	*****DATA: 06/03/2015                       ********
 -->
@@ -29,6 +29,13 @@
 		<link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
 
 		<title>Restart Games - Tudo sobre <?php echo strtoupper($cons)?></title>
+		<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+		<script>
+		(adsbygoogle = window.adsbygoogle || []).push({
+			google_ad_client: "ca-pub-6141840476591418",
+			enable_page_level_ads: true
+		});
+		</script>
 	</head>
   	<body>
     	<?php require 'require/header.php';?>

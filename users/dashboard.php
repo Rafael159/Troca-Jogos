@@ -25,7 +25,7 @@
 		<link rel="stylesheet" type="text/css" href="css/jogos.css"/>
 		<link rel="stylesheet" type="text/css" href="css/home.css"/>
 		<link rel="shortcut icon" type="image/x-icon" href="../favicon.ico">
-		<title>Dashboard - Troca Jogos</title>
+		<title>Dashboard - Restart Games</title>
 	</head>
 <body>
 	<div class="alert-overlay"></div>
@@ -46,7 +46,7 @@
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</button> 
-					<a href="../index.php" class="navbar-brand nopadding" title="Home"><img src="../imagens/icones/logo.png" alt="Troca Jogos" class="img-responsive"/></a>
+					<a href="../index.php" class="navbar-brand nopadding" title="Home"><img src="../imagens/icones/logo.png" alt="Restart Games" class="img-responsive"/></a>
 				</div>
 				<div class="collapse navbar-collapse" id="main-menu">
 					<ul class="nav navbar-nav navbar-right container-menu">

@@ -1,8 +1,3 @@
-<!--
-	*****SITE TROCA JOGOS						********
-	*****Programador : RAFAEL ALVES CARDOSO     ********
-	*****DATA: 05/07/2016                       ********
--->
 <!DOCTYPE HTML>
 <html>
 	<head>
@@ -43,7 +38,7 @@
 			}
 		?>
 		<header id="cabecalho">
-			<img id="logo" class="brand" src="../imagens/icones/logo.png" alt="TROCA JOGOS"/>
+			<img id="logo" class="brand" src="../imagens/icones/logo.png" alt="Restart Games"/>
 			<div class="user-space">
 				<ul class="user-acao">
 					<?php						

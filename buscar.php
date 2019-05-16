@@ -111,7 +111,7 @@ else:
 					</li>
 					<li><?php echo strtoupper($valor->nome_console)?></li>
 					<li><a href="feed.php?codigo=<?php echo $valor->id_user?>" class="usuario"><?php echo $valor->nomeUser;?></a></li>
-					<li><?php echo substr($valor->cidade,0,10) ." / ". $valor->estado?></li>
+					<li><?php echo ($valor->cidade) ? substr($valor->cidade,0,10) : '' ." ". ($valor->estado) ? $valor->estado : ''?></li>					
 				</ul>
 			</div>
 		</div><!--class contorno-->				

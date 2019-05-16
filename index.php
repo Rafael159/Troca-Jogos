@@ -19,6 +19,13 @@
 		<link rel="stylesheet" type="text/css" href="font-awesome/css/font-awesome.css"/>
 		<link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
 		<title>Restart Games - Porque o jogo não pode parar</title>
+		<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+		<script>
+		(adsbygoogle = window.adsbygoogle || []).push({
+			google_ad_client: "ca-pub-6141840476591418",
+			enable_page_level_ads: true
+		});
+		</script>
 	</head>
 	<body class="center">	
 		<?php			

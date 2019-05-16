@@ -11,10 +11,10 @@ $(document).ready(function(){
         $('input[name=numero]').val(form_values.numero);
         $('input[name=cidade]').val(form_values.cidade);
         $('input[name=bairro]').val(form_values.bairro);        
-        if(form_values.estado) setEstados('select[name=estado]');
+        //if(form_values.estado) setEstados('select[name=estado]');        
         if(form_values.console) setConsoles('select[name=console]');
         $('input[name=complemento]').val(form_values.complemento);
-
+        setEstados('select[name=estado]');//setar estados
     }
 
     $('#telefone').mask('(99) 9999-9999');
@@ -44,9 +44,11 @@ $(document).ready(function(){
     /* Carregar combo dos ESTADOS
 	** @param selectBox
 	** @param function - recebe o combobox que será preenchido
-	*/
+    */
+    
 	function setEstados(select){
 		$.getJSON('../util/estados.json', function(dados){
+            
 			var comboBox = $(select);//combo que receberá os estados 
 			//uf = Sigla  <---> state = Nome do estado
 			$.each(dados, function(uf, state){

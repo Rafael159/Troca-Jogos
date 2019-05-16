@@ -1,5 +1,5 @@
 <!--
-	*****SITE TROCA JOGOS						********
+	*****SITE Restart Games						********
 	*****Programador : RAFAEL ALVES CARDOSO     ********
 	*****DATA: 06/03/2015                       ********
 -->

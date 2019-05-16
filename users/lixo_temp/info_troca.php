@@ -12,7 +12,7 @@
 <html lang="pt=BR">
 	<head>
 		<meta charset="UTF-8"/>
-		<title>Proposta - TROCA GAMES</title>
+		<title>Proposta - Restart Games</title>
 		<link rel="stylesheet" type="text/css" href="css/estilo.css"/>
 		<style>
 			*{margin:0; padding:0;}

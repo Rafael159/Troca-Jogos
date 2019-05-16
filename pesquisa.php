@@ -40,6 +40,13 @@
 		<link rel="stylesheet" type="text/css" href="css/fonts.css"/>
 		<link rel="stylesheet" type="text/css" href="css/header.css"/><!--estilo topo-->
 		<link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+		<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+		<script>
+			(adsbygoogle = window.adsbygoogle || []).push({
+				google_ad_client: "ca-pub-6141840476591418",
+				enable_page_level_ads: true
+			});
+		</script>
 	</head>
 <body class="center">
 	<?php include_once('require/header.php'); ?>
@@ -77,7 +84,7 @@
 						</li>
 						<li><?php echo strtoupper($valor->nome_console)?></li>
 						<li><a href="feed.php?codigo=<?php echo $valor->id_user?>" class="usuario"><?php echo $valor->nomeUser;?></a></li>
-						<li><?php echo substr($valor->cidade,0,10) ." / ". $valor->estado?></li>
+						<li><?php echo ($valor->cidade) ? substr($valor->cidade,0,10) : '' ." ". ($valor->estado) ? $valor->estado : ''?></li>
 					</ul>
 				</div>
 			</div>
@@ -105,7 +112,7 @@
 						</li>
 						<li><?php echo strtoupper($valor->nome_console)?></li>						
 						<li><a href="feed.php?codigo=<?php echo $valor->id_user?>" class="usuario"><?php echo substr($valor->nomeUser, 0,20)?></a></li>
-						<li><?php echo $valor->cidade ." / ". $valor->estado?></li>
+						<li><?php echo substr($valor->cidade,0,10) ." - ". $valor->estado?></li>						
 					</ul>
 				</div>
 			</div>

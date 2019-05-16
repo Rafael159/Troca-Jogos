@@ -23,10 +23,7 @@
 	<div class="col-lg-12 nopadding">
 		<div id="ctr_trocas">
 			<header>
-				<h3 class="title_page">/ MINHAS TROCAS</h3>
-				<?php
-					echo dirname(dirname(__FILE__));
-				?>
+				<h3 class="title_page">/ MINHAS TROCAS</h3>				
 			</header>
 					
 			<div class="col-lg-12">

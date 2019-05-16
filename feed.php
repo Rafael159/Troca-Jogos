@@ -29,7 +29,7 @@
 		<meta charset="UTF-8">
 		<meta name="description" content="Troque seus jogos antigos por jogos que ainda não teve"/>
 		<meta name="description" content="Troque jogos - divirta-se sem gastar mais"/>
-		<meta name="description" content="Perfil do usuário do Troca Jogos"/>
+		<meta name="description" content="Perfil do usuário do Restart Games"/>
 		<meta name="keywords" content="Troca,Jogo, jogos, Games,Jogadores"/>
 		
 		<title>RG - <?php echo " $dados->nomeUser"; ?></title>
@@ -45,6 +45,13 @@
 
 		<link rel="stylesheet" type="text/css" href="font-awesome/css/font-awesome.css"/>
 		<link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+		<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+		<script>
+		(adsbygoogle = window.adsbygoogle || []).push({
+			google_ad_client: "ca-pub-6141840476591418",
+			enable_page_level_ads: true
+		});
+		</script>
 	</head>
 <body>
 	<div class="container-fluid nopadding">

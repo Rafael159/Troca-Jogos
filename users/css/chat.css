@@ -95,7 +95,7 @@
 #leftpanel .chat-content #chat_form{
     width: 100%;
     background: #2e2d2d;
-    padding: 8px;
+    padding: 4px;
     display: none;
     margin: 0px;
 }
@@ -106,7 +106,7 @@
     font-family: 'source_sans_prolight';
     font-size: 1em;
     color: #333;
-    padding: 5px;
+    padding: 4px;
     font-weight: bold;
     resize: none;
 }
@@ -120,11 +120,11 @@
     background: #027ab6;
     color: #fff;
     padding: 5px;
-    width: 10%;
+    width: 11%;
     border: .5px solid #fff;
     border-radius: 2px;
     font-weight: bold;
-    margin: 9px;
+    margin: 9px 5px;
     position: absolute;
 }
 #leftpanel .settings{

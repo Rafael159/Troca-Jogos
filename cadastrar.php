@@ -25,9 +25,6 @@ $tipo = (isset($_POST['tipousuario'])) ? $_POST['tipousuario'] : 0;
 //$mail->execute(array($email));	
 
 $retorno = array();
-$retorno = array('status' => '0', 'mensagem' => 'erro');
-	echo json_encode($retorno);
-	exit();
 
 if (empty($nome)) :
 	$retorno = array('status' => '0', 'mensagem' => 'Campo recomendado! Insira seu nome');

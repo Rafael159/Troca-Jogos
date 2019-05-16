@@ -63,17 +63,17 @@ if($tipo && $tipo=='recuperar'){
 		$mailer->SMTPSecure = 'tls';
 
 		//nome do servidor
-		$mailer->Host = 'smtp.live.com';
+		$mailer->Host = 'smtp.hostinger.com.br';
 		$mailer->Port = 587;
 
 		//nome do usuário do email
-		$mailer->Username = 'rafael-hyuga@hotmail.com';
-		$mailer->Password = '08597rafah@';
+		$mailer->Username = 'contato@restartgames.com.br';
+		$mailer->Password = 'dev@RGames<2019!';
 
 		//E-mail remetente
-		$mailer->From = 'rafael-hyuga@hotmail.com';
+		$mailer->From = 'contato@restartgames.com.br';
 
-		$mailer->FromName = 'Restart Games';
+		$mailer->FromName = 'Equipe Restart Games';
 
 		//Assunto da mensagem
 		$mailer->Subject = 'Recuperação de Senha - Restart Games';
