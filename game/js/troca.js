@@ -100,7 +100,10 @@ $("#close_pop_up").click(function(){
 		e.preventDefault();
 		//RECUPERAR VALORES
 		frm = $('#frm_trocas');
-			//ENVIAR DADOS PARA SEREM GRAVADOS					
+		//bloquear botão
+		$("#btnConfirmar").prop("disabled", true);
+			
+		//ENVIAR DADOS PARA SEREM GRAVADOS
 		$.ajax({
 			type:'post',
 			url:'troca.php',
@@ -110,8 +113,10 @@ $("#close_pop_up").click(function(){
 
 				if (dados.status == '0') {
 					message(dados.mensagem);
+					$("#btnConfirmar").prop("disabled", false);//desbloqueia botão
 				}else{
 					message(dados.mensagem);
+					$("#btnConfirmar").prop("disabled", false);//desbloqueia botão
 					setTimeout(function(){
 						window.location.href = "../users/dashboard.php?secao=trocas";
 					},3000);

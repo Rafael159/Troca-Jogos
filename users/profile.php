@@ -8,6 +8,7 @@
     $user = new Usuarios;
     $user->setIdUser($userID);
     $row = $user->findRegister();
+
 ?>
 <div id="profile">
 <div class="row nopadding">
@@ -23,10 +24,11 @@
                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                             <label for="nome"><i class="fa fa-user fa-lg" aria-hidden="true"></i> Nome</label>
                             <input type="text" name="nome" id="nome" class="form-control" value=""/>
+                            <input type="hidden" name="email" id="email"/>
                         </div>
                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                                 <label for="email"><i class="fa fa-envelope fa-lg"></i> Email</label>
-                                <input type="text" name="email" id="email" value="" class="form-control"/>
+                                <input type="text" name="emailblock" id="emailblock" value="<?php echo ($row->emailTJ) ? $row->emailTJ : ''?>" class="form-control" disabled/>
                         </div>
                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                             <label for="celular"><i class="fa fa-mobile fa-lg"></i> Celular</label>

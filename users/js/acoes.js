@@ -342,6 +342,9 @@ $("#btn-cadastra").bind('click', function(ev){
 	// Instância o FormData passando como parâmetro o formulário
 	var formData = new FormData(formulario);
 	// Envia O FormData através da requisição AJAX
+
+	$("#btn-cadastra").prop("disabled", true);
+
 	$.ajax({
 	   url: "processaJogo.php",
 	   type: "POST",
@@ -356,7 +359,7 @@ $("#btn-cadastra").bind('click', function(ev){
    				setTimeout(function(){
 					$('#msg_error').fadeOut();//esconder div de erro dps de 3s
    				},3000);
-   				
+   				$("#btn-cadastra").prop("disabled", false);
    			}else{
    				//tudo okay   			
    				qnt = $('#jogos .badge').text();
@@ -367,6 +370,7 @@ $("#btn-cadastra").bind('click', function(ev){
    				resetForm();//apagar valores do formulário
    				$('#feedback_message').fadeIn();//mostrar box da msg
 				$('#feedback_message #message').html(retorno.mensagem);	//add mensagem
+				$("#btn-cadastra").prop("disabled", false);
    			}	   			
    	   }
 	});

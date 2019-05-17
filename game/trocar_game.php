@@ -35,9 +35,14 @@
 		<link rel="stylesheet" type="text/css" href="../css/fonts.css"/>
 		<!--CSS BOOTSTRAP-->
 		<link rel="stylesheet" href="..\bootstrap/css/bootstrap.min.css"/>
-    <link rel="stylesheet" href="..\bootstrap/css/bootstrap-theme.css"/>
+    	<link rel="stylesheet" href="..\bootstrap/css/bootstrap-theme.css"/>
 		<link rel="shortcut icon" type="image/x-icon" href="../favicon.ico">
-
+		<script>
+		(adsbygoogle = window.adsbygoogle || []).push({
+			google_ad_client: "ca-pub-6141840476591418",
+			enable_page_level_ads: true
+		});
+		</script>
 	</head>
 <body>
 	<input type="hidden" name="idUserDois" value='<?php echo $idUser ?>' id="idUserDois"/>

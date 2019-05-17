@@ -1,9 +1,9 @@
 /*Formatação da página de cadastro*/
 *{margin:0; padding: 0; }
 body{
-	background: url('../imagens/backgrounds/capa.png') #211d1d;	
-	background-repeat: no-repeat;
-	background-size: 100%;
+	background: url(../imagens/backgrounds/capa.png) #151515;
+    background-repeat: no-repeat;
+    background-size: 100%;
 }
 .main{ width: 100%;	}
 .main .top{ width: 100%; }
