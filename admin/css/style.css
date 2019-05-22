@@ -33,25 +33,25 @@ body {
 	display: none;
 }
 	#msg header{
-		background:#FFFFFF;
-	 	border-bottom-color:#FFFFFF;
-	    border-bottom-style:dotted;
-	    border-bottom-width:1px;
-	    border-radius:6px;
-	    color:#333333;	    
-	    margin:10px auto;
-	    padding:10px 0;
-	    text-align:center;
-	    text-transform:uppercase;
-	    width:95%;
+		background: #FFFFFF;
+		border-bottom-color: #FFFFFF;
+		border-bottom-style: dotted;
+		border-bottom-width: 1px;		
+		color: #333333;
+		margin: 10px auto;
+		padding: 10px 0;
+		text-align: center;
+		width: 95%;
+		font-family: 'source_sans_probold';
 	}
 	#msg span{
-		width: 95%;
-		padding: 4px 0;
-		text-align: left;
-		margin: 10px;
-		color:#ffffff;
-
+		color:#FFFFFF;
+	  	font-family:'source_sans_proregular';
+	  	font-size:1.1em;
+	  	margin:10px;
+	 	padding:4px 0;
+	  	text-align:left;
+	  	width:95%;
 	}
 .box_cad_img .section{
 	border: 1px solid #ccc;

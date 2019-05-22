@@ -77,7 +77,8 @@
 								<div class="content">									
 									<form id="frm_jogos" action="" class="form">										
 										<div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
-											<label for="console">Console</label>												
+											<label for="console">Console</label>
+											<input type="hidden" id="codconsole" name="codconsole">									
 											<select name="console" id="console_add_game" class="form-control" required>
 												<option value="">Selecione o console</option>												
 											</select>											

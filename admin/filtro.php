@@ -18,8 +18,14 @@
 			<div class="box-opcao">
 				<span><input type="text" value="<?php echo $valor->nome?>" class="nm_jogo"/></span>
 				<ul id="<?php echo $valor->id_img;?>">
-					<li><img src="images/deletar.png" alt="Deletar" class="icon-deletar"></li>
-					<li><img src="images/editar.png" alt="Editar" class="icon-editar"></li>
+					<!-- <li><img src="images/deletar.png" alt="Deletar" class="icon-deletar"></li>
+					<li><img src="images/editar.png" alt="Editar" class="icon-editar"></li> -->
+					<li>
+						<i class="fa fa-trash icon-deletar" style="color:red; font-size:1.5em"></i>						
+					</li>
+					<li>
+						<i class="fa fa-edit icon-editar" style="color:green; font-size:1.5em"></i>						
+					</li>
 				</ul>
 			</div>
 		</div>

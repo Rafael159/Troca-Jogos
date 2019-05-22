@@ -31,6 +31,8 @@ $(document).ready(function(e){
 		}, function(){
 			$("#msg").fadeOut();
 			$(".overlay").fadeOut();
+			$("body, html").css({"overflow-y":"visible"});
+
 		});
 	});
 	/*TELA DE MENSAGENS*/
@@ -81,6 +83,11 @@ $(document).ready(function(e){
 				if(retorno.status == 'erro'){ //se houver erro, mostre
 					mensagem('Erro ao atualizar imagem!','Ocorreu um erro.Tente mais tarde');
 				}else{
+					/*levar a página para o topo e remover o scroll da página*/
+					var body = $("html, body");
+					body.stop().animate({scrollTop:0}, '500', 'swing', function() { 
+						body.css({"overflow-y":"hidden"});						 
+					});
 					mensagem('Sucesso', 'Imagem atualizada com sucesso');											
 				}
 			}, 'jSON');
@@ -120,6 +127,7 @@ $(document).ready(function(e){
 
 	/*FILTRO POR CONSOLE*/
 	$(".mn-console ul li.each-console").on('click', function(){
+		
 		if($(this).hasClass("actived")){ //Não fazer nada
 		}else{
 			var id = $( this ).attr("id");

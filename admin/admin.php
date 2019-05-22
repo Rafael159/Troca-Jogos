@@ -25,9 +25,8 @@
 		    });
 		    @BD::conn();//conexão com o banco de dados
 			
-			$user = Usuarios::getUsuario();//pegar usuário online						
-			/**	NÍVEL 1 - ADMINISTRADOR
-			*	NÍVEL 0 - USUÁRIO NORMAL*/
+			$user = Usuarios::getUsuario();
+			
 			$acesso = ($user) ? $user->tipousuario : 0;
 			
 			if($acesso == 0){

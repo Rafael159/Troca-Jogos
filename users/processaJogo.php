@@ -20,14 +20,12 @@
 	endif;
 
 	//recebendo os valores vindo do form
-	$console_id = (isset($_POST['console']) ? $_POST['console'] : "");//id do console
+	$console_id = (isset($_POST['codconsole']) ? $_POST['codconsole'] : "");//id do console
 	$nome_jogo = (isset($_POST['jogo']) ? trim($_POST['jogo']) : "");//nome do jogo
 	$img_id  = (isset($_POST['img_id']) ? $_POST['img_id'] : "");//id da imagem
 	$genero  = (isset($_POST['genero']) ? $_POST['genero'] : "");//array com os gêneros do jogo
 	$descricao = (isset($_POST['descricao']) ? trim($_POST['descricao']) : ""); //descrição do jogo
 	$infoExtra = (isset($_POST['infoExtra']) ? trim($_POST['infoExtra']) : "");//opcional - informação extra
-
-	
 
 	// $retorno = array('status'=>'0', 'mensagem'=>$lista_generos);
 	// echo json_encode($retorno);

@@ -9,9 +9,9 @@
 
 <div class="overlay"></div><!--SOMBRA DE FUNDO-->
 	<div id="msg">
-		<div align="center">
+		<div>
 			<header></header>
-			<span></span><br><br>
+			<span></span>
 			<button class="submit-btn btn-positivo" id="confirmar-btn">Confirmar</button>
 		</div>
 	</div>

@@ -15,15 +15,17 @@ function dragdrop(op,div, div2){
 /*ESCOLHER IMAGEM*/
 	$(div2+" .each-img").click(function(){
 		var idImg = $(this).attr('id');
+		var nomeJogo = $(this).children().attr('alt');
+		
 		$('#img_id').val(idImg);
-
-		if($(div).is(":empty")){
-			
+		//pegar o nome completo da imagem e atribuir ao nome do jogo
+		$("#jogo").val(nomeJogo);
+		if($(div).is(":empty")){			
 			$(div).append($(this));
 			if(op == 1){
 				idImg = $("#boxmeujogo .each-img").attr('id');//id da imagem
-				
-				$('#console').attr("disabled","disabled");
+			
+				$('#console_add_game').attr("disabled","disabled");
 				$('#delete_primeira_img #pop_botao_fecha').fadeIn();
 			}else{
 				$('.galeria, #minha-escolha').fadeOut('fast',function(){
@@ -100,7 +102,7 @@ function buscar(jogo, id){
 			data      : 'id='+ id +'&jogo='+ jogo,
        		dataType  : 'json',
 			success: function(data)
-		    {	
+		    {					
 		    	if(data.qnt == 0){
 		    		$('#jogo_escolha, #boxjogo_favorito').html('');//apagar conteúdo já existente
 					$('.box_new_img2').fadeIn();
@@ -172,7 +174,9 @@ $("#add_new_img").on('change', function () {
             	}).appendTo(image_holder);
         	}
         }
-        image_holder.show();
+		image_holder.show();
+		$('#delete_primeira_img #pop_botao_fecha').fadeIn();
+		$('#console_add_game').attr("disabled","disabled");
         reader.readAsDataURL($(this)[0].files[0]);
 
     } else{
@@ -209,29 +213,30 @@ $("#add_new_img2").on('change', function () {
 
 //trocar as imagens de acordo com o console
 $("#console_add_game").change(function(){
-	$('#imagem').html('<img src="img/progresso.gif">');//imagem de loading
-
+	id= $(this).val();//id do console
 	jogo = $('#jogo').val();
-	if(jogo.length > 4){
-		var id= $(this).val();//id do console 
 
-		if(id == 'Selecione'){
+	if(id == 'Selecione'){
+		$("#codconsole").val('');
+	}else{
+		$("#codconsole").val(id);
+	}
 
-		}else if(jogo == ''){
-			$('#jogo').focus();
-		}else{		
-			buscarJogo(jogo, id);//chama função de busca das imagens
-		}
-	}  
-	 
+	if(id > 0 && jogo.length > 4){
+		buscarJogo(jogo, id);//chama função de busca das imagens	
+	}else{
+		$('#jogo').focus();
+		$('#imagem').html('<img src="img/progresso.gif">');//imagem de loading
+	}	 
 });
 $("#jogo").keyup(function(){
 	jogo = $(this).val();//nome do jogo digitado
-
+	
 	if(jogo.length > 4){
 		id = $("#console_add_game").val();//id do console
 		
-		if(id=='Selecione'){}else{		
+		if(id=='Selecione'){			
+		}else{
 			buscarJogo(jogo, id);//chama função que busca o jogo						
 		}
 	}

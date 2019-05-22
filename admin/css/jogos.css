@@ -246,29 +246,27 @@ nav.mn-console ul .each-console a{
 	top:-50%;
 	position: absolute;
 	display: none;
+	text-align: center;
 }
 	#msg header{
-		background:#FFFFFF;
-	 	border-bottom-color:#FFFFFF;
-	    border-bottom-style:dotted;
-	    border-bottom-width:1px;
-	    border-radius:6px;
-	    color:#333333;
-	    margin:10px auto;
-	    padding:10px 0;
-	    text-align:center;
-	    text-transform:uppercase;
-	    width:95%;
+		background: #FFFFFF;		
+		color: #333333;
+		margin: 10px auto;
+		padding: 10px 0;
+		text-align: center;
+		text-transform: uppercase;
+		width: 95%;
+		font-family: 'source_sans_probold';
 	}
 	#msg span{
-		color:#FFFFFF;
-	  	font-family:arial, helvetica, sans-serif;
-	  	font-size:1.5em;
-	  	margin:10px;
-	 	padding:4px 0;
-	  	text-align:left;
-	  	width:95%;
-
+		color: #FFFFFF;
+		font-family: 'source_sans_proregular';
+		font-size: 1.1em;
+		margin: 10px;
+		padding: 4px 0;
+		text-align: center;
+		width: 95%;
+		display: block;
 	}
 #msg-none{
 	width: 100%;

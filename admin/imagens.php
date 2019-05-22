@@ -8,12 +8,10 @@
 <title>Imagens</title>
 
 <div class="overlay"></div><!---->
-<div id="msg">
-	<div align="center">
-		<header></header>
-		<span></span><br><br>
-		<button class="submit-btn btn-positivo" id="confirmar-btn">Confirmar</button>
-	</div>
+<div id="msg">	
+	<header></header>
+	<span></span>
+	<button class="submit-btn btn-positivo" id="confirmar-btn">Confirmar</button>	
 </div>
 <div id="conteudo">
 	<header>
