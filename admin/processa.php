@@ -22,10 +22,10 @@ if(is_array($_FILES)) {
 	}
 	//configuração
 	$largura = 195;
-	$extensoes = array('.jpg', '.png', '.jpeg');
+	$extensoes = array('.jpg', '.png');
 	$caminho = "../game/imagens/".$data['nomeconsole'];
-	$ext = strrchr($nome, ".");
-	
+	$ext = strtolower(strrchr($nome, "."));
+		
 	if(is_uploaded_file($_FILES['image_file']['tmp_name'])) {
 		
 		if(!in_array(strtolower(strrchr($nome, ".")), $extensoes)){

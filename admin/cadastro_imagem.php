@@ -62,7 +62,7 @@
 					<div id="output"></div>  
 					<img src="images/ajax-loader.gif" id="loading-img" style="display:none;" alt="Please Wait"/>		        
 				</form>
-				<span>Extensões permitidas(.jpg, .jpeg, .png)</span><br>
+				<span>Extensões permitidas(.jpg, .png)</span><br>
 				<button class="submit-btn btn_negar">Cancelar</button>
 				<button class="submit-btn btn_voltar" id="voltar-btn_dois">Voltar</button>     
 				<input type="button" value="Cadastrar" class="submit-btn btn-positivo" id="imagem-btn" />   

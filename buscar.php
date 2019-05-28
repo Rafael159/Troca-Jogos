@@ -66,7 +66,7 @@
     	foreach($arrayJogo as $exibeJogo): // buscar informações do jogo
     ?>
 <div class="contorno">
-	<figure id="console" nome="<?php echo strtoupper($exibeJogo->nome_console)?>" ><a href="game/game.php?codigo=<?php echo $exibeJogo->id;?>&&console=<?php echo $exibeJogo->id_console;?>"> <img src="game/imagens/<?php echo str_replace(' ','',$exibeJogo->nome_console)?>/<?php echo $exibeJogo->imagem;?>" alt="<?php echo strtoupper($exibeJogo->n_jogo) ?>"/></a></figure>
+	<figure id="console" nome="<?php echo strtoupper($exibeJogo->nome_console)?>" class="<?php echo strtolower($exibeJogo->nome_console)?>"><a href="game/game.php?codigo=<?php echo $exibeJogo->id;?>&&console=<?php echo $exibeJogo->id_console;?>"> <img src="game/imagens/<?php echo str_replace(' ','',$exibeJogo->nome_console)?>/<?php echo $exibeJogo->imagem;?>" alt="<?php echo strtoupper($exibeJogo->n_jogo) ?>"  class="image-game"/></a></figure>
 	<!--<div class="imagem-troca"><img src="imagens/ps3/<?php $jogos ?>" alt="RESIDENT EVIL 6"/></div>-->
 	<div class="info-gamer">
 		<ul>			
@@ -96,7 +96,7 @@ else:
 		foreach($jogos->listarJogos(array('status'=>'Ativo')) as $key=> $valor):
 	?> 
 		<div class="contorno">
-			<figure id="console" nome="<?php echo strtoupper($valor->nome_console);?>"><a href="game/game.php?codigo=<?php echo $valor->id;?>&&console=<?php echo $valor->id_console;?>"><img src="game/imagens/<?php echo str_replace(' ', '',$valor->nome_console)?>/<?php echo $valor->imagem?>" alt="<?php echo strtoupper($valor->n_jogo)?>"/></a></figure>			
+			<figure id="console" nome="<?php echo strtoupper($valor->nome_console);?>" class="<?php echo strtolower($valor->nome_console)?>"><a href="game/game.php?codigo=<?php echo $valor->id;?>&&console=<?php echo $valor->id_console;?>"><img src="game/imagens/<?php echo str_replace(' ', '',$valor->nome_console)?>/<?php echo $valor->imagem?>" alt="<?php echo strtoupper($valor->n_jogo)?>" class="image-game"/></a></figure>			
 			<div class="info-gamer">
 				<ul>
 					<li> 

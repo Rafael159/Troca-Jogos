@@ -69,7 +69,7 @@
 					foreach($grupoJogos as $valor):
 		?>
 			<div class="contorno">				
-				<figure id="console" nome="<?php echo strtoupper($valor->nome_console)?>"><a href="game/game.php?codigo=<?php echo $valor->id;?>&&console=<?php echo $valor->id_console;?>"> <img src="game/imagens/<?php echo str_replace(' ', '',$valor->nome_console)?>/<?php echo $valor->imagem?>" alt="<?php echo strtoupper($valor->n_jogo)?>"/></a></figure>
+				<figure id="console" nome="<?php echo strtoupper($valor->nome_console)?>" class="<?php echo strtolower($valor->nome_console)?>"><a href="game/game.php?codigo=<?php echo $valor->id;?>&&console=<?php echo $valor->id_console;?>"> <img src="game/imagens/<?php echo str_replace(' ', '',$valor->nome_console)?>/<?php echo $valor->imagem?>" alt="<?php echo strtoupper($valor->n_jogo)?>" class="image-game"/></a></figure>
 				<div class="info-gamer">
 					<ul>
 						<li>
@@ -97,7 +97,7 @@
 			foreach($jogos->listarJogos(array('status'=>'Ativo', 'order'=>"ORDER BY id DESC")) as $key=> $valor):
 		?> 
 			<div class="contorno">				
-				<figure id="console" nome="<?php echo strtoupper($valor->nome_console)?>"><a href="game/game.php?codigo=<?php echo $valor->id;?>&&console=<?php echo $valor->id_console;?>"><img src="game/imagens/<?php echo str_replace(' ', '', $valor->nome_console)?>/<?php echo $valor->imagem?>" alt="<?php echo strtoupper($valor->n_jogo)?>"/></a></figure>
+				<figure id="console" nome="<?php echo strtoupper($valor->nome_console)?>"  class="<?php echo strtolower($valor->nome_console)?>"><a href="game/game.php?codigo=<?php echo $valor->id;?>&&console=<?php echo $valor->id_console;?>"><img src="game/imagens/<?php echo str_replace(' ', '', $valor->nome_console)?>/<?php echo $valor->imagem?>" alt="<?php echo strtoupper($valor->n_jogo)?>" class="image-game" /></a></figure>
 				<div class="info-gamer">
 					<ul>
 						<li>

@@ -18,9 +18,9 @@
 		<div class="quadro-galeria" id="<?php echo str_replace(' ', '', $conso)?>">
 			<ul class="galeria-principal">
 				<?php
-					$games = $jogos->listarJogos(array('idconsole'=>$id, 'status'=>'Ativo', 'limite'=>'5'));
+					$games = $jogos->listarJogos(array('idconsole'=>$id, 'status'=>'Ativo', 'limite'=>'4'));
 
-					if(Jogos::contarJogosHelper(array('idconsole'=>$id, 'status'=>'Ativo', 'limite'=>'5')) == 0){
+					if(Jogos::contarJogosHelper(array('idconsole'=>$id, 'status'=>'Ativo', 'limite'=>'4')) == 0){
 						if(isset($_SESSION['emailTJ'])){
 							echo "<span class='msgFalha'>Hmmm! Nenhum jogo encontrado para esse console. Seja o primeiro a cadastrar  <a href='users/dashboard.php?secao=jogos'><button id='btn-register'>Cadastrar jogo</button></a></span>";
 						}else{

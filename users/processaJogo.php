@@ -56,7 +56,7 @@
 	if(isset($_FILES['imagem']) && $_FILES['imagem']['size'] > 0):
 		$imagem = $_FILES['imagem'];
 		$nomeimg = $_FILES['imagem']['name'];
-		$ext_aceitas = array('jpg','jpeg','png');//array com as extensões permitidas
+		$ext_aceitas = array('jpg','png');//array com as extensões permitidas
 		$array_extensao = explode('.',$_FILES['imagem']['name']);//pegar a extensão
 		$extensao = strtolower(end($array_extensao));
 
@@ -112,9 +112,6 @@
 		
 		if ($imagem['type']=="image/jpeg"){
 			$local="$caminho/$name".".jpg";
-			imagejpeg($nova, $local);
-		}else if ($imagem['type']=="image/gif"){
-			$local="$caminho/$name".".gif";
 			imagejpeg($nova, $local);
 		}else if ($imagem['type']=="image/png"){
 			$local="$caminho/$name".".png";

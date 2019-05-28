@@ -68,7 +68,7 @@
 							<div class="galeria">
 								<ul class="box-galeria-jogos">			
 									<div class="arrow"></div>
-									<?php								
+									<?php
 										foreach($categoria->listarTodos() as $valor):
 									?>
 									<li name="" value="<?php echo $valor->id_console?>" class="link"><?php echo strtoupper($valor->nome_console)?></li>		 							

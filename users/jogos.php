@@ -99,7 +99,7 @@
 											<div class="box_new_img">
 												<div class="file-field input-field col-lg-8">
 											      <div class="btn">
-											        <span>Escolher Imagem <i>(jpg/jpeg/png)</i></span>
+											        <span>Escolher Imagem <i>(jpg/png)</i></span>
 											        <input type="file" name="imagem" id="add_new_img"/>
 											      </div>
 											    </div> 

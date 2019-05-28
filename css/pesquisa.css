@@ -283,12 +283,12 @@ span.alert-vazio p{
 .contorno{
     width: 22%;
     border: 0px solid #ccc;
-    float: left;    
     margin: 8px;
     padding: 8px 0px 8px 0px;
     border-radius: 4px;
     transition-duration: 0.5s;
     cursor: pointer;
+    display: inline-block;
 }
 .contorno:hover{
     box-shadow: #006699 2px 1px 22px;
@@ -301,7 +301,7 @@ span.alert-vazio p{
 }
 .contorno figure img{
     width: 175px;
-    height: 215px;
+    height: 200px;
 }
 .contorno .info-gamer{
     width: 184px;
@@ -323,4 +323,8 @@ span.alert-vazio p{
 }
 .contorno .info-gamer ul li a{margin-left: -5px;}
 .contorno .info-gamer ul li a:hover{text-decoration: underline;}
+
+.ds .image-game{
+    height:150px !important;
+}
     
