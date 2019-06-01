@@ -137,11 +137,11 @@ else :
 	$mailer->Port = 587;
 
 	//nome do usuário do email
-	$mailer->Username = 'contato@restartgames.com.br';
-	$mailer->Password = 'dev@RGames<2019!';
+	$mailer->Username = 'suporte@restartgames.com.br';
+	$mailer->Password = '@suporteRGames>2019';
 
 	//E-mail remetente
-	$mailer->From = 'contato@restartgames.com.br';
+	$mailer->From = 'suporte@restartgames.com.br';
 
 	$mailer->FromName = 'Equipe Restart Games';
 
@@ -170,7 +170,6 @@ else :
 
 	//Destinatário
 	$mailer->addAddress($email);
-
 	
 	if ($mailer->Send()) {
 		session_start();		
@@ -191,7 +190,7 @@ else :
 		$retorno = array('status' => '1', 'mensagem' => '');
 		echo json_encode($retorno);
 	} else {
-		$retorno = array('status' => '0', 'mensagem' => 'Houve um erro ao efetuar o cadastro');
+		$retorno = array('status' => '0', 'mensagem' => 'Houve um erro ao efetuar o cadastro. Tente novamente mais tarde');
 		echo json_encode($retorno);
 	}
 endif;

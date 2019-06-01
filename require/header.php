@@ -60,8 +60,12 @@
 					 <input type="password" name="senha" id="senha_login"/>
 				</p>
 				<p>
-					<label>
+					<!-- <label>
 						<input type="button" name="logar" value="Logar" id="btn-logar"/>									
+					</label> -->
+					<label>
+						<button name="logar" id="btn-logar">Logar  <i class="fa fa-sign-in" aria-hidden="true"></i></button>
+						<!-- <input type="button" name="logar" value="Logar" id="btn-logar"/>									 -->
 					</label>								
 				<p>
 					<label>

@@ -378,7 +378,8 @@ body{
 	display: inline-block;
 }
 #box_meu_jogo section.section .mygames img{
-	width: 100%;	
+	width: 100%;
+	height: 180px;	
 }
 #box_meu_jogo section.section .mygames .infoGame{
 	width: 100%;

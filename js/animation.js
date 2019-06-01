@@ -33,8 +33,7 @@ $(document).ready(function (){
 		},function(){
 			$("#prevId").show();
 			ultimo = $("#slider li:last").offset().top;
-			console.log(ultimo, '--', posiMain);
-
+			
 			if(ultimo <= posiMain){
 				hide($("#nextBtn"));
 			}

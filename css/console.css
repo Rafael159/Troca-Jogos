@@ -94,6 +94,7 @@ header.tj-top .user-space{
 #main-menu .nav ul li#psvita{ background: #ff6d02; }
 #main-menu .nav ul li#ds{ background: #4b4b4b; }
 #main-menu .nav ul li#pc{ background: #989898; }
+#main-menu .nav ul li#switch{ background: #3f51b5; }
 
 #main-menu .nav ul li .link{
 	font-family: 'source_sans_proregular';

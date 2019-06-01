@@ -42,7 +42,7 @@
 			<div class="boxcontainer" align="center">
 				<h3>Informe o nome do jogo dessa imagem</h3>
 				<form action="#" method="post">
-					<input name="nome-jogo" type="text" id="txt-jogo"/>		                
+					<input name="nome-jogo" type="text" id="txt-jogo" autocomplete="off">		                
 				</form>
 				<button class="submit-btn btn_negar">Cancelar</button>
 				<button class="submit-btn btn_voltar" id="voltar-btn_um">Voltar</button>

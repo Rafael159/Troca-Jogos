@@ -50,7 +50,7 @@ body {
 	  	font-size:1.1em;
 	  	margin:10px;
 	 	padding:4px 0;
-	  	text-align:left;
+	  	text-align:center;
 	  	width:95%;
 	}
 .box_cad_img .section{
@@ -141,21 +141,18 @@ input[type=file] {
 	}
 	.galeria .box-galeria-jogos li{
 		z-index: 10;
-		width: 100px;
-		height: 20px;
 		padding: 15px;
 		list-style-type: none;
-		background:linear-gradient(#02222D, #05495E,#02222D);
-		background: -webkit-linear-gradient(#02222D, #05495E,#02222D); /* Para Safari 5.1 to 6.0 */
-  		background: -o-linear-gradient(#02222D, #05495E,#02222D); /* Para Opera 11.1 to 12.0 */
-  		background: -moz-linear-gradient(#02222D, #05495E,#02222D); /* Para Firefox 3.6 to 15 */
-  		text-align: left;
-  		cursor: pointer;
-  		font:15px Lato,Arial, sans-serif;
-  		color: #D0CBC0;
+		background: linear-gradient(#02222D, #05495E,#02222D);
+		background: -webkit-linear-gradient(#02222D, #05495E,#02222D);
+		background: -o-linear-gradient(#02222D, #05495E,#02222D);
+		background: -moz-linear-gradient(#02222D, #05495E,#02222D);
+		text-align: center;
+		cursor: pointer;
+		font: 15px 'source_sans_proregular';
 		text-decoration: none;
-		display: inline;
-		border-radius: 4px;
+		display: table-cell;
+		color: #fff;
 	}
     .galeria .box-galeria-jogos li:hover{
     	background:linear-gradient(#05495E,#02222D,#05495E);
@@ -166,20 +163,31 @@ input[type=file] {
     	opacity: 1;
     	color: #CD6C03;
     	position: relative;
+    	animation: moveFromTop 300ms ease-in-out;
     	-webkit-animation: moveFromTop 300ms ease-in-out;
         -moz-animation: moveFromTop 300ms ease-in-out;
         -ms-animation: moveFromTop 300ms ease-in-out;
-    }
+	}
+	@keyframes moveFromTop {
+		from {
+			opacity: 0;
+			-webkit-transform: translateY(-25%);
+		}
+		to {
+			opacity: 1;
+			-webkit-transform: translateY(0%);
+    	}
+	}
     @-webkit-keyframes moveFromTop {
-    from {
-        opacity: 0;
-        -webkit-transform: translateY(-25%);
-    }
-    to {
-        opacity: 1;
-        -webkit-transform: translateY(0%);
-    }
-}
+		from {
+			opacity: 0;
+			-webkit-transform: translateY(-25%);
+		}
+		to {
+			opacity: 1;
+			-webkit-transform: translateY(0%);
+    	}
+	}
 @-moz-keyframes moveFromTop {
     from {
         opacity: 0;

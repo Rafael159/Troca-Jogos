@@ -94,7 +94,6 @@ function list_games(key, jogo_lista){
      			var linha = '';
      			$.each(data, function(chave, dados){
 					/*criar */
-					console.log(chave);
 					if(chave <= 4){
 						linha += "<li class='autoJogo' onclick='set_item(\""+dados.jogo+' - '+ dados.console + "\")'><img src='game/imagens/"+dados.consolesemEspaco+"/"+dados.imagem+"'/><h3 class='title-game'>"+ slice_string(dados.jogo) + ' - ' + dados.console + "</h3></li>";
 					}else return false;

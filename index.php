@@ -63,7 +63,7 @@
 				<!-- <span id="titulo-galeria"><h4>GALERIA DE JOGOS POR CATEGORIA</h4></span> -->
 				<!--enviar o id do console e retorno os jogos referentes ao mesmo-->
 				<div class="row nopadding">
-					<!-- <div class="galeria"> -->
+					<!-- <div class="gallery"> -->
 						<div class="col-lg-2 col-md-3 col-sm-4 nopadding">
 							<div class="galeria">
 								<ul class="box-galeria-jogos">			

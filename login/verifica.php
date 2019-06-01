@@ -34,6 +34,10 @@ if($tipo && $tipo=='recuperar'){
 		echo json_encode($retorno);
 		exit();
 	}else{
+		// $retorno = array('status'=>'0', 'mensagem'=> 'cheguei aqui');
+		// 	echo json_encode($retorno);	
+		// 	exit();
+
 		//gerar timestamp da hora atual
 		date_default_timezone_set('America/Sao_Paulo');//timezone
 		$dataatual = date('Y-m-d H:i:s');//pegar data e hora atual
@@ -67,11 +71,12 @@ if($tipo && $tipo=='recuperar'){
 		$mailer->Port = 587;
 
 		//nome do usuário do email
-		$mailer->Username = 'contato@restartgames.com.br';
-		$mailer->Password = 'dev@RGames<2019!';
+		//nome do usuário do email
+		$mailer->Username = 'suporte@restartgames.com.br';
+		$mailer->Password = '@suporteRGames>2019';
 
 		//E-mail remetente
-		$mailer->From = 'contato@restartgames.com.br';
+		$mailer->From = 'suporte@restartgames.com.br';
 
 		$mailer->FromName = 'Equipe Restart Games';
 
@@ -102,6 +107,11 @@ if($tipo && $tipo=='recuperar'){
 			// $_SESSION['novo_email'] = $email;
 			$retorno = array('status'=>'1', 'mensagem'=> $email);
 			echo json_encode($retorno);	
+			exit();
+		}else{
+			$retorno = array('status'=>'0', 'mensagem'=> 'Houve um erro ao enviar o email. Por favor, tente novamente');
+			echo json_encode($retorno);	
+			exit();
 		}	
 	}
 

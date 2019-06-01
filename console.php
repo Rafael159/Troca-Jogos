@@ -27,6 +27,8 @@
 		<link rel="stylesheet" type="text/css" href="css/fonts.css" />
 		<link rel="stylesheet" type="text/css" href="css/style-footer.css"/>
 		<link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+		<link rel="stylesheet" type="text/css" href="font-awesome/css/font-awesome.css"/>
+
 
 		<title>Restart Games - Tudo sobre <?php echo strtoupper($cons)?></title>
 		<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
@@ -39,7 +41,9 @@
 	</head>
   	<body>
     	<?php require 'require/header.php';?>
-     
+		<?php
+			
+		?>
     	<div id="main-menu">
 			<nav class="nav">
 				<ul>

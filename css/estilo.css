@@ -553,6 +553,11 @@ span#titulo-galeria h4{
 .bgfiltro{
 	background: #069 !important;
 }
+.main .gallery{
+	background:#ccc;
+	border:1px solid #000000;
+	display: block;
+}
 /*configurar dentro de cada quadro onde os games serão mostrados*/
 .main .galeria #resultado-links{
 	width: 100%;
@@ -566,18 +571,18 @@ span#titulo-galeria h4{
 /*formatação da vitrine dos jogos*/
 .main .galeria #resultado-links .quadro-galeria .galeria-principal{
 	width: 100%;
-    padding: 13px 0px;
+    padding: 37px 0px;
     background: #ccc;
 	list-style-type: none;
 	display: inline-block;
-	min-height: 335px;
+	height: 373px;
 }
 
 .main .galeria #resultado-links .quadro-galeria .galeria-principal .msgFalha{
 	width: 99%;
     padding: 10px 1px 10px 10px;
     position: absolute;
-    margin: 100px 0;
+    margin: 145px 0;
     font-size: 1.5em;
     color: #292929;
     font-family: 'source_sans_proregular';

@@ -57,7 +57,7 @@ $(document).ready(function(){
                 acao: 'excluir'
             }
         }).done(function(dados){
-            console.log(dados);
+            //console.log(dados);
         });
         
     }

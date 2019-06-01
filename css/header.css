@@ -195,7 +195,7 @@ span#resultados{
 	margin-left: -150px; 
 	display: none;
 	z-index: 999;
-
+    padding:10px; 
 	box-shadow: 1px 1px 3px #fbfbfb;
 	-webkit-box-shadow: 1px 1px 3px #fbfbfb;
 	-moz-box-shadow: 1px 1px 3px #fbfbfb;
@@ -222,10 +222,11 @@ span#resultados{
 }
 /*formatação do formulário de login*/
 .box-login-cadastro .titulo-acesso{
-    font: 14px ruda, sans-serif;
-    color:#8d8d8d;
-    margin:3px;
-    width: 280px; 
+    color: #8d8d8d;
+    margin: 5px;
+    width: 280px;
+    font-family: 'source_sans_proregular';
+    font-size: 1em; 
 }
     .box-login-cadastro .form-acesso{
         width: 97%;
@@ -234,12 +235,12 @@ span#resultados{
     }
     .box-login-cadastro .form-acesso p{display: block;}
     .box-login-cadastro .form-acesso p label{
-        font:16px Lato, helvetica,sans-serif;
+        font:1.2em 'source_sans_proregular';
         color:#cccccc;
         margin-bottom: 4px;
     }
     .box-login-cadastro .form-acesso p label a{
-        font:16px Arial, helvetica, sans-serif;
+        font:0.9em 'source_sans_proregular';
         color:#fff;     
         margin-left: 10px;
         text-decoration: none;
@@ -262,23 +263,21 @@ span#resultados{
     /*botão logar/cadastrar */
     .box-login-cadastro .form-acesso p #btn-logar,.box-login-cadastro .form-acesso p #btn-cadastrar{
         width: 100%;
-		padding: 6px 0px;
-		border-radius: 3px;
-		border: none;
-		font-family:'source_sans_proregular';
-		font-size: 1.2em;
-		color: #fff;
-		cursor: pointer;
-		margin-top: 10px;
-		margin-bottom: 10px;
-		outline: none;
-		font-weight: bold;
-		letter-spacing: 1px;
-		box-shadow: 1px 1px 2px #3D3D3D;
-		background: -webkit-linear-gradient(#A31313,#c91212);
-		background: -o-linear-gradient(#A31313,#c91212);
-		background: linear-gradient(#A31313,#c91212);
-		background: -moz-linear-gradient(#A31313,#c91212);
+        padding: 6px 0px;
+        border-radius: 3px;
+        border: none;
+        font-family: 'source_sans_proregular';
+        font-size: 1em;
+        color: #fff;
+        cursor: pointer;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        outline: none;
+        box-shadow: 1px 1px 2px #3D3D3D;
+        background: -webkit-linear-gradient(#A31313,#c91212);
+        background: -o-linear-gradient(#A31313,#c91212);
+        background: linear-gradient(#A31313,#c91212);
+        background: -moz-linear-gradient(#A31313,#c91212);
     }
         .box-login-cadastro .form-acesso p #btn-logar:hover, .box-login-cadastro .form-acesso p #btn-cadastrar:hover {
             background: -webkit-linear-gradient(#c91212,#A31313);
@@ -292,15 +291,14 @@ span#resultados{
     }
     #result{
         padding: 4px;
-        margin: 1px auto;
-        border: 1px solid #ed0000;
-        font:0.9em Arial, helvetica,sans-serif;
-        color: #fff;
-        background:#ed0000;
+        margin: 10px auto;        
+        font: 0.9em 'source_sans_proregular';
+        background: #ed0000;
         display: none;
         text-align: center;
         opacity: 0.9;
-}
+        color: #ffffff;
+    }
 /*botão conectar com facebook*/
 .facebook{
     background:#3A5795;

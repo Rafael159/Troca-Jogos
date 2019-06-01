@@ -12,9 +12,11 @@ $(document).ready(function () {
                 method: 'POST',
                 url: 'verifica.php',
                 data: { email: email, tipo: 'recuperar' },
+                dataType: 'json',
                 success: function (dados) {
-                    dados = JSON.parse(dados);
-                    console.log(dados);
+                    console.table(dados);
+                    //dados = JSON.parse(dados);
+                   
                     if (dados.status == '0') {
                         //erro
                         $("#progress").css("display", "none");
