@@ -160,7 +160,10 @@ else :
 				<table style='margin: 10px auto; color:#fff; background: #333; padding: 1%; border: 0; font-size: 100%; font: inherit; vertical-align: baseline; border-collapse: collapse; border-spacing: 0; width: 98%; text-align: center; font-family: 'Arial', 'Calibri'; color: #ffffff; display: block;'>
 					<tr><th colspan='2' style='width: 200px;'><h1 style='margin: 0; padding: 0; border: 0; font-size: 0px; font: inherit; vertical-align: baseline; font-weight: bold; font-size: 20px;'>CONTATOS</h1></th></tr>
 					<tr><td colspan='2'><h2 style='margin: 0; padding: 0; border: 0; font-size: 0px; font: inherit; vertical-align: baseline; font-weight: regular; font-size: 1em;'>contato@restartgames.com.br</h2></td></tr>
-					<tr><td colspan='2'><h3 style='margin: 0; padding: 0; border: 0; font-size: 0px; font: inherit; vertical-align: baseline; font-weight: regular; font-size: .9em;'>SIGA-NOS NA REDES SOCIAIS</h3></td></tr>
+					<tr><td colspan='2'>
+						<h3 style='margin: 0; padding: 0; border: 0; font-size: 0px; font: inherit; vertical-align: baseline; font-weight: regular; font-size: .9em;'>SIGA-NOS NA REDES SOCIAIS</h3>
+						<a href='https://www.facebook.com/Restart-Games-2294753787408578/?modal=admin_todo_tour' target='blind'><img src='http://www.restartgames.com.br/imagens/icones/img-face.png' alt='Siga-nos no facebook' style='width:50px;'></a>
+					</td></tr>
 					<tr><td colspan='2'>
 					</td></tr>
 					<tr><td colspan='2'><h4 style='margin: 0; padding: 0; border: 0; font-size: 0px; font: inherit; vertical-align: baseline; font-weight: regular; font-size: .8em;'>© RestartGames. All rights reserved.</h4></td></tr>
