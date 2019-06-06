@@ -2,8 +2,46 @@
 	//@BD::conn();//conexão com o banco de dados
 	$categoria = new Consoles();	
 ?>
+
+<nav class="navbar navbar-expand-md navbar-dark">
+	<a href="index.php" class="navbar-brand"><img src="imagens/icones/logo.png" alt="Restart Games"  id="brandNew"/></a></a>
+	<button class="navbar-toggler" data-toggle="collapse" data-target="#navbarMenu">
+		<span class="navbar-toggler-icon"></span>
+	</button>
+	<div class="collapse navbar-collapse" id="navbarMenu">
+		<ul class="navbar-nav ml-auto">
+			<!-- <li class="nav-item">
+				<a href="#" class="nav-link">Users</a>
+			</li>
+			<li class="nav-item">
+				<a href="#" class="nav-link">Products</a>
+			</li> -->
+			<?php
+
+				$user = Usuarios::getUsuario();
+				
+				if(!empty($user)):
+					$emailLogado = $user->emailTJ;
+					$usuario  = $user->nomeUser;
+					$status = $user->tipousuario;
+					if($status == 0):
+			?>
+					<li class="logado nav-item"><a href="users/dashboard.php" class="nav-link">Dashboard <i class="fa fa-home"></i></a></li>
+				<?php else: ?>
+					<li class="logado nav-item"><a href="admin/admin.php" class="nav-link">Dashboard <i class="fa fa-home"></i></a></li>
+				<?php endif; ?>
+				<li class="logado nav-item"><a href="#" class="nav-link">Bem vindo <?php echo $usuario;?></a></li>
+				<li class="logado nav-item"><a href="sair.php" class="nav-link">Sair <i class="fa fa-sign-out"></i></a></li>
+			<?php else: ?>
+				<li class="logado  nav-item access-login" id="user-entrar"><a href="#" class="nav-link"><i class="fa fa-sign-in" aria-hidden="true"></i> Entrar </a></li>
+				<li class="logado nav-item access-register" id="user-cadastrar"><a href="#" class="nav-link"><i class="fa fa-user-plus" aria-hidden="true"></i> Criar conta</a></li>
+			<?php endif; ?>
+		</ul>
+	</div>            
+</nav>
+
 <header class="tj-top">
-	<div class="inf clearfix">
+	<!-- <div class="inf clearfix">
 		<span id="logo" class="clearfix"><a href="index.php"><img src="imagens/icones/logo.png" alt="Logo"/></a></span>
 		<div class="user-space">
 			<ul class="user-acao">
@@ -26,7 +64,7 @@
 				<?php } ?>
 			</ul>
 		</div>
-	</div>
+	</div> -->
 	<!--Box que receberá login e cadastro-->
 		<div id="overlay"></div><!--fundo-->
 		<div class="box-login-cadastro">
@@ -83,16 +121,17 @@
 			</div><!--box-cadastro-->			
 		</div><!--box-login-cadastro-->
 
-		
-		<div id="main-menu">
-			<nav class="navs">
-				<ul>
-					<?php 
-						foreach($categoria->listarTodos() as $value):
-					?>
-					<li class="cns-menu"><a href="console.php?codigo=<?php echo $value->id_console?>&nome_console=<?php echo $value->nome_console?>" class="link"><?php echo $value->nome_console?></a></li>
-					<?php endforeach;?>
-				</ul>	
-			</nav>
-		</div>
 </header>
+<div class="row">
+	<div id="main-menu">
+		<nav class="navs">
+			<ul class="nav">
+				<?php 
+					foreach($categoria->listarTodos() as $value):
+				?>
+				<li class="cns-menu nav-item"><a href="console.php?codigo=<?php echo $value->id_console?>&nome_console=<?php echo $value->nome_console?>" class="link nav-link"><?php echo $value->nome_console?></a></li>
+				<?php endforeach;?>
+			</ul>	
+		</nav>
+	</div>
+</div>

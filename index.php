@@ -1,16 +1,20 @@
 <!DOCTYPE HTML>
-<html>
+<html lang="pt-br">
 	<head>
 		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 		<meta name="description" content="Restart Games - Porque o jogo não pode parar"/>
 		<meta name="description" content="Troque seus jogos antigos por jogos que ainda não teve"/>
 		<meta name="description" content="Troque jogos - divirta-se sem gastar mais"/>
 		<meta name="keywords" content="Restart,Games,Troca,Jogo,Jogadores,Jogos"/>
 
 		<!--CSS BOOTSTRAP-->
-		<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css"/>
-    	<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap-theme.css"/>
+		<!-- <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css"/>
+    	<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap-theme.css"/> -->
 		
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+
 		<!--CHAMADA CSS-->
 		<link rel="stylesheet" type="text/css" href="css/estilo.css"/>   
 		<link rel="stylesheet" type="text/css" href="css/style-footer.css"/>
@@ -41,149 +45,157 @@
 			
 			$user = Usuarios::getUsuario();
 		?>
-		<div class="main_box">
-			<div class="content">
-				<?php include_once 'require/topo.php'; ?> <!--chama o topo do site-->
+		<div class="container-fluid">
+			
 			<div class="conteudo">
-				<section class="secao">
-					<h3>Procure jogos para trocar</h3> 
-					<h4>Economize dinheiro trocando jogos com outros jogadores</h4> 
-				</section>
-				<form class="box_pesquisa" action="pesquisa.php" method="GET">
-					<div class="input_container">
-						<input type="text" name="pesquisa" id="pesquisa" onkeyup="autoCompletar(this)" autocomplete="off" class="pesquisa"/>				
-						<ul id="lista_jogos"></ul>
-						<input type="submit" value="Pesquisar" class="btn-enviar"/>
+				<?php include_once 'require/topoPrototype.php'; ?> <!--chama o topo do site-->
+
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="search-box">
+						<section class="secao">
+							<h3>Procure jogos para trocar</h3> 
+							<h4>Economize dinheiro trocando jogos com outros jogadores</h4> 
+						</section>
+						<form class="box_pesquisa" action="pesquisa.php" method="GET">
+							<div class="form-group">
+								<div class="input_container">
+									<input type="text" name="pesquisa" id="pesquisa" onkeyup="autoCompletar(this)" autocomplete="off" class="pesquisa form-control"/>				
+									<ul id="lista_jogos"></ul>
+									<input type="submit" value="Pesquisar" class="btn-enviar"/>
+								</div>
+							</div>
+						</form>
 					</div>
-				</form><br/>
+				</div>
 			</div>
 			
-			<main class="main">				
-				<!--menu galeria de jogos em estoque-->
-				<!-- <span id="titulo-galeria"><h4>GALERIA DE JOGOS POR CATEGORIA</h4></span> -->
-				<!--enviar o id do console e retorno os jogos referentes ao mesmo-->
-				<div class="row nopadding">
-					<!-- <div class="gallery"> -->
-						<div class="col-lg-2 col-md-3 col-sm-4 nopadding">
-							<div class="galeria">
-								<ul class="box-galeria-jogos">			
-									<div class="arrow"></div>
-									<?php
-										foreach($categoria->listarTodos() as $valor):
-									?>
-									<li name="" value="<?php echo $valor->id_console?>" class="link"><?php echo strtoupper($valor->nome_console)?></li>		 							
-									<?php endforeach; ?>
-								</ul>
+				<main class="main">				
+					<!--menu galeria de jogos em estoque-->
+					<!-- <span id="titulo-galeria"><h4>GALERIA DE JOGOS POR CATEGORIA</h4></span> -->
+					<!--enviar o id do console e retorno os jogos referentes ao mesmo-->
+					<div class="row nopadding">
+						<!-- <div class="gallery"> -->
+							<div class="col-lg-2 col-md-3 col-sm-4 nopadding">
+								<div class="galeria">
+									<ul class="box-galeria-jogos">			
+										<div class="arrow"></div>
+										<?php
+											foreach($categoria->listarTodos() as $valor):
+										?>
+										<li name="" value="<?php echo $valor->id_console?>" class="link"><?php echo strtoupper($valor->nome_console)?></li>		 							
+										<?php endforeach; ?>
+									</ul>
+								</div>
 							</div>
-						</div>
-						<div class="col-lg-10 col-md-9 col-sm-8 nopadding">
-							<div class="galeria">
-								<div id="galeria">
-								</div><!--id galeria-->
+							<div class="col-lg-10 col-md-9 col-sm-8 nopadding">
+								<div class="galeria">
+									<div id="galeria">
+									</div><!--id galeria-->
+								</div>
 							</div>
-						</div>
-					<!-- </div> -->
-				</div>
-				<?php
-					$queries = array('status'=>'Ativo', 'limite'=>'6', 'order'=>'ORDER BY id DESC');
-					if($user){
-						$idconsole = $user->console;
-						$queries['idconsole'] = $idconsole;
-					}
+						<!-- </div> -->
+					</div>
+					<?php
+						$queries = array('status'=>'Ativo', 'limite'=>'6', 'order'=>'ORDER BY id DESC');
+						if($user){
+							$idconsole = $user->console;
+							$queries['idconsole'] = $idconsole;
+						}
 
-					$jogoAll = $jogos->listarJogos($queries);
-					if(count($jogoAll) > 0):
-				?>
-					<div class="row">
-						<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-							<div id="lastgamesBox">
-								<label class="last-records">Últimos jogos cadastrados que podem te interessar</label>
-								<?php foreach($jogoAll as $jogo=> $valor): ?>
-									<div class="col-lg-2 col-md-3 col-sm-4 col-xs-6">
-										<div class="single-game">
-											<a href='game/game.php?codigo=<?php echo $valor->id;?>'><img src="game/imagens/<?php echo str_replace(' ','',$valor->nome_console).'/'.$valor->imagem;?>" class="img-game"></a>
-											
-											<span class="name-game"><b><?php echo substr($valor->n_jogo,0,15).'...'?></b></span>
+						$jogoAll = $jogos->listarJogos($queries);
+						if(count($jogoAll) > 0):
+					?>
+						<div class="row">
+							<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+								<div id="lastgamesBox">
+									<label class="last-records">Últimos jogos cadastrados que podem te interessar</label>
+									<?php foreach($jogoAll as $jogo=> $valor): ?>
+										<div class="col-lg-2 col-md-3 col-sm-4 col-xs-6">
+											<div class="single-game">
+												<a href='game/game.php?codigo=<?php echo $valor->id;?>'><img src="game/imagens/<?php echo str_replace(' ','',$valor->nome_console).'/'.$valor->imagem;?>" class="img-game"></a>
+												
+												<span class="name-game"><b><?php echo substr($valor->n_jogo,0,15).'...'?></b></span>
+											</div>
 										</div>
+									<?php endforeach; ?>
+								<?php //endif; ?>
+								</div>
+							</div>
+						</div>
+					<?php endif;?>				
+					</div>
+					<div class="row">
+						<div class="content">
+							<div id="info-funcional">
+								<header><h3>Como funciona a Restart Games?</h3></header>
+								<ul id="passo-a-passo">
+									<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+										<li class="passos">
+											<!-- <div class="img-passos" id="img-cadastrar"></div> -->
+											<h4 id="first-title">Cadastrar <i class="fa fa-user-plus fa-2x" aria-hidden="true"></i></h4>
+											<span class="topo-info">
+												<p><i class="fa fa-check" style="color:#0f8a8b"></i> Cadastre-se no site</p> 
+												<p><i class="fa fa-check" style="color:#0f8a8b"></i> Cadastre seus jogos</p>
+											</span>
+										</li>
 									</div>
-								<?php endforeach; ?>
-							<?php //endif; ?>
-							</div>
+									<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+										<li class="passos">
+											<!-- <div class="img-passos" id="img-pesquisar"></div> -->
+											<h4 id="second-title">Pesquisar <i class="fa fa-search fa-2x" aria-hidden="true"></i></h4>
+											<span class="topo-info">
+												<p><i class="fa fa-check" style="color:#8c0d0d"></i> Procure os jogos que interessam<p>
+												<p><i class="fa fa-check" style="color:#8c0d0d"></i> Entre em contato com 
+												o dono<p>
+												<p><i class="fa fa-check" style="color:#8c0d0d"></i> Marque um ponto de encontro para a troca<p>
+											</span>
+										</li>
+									</div>
+									<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">						
+										<li class="passos">
+											<!-- <div class="img-passos" id="img-concluir"></div> -->
+											<h4 id="third-title">Concluir <i class="fa fa-refresh fa-2x" aria-hidden="true"></i></h4>
+											<span class="topo-info">										
+												<p><i class="fa fa-check" style="color:#0b95ca"></i> Faça a troca</p> 
+												<p><i class="fa fa-check" style="color:#0b95ca"></i> Pegue seu novo jogo</p> 
+												<p><i class="fa fa-check" style="color:#0b95ca"></i> Divirta-se <b>muito +</b></p>
+											</span>
+										</li>
+									</div>						
+								</ul>
+							</div><!-- final do id info-funcional-->
 						</div>
 					</div>
-				<?php endif;?>				
-				</div>
-				<div class="row">
-					<div class="content">
-						<div id="info-funcional">
-							<header><h3>Como funciona a Restart Games?</h3></header>
-							<ul id="passo-a-passo">
-								<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-									<li class="passos">
-										<!-- <div class="img-passos" id="img-cadastrar"></div> -->
-										<h4 id="first-title">Cadastrar <i class="fa fa-user-plus fa-2x" aria-hidden="true"></i></h4>
-										<span class="topo-info">
-											<p><i class="fa fa-check" style="color:#0f8a8b"></i> Cadastre-se no site</p> 
-											<p><i class="fa fa-check" style="color:#0f8a8b"></i> Cadastre seus jogos</p>
-										</span>
-									</li>
-								</div>
-								<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-									<li class="passos">
-										<!-- <div class="img-passos" id="img-pesquisar"></div> -->
-										<h4 id="second-title">Pesquisar <i class="fa fa-search fa-2x" aria-hidden="true"></i></h4>
-										<span class="topo-info">
-											<p><i class="fa fa-check" style="color:#8c0d0d"></i> Procure os jogos que interessam<p>
-											<p><i class="fa fa-check" style="color:#8c0d0d"></i> Entre em contato com 
-											o dono<p>
-											<p><i class="fa fa-check" style="color:#8c0d0d"></i> Marque um ponto de encontro para a troca<p>
-										</span>
-									</li>
-								</div>
-								<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">						
-									<li class="passos">
-										<!-- <div class="img-passos" id="img-concluir"></div> -->
-										<h4 id="third-title">Concluir <i class="fa fa-refresh fa-2x" aria-hidden="true"></i></h4>
-										<span class="topo-info">										
-											<p><i class="fa fa-check" style="color:#0b95ca"></i> Faça a troca</p> 
-											<p><i class="fa fa-check" style="color:#0b95ca"></i> Pegue seu novo jogo</p> 
-											<p><i class="fa fa-check" style="color:#0b95ca"></i> Divirta-se <b>muito +</b></p>
-										</span>
-									</li>
-								</div>						
-							</ul>
-						</div><!-- final do id info-funcional-->
-					</div>
-				</div>
 
-				<div class="row">
-					<div id="devices">
-						<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-							<div class="device">
-								<span class="for_device">Computador</span>
-								<img src="imagens/icones/version_computer.jpg" alt="Disponível para computador" class="img-device img-responsive">
+					<div class="row">
+						<div id="devices">
+							<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+								<div class="device">
+									<span class="for_device">Computador</span>
+									<img src="imagens/icones/version_computer.jpg" alt="Disponível para computador" class="img-device img-responsive">
+								</div>
 							</div>
+							<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+								<div class="device soon">
+									<span class="for_device">Breve: Mobile</span>
+									<img src="imagens/icones/version_mobile.jpg" alt="Disponível para mobile" class="img-device img-responsive">
+								</div>
+							</div>
+							<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">						
+								<div class="device soon">
+									<span class="for_device">Breve: Tablet</span>
+									<img src="imagens/icones/version_tablet.jpg" alt="Disponível para tablet" class="img-device img-responsive">
+								</div>
+							</div>						
 						</div>
-						<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-							<div class="device soon">
-								<span class="for_device">Breve: Mobile</span>
-								<img src="imagens/icones/version_mobile.jpg" alt="Disponível para mobile" class="img-device img-responsive">
-							</div>
-						</div>
-						<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">						
-							<div class="device soon">
-								<span class="for_device">Breve: Tablet</span>
-								<img src="imagens/icones/version_tablet.jpg" alt="Disponível para tablet" class="img-device img-responsive">
-							</div>
-						</div>						
 					</div>
-				</div>
-			</main>	
-			<div class="advertising">
-				
+				</main>	
+			
+				</div>			
+		
 			</div>
-		</div><!--content-->	
-	</div><!--principal-->
+		</div>
 	<?php
 		require 'footer.php';
 	?>
@@ -194,6 +206,10 @@
 	<script src="js/funcoes.js"></script>
 	<script src="js/validacao.js"></script>
 	<script src="js/global.js"></script>
+
+	<!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script> -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 	
 	<!-- <script src="js/adblocks.js" type="text/javascript"></script>
 	<script type="text/javascript">
