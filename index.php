@@ -76,25 +76,25 @@
 					<!--enviar o id do console e retorno os jogos referentes ao mesmo-->
 					<div class="row nopadding">
 						<!-- <div class="gallery"> -->
-							<div class="col-lg-2 col-md-3 col-sm-4 nopadding">
+							<div class="col-lg-2 col-md-2 col-sm-12 col-xs-12 nopadding">
 								<div class="galeria">
 									<ul class="box-galeria-jogos">			
 										<div class="arrow"></div>
 										<?php
 											foreach($categoria->listarTodos() as $valor):
 										?>
-										<li name="" value="<?php echo $valor->id_console?>" class="link"><?php echo strtoupper($valor->nome_console)?></li>		 							
+										<li value="<?php echo $valor->id_console?>" class="link"><?php echo strtoupper($valor->nome_console)?></li>		 							
 										<?php endforeach; ?>
 									</ul>
 								</div>
 							</div>
-							<div class="col-lg-10 col-md-9 col-sm-8 nopadding">
+							<div class="col-lg-10 col-md-10 col-sm-12 col-xs-12 nopadding">
 								<div class="galeria">
 									<div id="galeria">
-									</div><!--id galeria-->
+									</div>
 								</div>
 							</div>
-						<!-- </div> -->
+						</div>
 					</div>
 					<?php
 						$queries = array('status'=>'Ativo', 'limite'=>'6', 'order'=>'ORDER BY id DESC');
@@ -106,44 +106,44 @@
 						$jogoAll = $jogos->listarJogos($queries);
 						if(count($jogoAll) > 0):
 					?>
-						<div class="row">
-							<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-								<div id="lastgamesBox">
-									<label class="last-records">Últimos jogos cadastrados que podem te interessar</label>
-									<?php foreach($jogoAll as $jogo=> $valor): ?>
-										<div class="col-lg-2 col-md-3 col-sm-4 col-xs-6">
-											<div class="single-game">
-												<a href='game/game.php?codigo=<?php echo $valor->id;?>'><img src="game/imagens/<?php echo str_replace(' ','',$valor->nome_console).'/'.$valor->imagem;?>" class="img-game"></a>
-												
-												<span class="name-game"><b><?php echo substr($valor->n_jogo,0,15).'...'?></b></span>
+						<section id="lastgamesBox">
+							<h5 class="section-title h1">Últimos jogos cadastrados</h5>
+							<div class="row">
+								<?php foreach($jogoAll as $jogo=> $valor): ?>						
+									<div class="col-xs-12 col-sm-6 col-md-3 col-lg-2">
+										<div class="card">
+											<div class="card-body text-center">
+												<div class="single-game">
+													<p><a href='game/game.php?codigo=<?php echo $valor->id;?>'><img src="game/imagens/<?php echo str_replace(' ','',$valor->nome_console).'/'.$valor->imagem;?>" class="img-game img-fluid"></a></p>													
+													<h5 class="card-title"><?php echo substr($valor->n_jogo,0,15).'...'?></h5>													
+													<a href="game/game.php?codigo=<?php echo $valor->id;?>" class="btn btn-primary btn-md">Conferir <i class="fa fa-eye"></i></a>
+												</div>
 											</div>
 										</div>
-									<?php endforeach; ?>
-								<?php //endif; ?>
-								</div>
+									</div>	
+								<?php endforeach; ?>						
 							</div>
-						</div>
+						</section>
 					<?php endif;?>				
-					</div>
-					<div class="row">
-						<div class="content">
-							<div id="info-funcional">
-								<header><h3>Como funciona a Restart Games?</h3></header>
-								<ul id="passo-a-passo">
-									<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+					<div class="content">
+						<div id="info-funcional">
+							<header><h3>Como funciona a Restart Games?</h3></header>
+							<ul id="passo-a-passo">
+								<div class="row">
+									<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
 										<li class="passos">
 											<!-- <div class="img-passos" id="img-cadastrar"></div> -->
-											<h4 id="first-title">Cadastrar <i class="fa fa-user-plus fa-2x" aria-hidden="true"></i></h4>
+											<h4 id="first-title">Cadastrar <i class="fa fa-user-plus" aria-hidden="true"></i></h4>
 											<span class="topo-info">
 												<p><i class="fa fa-check" style="color:#0f8a8b"></i> Cadastre-se no site</p> 
 												<p><i class="fa fa-check" style="color:#0f8a8b"></i> Cadastre seus jogos</p>
 											</span>
 										</li>
 									</div>
-									<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+									<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
 										<li class="passos">
 											<!-- <div class="img-passos" id="img-pesquisar"></div> -->
-											<h4 id="second-title">Pesquisar <i class="fa fa-search fa-2x" aria-hidden="true"></i></h4>
+											<h4 id="second-title">Pesquisar <i class="fa fa-search" aria-hidden="true"></i></h4>
 											<span class="topo-info">
 												<p><i class="fa fa-check" style="color:#8c0d0d"></i> Procure os jogos que interessam<p>
 												<p><i class="fa fa-check" style="color:#8c0d0d"></i> Entre em contato com 
@@ -152,10 +152,10 @@
 											</span>
 										</li>
 									</div>
-									<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">						
+									<div class="col-xs-12 col-sm-6 col-md-4 col-lg-46">						
 										<li class="passos">
 											<!-- <div class="img-passos" id="img-concluir"></div> -->
-											<h4 id="third-title">Concluir <i class="fa fa-refresh fa-2x" aria-hidden="true"></i></h4>
+											<h4 id="third-title">Concluir <i class="fa fa-refresh" aria-hidden="true"></i></h4>
 											<span class="topo-info">										
 												<p><i class="fa fa-check" style="color:#0b95ca"></i> Faça a troca</p> 
 												<p><i class="fa fa-check" style="color:#0b95ca"></i> Pegue seu novo jogo</p> 
@@ -163,37 +163,34 @@
 											</span>
 										</li>
 									</div>						
-								</ul>
-							</div><!-- final do id info-funcional-->
-						</div>
+								</div>						
+							</ul>
+						</div><!-- final do id info-funcional-->
 					</div>
-
-					<div class="row">
 						<div id="devices">
-							<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-								<div class="device">
-									<span class="for_device">Computador</span>
-									<img src="imagens/icones/version_computer.jpg" alt="Disponível para computador" class="img-device img-responsive">
+							<div class="row">
+								<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+									<div class="device">
+										<span class="for_device">Computador</span>
+										<img src="imagens/icones/version_computer.jpg" alt="Disponível para computador" class="img-device img-responsive">
+									</div>
 								</div>
+								<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+									<div class="device soon">
+										<span class="for_device">Breve: Mobile</span>
+										<img src="imagens/icones/version_mobile.jpg" alt="Disponível para mobile" class="img-device img-responsive">
+									</div>
+								</div>
+								<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">						
+									<div class="device soon">
+										<span class="for_device">Breve: Tablet</span>
+										<img src="imagens/icones/version_tablet.jpg" alt="Disponível para tablet" class="img-device img-responsive">
+									</div>
+								</div>						
 							</div>
-							<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-								<div class="device soon">
-									<span class="for_device">Breve: Mobile</span>
-									<img src="imagens/icones/version_mobile.jpg" alt="Disponível para mobile" class="img-device img-responsive">
-								</div>
-							</div>
-							<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">						
-								<div class="device soon">
-									<span class="for_device">Breve: Tablet</span>
-									<img src="imagens/icones/version_tablet.jpg" alt="Disponível para tablet" class="img-device img-responsive">
-								</div>
-							</div>						
 						</div>
-					</div>
-				</main>	
-			
-				</div>			
-		
+					</main>				
+				</div>
 			</div>
 		</div>
 	<?php

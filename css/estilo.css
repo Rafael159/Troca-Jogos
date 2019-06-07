@@ -376,35 +376,40 @@ body{
 	background: #373737;
 	margin-top: 50px;
 }
-#lastgamesBox{
+section#lastgamesBox{
 	width: 100%;
     background: #ffffff;
     padding: 15px;
-    display: inline-table;
+    display: block;
 	min-height: 360px;
 }
-#lastgamesBox .last-records{
+section#lastgamesBox .section-title{
 	display: block;
     padding: 8px 15px;
     text-align: left;
     font-family: 'source_sans_probold';
     font-size: 1.4em;
-    color: #333;
-    background: #ccc;
+    color: #585858;
+    background: #fff;
     margin-bottom: 15px;
+    border: 0.5px solid #e2e2e2;
 }
-#lastgamesBox .single-game{
+section#lastgamesBox .single-game{
 	width:100%;
-	background:#595094;
+	/* background:#595094; */
 	padding:10px;
 	cursor:pointer;
 	margin: 10px 0px;
+	transition: 1s all;
+	-ms-transition: 1s all;
+	-webkit-transition: 1s all;
+	-o-transition: 1s all;
 }
-#lastgamesBox .single-game:hover{
-	background: #473b99;
+section#lastgamesBox .single-game:hover{
+	background: #777777;
 }
-#lastgamesBox .single-game .img-game{ width:100%; height: 190px;}
-#lastgamesBox .single-game .name-game{
+section#lastgamesBox .single-game .img-game{ width:100%; height: 190px;}
+section#lastgamesBox .single-game .card-title{
 	display: block;
     background: #333;
     text-align: center;
@@ -414,6 +419,9 @@ body{
     color: #fefefe;
 }
 
+section#lastgamesBox .card-body{
+	padding:0 !important;
+}
 
 /*****||||||FORMATAÇÃO DA GALERIA DE JOGOS|||||||****/
 .arrow{	
@@ -558,7 +566,6 @@ span#titulo-galeria h4{
 	background: -webkit-linear-gradient(#05495E,#02222D,#05495E); /* Para Safari 5.1 to 6.0 */
   	background: -o-linear-gradient(#05495E,#02222D,#05495E); /* Para Opera 11.1 to 12.0 */
   	background: -moz-linear-gradient(#05495E,#02222D,#05495E); /* Para Firefox 3.6 to 15 */
-  	font-size: 18px !important;
     opacity: 1;
     color: #CD6C03 !important;
 }
@@ -716,7 +723,7 @@ span#titulo-galeria h4{
 	width:100%;
 	display: block;
 	list-style: none;
-	margin:10px;
+	margin: 10px auto;
 }
 #devices .soon{
 	opacity: 0.5;
@@ -734,6 +741,7 @@ span#titulo-galeria h4{
 #devices .device .img-device{
 	margin:auto;
 	display: block;
+	width: 100%;
 }
 
 /*EDITANDO AS CLASSES DO BOOTSTRAP 4*/
@@ -772,25 +780,43 @@ span#titulo-galeria h4{
 	  background: rgba(142,142,142,.6);
 	}
 
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 570px) {
 	.navbar-brand{ width:70% !important; }
 	#brandNew{
 		width: 100%;		
 		display: block;
 	}
+	section#lastgamesBox .single-game .img-game{ width:40%; }
+
+	.main .galeria .box-galeria-jogos li{
+		display: inline-block;
+		width: 24%;
+		text-align: center;
+		margin: 2px 0px;
+		font-size:0.8rem;
+	}
+	.main .galeria #resultado-links .quadro-galeria .galeria-principal .vitrine{
+		width: 50%;
+		margin:5px auto;
+	}
 }
-@media only screen and (max-width: 767px) {
-	#info-funcional #passo-a-passo li.passos .topo-info p{ text-align:center; font-size:1.5em; }
+@media only screen and (min-width: 571px) and (max-width: 768px) {
+	#info-funcional #passo-a-passo li.passos .topo-info p{ text-align:center; }
 
 	#lastgamesBox .single-game .img-game{ height:260px; }
 
 	.conteudo section.secao h3{
-		letter-spacing: 0px;	
+		letter-spacing: 0px;
 		font-size: 1.8em;
 	}
 	.conteudo section.secao{ width:100%; }
 	.conteudo .box_pesquisa{ width:100%; }
 	#lista_jogos{ width: 92% !important; }
-	
+	section#lastgamesBox .single-game .img-game{ width:60%; }
+
 }
+@media only screen and (min-width: 992px) {
+	section#lastgamesBox .card{ margin-top: 15px; }
+}
+
 

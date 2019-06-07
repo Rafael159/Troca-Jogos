@@ -107,7 +107,7 @@ else:
 							}else{
 								echo strtoupper($valor->n_jogo);
 							}
-				?>
+						?>
 					</li>
 					<li><?php echo strtoupper($valor->nome_console)?></li>
 					<li><a href="feed.php?codigo=<?php echo $valor->id_user?>" class="usuario"><?php echo $valor->nomeUser;?></a></li>
