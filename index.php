@@ -48,7 +48,7 @@
 		<div class="container-fluid">
 			
 			<div class="conteudo">
-				<?php include_once 'require/topoPrototype.php'; ?> <!--chama o topo do site-->
+				<?php include_once 'require/topo.php'; ?> <!--chama o topo do site-->
 
 			<div class="row">
 				<div class="col-lg-12">
@@ -192,10 +192,11 @@
 					</main>				
 				</div>
 			</div>
+			<?php
+				require 'footer.php';
+			?>
 		</div>
-	<?php
-		require 'footer.php';
-	?>
+	
     <!--CHAMADA JAVASCRIPT-->		
 	<script src="js/jquery.js"></script>
 	<script src="js/jquery.validate.js"></script>
