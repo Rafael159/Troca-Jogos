@@ -49,7 +49,6 @@ header.tj-top .user-space{
 	text-align: center;	
 	border-radius:4px;
 	display: inline-block;
-	float: right;
 }
 	.tj-top .inf .user-space .user-acao li a{
 		font:14px Arial,Lato, helvetica;
@@ -62,55 +61,57 @@ header.tj-top .user-space{
 
 /*MENU CONSOLES*/
 #main-menu{
-	width:96%;
-	padding: 0;
-	margin-top:19%;
-	display: block;
+	width: 100%;
+    /* padding: 15px; */
+    margin-top: 19%;
+    display: block;
+    margin-bottom: 20px;
 }
 #main-menu .nav{
-	width: 99%;
-	height:30px;
-	margin-left: 5%;
+	width: 100%;
+	/* margin-left: 5%; */
 }
-#main-menu .nav >ul{
+#main-menu .nav > .navbar-menu{
 	width: 100%;
 	margin: 0;
 }
-#main-menu .nav ul li{
-	width:7%;
-	text-align: justify;	
-	display: inline-block;	
+#main-menu .nav .navbar-menu li{
+	text-align: center;
+    display: inline-block;
 	padding: 1%;
+	margin:5px;
 }
-#main-menu .nav ul li:hover{
+#main-menu .nav .navbar-menu li:hover{
 	box-shadow: 1px 1px 5px 0px #000;
 }
-#main-menu .nav ul li#ps4{ background: #1357e1; }
-#main-menu .nav ul li#ps3{ background: #1e81fc; }
-#main-menu .nav ul li#xbox360{ background: #2CAC35; }
-#main-menu .nav ul li#xboxone{ background: #0E7B0E; }
-#main-menu .nav ul li#wii{ background: #e11313; }
-#main-menu .nav ul li#wiiu{ background: #b813e1; }
-#main-menu .nav ul li#psvita{ background: #ff6d02; }
-#main-menu .nav ul li#ds{ background: #4b4b4b; }
-#main-menu .nav ul li#pc{ background: #989898; }
-#main-menu .nav ul li#switch{ background: #3f51b5; }
+#main-menu .nav .navbar-menu li#ps4{ background: #1357e1; }
+#main-menu .nav .navbar-menu li#ps3{ background: #1e81fc; }
+#main-menu .nav .navbar-menu li#xbox360{ background: #0E7B0E; }
+#main-menu .nav .navbar-menu li#xboxone{ background: #004B06; }
+#main-menu .nav .navbar-menu li#wii{ background: #e11313; }
+#main-menu .nav .navbar-menu li#wiiu{ background: #b813e1; }
+#main-menu .nav .navbar-menu li#psvita{ background: #ff6d02; }
+#main-menu .nav .navbar-menu li#ds{ background: #710000; }
+#main-menu .nav .navbar-menu li#pc{ background: #000000; }
+#main-menu .nav .navbar-menu li#switch{ background: #3f51b5; }
 
-#main-menu .nav ul li .link{
+#main-menu .nav .navbar-menu li .link{
 	font-family: 'source_sans_proregular';
-	font-size:1em;
-	color:#ffffff;
-	text-align: center;
-	text-transform: uppercase;
-	text-decoration:none;
-	width: 100%;
-	display: block;
-	outline: none;
+    font-size: 1.1em;
+    color: #ffffff;
+    text-align: center;
+    text-transform: uppercase;
+    text-decoration: none;
+    width: 100%;
+    display: block;
+    outline: none;
+	font-weight: 600;
+	text-shadow: 0px 0px #000, 2px 0px #000;
 }
 #boxConsole{
-	width: 70%;
+	width: 100%;
 	background:#d8d8d8;
-	margin:2% 0% 5% 5%;	
+	/* margin:2% 0% 5% 5%;	 */
 	display: block;
 	padding-bottom: 3%;
 }
@@ -197,3 +198,39 @@ header.tj-top .user-space{
 		color:#333333;
 		font-family: Arial, helvetica, sans-serif;
 	}
+.nopadding{
+	margin:0 !important;
+	padding:0 !important;
+}
+
+/*@media queries*/
+@media screen and (max-width: 576px){
+	#main-menu .nav .navbar-menu li {
+		padding: 1%;
+		width:49%;
+		margin: 2px 0px;
+	}
+}
+
+@media screen and (min-width: 576px) and (max-width: 767px){
+	#main-menu .nav .navbar-menu li {
+		padding: 1%;
+		width:32%;
+		margin: 2px 0px;
+	}
+}
+
+@media screen and (min-width: 768px) and (max-width: 991px){
+	#main-menu .nav .navbar-menu li {
+		padding: 1%;
+		width: 19.3%;
+		margin: 5px 0px;
+	}
+}
+
+@media (min-width: 992px){
+	#main-menu .nav .navbar-menu li {
+		padding: 1%;
+		width: 15%;
+	}
+}

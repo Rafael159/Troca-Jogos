@@ -38,10 +38,14 @@
 		<link rel="stylesheet" href="css/style-feed.css"/>		
 		<link rel="stylesheet" type="text/css" href="css/header.css"/>
 		<link rel="stylesheet" type="text/css" href="css/style-footer.css"/>
+		<!-- <link rel="stylesheet" type="text/css" href="css/estilo.css"/> -->
+
 
 		<!--CSS BOOTSTRAP-->
-		<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css"/>
-        <link rel="stylesheet" href="bootstrap/css/bootstrap-theme.css"/>
+		<!-- <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css"/>
+		<link rel="stylesheet" href="bootstrap/css/bootstrap-theme.css"/> -->
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+		
 
 		<link rel="stylesheet" type="text/css" href="font-awesome/css/font-awesome.css"/>
 		<link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
@@ -157,17 +161,19 @@
 	
 	<!--CHAMADA JAVASCRIPT-->
 	<script type="text/javascript" src="js/jquery.js"></script><!--chama o arquivo principal do jquery-->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+	
 	<script>
 		$(document).ready(function(){			
 			playerON = '<?php echo Usuarios::getUsuario('id_user'); ?>';
 		});
 	</script>
 	<!--JS BOOTSTRAP-->
-	<script src="bootstrap/js/bootstrap.min.js"></script>
+	<!-- <script src="bootstrap/js/bootstrap.min.js"></script> -->
 	<script src="js/global.js"></script>
 	<script src="js/funcoes.js"></script>
 	<script src="js/events.js"></script>
-	<script src="js/events-feed.js"></script>
-	
+	<script src="js/events-feed.js"></script>	
 </body>
 </html>

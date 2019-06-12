@@ -29,28 +29,30 @@ $(function(){
 		var to = campo.prev().attr('id');
 		
 		mensagem = $.trim(mensagem);
+		
+		if(to=="" || typeof to == "undefined"){	
+		
+		}else{		
+			idTo = to.split('_')[1];//separar o ID do usuário
 
-		idTo = to.split('_')[1];//separar o ID do usuário
-		//$(this).disabled();
-
-		if(e.keyCode == 13){
-			
-			if(mensagem != ''){
-				campo.val('');
-				$.post('controllers/chat.php', {
-					acao : 'inserir',
-					mensagem: mensagem,
-					para: idTo
-				}, function (retorno){
-					// console.log(retorno);
-					 setTimeout(function(){						
-					 	$('.mensagens').append(retorno);						
-					 }, 1000);
-					//scrollDown();
-				});
-			}
-			return false;
-		}	
+			if(e.keyCode == 13){				
+				if(mensagem != ''){
+					campo.val('');
+					$.post('controllers/chat.php', {
+						acao : 'inserir',
+						mensagem: mensagem,
+						para: idTo
+					}, function (retorno){
+						// console.log(retorno);
+						setTimeout(function(){						
+							$('.mensagens').append(retorno);						
+						}, 1000);
+						//scrollDown();
+					});
+				}
+				return false;
+			}	
+		}
 		return true;
 		
 	});
@@ -58,37 +60,44 @@ $(function(){
 	$('#field-message').focus(function(){
 
 		idReceiver = $('.mensagens').attr('id');
+		
 		idReceiver = idReceiver.split('_')[1];//separar o ID do usuário
+		
+		if(idReceiver=="" || typeof idReceiver == "undefined"){				
+		}else{
+			$.post('controllers/chat.php', {			
+				acao: 'leitura',
+				idPara : idReceiver
 
-		$.post('controllers/chat.php', {			
-			acao: 'leitura',
-			idPara : idReceiver
-
-		}, function(back){
-			if(back.status == '1'){
-				//faça algo
-			}
-		}, 'jSON');		
+			}, function(back){
+				if(back.status == '1'){
+					//faça algo
+				}
+			}, 'jSON');
+		}
 	});
 
 	function firstLoad(){
 		idReceiver = $('.mensagens').attr('id');
 		idReceiver = idReceiver.split('_')[1];//separar o ID do usuário
 
-		$.post('controllers/chat.php', {			
-			acao: 'atualizar',
-			idPara : idReceiver
+		if(idReceiver=="" || typeof idReceiver == "undefined"){							
+		}else{
+			$.post('controllers/chat.php', {			
+				acao: 'atualizar',
+				idPara : idReceiver
 
-		}, function(back){			
-			
-			if(back != ''){
-				control_chat();
-				$('.mensagens').html(back);
-				scrollDown();
-			}else{
-				$('.mensagens').html('Seja o primeiro a mandar uma mensagem');
-			}
-		},'jSON');
+			}, function(back){			
+				
+				if(back != ''){
+					control_chat();
+					$('.mensagens').html(back);
+					scrollDown();
+				}else{
+					$('.mensagens').html('Seja o primeiro a mandar uma mensagem');
+				}
+			},'jSON');
+		}
 	}
 
 	$("#field-message").keyup(function(e){
@@ -110,20 +119,23 @@ $(function(){
 	}
 	setInterval(function(){
 		idReceiver = $('.mensagens').attr('id');
-		idReceiver = idReceiver.split('_')[1];//separar o ID do usuário
 		
-		$.post('controllers/chat.php', {			
-			acao: 'atualizar',
-			idPara : idReceiver
-		}, function(back){
-			if(back != ''){	
-				//scrollDown();
-				$('.mensagens').html(back);
-			}else{
-				$('.mensagens').html('Seja o primeiro a mandar uma mensagem');
-			}
-		},'jSON');
-
+		if(idReceiver=="" || typeof idReceiver == "undefined"){	
+		}else{			
+			idReceiver = idReceiver.split('_')[1];//separar o ID do usuário
+			
+			$.post('controllers/chat.php', {			
+				acao: 'atualizar',
+				idPara : idReceiver
+			}, function(back){
+				if(back != ''){	
+					//scrollDown();
+					$('.mensagens').html(back);
+				}else{
+					$('.mensagens').html('Seja o primeiro a mandar uma mensagem');
+				}
+			},'jSON');
+		}
 	},2000);
 
 	/** 

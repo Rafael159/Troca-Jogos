@@ -3,7 +3,7 @@
 ?>
 
 <nav class="navbar navbar-expand-md navbar-dark">
-	<a href="index.php" class="navbar-brand"><img src="imagens/icones/logo.png" alt="Restart Games"  id="brandNew"/></a></a>
+	<a href="index.php" class="navbar-brand"><img src="imagens/icones/logo.png" alt="Restart Games" id="brandNew"/></a></a>
 	<button class="navbar-toggler" data-toggle="collapse" data-target="#navbarMenu">
 		<span class="navbar-toggler-icon"></span>
 	</button>

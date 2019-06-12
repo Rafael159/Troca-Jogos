@@ -54,14 +54,14 @@ body{
 }
 .logado a{
 	font-family: 'source_sans_prolight';
-	font-size: 14px;
+	font-size: 1em;
 	font-weight: bold;
 	color:#fff !important;
 	text-decoration: none;
 }
 .logado:hover{
-		background:#0083ff;
-	}
+	background:#0083ff;
+}
 #main-menu{
 	width:100%;
 	padding: 15px;
@@ -80,18 +80,16 @@ body{
 	margin: 0;
 }
 #main-menu .navs ul .cns-menu{
-	/* width:100px; */
+	width:100px;
 	/* height: 20px; */
 	display: inline-block;	
 	padding: 5px;
 }
-#main-menu .navs ul .cns-menu:hover{
-	background:#0083ff;
-}
+#main-menu .navs ul .cns-menu:hover{ background:#0083ff; }
 
 #main-menu .navs ul .cns-menu .link{
 	font-family: 'source_sans_probold';
-    font-size: 1.2em;
+    font-size: 1em;
     color: #ffffff;
     text-align: left;
     text-transform: uppercase;
@@ -141,19 +139,13 @@ body{
     border: 1px solid;
     background: #fff;
 }
-	.conteudo .box_pesquisa #pesquisa{
-		    /* width: 80%; */
-    /* margin: 0 auto; */
-    /* height: 30px; */
-    box-shadow: 1px 1px 3px #8a8a8a;
-    /* font: 22px arial,helvetica, sans-serif; */
-    color: #333;
-    text-align: left;
-    outline: none;
-    border: none;
-    /* margin-left: 30px; */
-    /* padding: 3px; */
-    border-radius: 4px;
+.conteudo .box_pesquisa #pesquisa{
+	width: 80%;		
+	color: #333;
+	text-align: left;
+	outline: none;
+	border: none;
+	border-radius: 4px;
 }	
 .conteudo .box_pesquisa .input_container ul#lista_jogos{
 	    /* margin: 0 auto; */
@@ -780,8 +772,41 @@ span#titulo-galeria h4{
 	  background: rgba(142,142,142,.6);
 	}
 
-@media screen and (max-width: 570px) {
-	.navbar-brand{ width:70% !important; }
+/*@medias queries*/
+@media screen and (max-width: 480px) {
+	.navbar-brand{ width:70% }
+	#brandNew{
+		width: 100%;		
+		display: block;
+	}
+	#main-menu .navs ul .cns-menu{ width: auto; }
+	.main .galeria .box-galeria-jogos li{
+		display: inline-block;
+		width: 24%;
+		text-align: center;
+		margin: 2px 0px;
+		font-size: 0.8rem;
+		padding: 10px;
+	}	
+	.main .galeria #resultado-links .quadro-galeria .galeria-principal .vitrine{
+		width: 75%;
+		text-align: center;
+		margin: 0px auto;
+	}
+	section#lastgamesBox .single-game{
+		width:65%;
+		margin:10px auto;
+	}
+	.main .galeria #resultado-links .quadro-galeria .galeria-principal .vitrine > a img{ width: 80%; }
+	.main .galeria #resultado-links .quadro-galeria .galeria-principal .vitrine .infogame{ width: 80%; margin:0 auto; }
+
+	/*campo de pesquisa*/
+	.conteudo .box_pesquisa{ width: 100%; }
+	.conteudo .box_pesquisa .input_container ul#lista_jogos{ width: 90.8%; }
+}
+
+@media screen and (min-width: 481px) and (max-width: 570px) {
+	.navbar-brand{ width:70% }
 	#brandNew{
 		width: 100%;		
 		display: block;
@@ -796,11 +821,11 @@ span#titulo-galeria h4{
 		font-size:0.8rem;
 	}
 	.main .galeria #resultado-links .quadro-galeria .galeria-principal .vitrine{
-		width: 50%;
+		width: 65%;
 		margin:5px auto;
 	}
 }
-@media only screen and (min-width: 571px) and (max-width: 768px) {
+@media screen and (min-width: 571px) and (max-width: 768px) {
 	#info-funcional #passo-a-passo li.passos .topo-info p{ text-align:center; }
 
 	#lastgamesBox .single-game .img-game{ height:260px; }
@@ -811,26 +836,28 @@ span#titulo-galeria h4{
 	}
 	.conteudo section.secao{ width:100%; }
 	.conteudo .box_pesquisa{ width:100%; }
-	#lista_jogos{ width: 92% !important; }
-	section#lastgamesBox .single-game .img-game{ width:60%; }
+	.conteudo .box_pesquisa .input_container ul#lista_jogos{ width: 95%; }
+	/* section#lastgamesBox .single-game .img-game{ width:60%; } */
 
-	.main .galeria .box-galeria-jogos li{
+	/* .main .galeria .box-galeria-jogos li{
 		display: inline-block;
 		width: 24%;
 		text-align: center;
 		margin: 2px 0px;
 		font-size:0.8rem;
-	}
-	
+	}	
 	.main .galeria #resultado-links .quadro-galeria .galeria-principal .vitrine{
 		width: 75%;
 		text-align: center;
 		margin: 0px auto;
-	}
+	} */
 
 }
-@media only screen and (min-width: 992px) {
+@media screen and (min-width: 992px) {
 	section#lastgamesBox .card{ margin-top: 15px; }
+	#main-menu .navs ul .cns-menu .link{
+		text-align: center;
+	}
 }
 
 

@@ -1,5 +1,39 @@
-/*layout pesquisa.php*/
-/*estilo do left_sidebar*/
+/*
+* sidebar
+*/
+#sidebar-wrapper {
+    min-height: 100vh;
+    margin-left: -20rem;
+    -webkit-transition: margin .25s ease-out;
+    -moz-transition: margin .25s ease-out;
+    -o-transition: margin .25s ease-out;
+    transition: margin .25s ease-out;
+}
+
+#sidebar-wrapper .sidebar-heading {
+    padding: 0.875rem 1.25rem;
+    font-size: 1.2rem;
+    color: #fff;
+    background: #333;
+}
+
+#sidebar-wrapper .list-group {
+    width: 20rem;
+    background: #333;
+}
+
+#wrapper.toggled #sidebar-wrapper {
+    margin-left: 0;
+}
+
+#control-toggle{ 
+    display: none; 
+    width: 100%; 
+    padding: 15px;
+}
+
+#control-toggle #menu-toggle{ margin-left: 15px; }
+
 #principal{
     width: 100%;
     margin: 0 auto;
@@ -7,12 +41,12 @@
     display: block;
 }
 .left_sidebar{
-    width: 23%;
-    margin: 8px 0;
+    /* width: 23%; */
+    /* margin: 8px 0; */
     border-radius: 4px;
-    padding-left: 22px;
-    display: inline-block;
-    margin-left: 2%;
+    padding: 15px;
+    /* display: inline-block; */
+    /* margin-left: 2%; */
 }
 .filtro-actived{
     background: #069 !important;
@@ -20,8 +54,9 @@
 }
 .filtro-plataforma, .filtro-genero{
     width: 100%;
-    margin-top: 10px;
-    margin-bottom: 15px;
+    /* margin-top: 10px; */
+    /* margin-bottom: 15px; */
+    background-color: #333333;
 }
 .filtro-genero .controle,.filtro-plataforma .controle{
     background: #333;
@@ -78,11 +113,11 @@
 .filtro-plataforma .controle .item .checkbox .filter_name,
 .filtro-genero .controle .item .checkbox .filter_name{
     font-size: 0.6em;
-    font-family: 'Lato', helvetica, sans-serif;
     display: block;
     width: 100%;
     margin-top: 3px;
     text-transform: uppercase;
+    font-family: 'source_sans_proregular';
 }
 
 .filtro-plataforma .controle .item .checkbox,
@@ -175,7 +210,7 @@
     display: block;
     font: 15px lato, helvetica, sans-serif;
     color: #ffffff;
-    width: 275px;
+    width: 100%;
     border: 2px solid #ccc;
     border-radius: 4px;
     border-color: #fff;
@@ -250,8 +285,8 @@ span.alert-vazio p{
 /*estilo do box dos jogos pesquisados*/
 #box-resultados{
     display: block;
-    width: 71%;
-    float: right;
+    width: 100%;
+    /* float: right; */
     /* margin-left: 1%; */
     min-height: 700px;
     background: #333;
@@ -260,7 +295,7 @@ span.alert-vazio p{
     border-bottom: 1px dotted #ccc;
     color:#CCCCCC;
     display:block;
-    font: 14px Arial, helvetica, sans-serif;
+    font: 1em 'source_sans_probold';
     height:45px;
     line-height:normal;
     margin-bottom:20px;
@@ -281,14 +316,13 @@ span.alert-vazio p{
     display: none;
 }
 .contorno{
-    width: 22%;
     border: 0px solid #ccc;
     margin: 8px;
     padding: 8px 0px 8px 0px;
     border-radius: 4px;
     transition-duration: 0.5s;
     cursor: pointer;
-    display: inline-block;
+    /* display: inline-block; */
 }
 .contorno:hover{
     box-shadow: #006699 2px 1px 22px;
@@ -327,4 +361,24 @@ span.alert-vazio p{
 .ds .image-game{
     height:150px !important;
 }
-    
+
+@media screen and (max-width: 768px){
+    #control-toggle{ display: block; }
+    #control-toggle #menu-toggle{ margin-left: 0 !important; width:100%;  }
+}
+
+@media (min-width: 768px) {
+  #sidebar-wrapper {
+    margin-left: 0;
+  }
+
+  #page-content-wrapper {
+    min-width: 0;
+    width: 100%;
+  }
+
+  #wrapper.toggled #sidebar-wrapper {
+    margin-left: -15rem;
+  }
+
+}

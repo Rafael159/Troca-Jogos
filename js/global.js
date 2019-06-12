@@ -111,7 +111,7 @@ function list_games(key, jogo_lista){
     });
 }
 window.autoCompletar = function(input){	
-	lista_de_jogos = $(input).next().attr('id');
+	lista_de_jogos = $(input).parent().next().attr('id');
 	
 	///***  Função de autocomplete  ****///
 	tam_min = 3; //número mínino de caracteres necessários para o autocomplete rodar
@@ -120,7 +120,7 @@ window.autoCompletar = function(input){
     if (keyword.length >= tam_min){
     	list_games(keyword, lista_de_jogos);
     } else {
-       $(input).next().hide();/*se tiver menos de 3 caracteres*/
+       $(input).parent().next().hide();/*se tiver menos de 3 caracteres*/
     }
 }
 

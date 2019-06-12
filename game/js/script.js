@@ -9,7 +9,7 @@ $(document).ready(function(){
 		var body = $("html, body");
 		body.stop().animate({scrollTop:0}, '500', 'swing');
 		$("#overlay").fadeIn(function(){
-			$('body').css("overflow","hidden");//barra de rolagem some
+			// $('body').css("overflow","hidden");//barra de rolagem some
 			$(modal).show().animate({ //aparece o formulário
 				top:'200px'
 			});

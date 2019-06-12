@@ -12,9 +12,8 @@
 		<!-- <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css"/>
     	<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap-theme.css"/> -->
 		
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
-
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+		
 		<!--CHAMADA CSS-->
 		<link rel="stylesheet" type="text/css" href="css/estilo.css"/>   
 		<link rel="stylesheet" type="text/css" href="css/style-footer.css"/>
@@ -60,9 +59,11 @@
 						<form class="box_pesquisa" action="pesquisa.php" method="GET">
 							<div class="form-group">
 								<div class="input_container">
-									<input type="text" name="pesquisa" id="pesquisa" onkeyup="autoCompletar(this)" autocomplete="off" class="pesquisa form-control"/>				
+									<div class="control-group">
+										<input type="text" name="pesquisa" id="pesquisa" onkeyup="autoCompletar(this)" autocomplete="off" class="pesquisa form-control"/>				
+										<input type="submit" value="Pesquisar" class="btn-enviar"/>								
+									</div>
 									<ul id="lista_jogos"></ul>
-									<input type="submit" value="Pesquisar" class="btn-enviar"/>
 								</div>
 							</div>
 						</form>
@@ -72,8 +73,7 @@
 			
 				<main class="main">				
 					<!--menu galeria de jogos em estoque-->
-					<!-- <span id="titulo-galeria"><h4>GALERIA DE JOGOS POR CATEGORIA</h4></span> -->
-					<!--enviar o id do console e retorno os jogos referentes ao mesmo-->
+
 					<div class="row nopadding">
 						<!-- <div class="gallery"> -->
 							<div class="col-lg-2 col-md-2 col-sm-12 col-xs-12 nopadding">
