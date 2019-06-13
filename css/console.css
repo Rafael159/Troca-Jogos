@@ -3,10 +3,11 @@
 	padding:0;
 }
 body{
-	background:url('../imagens/backgrounds/bgConsole.png') #212020;
+	background:url('../imagens/backgrounds/bgConsole.png');
 	background-repeat: no-repeat;
 	background-size: 100%;
 	background-position: 0 64px;
+	background-color: #373737 !important;
 }
 header.tj-top{
 	width: 100%;
@@ -128,7 +129,6 @@ header.tj-top .user-space{
 		color:#1b6fbe;
 	}
 	#boxConsole #info #qtdJogo{
-		margin-left: 2%;
 		font-family: 'source_sans_proregular';
 		font-size: 3em;
 		color:#23292f;
@@ -140,12 +140,11 @@ header.tj-top .user-space{
 		color:#fff;
 	}
 #boxConsole .each-game{
-	width: 22%;
-	display: inline-block;
-	background: #bbbbbb;
-	margin-left:2%; 
-	margin-top: 3%;
-	padding-bottom: 1%;
+	width: 100%;
+    display: inline-block;
+    background: #bbbbbb;
+    margin-top: 1rem;
+    padding-bottom: 1%;
 }
 #boxConsole .each-game:hover{
 	box-shadow: 1px 1px 5px 0px #000;
@@ -177,26 +176,25 @@ header.tj-top .user-space{
 }
 #select{
 	width: 240px;
-   height: 34px;
-   overflow: hidden;
-   background: #ddd; 
-   border: 1px solid #ccc;
-   float: right;
-   margin-top: 18px;
+    outline: none;
+    background: #fff;
+    border: 1px solid #0e7b0e;
+    margin: 15px;
 }
 #select select{
-	width: 240px;
-   height: 34px;
-   overflow: hidden;
-   background: #ddd; /* novo ícone para o <select> */
-   border: 1px solid #ccc;
-   cursor: pointer;
+	width:100%;
+    overflow: hidden;
+    background: #4e4e4e;
+    border: 1px solid #ccc;
+    cursor: pointer;
+    color: #fff;
+    font-size: 1.2em;
+    font-family: 'source_sans_proregular';
+	padding: 5px;
 }
 	#select select option{
 		padding: 4px 2px;
-		font-size: 15px;
-		color:#333333;
-		font-family: Arial, helvetica, sans-serif;
+		color: #ffffff;
 	}
 .nopadding{
 	margin:0 !important;
@@ -210,6 +208,13 @@ header.tj-top .user-space{
 		width:49%;
 		margin: 2px 0px;
 	}
+	
+	#boxConsole .each-game{
+		display: block;
+		width:60%;
+		margin: .5rem auto; 
+	}
+	#boxConsole #info{ text-align: center; }
 }
 
 @media screen and (min-width: 576px) and (max-width: 767px){
@@ -218,6 +223,8 @@ header.tj-top .user-space{
 		width:32%;
 		margin: 2px 0px;
 	}
+	#boxConsole #info{ text-align: center; }
+
 }
 
 @media screen and (min-width: 768px) and (max-width: 991px){
