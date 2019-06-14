@@ -274,6 +274,7 @@ span#resultados{
         font:1.2em 'source_sans_proregular';
         color:#cccccc;
         margin-bottom: 4px;
+        display: block;
     }
     .box-login-cadastro .form-acesso p label a{
         font:0.9em 'source_sans_proregular';

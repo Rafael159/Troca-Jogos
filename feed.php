@@ -62,8 +62,8 @@
 		<?php require 'require/header.php'; ?>
 		
 		<div id="main-content" role="main">
-			<div class="row nopadding">
-				<div class="col-lg-7 nopadding col-lg-push-1">
+			<div class="row nopadding justify-content-lg-center">
+				<div class="col-lg-7 col-md-8 col-sm-12 col-xs-12">
 					<div class="prf-content">
 						<div class="prf-top">
 							<!--<img src="imagens/icones/profile.png" alt="Perfil" class="img-responsive" id="prf-img"/>-->
@@ -79,7 +79,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col-lg-3 nopadding col-lg-push-1">
+				<div class="col-lg-3 col-md-4 col-sm-12 col-xs-12">
 					<?php if($idOn): ?>
 						<div class="friend-box">							
 							<?php
@@ -88,7 +88,7 @@
 									$row = ($row[0]) ? $row[0] : $row;
 									if($row->status == "Pendente"):
 							?>
-								<div class="alert alert-success" style="margin-left:15px; width:100%; text-align: center; ">Convite já enviado. Aguarde </div>	
+								<div class="alert alert-success">Convite já enviado. Aguarde </div>	
 								<?php else: ?>
 									<span class="friend-title">Amigo adicionado <i class="fa fa-user-plus fa-1x" aria-hidden="true"></i></span>
 								<?php endif; ?>
@@ -112,32 +112,35 @@
 					</div>					
 				</div>
 			</div><!-- / .row (1)-->
-			<div class="row nopadding">
-				<div class="col-lg-7 nopadding col-lg-push-1">
+			<div class="row nopadding justify-content-lg-center">
+				<div class="col-lg-10 col-lg-push-1">
 					<div class="box-game">
-						<?php
-							$jogos->setIdGamer($codUser);
-							$arrayJogos = $jogos->listaJogoByUser();
-							$qnt = $jogos->contaJogoById();
-							if($qnt==0):
-						?>
-						<label class="bg-title">Nenhum jogo encontrado</label>
-						<?php else: ?>
-						<label class="bg-title">Jogos encontrados (<?php echo $qnt?>)</label>
-							<?php								
-								foreach ($arrayJogos as $key => $valor):								
+						<div class="row">
+							<?php
+								$jogos->setIdGamer($codUser);
+								$arrayJogos = $jogos->listaJogoByUser();								
+								$qnt = count($arrayJogos);
+
+								if($qnt==0):
 							?>
-							<div class="col-lg-3 col-md-3 col-sm-4 col-xs-12">
-								<div class="each-game">
-									<a href="game/game.php?codigo=<?php echo $valor->id ?>">
-										<img src="game/imagens/<?php echo str_replace(' ', '', strtolower($valor->nome_console))?>/<?php echo $valor->imagem?>" alt="Nome jogo" class="img-responsive"/>
-										<span class="infogame"><?php echo strtoupper($valor->nome_console)?></span>
-										<span class="infogame"><?php echo substr(strtoupper($valor->n_jogo),0,15).'...'?></span>
-									</a>
+							<label class="bg-title text-dark">Nenhum jogo encontrado</label>
+							<?php else: ?>
+							<label class="bg-title text-dark">Jogos encontrados (<span class="text-info"><?php echo $qnt?></span>)</label>
+								<?php								
+									foreach ($arrayJogos as $key => $valor):								
+								?>
+								<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+									<div class="each-game">
+										<a href="game/game.php?codigo=<?php echo $valor->id ?>">
+											<img src="game/imagens/<?php echo str_replace(' ', '', strtolower($valor->nome_console))?>/<?php echo $valor->imagem?>" alt="Nome jogo" class="img-responsive"/>
+											<span class="infogame"><?php echo strtoupper($valor->nome_console)?></span>
+											<span class="infogame"><?php echo substr(strtoupper($valor->n_jogo),0,15).'...'?></span>
+										</a>
+									</div>
 								</div>
-							</div>
-						<?php endforeach;						
-							endif; ?>				
+							<?php endforeach;						
+								endif; ?>				
+						</div>
 					</div>
 				</div>
 			</div><!-- / .row (2)-->
@@ -146,13 +149,15 @@
 			if(isset($_SESSION['emailTJ']) AND Usuarios::getUsuario('id_user') != $codUser):
 		?>
 		<div class="chat">
-			<div class="chat-title">Mensagem</div>
-			<div class="chat-content">				
-				<div class="mensagens" id="jan_<?php echo $valor->id_user;?>"> 
+			<div class="chat-title">Chat <i class="fa fa-comments"></i></div>
+			<div class="chat-content">
+				<div class="mensagens" id="jan_<?php echo $valor->id_user;?>">
 					<div class="blank_message">Nenhuma mensagem</div>
 				</div>
-				<!-- <input type="text" name="msg" placeholder="Digite sua mensagem" id="field-message" autocomplete="off"/> -->
 				<textarea name="msg" placeholder="Digite sua mensagem" id="field-message" autocomplete="off"></textarea>
+				<div class="btn-control" style="margin:3px;">
+					<button class="btn btn-outline-success float-right" id="button-send">Enviar</button>
+				</div>
 			</div>
 		</div>
 		<?php endif; ?>

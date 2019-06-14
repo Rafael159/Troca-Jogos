@@ -22,6 +22,36 @@ $(function(){
 		//scrollDown();
 	});	
 
+	function sendMessage(para, mensagem, acao){
+		$.post('controllers/chat.php', {
+			acao : acao,
+			mensagem: mensagem,
+			para: para
+		}, function (retorno){
+			//não fazer nada por enquanto
+			/*setTimeout(function(){						
+				$('.mensagens').append(retorno);						
+			}, 1000);
+			scrollDown();*/
+		});
+	}
+
+	$('#button-send').on('click', function(){
+		to = $('.mensagens').attr('id');
+		mensagem = $('#field-message').val();
+		mensagem = $.trim(mensagem);
+
+		if(to=="" || typeof to == "undefined"){
+		}else{
+			idTo = to.split('_')[1];//separar o ID do usuário
+			if(mensagem != ''){
+				$('#field-message').val('');
+				sendMessage(idTo, mensagem, 'inserir');
+			}
+			return false;
+		}
+	});
+
 	$('body').delegate('#field-message', 'keydown', function(e){
 		
 		var campo = $(this);
@@ -30,25 +60,14 @@ $(function(){
 		
 		mensagem = $.trim(mensagem);
 		
-		if(to=="" || typeof to == "undefined"){	
-		
+		if(to=="" || typeof to == "undefined"){
 		}else{		
 			idTo = to.split('_')[1];//separar o ID do usuário
 
 			if(e.keyCode == 13){				
 				if(mensagem != ''){
 					campo.val('');
-					$.post('controllers/chat.php', {
-						acao : 'inserir',
-						mensagem: mensagem,
-						para: idTo
-					}, function (retorno){
-						// console.log(retorno);
-						setTimeout(function(){						
-							$('.mensagens').append(retorno);						
-						}, 1000);
-						//scrollDown();
-					});
+					sendMessage(idTo, mensagem, 'inserir');
 				}
 				return false;
 			}	
