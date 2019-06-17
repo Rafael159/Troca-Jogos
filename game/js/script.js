@@ -1,6 +1,7 @@
 $(document).ready(function(){
 	/*ENVIAR EMAIL E SENHA PARA LOGAR AO SITE*/
-	$("#btn-login").bind('click', function () {
+	$("#btn-login").bind('click', function (e) {
+		e.preventDefault();
 		form = $('#form-logar');
 		logar_user(form, 1, '../login/verifica.php', '../admin/','../users/');
 	});

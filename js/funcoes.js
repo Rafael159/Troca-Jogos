@@ -1,6 +1,6 @@
 $(document).ready(function (){
 
-	window.logar_user = function(form, type, link, urladm, urluser){
+	window.logar_user = function(form, type, link, urladm, urluser){		
 		idfrm = form.attr('id');
 		
 		$.ajax({

@@ -50,26 +50,31 @@ body{
 	padding:0.5%;
 }
 	#conteudo-jogos .left-jogo{
-		width: 20%;
-	    float: left;	    
-	    margin-left: 2%;
+		width: 75%;
+	   
 	}		
-	#conteudo-jogos .left-jogo .img_jogo{ width: 100%; height: 250px;}
+#conteudo-jogos .left-jogo .img_jogo{ 
+	width: 100%; 
+	height: 250px;
+	display: block;
+}
 
 #conteudo-jogos .right-jogo{
-	width:70%;
-	float:right;
+	width:100%;
 }
 	#conteudo-jogos .right-jogo fieldset{
-		border:none;
-		padding: 4px 0px;
-		margin: 2% 1%;
+		border: none;
+		margin: .4em;
 	}
 	#conteudo-jogos .right-jogo fieldset legend{
-		color:#fff;
-		font-weight:bold;		
+		color: #fff;
+		font-weight: bold;
+		font-family: 'source_sans_proregular';
+		font-size: 1em;
+		margin: 0;		
 	}
 	#conteudo-jogos .right-jogo fieldset label{
+		width:100%;
 		font-family: 'source_sans_proregular';	
 	    font-size: 1em;
 	    color: #ccc;
@@ -89,12 +94,11 @@ body{
 	#conteudo-jogos .right-jogo fieldset label ul li{list-style:none;}
 
 .genreGame{
-	width: 15%;
 	background: #eee;
 	border-radius: 4px;
 	display: inline-block;
 	margin-left: 1.1%;
-	padding: 1%;
+	padding: 10px;
 	text-align: center;
 	color: #211a1a;
 	font-weight: 600;
@@ -498,3 +502,29 @@ span.alert-vazio p:last-child a{
   background: rgba(142,142,142,.6);
 }
 
+
+/* @media queries */
+@media screen and (max-width: 479px) {
+	#conteudo-jogos .left-jogo{
+		width:85%;
+		margin:auto;
+	}
+}
+@media screen and (min-width: 480px) and (max-width: 570px) {
+	#conteudo-jogos .left-jogo{
+		width:60%;
+		margin:auto;
+	}
+}
+@media screen and (min-width: 571px) and (max-width: 767px) {
+	#conteudo-jogos .left-jogo{
+		width:50%;
+		margin:auto;
+	}
+}
+@media screen and (min-width:768px) and (max-width: 992px) {
+	#conteudo-jogos .left-jogo{
+		width:60%;
+		margin:auto;
+	}
+}

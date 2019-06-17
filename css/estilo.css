@@ -16,10 +16,7 @@ body{
     clear:both;  
     visibility: hidden;
  } 
-/* .tj-top{	
-	width: 100%;
-	height:200px;
-} */
+
 .tj-top .inf{
 	width: 100%;
 	height: 100px;
@@ -67,6 +64,7 @@ body{
 	padding: 15px;
 	margin-top:5px;
 	display: block;
+	background: #333;
 }
 #main-menu .navs{
 	width: 100%;
@@ -307,7 +305,7 @@ body{
   		outline: none;
 	}
 	/*botão logar/cadastrar */
-	.box-login-cadastro .form-acesso p #btn-logar,.box-login-cadastro .form-acesso p #btn-cadastrar{
+	.box-login-cadastro .form-acesso p #btn-logar,.box-login-cadastro .form-acesso p #user-cadastrar{
 		width: 100%;
 		padding: 6px 0px;
 		border-radius: 3px;
@@ -325,7 +323,7 @@ body{
 		background: linear-gradient(#A31313,#c91212);
 		background: -moz-linear-gradient(#A31313,#c91212);
 	}
-		.box-login-cadastro .form-acesso p #btn-logar:hover, .box-login-cadastro .form-acesso p #btn-cadastrar:hover {
+		.box-login-cadastro .form-acesso p #btn-logar:hover, .box-login-cadastro .form-acesso p #user-cadastrar:hover {
 			background: -webkit-linear-gradient(#c91212,#A31313);
 			background: -o-linear-gradient(#c91212,#A31313);
 			background: -moz-linear-gradient(#c91212,#A31313);
@@ -366,7 +364,7 @@ body{
 .main{
 	width: 100%;
 	background: #373737;
-	margin-top: 50px;
+	/* margin-top: 50px; */
 }
 section#lastgamesBox{
 	width: 100%;
