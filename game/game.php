@@ -2,7 +2,7 @@
 	spl_autoload_register(function($classe) {
 		require(dirname(dirname(__FILE__)).'/classes/'.$classe.'.class.php');        
     });
-    @BD::conn();//conexão com o banco de dados	
+    //@BD::conn();//conexão com o banco de dados	
     
     $jogos = new Jogos(); //chama a classe Jogos
     $console = new Consoles(); //chama a classe Consoles 
@@ -130,53 +130,52 @@
 			?>
 			</div>
 		</div>
-		<div id="bottom_box">
-			<div class="main">
-				<span><h5>JOGOS RECOMENDADOS</h5></span>
-				<div id="mi-slider" class="mi-slider">		
-					<!--passar por todos os consoles cadastrados-->
-				<?php					
-					foreach ($console->findAll() as $chave => $consoles) {
-						$id = $consoles->id_console;
-						$nome = str_replace(' ','',$consoles->nome_console);
-				?>		
-					<ul>
-						<!--Dentro de cada console, verificar os jogos disponíveis-->
-						<?php 
-							$sql = "SELECT * FROM `jogos` as j, `imagens` as i WHERE j.id_console = $id AND j.img_jogo = i.id_img LIMIT 4";
-							$games = $jogos->listarJogos(array('status'=>'Ativo', 'idconsole'=>$id));
-							$numero_jogo = count($games);
-							
-							if($numero_jogo > 0){ //se tiver jogo cadastrado para o console, mostre
-								foreach ($console->consulta($sql) as $chave => $jogo) {
-						?>
-							<li><a href="game.php?codigo=<?php echo $jogo->id?>"><img src="imagens/<?php echo strtolower($nome)?>/<?php echo $jogo->imagem?>" alt="<?php echo $jogo->n_jogo?>"><h4><?php echo $jogo->n_jogo?></h4></a></li>
-							
-						<?php 
-								}
-							}else{ //senão, mostre imagem padrão
-								if(isset($_SESSION['emailTJ'])){
-						?>							
-							<li><a href="../users/dashboard.php?secao=jogos"><img src="imagens/sem_jogo.jpg" alt=""><h4>Nenhum jogo cadastrado</h4></a></li>
-
-						<?php }else{?>
-							<li><a href="..\login/logar.php"><img src="imagens/sem_jogo.jpg" alt=""><h4>Nenhum jogo cadastrado</h4></a></li>
-						<?php
-							}
-						}
-					?>
-					</ul>
-				<?php
-					}
-				?>					
-					<nav>
-					<?php 
-
-						foreach ($console->findAll() as $chave => $consoles) {
-					?>
-						<a href="#"><?php echo strtoupper($consoles->nome_console)?></a><!--todos os consoles cadastrados-->
-					<?php  } ?>
-					</nav>
+		<div class="row nopadding d-none d-lg-block">
+			<div id="bottom_box">
+				<div class="main">
+					<span><h5>JOGOS RECOMENDADOS</h5></span>
+					<div id="mi-slider" class="mi-slider">		
+						<!--passar por todos os consoles cadastrados-->
+					<?php					
+						foreach ($console->findAll() as $chave => $consoles) :
+							$id = $consoles->id_console;
+							$nome = str_replace(' ','',$consoles->nome_console);
+					?>		
+						<ul>
+							<!--Dentro de cada console, verificar os jogos disponíveis-->
+							<?php 
+								//$sql = "SELECT * FROM `jogos` as j, `imagens` as i WHERE j.id_console = $id AND j.img_jogo = i.id_img LIMIT 4";
+								$games = $jogos->listarJogos(array('status'=>'Ativo', 'idconsole'=>$id, 'limite'=>'4', 'order'=>'ORDER BY j.id DESC'));
+								
+								$qntGames = count($games);								
+								if($qntGames > 0): //se tiver jogo cadastrado para o console, mostre
+									foreach ($games as $chave => $jogo) :
+							?>
+								<li><a href="game.php?codigo=<?php echo $jogo->id?>"><img src="imagens/<?php echo strtolower($nome)?>/<?php echo $jogo->imagem?>" alt="<?php echo $jogo->n_jogo?>"><h4><?php echo $jogo->n_jogo?></h4></a></li>								
+							<?php 
+									endforeach;
+								else: //senão, mostrar imagem padrão
+									if(isset($_SESSION['emailTJ'])):
+							?>							
+								<li><a href="../users/dashboard.php?secao=jogos"><img src="imagens/sem_jogo.jpg" alt=""><h4>Nenhum jogo cadastrado</h4></a></li>
+									<?php else:?>
+								<li><a href="..\login/logar.php"><img src="imagens/sem_jogo.jpg" alt=""><h4>Nenhum jogo cadastrado</h4></a></li>
+							<?php
+									endif;
+								endif;
+							?>
+						</ul>
+					<?php
+						endforeach;
+					?>					
+						<nav>
+							<?php
+								foreach ($console->findAll() as $chave => $consoles) :
+							?>
+								<a href="#"><?php echo strtoupper($consoles->nome_console)?></a><!--todos os consoles cadastrados-->
+							<?php  endforeach; ?>
+						</nav>
+					</div>
 				</div>
 			</div>
 		</div>

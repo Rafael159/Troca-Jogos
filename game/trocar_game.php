@@ -32,10 +32,16 @@
 		<link rel="stylesheet" type="text/css" href="css/games.css"/>
 		<link rel="stylesheet" type="text/css" href="css/style.css" />
 		<link rel="stylesheet" type="text/css" href="css/header.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/estilo.css" />
 		<link rel="stylesheet" type="text/css" href="../css/fonts.css"/>
+		<link rel="stylesheet" type="text/css" href="../font-awesome/css/font-awesome.css"/>
+
 		<!--CSS BOOTSTRAP-->
-		<link rel="stylesheet" href="..\bootstrap/css/bootstrap.min.css"/>
-    	<link rel="stylesheet" href="..\bootstrap/css/bootstrap-theme.css"/>
+		<!-- <link rel="stylesheet" href="..\bootstrap/css/bootstrap.min.css"/>
+		<link rel="stylesheet" href="..\bootstrap/css/bootstrap-theme.css"/> -->
+
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
 		<link rel="shortcut icon" type="image/x-icon" href="../favicon.ico">
 		<script>
 		(adsbygoogle = window.adsbygoogle || []).push({
@@ -47,120 +53,130 @@
 <body>
 	<input type="hidden" name="idUserDois" value='<?php echo $idUser ?>' id="idUserDois"/>
 	<div class="content">
+		<?php include_once('header.php'); ?>
+
 		<div class="clearfix">			
-			<header> <!--CHAMADA DO HEADER-->
-				<?php include_once('header.php'); ?>
-			</header>
+			
 		</div>	
 		<div class='container-fluid nopadding'>
-			<div class='col-lg-12 nopadding'>
-				<div class="main_jogo_selecionado">	
-					<div class="alert-overlay"></div><!--sombra de fundo-->
-					<div id="msg">
-						<div>
-							<header>Mensagem</header>
-							<span></span><br/><br/>
-						</div>
-					</div>
-					<div class="row nopadding">
-						<div id="box_jogo">
-							<form name="frm_trocas" id="frm_trocas" method="POST">
-								<div class='col-lg-6'>
-									<!--JOGO QUE QUERO RECEBER NA TROCA-->
-									<div class="jgTroca jgNovo">
-									<span class="header-dono">JOGO DESEJADO</span>
-									<?php						
-										$idJogo = (isset($_GET['id']) AND $_GET['id'] !== '') ? $_GET['id'] : '';//id do jogo
-
-										if($idJogo):
-										//buscar o jogo selecionado					
-										$jogo->setId($idJogo);
-										foreach ($jogo->listaJogoById() as $chave => $valor):
-									?>	
-									<input type="hidden" name='idUserUm' value="<?php echo $valor->id_user ?>" id="idUserUm"/>
-									<input type="hidden" name='idJogo' value="<?php echo $idJogo ?>" id="idJogo"/>	
-									<!--<input type="hidden" name='idUser' value="<?php echo $valor->id_user ?>" id="idUser"/>-->
-									<img src="imagens/<?php echo str_replace(' ', '', $valor->nome_console)?>/<?php echo $valor->imagem?>" alt="<?php echo $valor->n_jogo?>" class="img-responsive"/>
-									<label><?php echo strtoupper($valor->n_jogo)?> - <?php echo strtoupper($valor->nome_console)?></label>
-									<?php 
-									endforeach;
-										else: ?>
-											<a href="../pesquisa.php"><img src="imagens/padrao_sem_jogo.jpg" alt="Add o jogo que deseja" class="img-responsive"/></a>
-											<label>
-												<p>JOGO</p>
-											</label>
-										<?php
-										endif;
-									?>
-									</div>
-								</div>
-								<div class='col-lg-6'>
-									<!--JOGO QUE DAREI NA TROCA-->
-									<div class="jgTroca jgVelho">	
-										<span class="header-dono">MEU JOGO</span>
-										<?php 
-											if(isset($_GET['id_troca']) AND $_GET['id_troca'] != ''){
-												$idTroca = $_GET['id_troca'];
-
-												//buscar o jogo selecionado												
-												$meujogo = $jogo->listarJogos(array('id'=>$idTroca));
-												foreach ($meujogo as $meuJogo => $valor):
-										?>	
-										<input type="hidden" name='idTroca' value="<?php echo $idTroca ?>" id="idTroca"/>				
-										<img src="imagens/<?php echo str_replace(' ', '', $valor->nome_console)?>/<?php echo $valor->imagem?>" alt="<?php echo $valor->n_jogo?>" class="img-responsive"/>
-										<label><?php echo strtoupper($valor->n_jogo)?> - <?php echo strtoupper($valor->nome_console)?></label>
-										<?php 
-											endforeach;
-											}else{
-												$idTroca = null;
-										?>
-										<input type="hidden" value="<?php echo $idTroca ?>" id="idTroca"/>
-										<img src="imagens/padrao_sem_jogo.jpg" alt="Add seu jogo" class="img-responsive"/>
-										<label>
+			<div class="d-flex justify-content-center">
+				<div class='col-lg-12 col-md-12 col-sm-12 col-xs-12 d-flex justify-content-lg-center nopadding'>
+					<div class="main_jogo_selecionado">							
+						<div class="row nopadding">
+							<div id="box_jogo">
+								<form name="frm_trocas" id="frm_trocas" method="POST">
+									<div class="row">
+										<div class="col-lg col-md col-sm-12 col-xs-12">
+											<!--JOGO QUE QUERO RECEBER NA TROCA-->
+											<div class="jgTroca jgNovo">
+											<span class="header-dono">JOGO DESEJADO</span>
 											<?php						
-												echo (isset($_GET['id_jogo'])) ? $_GET['id_jogo'] : "Seu Jogo";
-											}
+												$idJogo = (isset($_GET['id']) AND $_GET['id'] !== '') ? $_GET['id'] : '';//id do jogo
+
+												if($idJogo):
+												//buscar o jogo selecionado					
+												$jogo->setId($idJogo);
+												foreach ($jogo->listaJogoById() as $chave => $valor):
+											?>	
+											<input type="hidden" name='idUserUm' value="<?php echo $valor->id_user ?>" id="idUserUm"/>
+											<input type="hidden" name='idJogo' value="<?php echo $idJogo ?>" id="idJogo"/>	
+											<!--<input type="hidden" name='idUser' value="<?php echo $valor->id_user ?>" id="idUser"/>-->
+											<img src="imagens/<?php echo str_replace(' ', '', $valor->nome_console)?>/<?php echo $valor->imagem?>" alt="<?php echo $valor->n_jogo?>" class="img-responsive"/>
+											<label><?php echo strtoupper($valor->n_jogo)?> - <?php echo strtoupper($valor->nome_console)?></label>
+											<?php 
+											endforeach;
+												else: ?>
+													<a href="../pesquisa.php"><img src="imagens/padrao_sem_jogo.jpg" alt="Add o jogo que deseja" class="img-responsive"/></a>
+													<label>
+														<p>JOGO</p>
+													</label>
+												<?php
+												endif;
 											?>
-										</label>
-									</div>
-								</div>
-								<div id='fieldTroca'>
-									<div class='col-lg-12'>
-										<span id='fieldTitle'>Como considera essa troca?</span>
-										<div class="col-lg-4 avalia-metodo">
-										  <label for='maisVale'><input type="radio" name="optradio" value='0' class='btn-opcao' id='maisVale'>Meu jogo vale <b>MAIS</b></label>
+											</div>
 										</div>
-										<div class="col-lg-4 avalia-metodo">
-										  <label for='igualVale'><input type="radio" name="optradio" value='1' class='btn-opcao' id='igualVale' checked>Equilibrado</label>
+										<div class="col-lg col-md col-sm-12 col-xs-12">
+											<!--JOGO QUE DAREI NA TROCA-->
+											<div class="jgTroca jgVelho">	
+												<span class="header-dono">MEU JOGO</span>
+												<?php 
+													if(isset($_GET['id_troca']) AND $_GET['id_troca'] != ''){
+														$idTroca = $_GET['id_troca'];
+
+														//buscar o jogo selecionado												
+														$meujogo = $jogo->listarJogos(array('id'=>$idTroca));
+														foreach ($meujogo as $meuJogo => $valor):
+												?>	
+												<input type="hidden" name='idTroca' value="<?php echo $idTroca ?>" id="idTroca"/>				
+												<img src="imagens/<?php echo str_replace(' ', '', $valor->nome_console)?>/<?php echo $valor->imagem?>" alt="<?php echo $valor->n_jogo?>" class="img-responsive"/>
+												<label><?php echo strtoupper($valor->n_jogo)?> - <?php echo strtoupper($valor->nome_console)?></label>
+												<?php 
+													endforeach;
+													}else{
+														$idTroca = null;
+												?>
+												<input type="hidden" value="<?php echo $idTroca ?>" id="idTroca"/>
+												<img src="imagens/padrao_sem_jogo.jpg" alt="Add seu jogo" class="img-responsive"/>
+												<label>
+													<?php						
+														echo (isset($_GET['id_jogo'])) ? $_GET['id_jogo'] : "Seu Jogo";
+													}
+													?>
+												</label>
+											</div>
 										</div>
-										<div class="col-lg-4 avalia-metodo">
-										  <label for='menosVale'><input type="radio" name="optradio" value='2' class='btn-opcao' id='menosVale'>Meu jogo vale <b>MENOS</b></label>
-										</div>																		
-									</div>	  
-									<div class='col-lg-12' id="quadroOpcao">
-										<div>
-							   				<label class="titulOpcao">VALOR DE RETORNO: R$</label><input type="text" name="valor" class="form-control" id="txtValor" value="0" placeholder="Valor máximo - R$99,99"/>
-							   				<button type="button" data-target='#infoTroca' data-toggle="modal" class="btn btn-link">Entenda o valor</button>   
-							   			</div>
 									</div>
-								</div><br/>
-								<div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
-									<label for="mensagem" class="titlemsg">Mensagem</label>
-									<textarea class="form-control" name="mensagem" id="mensagem" placeholder="Deixe sua mensagem..."></textarea>   
-								</div>	
-		                        <div class='col-lg-12'>					 
-							        <div class="btn-group">
-							        	<a id="btnCancelar" class="btnTroca btn btn-danger" href='../pesquisa.php'>Cancelar</a>
-										<button type="button" id="btnConfirmar" class="btnTroca btn btn-success">Confirmar</button>
-							        </div>
-							    </div>
-							</form>				 	
+									<div class="row">
+										<div id='fieldTroca'>
+											<div class='col-lg-12'>
+												<div class="row">
+													<span id='fieldTitle'>Como considera essa troca?</span>
+													<div class="col-lg col-md avalia-metodo">
+														<label for='maisVale'><input type="radio" name="optradio" value='0' class='btn-opcao' id='maisVale'>Meu jogo vale <b>MAIS</b></label>
+													</div>
+													<div class="col-lg col-md avalia-metodo">
+														<label for='igualVale'><input type="radio" name="optradio" value='1' class='btn-opcao' id='igualVale' checked>Equilibrado</label>
+													</div>
+													<div class="col-lg col-md avalia-metodo">
+														<label for='menosVale'><input type="radio" name="optradio" value='2' class='btn-opcao' id='menosVale'>Meu jogo vale <b>MENOS</b></label>
+													</div>
+												</div>																		
+											</div>	  
+											<div class='col-lg-12' id="quadroOpcao">
+												<div>
+													<label class="titulOpcao">VALOR DE RETORNO: R$</label><input type="text" name="valor" class="form-control" id="txtValor" value="0" placeholder="Valor máximo - R$99,99"/>
+													<button type="button" data-target='#infoTroca' data-toggle="modal" class="btn btn-link">Entenda o valor</button>   
+												</div>
+											</div>
+										</div><br/>
+										<div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
+											<label for="mensagem" class="titlemsg">Mensagem</label>
+											<textarea class="form-control" name="mensagem" id="mensagem" placeholder="Deixe sua mensagem..."></textarea>   
+										</div>	
+										<div class='col-lg-12'>					 
+											<div class="btn-group">
+												<a id="btnCancelar" class="btnTroca btn btn-danger" href='../pesquisa.php'>Cancelar</a>
+												<button type="button" id="btnConfirmar" class="btnTroca btn btn-success">Confirmar</button>
+											</div>
+										</div>
+									</div>
+								</form>				 	
+							</div>
 						</div>
-					</div>
-				</div><!--main_jogo_selecionado-->
+					</div><!--main_jogo_selecionado-->
+				</div>
 			</div>
 		</div>
 	</div>
+
+    <div class="alert-overlay"></div><!--sombra de fundo-->
+	<div id="msg">
+		<div>
+			<header>Mensagem</header>
+			<span></span><br/><br/>
+		</div>
+	</div>
+
 	 <!--Modal Tela Pagamento-->
     <div class="modal fade" id="infoTroca" data-backdrop="static">
         <div class="modal-dialog">
@@ -225,6 +241,9 @@
 	<script src="js/script.js"></script>
 	<script src="js/troca.js"></script>
 	<script src="js/modernizr.custom.63321.js"></script>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
 	<!--JS BOOTSTRAP-->
 	<script src="..\bootstrap/js/bootstrap.min.js"></script>

@@ -18,7 +18,7 @@
         </div>  
         <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 nopadding">
             <div class="boxes">
-                <img src="imagens/icones/logo.png" alt="Rodapé" class="brand">
+                <img src="imagens/icones/logo.png" alt="Restart Games" class="brand">
                 <p class="text-bold">© RestartGames <?php echo date('Y'); ?></p>
             </div>
         </div>  

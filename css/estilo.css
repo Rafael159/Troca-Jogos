@@ -580,7 +580,7 @@ span#titulo-galeria h4{
 /*formatação da vitrine dos jogos*/
 .main .galeria #resultado-links .quadro-galeria .galeria-principal{
 	width: 100%;
-    padding: 37px 0px;
+    padding: 30px 0px;
     background: #ccc;
 	list-style-type: none;
 	display: inline-block;
