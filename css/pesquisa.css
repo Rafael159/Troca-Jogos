@@ -21,18 +21,30 @@
     width: 20rem;
     background: #333;
 }
+#sidebar-wrapper .sidebar-heading .sidebar-title{
+    font-family: 'source_sans_proregular';
+    font-size:1em;
+    color:#fff;
+    float: left;
+}
+#close-menu-toggle{
+    float: right;
+    top: -15px;
+    position: relative;
+    right: -20px;
+}
 
 #wrapper.toggled #sidebar-wrapper {
     margin-left: 0;
 }
 
-#control-toggle{ 
+.control-toggle{ 
     display: none; 
     width: 100%; 
     padding: 15px;
 }
 
-#control-toggle #menu-toggle{ margin-left: 15px; }
+.control-toggle #menu-toggle{ margin-left: 15px; }
 
 #principal{
     width: 100%;
@@ -41,12 +53,8 @@
     display: block;
 }
 .left_sidebar{
-    /* width: 23%; */
-    /* margin: 8px 0; */
     border-radius: 4px;
     padding: 15px;
-    /* display: inline-block; */
-    /* margin-left: 2%; */
 }
 .filtro-actived{
     background: #069 !important;
@@ -54,8 +62,6 @@
 }
 .filtro-plataforma, .filtro-genero{
     width: 100%;
-    /* margin-top: 10px; */
-    /* margin-bottom: 15px; */
     background-color: #333333;
 }
 .filtro-genero .controle,.filtro-plataforma .controle{
@@ -363,8 +369,8 @@ span.alert-vazio p{
 }
 
 @media screen and (max-width: 768px){
-    #control-toggle{ display: block; }
-    #control-toggle #menu-toggle{ margin-left: 0 !important; width:100%;  }
+    .control-toggle{ display: block; }
+    .control-toggle #menu-toggle{ margin-left: 0 !important; width:100%;  }
 }
 
 @media (min-width: 768px) {

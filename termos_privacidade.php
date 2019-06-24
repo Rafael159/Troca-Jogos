@@ -47,8 +47,8 @@
                     </div>
                     <h4 class="title-clausula">DAS CONDIÇÕES DE UTILIZAÇÃO</h4>
                     <div class="clausula">
-                        <p>É vedada a utilização comercial com fins lucrativos, por terceiros não autorizados, da plataforma oferecida pela RESTART GAMES, também é proibido a utilização de qualquer software ou sistema que tenha por fim burlar ou extrair informações sem consentimento expresso de seus proprietários.</p>
-                        <p>O acompanhamento dos serviços realizados pelos Usuários Comuns poderá ser feito pela RESTART GAMES, ou ainda solicitar a avaliação do mesmo, com o objetivo de zelar pelo bom uso do sistema e segurança dos usuários.</p>
+                        <p>É vedada a utilização comercial com fins lucrativos, por terceiros não autorizados, da plataforma oferecida pela RESTART GAMES. Também é proibido a utilização de qualquer software ou sistema que tenha por fim burlar ou extrair informações sem consentimento expresso de seus proprietários.</p>
+                        <p>O acompanhamento dos serviços realizados pelo Usuário Comum poderá ser feito pela RESTART GAMES, ou ainda solicitar a avaliação do mesmo, com o objetivo de zelar pelo bom uso do sistema e segurança dos usuários.</p>
                         <p>A RESTART GAMES poderá advertir, suspender ou cancelar, temporária ou definitivamente o acesso de um Usuário, quando julgar necessário e a qualquer tempo, sem prejuízo das ações legais cabíveis.</p>
                         <p>Todo e qualquer espaço disponível nas aplicações ou WEB poderão ser utilizados pela RESTART GAMES para expor publicidade, campanhas ou anúncios de seus parceiros e/ou patrocinadores independente do ramo de atuação.</p>
                         <p>A qualquer tempo, independente de aviso prévio, a RESTART GAMES poderá alterar seu conteúdo e funcionalidades.</p>

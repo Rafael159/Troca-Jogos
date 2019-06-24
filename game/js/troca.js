@@ -9,7 +9,7 @@ function message(msg){
 	body.stop().animate({scrollTop:0}, '500', 'swing', function() { 
 	   body.css({"overflow-y":"hidden"});
 	   $('.overlay').fadeIn('fast',function(){
-			$('#msg').fadeIn().animate({top:'5%'});
+			$('#msg').fadeIn().animate({top:'30%'});
 			$('#msg span').html(msg);							
 	    });						 
 	});
@@ -77,7 +77,7 @@ $(".jgVelho").click(function(){
 		$('html, body').css({
 			'overflow':'hidden'
 		});
-	});	
+	});
 	$('.overlay').fadeIn('fast',function(){
 		$('#box_meu_jogo').fadeIn();
 	});

@@ -363,3 +363,78 @@ nav.opcoes-user ul li.each-opcao:hover{
     color:#fff;
     box-shadow: 1px 1px 2px #3D3D3D;
 }
+
+.input_container{
+	width: 100%;
+    border: 1px solid;
+    background: #fff;
+}
+.search-field{
+    width:60%;
+}
+.search-field #id_pesquisa{
+    width: 80%;
+    /* height: 28px; */
+    outline: none;
+    border: none;
+    border-radius: 4px;
+    /* padding: 3px; */
+    font-family: 'source_sans_proregular';
+    font-size: 1.1em;
+    color: #fff;
+    background: #333;
+}
+.search-field .search-btn{
+    padding: 0px 10px;
+    height: 36px;
+    border: none;
+    /* border-radius: 5px; */
+    margin: -37px 1px 0px 5px;
+    color: #fff;
+    /* font: 16px arial,sans-serif; */
+    cursor: pointer;
+    background: -webkit-linear-gradient(#069, #09f);
+    background: -o-linear-gradient(#069, #09f);
+    background: -moz-linear-gradient(#069, #09f);
+    background: linear-gradient(#069, #09f);
+    /* float: right; */
+    z-index: 9999;
+    font-size: 1em;
+    font-family: 'source_sans_proregular';
+}
+.search-field .search-btn:hover{
+    background: #0470a6;    
+}
+/*AUTOCOMPLETE JOGOS*/
+.search-field #opcao_jogo{
+    display: block;
+    z-index: 2;
+    position: absolute;
+    width:96%;
+    padding: 0px;
+}
+
+/*@media*/
+@media screen and (max-width: 480px){
+    .navbar .navbar-logo{ width:70%; }
+    #brandNew{ width: 100%;	}
+    
+    .conteudo .box_pesquisa{ width: 100%; }
+    .conteudo .box_pesquisa .input_container ul#lista_jogos{ width: 90.8%; }
+    .search-btn{ float: right; }
+    .search-field #id_pesquisa{ width: 70%; }
+
+    .search-field #opcao_jogo{ width: 92%; }
+}
+@media screen and (min-width: 481px) and (max-width: 576px) {
+    .navbar-brand{ width: 60%; }
+
+    .search-btn{ float: right; }
+}
+@media only screen and (min-width: 992px) {
+    .search-field{ width: 70%; }
+    .search-field #opcao_jogo{ width: 46%; }
+
+    .navbar .navbar-logo{ width: 20%; }
+    #brandNew{ width: 100%;	}
+}

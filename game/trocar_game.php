@@ -34,6 +34,8 @@
 		<link rel="stylesheet" type="text/css" href="css/header.css"/>
 		<link rel="stylesheet" type="text/css" href="../css/estilo.css" />
 		<link rel="stylesheet" type="text/css" href="../css/fonts.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/style-footer.css"/>
+		
 		<link rel="stylesheet" type="text/css" href="../font-awesome/css/font-awesome.css"/>
 
 		<!--CSS BOOTSTRAP-->
@@ -60,12 +62,12 @@
 		</div>	
 		<div class='container-fluid nopadding'>
 			<div class="d-flex justify-content-center">
-				<div class='col-lg-12 col-md-12 col-sm-12 col-xs-12 d-flex justify-content-lg-center nopadding'>
+				<div class='col-lg-12 col-md-12 col-sm-12 col-xs-12 d-flex justify-content-center nopadding'>
 					<div class="main_jogo_selecionado">							
 						<div class="row nopadding">
 							<div id="box_jogo">
 								<form name="frm_trocas" id="frm_trocas" method="POST">
-									<div class="row">
+									<div class="row nopadding">
 										<div class="col-lg col-md col-sm-12 col-xs-12">
 											<!--JOGO QUE QUERO RECEBER NA TROCA-->
 											<div class="jgTroca jgNovo">
@@ -126,7 +128,7 @@
 											</div>
 										</div>
 									</div>
-									<div class="row">
+									<div class="row nopadding">
 										<div id='fieldTroca'>
 											<div class='col-lg-12'>
 												<div class="row">
@@ -155,8 +157,8 @@
 										</div>	
 										<div class='col-lg-12'>					 
 											<div class="btn-group">
-												<a id="btnCancelar" class="btnTroca btn btn-danger" href='../pesquisa.php'>Cancelar</a>
-												<button type="button" id="btnConfirmar" class="btnTroca btn btn-success">Confirmar</button>
+												<a id="btnCancelar" class="btnTroca btn btn-danger" href='../pesquisa.php'>Cancelar <i class="fa fa-remove"></i></a>
+												<button type="button" id="btnConfirmar" class="btnTroca btn btn-success">Confirmar <i class="fa fa-check"></i></button>
 											</div>
 										</div>
 									</div>
@@ -167,9 +169,8 @@
 				</div>
 			</div>
 		</div>
-	</div>
 
-    <div class="alert-overlay"></div><!--sombra de fundo-->
+		<div class="overlay"></div>
 	<div id="msg">
 		<div>
 			<header>Mensagem</header>
@@ -211,26 +212,38 @@
     </div>
 	<!--AQUI MOSTRARÁ OS JOGOS QUE O USUÁRIO POSSUI-->
 	<div id="box_meu_jogo">
-		<span id="topo"><h4>Escolha seu jogo</h4><img src="..\users/img/pop-botao-fecha.png" alt="Fechar" id="close_pop_up"/></span>
-		<section class="section">
-			<?php			
-				$num_game = Jogos::contarJogosHelper(array('id_gamer'=>$idUser, 'status'=>'Ativo'));
-				
-				if($num_game > 0):
-					$meusjogos = $jogo->listarJogos(array('id_gamer'=>$idUser, 'status'=>'Ativo'));
-					foreach ($meusjogos as $chave => $result):
-			?>	
-			<div class="mygames">
-				<a href="trocar_game.php?id=<?php echo $_GET['id']?>&id_troca=<?php echo $result->id?>"><img src="imagens/<?php echo strtolower(str_replace(' ','',$result->nome_console))?>/<?php echo $result->imagem?>"/></a>
-				<span class="infoGame"><p><?php echo $result->n_jogo?></p><p><?php echo $result->nome_console?></p></span>
+		<div class="row nopadding">
+			<div class="col-lg-12">
+				<span id="topo"><h4>Escolha seu jogo</h4><img src="..\users/img/pop-botao-fecha.png" alt="Fechar" id="close_pop_up"/></span>
+				<section class="section">
+					<div class="row">
+					<?php			
+						$num_game = Jogos::contarJogosHelper(array('id_gamer'=>$idUser, 'status'=>'Ativo'));
+						
+						if($num_game > 0):
+							$meusjogos = $jogo->listarJogos(array('id_gamer'=>$idUser, 'status'=>'Ativo'));
+							foreach ($meusjogos as $chave => $result):
+					?>	
+					<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+						<div class="mygames">
+							<a href="trocar_game.php?id=<?php echo $_GET['id']?>&id_troca=<?php echo $result->id?>"><img src="imagens/<?php echo strtolower(str_replace(' ','',$result->nome_console))?>/<?php echo $result->imagem?>"/></a>
+							<span class="infoGame"><p><?php echo $result->n_jogo?></p><p><?php echo $result->nome_console?></p></span>
+						</div>
+					</div>
+					<?php
+						endforeach;
+						else:
+							echo "<span class='alert-vazio'><p>OPS! Nenhum jogo encontrado :( </p><p><a href='../users/dashboard.php?secao=jogos'>Cadastre agora</a></p></span>";
+						endif;
+					?>
+					</div>
+				</section>
 			</div>
-			<?php
-				endforeach;
-				else:
-					echo "<span class='alert-vazio'><p>OPS! Nenhum jogo encontrado :( </p><p><a href='../users/dashboard.php?secao=jogos'>Cadastre agora</a></p></span>";
-				endif;
-			?>
-		</section>
+		</div>
+	</div>		
+	<?php
+		include_once ('footer.php');
+	?>
 	</div>
 
 	<!--CHAMADA JAVASCRIPT-->		

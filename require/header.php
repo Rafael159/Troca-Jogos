@@ -47,48 +47,7 @@
 </nav>
 
 
-<header class="clearfix">			
-	<!--<div class="lupa"><img id="icon-lupa" src="imagens/icones/lupa.png" autocomplete="off" ></div>
-	<form id="box_pesquisa" class='search-field' method="GET" action="pesquisa.php">
-		<?php  
-			$q = (isset($_GET['pesquisa']) AND !empty($_GET['pesquisa'])) ? $_GET['pesquisa'] : '';			
-			if(isset($_GET['pag'])){
-				$pag = $_GET['pag'];
-				if($pag >= 2){
-					$q = "";
-				}
-			}
-		?>
-		<div class="input_container">
-			<input type="text" name="pesquisa" id="id_pesquisa" class="pesquisa" onkeyup="autoCompletar(this)" autocomplete="off" value="<?php if(isset($q)){echo $q;}else{}?>"/>
-			<ul id="opcao_jogo"></ul>
-			<button type="submit" name="enviar" class="search-btn">Pesquisar</button>						
-		</div>
-		
-	</form><br/>
-	<div id="logo"><a href="index.php"><img src="imagens/icones/logo.png"></a></div>
-	<div class="lg-box">
-		<ul class="lg-acao">
-			<?php
-				if(!isset($_SESSION)) session_start();
-				if(isset($_SESSION['emailTJ'])){
-					$emailLogado = $_SESSION['emailTJ'];
-					$usuario  = $_SESSION['nomeTJ'];
-					$status = $_SESSION['status'];	
-					if($status == 0){
-			?>
-			<li class="user-logged"><a href="users/dashboard.php">Área de controle</a></li>
-			<?php }else{ ?>
-			<li class="user-logged"><a href="admin/admin.php">Área de controle</a></li>
-			<?php } ?>
-			<li class="user-logged"><a href="#">Bem vindo <?php echo $usuario;?></a></li>
-			<li class="user-logged"><a href="#"><a href="sair.php">Sair</a></li>
-			<?php }else{ ?>
-				<li class="user-logged access-register" id="user-cadastrar"><a href="#">Criar conta</a></li>				
-				<li class="user-logged access-login" id="user-entrar"><a href="#">Entrar</a></li>
-			<?php } ?>
-		</ul>
-	</div>-->
+<header class="clearfix">
 	<div id="anuncios"></div>
 	
 	<!--Box que receberá login e cadastro-->
@@ -109,12 +68,8 @@
 					 <input type="password" name="senha" id="senha_login"/>
 				</p>
 				<p>
-					<!-- <label>
-						<input type="button" name="logar" value="Logar" id="btn-logar"/>									
-					</label> -->
 					<label>
 						<button name="logar" id="btn-logar">Logar  <i class="fa fa-sign-in" aria-hidden="true"></i></button>
-						<!-- <input type="button" name="logar" value="Logar" id="btn-logar"/>									 -->
 					</label>								
 				<p>
 					<label>

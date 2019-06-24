@@ -27,8 +27,8 @@ function pesquisarjogo(){
 		dataType: 'html',
 		data: $('.filterConsole:checked, .filterGenre:checked, #box_pesquisa').serialize(),
 
-		success:function(vlue){
-			$("#box-resultados").html(vlue);
+		success:function(value){
+			$("#box-resultados").html(value);
 			setTimeout(function(){
 				colorir();
 			});
@@ -110,7 +110,7 @@ function list_games(key, jogo_lista){
      	}
     });
 }
-window.autoCompletar = function(input){	
+window.autoCompletar = function(input){		
 	lista_de_jogos = $(input).parent().next().attr('id');
 	
 	///***  Função de autocomplete  ****///

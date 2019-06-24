@@ -76,24 +76,25 @@
 
 					<div class="row nopadding">
 						<!-- <div class="gallery"> -->
-							<div class="col-lg-2 col-md-2 col-sm-12 col-xs-12 nopadding">
-								<div class="galeria">
-									<ul class="box-galeria-jogos">			
-										<div class="arrow"></div>
-										<?php
-											foreach($categoria->listarTodos() as $valor):
-										?>
-										<li value="<?php echo $valor->id_console?>" class="link"><?php echo strtoupper($valor->nome_console)?></li>		 							
-										<?php endforeach; ?>
-									</ul>
-								</div>
+						<div class="col-lg-2 col-md-2 col-sm-12 col-xs-12 nopadding">
+							<div class="galeria">
+								<ul class="box-galeria-jogos">			
+									<div class="arrow"></div>
+									<?php
+										foreach($categoria->listarTodos() as $valor):
+									?>
+									<li value="<?php echo $valor->id_console?>" class="link"><?php echo strtoupper($valor->nome_console)?></li>		 							
+									<?php endforeach; ?>
+								</ul>
 							</div>
-							<div class="col-lg-10 col-md-10 col-sm-12 col-xs-12 nopadding">
+						</div>
+						<div class="col-lg-10 col-md-10 col-sm-12 col-xs-12 nopadding">
+							
 								<div class="galeria">
 									<div id="galeria">
 									</div>
 								</div>
-							</div>
+							
 						</div>
 					</div>
 					<?php
@@ -130,7 +131,7 @@
 							<header><h3>Como funciona a Restart Games?</h3></header>
 							<ul id="passo-a-passo">
 								<div class="row">
-									<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+									<div class="col-xs-12 col-sm-12 col-md col-lg">
 										<li class="passos">
 											<!-- <div class="img-passos" id="img-cadastrar"></div> -->
 											<h4 id="first-title">Cadastrar <i class="fa fa-user-plus" aria-hidden="true"></i></h4>
@@ -140,7 +141,7 @@
 											</span>
 										</li>
 									</div>
-									<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+									<div class="col-xs-12 col-sm-12 col-md col-lg">
 										<li class="passos">
 											<!-- <div class="img-passos" id="img-pesquisar"></div> -->
 											<h4 id="second-title">Pesquisar <i class="fa fa-search" aria-hidden="true"></i></h4>
@@ -152,7 +153,7 @@
 											</span>
 										</li>
 									</div>
-									<div class="col-xs-12 col-sm-6 col-md-4 col-lg-46">						
+									<div class="col-xs-12 col-sm-12 col-md col-lg">						
 										<li class="passos">
 											<!-- <div class="img-passos" id="img-concluir"></div> -->
 											<h4 id="third-title">Concluir <i class="fa fa-refresh" aria-hidden="true"></i></h4>

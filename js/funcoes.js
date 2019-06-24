@@ -73,6 +73,12 @@ $(document).ready(function (){
 		});
 	};	
 
+	/** Controla os filtros */
+	$("#menu-toggle, #close-menu-toggle").click(function(e) {
+		e.preventDefault();
+		$("#wrapper").toggleClass("toggled");
+	});
+
 });
 
 
