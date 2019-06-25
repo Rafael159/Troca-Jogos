@@ -5,20 +5,22 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Restart Games - Termos e Privacidade</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css"/>
-    <link rel="stylesheet" href="bootstrap/css/bootstrap-theme.css"/>
+    <!-- <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="bootstrap/css/bootstrap-theme.css"/> -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="font-awesome/css/font-awesome.css"/>
     <link rel="stylesheet" href="css/fonts.css"/>
     <link rel="stylesheet" type="text/css" media="screen" href="css/termos.css">
+	<link rel="stylesheet" type="text/css" href="css/style-footer.css"/>
 	<link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
 </head>
 <body>
-    <div class="container">
-        <div class="row top">
-            <a href="index.php" class="brand"><img src="imagens/icones/logo.png" alt="TrocaJogos"></a>
-        </div>
-        <div class="row nopadding">
-            <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 col-lg-offset-2 col-md-offset-2">
+    <div class="container-fluid nopadding">
+        <nav class="navbar navbar-expand-md navbar-dark justify-content-center">
+			<a href="index.php" class="navbar-brand navbar-logo"><img src="imagens/icones/logo.png" alt="Restart Games"/></a></a>					          
+		</nav>
+        <div class="row justify-content-center nopadding">
+            <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
                 <div class="boxtermos">
                     <h4 class="title-clausula">TERMOS E CONDIÇÕES DE USO DA RESTART GAMES</h4>
                     <div class="clausula">
@@ -110,6 +112,33 @@
                 </div>
             </div>
         </div>
+        <div class="footer footer-logar">
+			<div class="row nopadding">
+				<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 nopadding">
+					<div class="boxes">
+						<p class="text-bold">Sobre</p>
+						<ul>
+							<li><a href="termos_privacidade.php">Termos de uso</a></li>
+						</ul>
+					</div>
+				</div>  
+				<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 nopadding">
+					<div class="boxes">
+						<p class="text-bold">Redes</p>
+						<ul>                       
+							<li><a href="https://www.facebook.com/Restart-Games-2294753787408578/?modal=admin_todo_tour" target="blind"><i class="fa fa-facebook-square fa-2x"></i></a></li>            
+						</ul>
+					</div>
+				</div>  
+				<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 nopadding">
+					<div class="boxes">               
+						<img src="imagens/icones/logo.png" alt="Restart Games" class="brand">
+						<p class="text-bold">© RestartGames <?php echo date('Y'); ?></p>
+					</div>
+				</div>  
+			</div>
+		</div>
     </div>
+    
 </body>
 </html>

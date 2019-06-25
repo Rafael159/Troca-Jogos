@@ -44,7 +44,7 @@
 					<div class="boxes">
 						<p class="text-bold">Sobre</p>
 						<ul>
-							<li><a href="termos_privacidade.php" target="_blank">Termos de uso</a></li>
+							<li><a href="../termos_privacidade.php" target="_blank">Termos de uso</a></li>
 						</ul>
 					</div>
 				</div>  
