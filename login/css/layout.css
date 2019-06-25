@@ -3,7 +3,7 @@
 body{
 	background:url('../img/fundoLogar.jpg') ;
 	background-repeat: no-repeat;
-	background-size: 100%;
+	background-size: cover;
 }
 body #top{
 	width: 100%;
@@ -18,11 +18,15 @@ body #top img{margin-left: 15px;}
 	padding:0px !important;
 }
 #box_logar, .success{
-	width: 550px;
-    background-image: linear-gradient(to bottom, #bdbdbd, #ccc, #bdbdbd);
+	width: 100%;    
     margin: 5% auto;
     border-radius: 0px;
     padding: 5px;
+    background: #fff;
+    font-size: 1em;
+    font-family: 'source_sans_proregular';
+    border: 1px solid #ccc;
+    box-shadow: 0px 0px 26px -1px #000;
 }
 
 #box_logar form p{
@@ -60,38 +64,48 @@ body #top img{margin-left: 15px;}
 .box-create-account{
 	width: 100%;
     text-align: center;
-    background: #fff;
+    background: #154b7d;
     display: inline-block;
-	margin-top: 20px;
-	padding: 5px 0px;
+    margin-top: 20px;
+    padding: 5px 0px;
+    border: .5px dotted #fff;
 }
-	#links-login{
-		position: relative;
+.box-create-account span{ color:#fff; }
+.box-create-account span a{ color:#fff; text-decoration: underline; font-size: 1.2em; }
 
-	}
+#links-login{
+	position: relative;
+}
 #result{
 	display: none;
-	text-align: center;
-	margin-bottom: 0px !important;
+    text-align: center;
+    width: 95%;
+    margin: 0 auto;
 }
 .title-create-account{
 	color: #333;
     font-size: 1.1em;
-    margin-left: 3px;
-}
-.nopadding{
-	margin: 0px !important;
-	padding: 0px !important;
+    font-weight: bold;
 }
 
 /*Recuperar senha*/
 #boxRecover{
-	width: 500px;   
-    padding: 10px;
+	width: 100%;
     margin: 5% auto;
-	border-radius: 5px;	
-    background-image: linear-gradient(to bottom, #bdbdbd, #ccc, #bdbdbd);  
+    border-radius: 0px;
+    padding: 5px;
+    background: #fff;
+    font-size: 1em;
+    font-family: 'source_sans_proregular';
+    border: 1px solid #ccc;
+    box-shadow: 0px 0px 26px -1px #000;  
 }
+#boxRecover .lbl_info{
+    color: #333;
+    font-size: 1.1em;
+    font-weight: bold;
+}
+
 #return_msg, #btn-back{
 	display: none;
 }
@@ -127,4 +141,20 @@ body #top img{margin-left: 15px;}
 	width: 100%;
     display: block;
     margin-top: -10px;
+}
+
+/*mudar config do footer*/
+.footer{
+	position: absolute;
+	bottom: 0;
+}
+@media screen and (max-width: 576px){
+	.footer-recover{
+		position: unset;
+	}
+}
+@media screen and (max-width: 768px){
+	.footer-logar{
+		position: unset;
+	}
 }
