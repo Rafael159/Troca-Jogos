@@ -1,5 +1,4 @@
 $(document).ready(function (){
-	
     /* Popular combo com todos os CONSOLES
     ** @param select
     ** @param function - recebe o combobox que será preenchido
@@ -80,9 +79,9 @@ $(document).ready(function (){
             $('li:not(arrow_right)').removeClass('arrow_right'); //remover a classe arrow_right 
         });
         $('.container-menu .menu').each(function(i){
-            $('li:not(arrow_right)').removeClass('arrow_right'); //remover a classe arrow_right 
+            $('li:not(arrow_right) > a').removeClass('arrow_right'); //remover a classe arrow_right 
         });
-        $(btn).addClass('arrow_right');
+        $(btn).find('a').addClass('arrow_right');
     }
 
 	$('.nav_op_left').bind('click', function(e){
@@ -125,6 +124,7 @@ $(document).ready(function (){
     }
 
     window.readnotice = function(){
+       
         idnote = $("#btn-read").attr("name");
        
         $.ajax({
@@ -154,7 +154,7 @@ $(document).ready(function (){
     }
     
     //marcar notificações lidas
-    $(".toast__close").on("click", function(){
+    $(".toast__close").on("click", function(){       
         idnote = $(this).attr("id");
         
         if(idnote != ""){
@@ -167,5 +167,11 @@ $(document).ready(function (){
     /**************************************
      * FIM
      * Funções NOTIFICAÇÃO
-     **************************************/
+     **************************************/    
+    
+     /** Controla os filtros */
+	$("#menu-toggle, #close-menu-toggle").click(function(e) {
+		e.preventDefault();
+		$("#wrapper").toggleClass("toggled");
+	}); 
 });

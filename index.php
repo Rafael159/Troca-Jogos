@@ -12,7 +12,8 @@
 		<!-- <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css"/>
     	<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap-theme.css"/> -->
 		
-		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+		<!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> -->
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 		
 		<!--CHAMADA CSS-->
 		<link rel="stylesheet" type="text/css" href="css/estilo.css"/>   
@@ -88,13 +89,11 @@
 								</ul>
 							</div>
 						</div>
-						<div class="col-lg-10 col-md-10 col-sm-12 col-xs-12 nopadding">
-							
-								<div class="galeria">
-									<div id="galeria">
-									</div>
+						<div class="col-lg-10 col-md-10 col-sm-12 col-xs-12 nopadding">							
+							<div class="galeria">
+								<div id="galeria">
 								</div>
-							
+							</div>							
 						</div>
 					</div>
 					<?php
@@ -200,41 +199,16 @@
 	
     <!--CHAMADA JAVASCRIPT-->		
 	<script src="js/jquery.js"></script>
+	<!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script> -->
+
 	<script src="js/jquery.validate.js"></script>
 	<script src="js/events.js"></script><!--referente ao autocomplete do campo pesquisa -->
 	<script src="js/funcoes.js"></script>
 	<script src="js/validacao.js"></script>
 	<script src="js/global.js"></script>
 
-	<!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script> -->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-	
-	<!-- <script src="js/adblocks.js" type="text/javascript"></script>
-	<script type="text/javascript">
-	
-		if(document.getElementById('drall_team_PRS_JS__random')){
-		alert('Bloqueando anúncio: Não');
-		} else {
-		alert('Bloqueando anúncio: Sim');
-		}
-	</script> -->
 
-	<!-- <script src="js/animation.js"></script>animação dos últimos jogos cadastrados -->
-	<!-- <script>
-		$(document).ready(function(){
-			$('#lista_jogos').slideUp();
-			alert(jQuery('.advertising').height());
-			jQuery(document).ready(function() {
-				if (jQuery('.advertising').height() == 0) {
-					// AdBlock active
-					alert('ANÚNCIO DESATIVADO');
-				}else{
-					alert('ANÚNCIO ATIVO');
-				}
-			});
-		});
-	</script> -->
-	
 	</body>
 </html>

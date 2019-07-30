@@ -61,8 +61,6 @@
                     <button class="btn btn-danger" id="close-menu-toggle">Fechar <i class="fas fa-remove"></i></button>
                 </div>
              </div>
-           
-
             <div class="list-group list-group-flush">
                 <?php require ('require/sidebar_filtros.php');?> <!--chama o sidebar com os filtros para a pesquisa-->        
             </div>
