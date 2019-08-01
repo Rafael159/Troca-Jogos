@@ -57,9 +57,9 @@
 			}
 
 			//mandar notificação sobre o status da troca
-			$notice->setTitulo("Atualização da troca");
+			$notice->setTitulo("Atualização no processo de troca");
 			$notice->setTipo("info");
-			$notice->setMensagem("Uma de troca suas trocas foi atualizada para o status: $tipo");			
+			$notice->setMensagem("Uma das suas trocas foi atualizada para o status: $tipo");			
 			$notice->setLido("nao");
 			$notice->setDataalert(date('Y-m-d H:i:s'));
 			$notice->insertNotificacao();

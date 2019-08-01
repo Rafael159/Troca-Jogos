@@ -473,13 +473,25 @@ body{
 
 .control-toggle #menu-toggle{ margin-left: 15px; }
 
+/**Profile*/
+#profile{
+	padding:15px 0;
+}
+/**Fim Profile*/
+
+
+
+
 @media screen and (max-width: 768px){
     .control-toggle{ display: block; }
 	.control-toggle #menu-toggle{ margin-left: 0 !important; }
 	#page-content-wrapper {
 		min-width: 0;
 		width: 100%;
-	  }
+	}
+
+	#dashMenu .menu-option a{ padding:5px; }
+		
 }
 
 @media (min-width: 768px) {

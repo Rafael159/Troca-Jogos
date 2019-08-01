@@ -9,9 +9,11 @@
 	$jogo = new Jogos;
 	$generos = new Generos();
 
-	if(isset($_SESSION['emailTJ'])){
-		$emailUser = $_SESSION['emailTJ'];	
-		$idUser = $_SESSION['id_user'];
+	$usuario = Usuarios::getUsuario();
+
+	if($usuario){
+		$emailUser = $usuario->emailTJ;	
+		$idUser = $usuario->id_user;
 	}
 	?>
 					
@@ -40,27 +42,29 @@
 
 				<div class="box_jogos">
 					<div class="alert alert-info">Aqui ficam todos os seus jogos. ATIVOS E INATIVOS<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a></div>
-					<?php												
-						$jogo->setIdGamer($idUser);
-						$qnt = $jogo->contaJogoById();
-						
-						$row = $jogo->listarJogos(array('id_gamer'=>$idUser, 'status'=>'Ambos', 'order'=>'ORDER BY j.id DESC'));
-						
-						if($qnt == 0){
-							echo "<span id='msg-none'>NENHUM JOGO CADASTRADO</span>";
-						}else{
-							foreach ($row as $jogo=> $valor):
-					?>
-					<div class="each-game col-lg-3 col-md-4 col-sm-6 col-xs-12 <?php echo ($valor->status == 'Inativo') ? 'inativo' : ''; ?>" id="<?php echo $valor->id?>">
-						<img src="../game/imagens/<?php echo str_replace(' ', '', $valor->nome_console) ?>/<?php echo $valor->imagem?>" alt="<?php echo $valor->nome?>">
-						<div class="box-opcao">
-							<span class="nm_jogo"><?php echo strtoupper($valor->n_jogo)?></span>					
-						</div>						
+					<div class="row">
+						<?php												
+							$jogo->setIdGamer($idUser);
+							$qnt = $jogo->contaJogoById();
+							
+							$row = $jogo->listarJogos(array('id_gamer'=>$idUser, 'status'=>'Ambos', 'order'=>'ORDER BY j.id DESC'));
+							
+							if($qnt == 0){
+								echo "<span id='msg-none'>NENHUM JOGO CADASTRADO</span>";
+							}else{
+								foreach ($row as $jogo=> $valor):
+						?>
+							<div class="each-game col-lg-3 col-md-6 col-sm-6 col-xs-12 <?php echo ($valor->status == 'Inativo') ? 'inativo' : ''; ?>" id="<?php echo $valor->id?>" >
+								<img src="../game/imagens/<?php echo str_replace(' ', '', $valor->nome_console) ?>/<?php echo $valor->imagem?>" alt="<?php echo $valor->nome?>">
+								<div class="box-opcao">
+									<span class="nm_jogo"><?php echo strtoupper($valor->n_jogo)?></span>					
+								</div>						
+							</div>
+							<?php
+								endforeach;
+							}
+						?>
 					</div>
-					<?php
-						endforeach;
-					}
-					?>
 				</div>				
 			</div>
 
@@ -220,7 +224,6 @@
 			</div>		
 		</div><!-- / .col-lg-12 -->
 	</div><!-- / .row -->
-
 <!--CHAMADA JS-->	
 
 <script src="../js/funcoes.js" type="text/javascript"></script>
