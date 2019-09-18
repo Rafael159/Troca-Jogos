@@ -230,6 +230,7 @@ $("#console_add_game").change(function(){
 	}	 
 });
 $("#jogo").keyup(function(){
+	
 	jogo = $(this).val();//nome do jogo digitado
 	
 	if(jogo.length > 4){

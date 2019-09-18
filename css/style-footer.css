@@ -31,7 +31,7 @@
 
 @media only screen and (max-width: 479px){
 	.footer .boxes .brand{
-		width: 100%;
+		width: 65%;
 	}
 	.footer .boxes{
 		text-align: center;

@@ -323,12 +323,11 @@ span.alert-vazio p{
 }
 .contorno{
     border: 0px solid #ccc;
-    margin: 8px;
+    margin: 8px auto;
     padding: 8px 0px 8px 0px;
     border-radius: 4px;
     transition-duration: 0.5s;
     cursor: pointer;
-    /* display: inline-block; */
 }
 .contorno:hover{
     box-shadow: #006699 2px 1px 22px;
@@ -336,15 +335,15 @@ span.alert-vazio p{
 .contorno figure{
     margin: auto;
     padding: 7px 0px 3px;
-    width: 183px;
+    width: 70%;
     border-radius: 4px 5px 5px 4px;
 }
 .contorno figure img{
-    width: 175px;
-    height: 200px;
+    width: 100%;
+    height: 175px;
 }
 .contorno .info-gamer{
-    width: 184px;
+    width: 80%;
     margin: 0px auto;
     background: #ffffff;
     opacity: 0.8;

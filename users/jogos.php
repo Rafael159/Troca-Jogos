@@ -70,7 +70,7 @@
 
 			<!--MODAL ADD JOGO-->
 			<div class="modal fade" id="modal-add-game" data-backdrop="static">
-				<div class="modal-dialog">
+				<div class="modal-dialog modal-lg">
 					<div class="modal-content">
 						<div class="modal-header">
 							<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
@@ -80,36 +80,44 @@
 							<div class="row">
 								<div class="content">									
 									<form id="frm_jogos" action="" class="form">										
-										<div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
+										<div class="col-lg-12">
 											<label for="console">Console</label>
 											<input type="hidden" id="codconsole" name="codconsole">									
 											<select name="console" id="console_add_game" class="form-control" required>
 												<option value="">Selecione o console</option>												
 											</select>											
 										</div>	
-										<div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">					
+										<div class="col-lg-12">					
 											<label for="jogo">Jogo</label>
 											<input type="text" name="jogo" id="jogo" class="form-control" placeholder="nome do jogo" required/>
 										</div>										
-										<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+										<div class="col-lg-12">
 											<label for="imagem">Imagem</label>
-											<div class="deleteImg" id="delete_primeira_img"><img src="img/pop-botao-fecha.png" id="pop_botao_fecha"/></div>
 											
-											<div class="boximg" id="boxmeujogo"><!--RECEBE A IMAGEM DO JOGO--></div>
-											<input type="hidden" name="img_id" id="img_id"/>					
-											<div id="imagem" class="imagens" >
-												<!--RECEBE TODAS AS IMAGEM VINDAS DA PESQUISA-->
-											</div>
-											<div class="box_new_img">
-												<div class="file-field input-field col-lg-8">
-											      <div class="btn">
-											        <span>Escolher Imagem <i>(jpg/png)</i></span>
-											        <input type="file" name="imagem" id="add_new_img"/>
-											      </div>
-											    </div> 
-											</div>											
+											<div class="row">
+												<div class="col-lg-3">
+													<div class="deleteImg" id="delete_primeira_img"><img src="img/pop-botao-fecha.png" id="pop_botao_fecha"/></div>
+											
+													<div class="boximg" id="boxmeujogo"><!--RECEBE A IMAGEM DO JOGO--></div>
+													<input type="hidden" name="img_id" id="img_id"/>
+												</div>
+												<div class="col-lg-9">
+													<div id="imagem" class="imagens" >
+														<!--RECEBE TODAS AS IMAGEM VINDAS DA PESQUISA-->														
+													</div>
+													<div class="box_new_img">
+														<div class="file-field input-field">
+															<div class="btn">
+																<span>Escolher Imagem <i>(jpg/png)</i></span><br/>
+																<input type="file" name="imagem" id="add_new_img"/>
+															</div>
+														</div> 
+													</div>
+												</div>
+											</div>															
 										</div>
-										<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+										
+										<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">											
 											<label>Qual o(s) gênero(s) do seu jogo?</label><br/>
 											<?php 												
 												$dados = $generos->findAll();
@@ -125,12 +133,12 @@
 										    <?php
 										    		endforeach;//final do foreach
 										    	endif;
-										    ?>
+										    ?>										
 										</div>
 										<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 											<label for="descricao">Descrição do jogo</label>
   											<textarea name="descricao" id="descricao" placeholder="Sua opinião sobre o jogo" class="form-control"></textarea>														
-										</div><br/>
+										</div>
 										<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">			
 											<label for="infoExtra">Sobre o produto</label>
 											<textarea name="infoExtra" id="infoExtra" placeholder="Algo sobre o produto. Ex - 2 anos de uso; capa riscada" class="form-control"></textarea>											
@@ -210,7 +218,7 @@
 			
 			<!--MODAL ATUALIZA OU DELETA JOGO-->
 			<div class="modal fade" id="up_del_game">
-				<div class="modal-dialog">
+				<div class="modal-dialog modal-lg">
 					<div class="modal-content">
 						<div class="modal-header">
 							<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>

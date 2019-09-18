@@ -45,7 +45,7 @@
 			
 			$user = Usuarios::getUsuario();
 		?>
-		<div class="container-fluid">
+		<div class="container">
 			
 			<div class="conteudo">
 				<?php include_once 'require/topo.php'; ?> <!--chama o topo do site-->

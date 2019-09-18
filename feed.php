@@ -27,6 +27,7 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">			
 		<meta name="description" content="Troque seus jogos antigos por jogos que ainda não teve"/>
 		<meta name="description" content="Troque jogos - divirta-se sem gastar mais"/>
 		<meta name="description" content="Perfil do usuário do Restart Games"/>

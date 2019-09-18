@@ -11,13 +11,16 @@
   $console = new Consoles();
   $jogos = new Jogos();
 
-  $cons = ((isset($_GET['nome_console']) AND !empty($_GET['nome_console'])) ? $_GET['nome_console'] : 'Jogos');
-  
+  	$cons = ((isset($_GET['nome_console']) AND !empty($_GET['nome_console'])) ? $_GET['nome_console'] : 'Jogos');
+	$idConsole = ((isset($_GET['codigo']) AND !empty($_GET['codigo'])) ? $_GET['codigo'] : '');
+	if(!$idConsole) header('Location:index.php');
+							
 ?>
 <!DOCTYPE HTML>
 <html>
 	<head>
 		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 		<meta name="description" content="Todos os jogos por console"/>
 		<meta name="description" content="Console e seus jogos"/>
 		<meta name="description" content="Trocar jogos"/>
@@ -67,34 +70,31 @@
 								</div>
 							</div>
 							
-							<?php
-								$idConsole = ((isset($_GET['codigo']) AND !empty($_GET['codigo'])) ? $_GET['codigo'] : '');
-							?>
 							<input type="hidden" value="<?php echo $idConsole; ?>" id="cod"/>
 						</div>
 						<div id="boxGame">   
 							<div class="row nopadding">
 								<?php
-									if($idConsole):
+										
 										$qtd = Jogos::contarJogosHelper(array('status'=>'Ativo', 'idconsole'=>$idConsole));             
 										echo '<label id="info"><span id="nomeConsole">'.strtoupper($cons).' - </span><span id="qtdJogo">'.$qtd.'</span> <b>jogo(s) encontrado(s)</b></label>';
 
 										if($qtd != 0):
 											foreach($jogos->listarJogos(array('status'=>'Ativo', 'idconsole'=>$idConsole)) as $valor):
-								?>    
-								<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">								
-									<div class="each-game" id="game">
-										<a href="game/game.php?codigo=<?php echo $valor->id?>&&console=<?php echo $idConsole;?>">
-										<img src="game/imagens/<?php echo str_replace(' ','',$valor->nome_console)?>/<?php echo $valor->imagem?>" alt="<?php substr($valor->n_jogo, 0, 12)?>"/>
-										<span class="nome-jogo"><?php echo strtoupper(substr($valor->n_jogo, 0, 16)).'...';?></span>
-										</a>
-									</div>
-								</div>							
-								<?php endforeach;
+									?>    
+									<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">								
+										<div class="each-game" id="game">
+											<a href="game/game.php?codigo=<?php echo $valor->id?>&&console=<?php echo $idConsole;?>">
+											<img src="game/imagens/<?php echo str_replace(' ','',$valor->nome_console)?>/<?php echo $valor->imagem?>" alt="<?php substr($valor->n_jogo, 0, 12)?>"/>
+											<span class="nome-jogo"><?php echo strtoupper(substr($valor->n_jogo, 0, 16)).'...';?></span>
+											</a>
+										</div>
+									</div>			
+													
+									<?php endforeach;
 									else:
 										echo "<span id='notFound'>Nada encontrado para ".strtoupper($cons)."</span>";                    
 									endif;
-								else: header('Location:index.php'); endif;
 								?>
 							</div>
 						</div><!-- fim .row -->

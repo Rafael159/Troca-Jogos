@@ -108,6 +108,7 @@ body{
 .conteudo{
 	width: 100%;
 }
+.conteudo #brandNew{ width: 80%; }
 .conteudo section.secao{
 	width:80%;
 	margin:10px auto;
@@ -396,7 +397,7 @@ section#lastgamesBox .single-game{
 section#lastgamesBox .single-game:hover{
 	background: #777777;
 }
-section#lastgamesBox .single-game .img-game{ width:100%; height: 190px;}
+section#lastgamesBox .single-game .img-game{ width:100%; height: 150px;}
 section#lastgamesBox .single-game .card-title{
 	display: block;
     background: #333;
@@ -406,7 +407,9 @@ section#lastgamesBox .single-game .card-title{
     font-family: 'source_sans_proregular';
     color: #fefefe;
 }
-
+.card .card-body .single-game p{
+	margin: 0 !important; 
+}
 section#lastgamesBox .card-body{
 	padding:0 !important;
 }
@@ -674,6 +677,7 @@ span#titulo-galeria h4{
 		padding: 4px;
 		box-shadow: 0px 0px 4px #515151;
 		margin-top:15px;
+		list-style: none;
 	}
 #info-funcional #passo-a-passo li.passos:hover{box-shadow: 0px 0px 10px #515151;}
 #info-funcional #passo-a-passo li.passos h4{
@@ -774,7 +778,7 @@ span#titulo-galeria h4{
 	#main-menu .navs ul .cns-menu{ width: auto; }
 	.main .galeria .box-galeria-jogos li{
 		display: inline-block;
-		width: 24%;
+		width: 32%;
 		text-align: center;
 		margin: 2px 0px;
 		font-size: 0.8rem;
@@ -786,9 +790,10 @@ span#titulo-galeria h4{
 		margin: 0px auto;
 	}
 	section#lastgamesBox .single-game{
-		width:65%;
+		width:50%;
 		margin:10px auto;
 	}
+	section#lastgamesBox .single-game .img-game{ height: auto; }
 	.main .galeria #resultado-links .quadro-galeria .galeria-principal .vitrine > a img{ width: 80%; }
 	.main .galeria #resultado-links .quadro-galeria .galeria-principal .vitrine .infogame{ width: 80%; margin:0 auto; }
 

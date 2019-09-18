@@ -2,6 +2,7 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 		<meta name="description" content="Criar conta no Troque Jogos"/>
 		<meta name="description" content="Seja um usuário do Troque Jogos"/>
 		<meta name="keywords" content="Cadastro,Jogos,Games,Jogadores, Novo Usuário, Criar conta"/>

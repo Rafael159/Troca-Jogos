@@ -13,7 +13,7 @@
 .boximg{
 	width: 165px;
     height: 190px;
-    float: left;
+    /* float: left; */
     background: #fff;
     border-radius: 4px;
     border: 2px solid #0e7b50;
@@ -24,10 +24,12 @@
 	height: 175px;
 }
 .imagens{
-	background:#095089;
-    float:left;
-    margin-left:5px;
-    width:65%;
+	background: #095089;
+    /* float: left; */
+    /* margin-left: 5px; */
+	/* margin: 15px; */
+	width: 100%;	
+	display: block;
 }
 .imagens .image-game{
 	width: 150px;
@@ -42,6 +44,7 @@
 }
 .box_new_img, .box_new_img2{
 	display: none;
+	text-align: center;
 }
 
 #boxjogo_favorito{display: none;}
@@ -236,8 +239,10 @@
 .checkbox-genre{
 	display: inline-block;
     padding: 5px;
-    margin: 3px;
+	margin: 3px;
+	cursor:pointer !important;
 }
+.checkbox-genre > label{ cursor:pointer; }
 .btn span.glyphicon {    			
 	opacity: 0;				
 }
@@ -657,5 +662,9 @@ nav.mn-console ul .each-console a{
 }
 @media screen and (min-width: 577px) and (max-width: 767px){
 	.box_jogos .each-game > img{ width:60% }
-	.box_jogos .each-game .box-opcao{ width: 40%}
+	.box_jogos .each-game .box-opcao{ width: 60%}
+}
+
+@media screen and (max-width: 992px){
+	.imagens{ margin-top:15px;}
 }

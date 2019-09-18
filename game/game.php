@@ -16,6 +16,7 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 		<meta name="description" content="Troque seus jogos antigos por jogos que ainda não teve"/>
 		<meta name="description" content="Troque jogos - divirta-se sem gastar mais"/>
 		<meta name="description" content="Jogos únicos + informações"/>
@@ -34,12 +35,12 @@
 
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 	</head>
-<body>
+<body class="center">
 	<div class="container-fluid nopadding">
 		<div class="content">	
 			<?php include_once('header.php'); ?>	
 
-			<div class="clearfix">
+			<div class="row">
 			<!--CHAMADA DO HEADER-->
 			<?php	
 				if(isset($_GET['codigo']) && $_GET['codigo'] != ""){
